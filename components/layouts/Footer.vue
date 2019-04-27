@@ -1,7 +1,10 @@
 <template>
-  <v-footer class="footer" color="blue">
+  <v-footer class="footer" color="blue lighten-1" height="100">
     <v-flex
       text-xs-center class="footer-title">
+      <v-btn icon>
+        <v-icon color="wihte">fa-twitter</v-icon>
+      </v-btn><br>
       &copy;{{ date }} — <strong>Fukugyou</strong>
     </v-flex>
   </v-footer>
@@ -21,6 +24,10 @@ export default {
   width: 100%;
 }
 .footer-title {
+  color: white;
+}
+/* twitter icon */
+.v-btn .v-btn__content .v-icon {
   color: white;
 }
 </style>

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
+    "font-awesome": "^4.7.0",
     "nuxt": "^2.4.0",
     "vuetify": "^1.5.5",
     "vuetify-loader": "^1.2.1"

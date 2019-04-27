@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar color="blue">
+    <v-toolbar color="blue lighten-1">
       <v-toolbar-title>
         <nuxt-link
           to="/"
@@ -11,7 +11,10 @@
       <v-spacer/>
 
       <v-btn icon>
-        <v-icon color="white">mail</v-icon>
+        <v-icon color="white">fa-info-circle</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon color="white">fa-envelope</v-icon>
       </v-btn>
     </v-toolbar>
   </div>
