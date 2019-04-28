@@ -19,13 +19,10 @@
 </template>
 
 <script>
+import menu from '~/mixins/menu'
+
 export default {
-  data: () => ({
-    menus: [
-      { title: 'Fukugyouとは', url: '/about' },
-      { title: '問い合わせ', url: '/contact' }
-    ]
-  }),
+  mixins: [menu],
   methods: {
     go(url) {
       this.$router.push(url)
