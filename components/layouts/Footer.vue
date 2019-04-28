@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="footer" color="blue lighten-1" height="100">
+  <v-footer class="footer" color="light-blue lighten-2" height="100">
     <v-flex
       text-xs-center class="footer-title">
       <v-btn icon>

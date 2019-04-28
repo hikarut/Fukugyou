@@ -17,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style>
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+</style>
