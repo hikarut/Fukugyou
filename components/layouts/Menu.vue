@@ -1,5 +1,5 @@
 <template>
-  <v-menu bottom left>
+  <v-menu>
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
         <v-icon>fa-bars</v-icon>
@@ -36,6 +36,6 @@ export default {
 
 <style>
 .v-menu__content {
-  width: 200px;
+  width: 180px;
 }
 </style>
