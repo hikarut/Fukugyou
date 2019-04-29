@@ -1,8 +1,8 @@
 <template>
-  <v-footer class="footer" color="light-blue" height="160">
+  <v-footer class="footer" color="blue-grey lighten-4" height="160">
     <v-flex
       text-xs-center class="footer-title">
-      <logo-reverse /><br>
+      <logo /><br>
       <v-btn icon>
         <v-icon>fa-twitter</v-icon>
       </v-btn><br>
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import LogoReverse from '~/components/layouts/LogoReverse.vue'
+import Logo from '~/components/layouts/Logo.vue'
 import menu from '~/mixins/menu'
 
 export default {
   components: {
-    LogoReverse
+    Logo
   },
   mixins: [menu],
   data: () => ({
