@@ -8,11 +8,21 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: `複業メディアサイトFukugyou`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: '複業,副業,Fukugyou,fukugyou,メディア,仕事,人生,ライフ,幸せ'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          '複業メディアサイト、副業メディアサイト。幸せな人生を送るための選択肢としての複業(副業)を後押しします'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
