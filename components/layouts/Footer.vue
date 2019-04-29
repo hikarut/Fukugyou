@@ -43,7 +43,7 @@ export default {
 }
 /* twitter icon */
 .v-btn .v-btn__content .v-icon {
-  color: white;
+  /* color: white; */
 }
 .link {
   list-style: none;
@@ -52,12 +52,13 @@ export default {
 }
 .link a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 .link a:hover {
   text-decoration: underline;
 }
 .copyright {
   margin-top: 10px;
+  color: black;
 }
 </style>
