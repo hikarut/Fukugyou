@@ -12,7 +12,7 @@
               <v-flex
                 v-for="card in cards"
                 :key="card.title"
-                v-bind="{ [`xs${card.flex}`]: true }"
+                :class="[isMobile ? 'xs6' : 'xs3']"
               >
                 <v-card>
                   <v-img
@@ -92,33 +92,27 @@
 </template>
 
 <script>
+import device from '~/mixins/device'
+
 export default {
+  mixins: [device],
   data: () => ({
     cards: [
       {
         title: 'Pre-fab homes',
-        src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
-        flex: 6
+        src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
       },
       {
         title: 'Favorite road trips',
-        src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
-        flex: 6
+        src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg'
       },
       {
         title: 'Best airlines',
-        src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
-        flex: 6
+        src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg'
       },
       {
         title: 'Best airlines2',
-        src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
-        flex: 6
-      },
-      {
-        title: 'Best airlines3',
-        src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
-        flex: 6
+        src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg'
       }
     ],
     items: [
