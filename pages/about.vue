@@ -36,9 +36,9 @@
           </p>
         </h4>
         <v-layout align-center row justify-space-around class="sns">
-          <a href="https://github.com/hikarut"><v-icon class="square">fa-github-square</v-icon></a>
-          <a href="https://twitter.com/light940"><v-icon class="square">fa-twitter-square</v-icon></a>
-          <a href="https://www.facebook.com/hikaru.takahashi.5031"><v-icon class="square">fa-facebook-square</v-icon></a>
+          <a href="https://github.com/hikarut" target="blank"><v-icon class="square">fa-github-square</v-icon></a>
+          <a href="https://twitter.com/light940" target="blank"><v-icon class="square">fa-twitter-square</v-icon></a>
+          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><v-icon class="square">fa-facebook-square</v-icon></a>
         </v-layout>
       </v-flex>
     </v-layout>
