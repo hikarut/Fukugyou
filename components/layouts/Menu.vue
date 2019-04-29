@@ -2,7 +2,7 @@
   <v-menu>
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
-        <v-icon color="light-blue">fa-bars</v-icon>
+        <v-icon color="#4383d7">fa-bars</v-icon>
       </v-btn>
     </template>
 
