@@ -33,6 +33,7 @@ export default {
 
 <style>
 .v-menu__content {
-  width: 180px;
+  width: 200px;
+  /* width: 100%; */
 }
 </style>
