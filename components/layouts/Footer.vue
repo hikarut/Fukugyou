@@ -1,9 +1,10 @@
 <template>
-  <v-footer class="footer" color="light-blue lighten-2" height="120">
+  <v-footer class="footer" color="light-blue" height="160">
     <v-flex
       text-xs-center class="footer-title">
+      <logo-reverse /><br>
       <v-btn icon>
-        <v-icon color="wihte">fa-twitter</v-icon>
+        <v-icon>fa-twitter</v-icon>
       </v-btn><br>
       <div>
         <li v-for="(item, i) in menus" :key="i" class="link">
@@ -11,16 +12,20 @@
         </li>
       </div>
       <div class="copyright">
-        &copy;{{ date }} - <strong>Fukugyou</strong>
+        Copyright &copy;&nbsp;{{ date }}&nbsp;-&nbsp;<strong>Fukugyou</strong>
       </div>
     </v-flex>
   </v-footer>
 </template>
 
 <script>
+import LogoReverse from '~/components/layouts/LogoReverse.vue'
 import menu from '~/mixins/menu'
 
 export default {
+  components: {
+    LogoReverse
+  },
   mixins: [menu],
   data: () => ({
     date: new Date().getFullYear()

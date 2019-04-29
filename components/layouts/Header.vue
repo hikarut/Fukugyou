@@ -2,7 +2,7 @@
   <v-layout row>
     <v-flex>
       <v-card>
-        <v-card-title class="light-blue lighten-2">
+        <v-card-title>
           <logo />
           <v-spacer/>
           <header-menu />

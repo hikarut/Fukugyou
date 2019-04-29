@@ -2,7 +2,7 @@
   <nuxt-link
     to="/"
     class="logo">
-    <img src="~/assets/Logo.png" width="150px">
+    <img src="~/assets/LogoReverse.png" width="150px">
   </nuxt-link>
 </template>
 
