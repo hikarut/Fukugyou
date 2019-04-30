@@ -20,6 +20,6 @@ export default {
 
 <style>
 body {
-  font-family: 'Sawarabi Gothic', sans-serif;
+  font-family: 'Noto Sans SC', sans-serif;
 }
 </style>
