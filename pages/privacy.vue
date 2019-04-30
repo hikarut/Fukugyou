@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center column justify-center>
-    <h3>Google Analyticsの利用について(仮)</h3>
+    <h3>Google Analyticsの利用について</h3>
     <h4 class="subheading">
       <p>
         より良いサービスを提供するために、当サービスでは Google Analytics を利用する場合があります。<br>
