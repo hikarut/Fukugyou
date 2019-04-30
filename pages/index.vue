@@ -247,7 +247,7 @@ export default {
       }
     ],
     techItems: [
-      { header: 'エンジニア向けニュース' },
+      { header: 'エンジニア向けピックアップニュース' },
       {
         avatar:
           'https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11159697/rectangle_large_type_2_8646061e83883fc66e9aba4745e8e09f.png',
