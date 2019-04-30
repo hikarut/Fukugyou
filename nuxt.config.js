@@ -1,5 +1,7 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
+const environment = process.env.NODE_ENV || 'dev'
+const envSet = require(`./config/constant.${environment}.js`)
 
 export default {
   mode: 'spa',
@@ -46,7 +48,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify'],
+  plugins: ['@/plugins/vuetify', { src: '~plugins/ga.js', ssr: false }],
 
   /*
   ** Nuxt.js modules
@@ -78,5 +80,10 @@ export default {
         })
       }
     }
-  }
+  },
+
+  /*
+  ** env
+  */
+  env: envSet
 }

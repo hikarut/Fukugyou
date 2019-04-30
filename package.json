@@ -5,10 +5,14 @@
   "author": "hikarut",
   "private": true,
   "scripts": {
-    "dev": "PORT=3333 nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "PORT=3333 cross-env NODE_ENV='dev' nuxt",
+    "prod": "PORT=3333 cross-env NODE_ENV='prod' nuxt",
+    "build": "cross-env NODE_ENV='dev' nuxt build",
+    "build:prod": "cross-env NODE_ENV='prod' nuxt build",
+    "start": "cross-env NODE_ENV='dev' nuxt start",
+    "start:prod": "cross-env NODE_ENV='prod' nuxt start",
+    "generate": "cross-env NODE_ENV='dev' nuxt generate",
+    "generate:prod": "cross-env NODE_ENV='prod' nuxt generate",
     "test": "jest"
   },
   "dependencies": {
