@@ -52,11 +52,12 @@
       <v-flex>
         <v-card>
 
-          <v-list three-line>
+          <v-list three-line class="list-items">
             <template v-for="(item, index) in items">
               <v-subheader
                 v-if="item.header"
                 :key="item.header"
+                class="subheader"
               >
                 {{ item.header }}
               </v-subheader>
@@ -94,6 +95,57 @@
         </v-card>
       </v-flex>
     </v-layout>
+
+    <v-layout row>
+      <v-flex>
+        <v-card>
+
+          <v-list three-line class="list-items">
+            <template v-for="(item, index) in techItems">
+              <v-subheader
+                v-if="item.header"
+                :key="item.header"
+                class="subheader"
+              >
+                {{ item.header }}
+              </v-subheader>
+
+              <v-divider
+                v-else-if="item.divider"
+                :key="index"
+                :inset="item.inset"
+              />
+
+              <v-list-tile
+                v-else
+                :key="item.subtitle"
+                avatar
+                @click="go(item.link)"
+              >
+                <div class="tile-parent">
+                  <div class="tile">
+                    <img :src="item.avatar">
+                  </div>
+                </div>
+
+                <v-list-tile-content>
+                  <v-list-tile-title v-html="item.title"/>
+                  <v-list-tile-sub-title v-html="item.subtitle"/>
+                </v-list-tile-content>
+
+                <v-chip color="indigo" text-color="white" class="outclip">
+                  外部<br>サイト
+                </v-chip>
+
+              </v-list-tile>
+            </template>
+          </v-list>
+        </v-card>
+      </v-flex>
+    </v-layout>
+
+
+
   </div>
 </template>
 
@@ -135,7 +187,7 @@ export default {
       }
     ],
     items: [
-      { header: '新着' },
+      { header: '複業ニュース' },
       {
         avatar:
           'https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11159697/rectangle_large_type_2_8646061e83883fc66e9aba4745e8e09f.png',
@@ -193,6 +245,40 @@ export default {
         subtitle: '海外ビジネスから副業まで、土台になるのは「個性」',
         link: 'https://comemo.nikkei.com/n/n5636cdc6011b'
       }
+    ],
+    techItems: [
+      { header: 'エンジニア向けニュース' },
+      {
+        avatar:
+          'https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11159697/rectangle_large_type_2_8646061e83883fc66e9aba4745e8e09f.png',
+        title: '2019/04/20',
+        subtitle: '自分の仕事に対する値段はどうつければいい？ #複業の教科書',
+        link: 'https://comemo.nikkei.com/n/n510fa99d48f9'
+      },
+      { divider: true, inset: true },
+      {
+        avatar:
+          'https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/9333965/profile_bc3dc9b97f3569bd26dd537a3f9f68e8.jpeg',
+        title: '2019/04/28',
+        subtitle: '夢追い人こそ効率のいい副業を',
+        link: 'https://note.mu/okuyamatsundi/n/n9eb0de1c6c11'
+      },
+      { divider: true, inset: true },
+      {
+        avatar:
+          'https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11213899/rectangle_large_type_2_17df249fec770eb129e6645b1669e23f.jpeg',
+        title: '2019/04/22',
+        subtitle: '2019.04.22 副業は本業になる',
+        link: 'https://note.mu/yu_ki_camera/n/n4829aad5fd82'
+      },
+      { divider: true, inset: true },
+      {
+        avatar:
+          'https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11228379/rectangle_large_type_2_836b896b44381d17ddce3d9ac4631041.jpeg',
+        title: '2019/04/23',
+        subtitle: '海外ビジネスから副業まで、土台になるのは「個性」',
+        link: 'https://comemo.nikkei.com/n/n5636cdc6011b'
+      }
     ]
   }),
   methods: {
@@ -205,7 +291,7 @@ export default {
 
 <style scoped>
 .outclip {
-  font-size: 5px;
+  font-size: 10px;
   width: 50px;
 }
 a {
@@ -228,5 +314,15 @@ a {
   display: inline-flex;
   height: inherit;
   width: inherit;
+}
+.subheader {
+  font-size: 20px;
+}
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .list-items {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 </style>
