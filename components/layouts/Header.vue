@@ -1,7 +1,7 @@
 <template>
   <v-layout row>
     <v-flex>
-      <v-card>
+      <v-card color="#134b8a">
         <v-card-title>
           <logo />
           <v-spacer/>

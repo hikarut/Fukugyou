@@ -2,7 +2,7 @@
   <v-menu>
     <template v-slot:activator="{ on }">
       <v-btn icon v-on="on">
-        <v-icon color="#4383d7">fa-bars</v-icon>
+        <v-icon color="white">fa-bars</v-icon>
       </v-btn>
     </template>
 
@@ -33,7 +33,7 @@ export default {
 
 <style>
 .v-menu__content {
-  width: 200px;
+  width: 150px;
   /* width: 100%; */
 }
 </style>
