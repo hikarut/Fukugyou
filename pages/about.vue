@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout align-center column justify-center>
-      <h1><img src="~/assets/Logo.png" width="200px"></h1>
+      <!-- <h1><img src="~/assets/Logo.png" width="200px"></h1> -->
       <h4 class="subheading">
         <p>
           「Fukugyou」は複業メディアサイトです。<br>
@@ -52,7 +52,8 @@ export default {
 </script>
 
 <style scoped>
-h1 img {
+/* h1 img { */
+h4 {
   padding-top: 30px;
 }
 h4 p {

@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="footer" color="blue-grey lighten-5" height="200">
+  <v-footer class="footer" color="#134b8a" height="200">
     <v-flex
       text-xs-center class="footer-title">
       <logo /><br>
@@ -43,7 +43,7 @@ export default {
 }
 /* twitter icon */
 .v-btn .v-btn__content .v-icon {
-  /* color: white; */
+  color: white;
 }
 .link {
   list-style: none;
@@ -52,13 +52,15 @@ export default {
 }
 .link a {
   text-decoration: none;
-  color: black;
+  /* color: black; */
+  color: white;
 }
 .link a:hover {
   text-decoration: underline;
 }
 .copyright {
   margin-top: 10px;
-  color: black;
+  /* color: black; */
+  color: white;
 }
 </style>
