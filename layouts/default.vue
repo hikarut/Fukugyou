@@ -21,5 +21,6 @@ export default {
 <style>
 body {
   font-family: 'Noto Sans SC', sans-serif;
+  color: #424242;
 }
 </style>
