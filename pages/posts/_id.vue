@@ -1,20 +1,22 @@
 <template>
   <v-layout align-center column justify-center>
-    <h1>記事一覧</h1>
-    <h3>{{ post.fields.title }}</h3>
     <img v-if="post.fields.image"
          :src="post.fields.image.fields.file.url"
          :alt="post.fields.image.fields.title"
-         width="200px">
-    <p>{{ (new Date(post.fields.date)).toDateString() }}</p>
-    <vue-markdown>{{ post.fields.markdouwn }}</vue-markdown>
-    <p>{{ post.fields.tag }}</p>
+         class="main-img">
+    <div class="main-content">
+      <p class="main-title">{{ post.fields.title }}</p>
+      <p>{{ dateString }}</p>
+      <vue-markdown class="markdown">{{ post.fields.markdouwn }}</vue-markdown>
+      <p>{{ post.fields.tag }}</p>
+    </div>
   </v-layout>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
 import { createClient } from '~/plugins/contentful'
+import { dateString } from '~/plugins/date'
 const client = createClient()
 
 export default {
@@ -35,6 +37,11 @@ export default {
   data: () => ({
     post: []
   }),
+  computed: {
+    dateString: function() {
+      return dateString(this.post.fields.date)
+    }
+  },
   // ユニークなIDを指定して記事を取得
   asyncData({ params }) {
     return client
@@ -43,7 +50,6 @@ export default {
         'fields.url': params.id
       })
       .then(entries => {
-        console.log(entries.items[0])
         return {
           post: entries.items[0]
         }
@@ -55,3 +61,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.main-img {
+  padding-top: 30px;
+  width: 90%;
+}
+.main-title {
+  padding-top: 30px;
+  font-size: 35px;
+  font-weight: bold;
+}
+.main-content {
+  width: 90%;
+}
+</style>

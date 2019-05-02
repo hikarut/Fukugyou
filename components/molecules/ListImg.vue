@@ -1,7 +1,7 @@
 <template>
   <div class="tile-parent">
-    <div class="tile">
-      <img :src="img">
+    <div>
+      <img :src="img" class="tile">
     </div>
   </div>
 </template>
@@ -26,6 +26,7 @@ export default {
 .tile {
   width: 50px;
   height: 50px;
+  object-fit: cover;
 }
 .tile img {
   /* border-radius: 50%; */

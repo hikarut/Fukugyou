@@ -3,7 +3,7 @@
     <v-flex>
       <v-card>
         <v-list three-line class="list-items">
-          <subheader :text="items.header" />
+          <subheader v-if="items.header" :text="items.header" />
           <template v-for="(item, index) in items.data">
             <v-list-tile
               :key="item.subtitle"

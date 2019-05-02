@@ -1,27 +1,22 @@
 <template>
-  <v-layout align-center column justify-center>
-    <h1>記事一覧</h1>
-    <div v-for="(post, i) in posts" :key="i">
-      <h3>{{ post.fields.title }}</h3>
-      <img v-if="post.fields.image"
-           :src="post.fields.image.fields.file.url"
-           :alt="post.fields.image.fields.title"
-           width="200px">
-      <p>{{ (new Date(post.fields.date)).toDateString() }}</p>
-      <p>{{ post.fields.tag }}</p>
-      <nuxt-link :to="`/posts/${post.fields.url}`"><p>{{ post.fields.url }}</p></nuxt-link>
-    </div>
-  </v-layout>
+  <div>
+    <big-img-item :items="listData" />
+  </div>
 </template>
 
 <script>
 import { createClient } from '~/plugins/contentful'
+import { dateString } from '~/plugins/date'
+import ListItem from '~/components/organisms/ListItem.vue'
+import BigImgItem from '~/components/organisms/BigImgItem.vue'
+
 const client = createClient()
 
 export default {
-  data: () => ({
-    posts: []
-  }),
+  components: {
+    ListItem,
+    BigImgItem
+  },
   // 投稿内容を取得
   asyncData() {
     return client
@@ -32,9 +27,26 @@ export default {
         limit: 3
       })
       .then(entries => {
-        console.log(entries.items)
+        // 表示用データに整形
+        const data = entries.items.map(value => {
+          const entryItem = {
+            img:
+              value.fields.image === undefined
+                ? 'favicon.ico'
+                : value.fields.image.fields.file.url,
+            date: dateString(value.fields.date),
+            title: value.fields.title,
+            link: `/posts/${value.fields.url}`,
+            tag: value.fields.tag
+          }
+          return entryItem
+        })
+
+        const listData = {}
+        listData.data = data
+        listData.header = '記事一覧'
         return {
-          posts: entries.items
+          listData
         }
       })
       .catch(error => {
@@ -44,3 +56,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  padding-top: 20px;
+}
+.post {
+  width: 90%;
+  padding-bottom: 10px;
+}
+</style>
