@@ -12,9 +12,9 @@
 
             <v-card-title primary-title>
               <div>
-                <div class="headline">{{ item.title }}</div>
-                <span class="grey--text">{{ item.date }}</span><br>
-                <span class="grey--text">{{ item.tag }}</span>
+                <div class="title">{{ item.title }}</div>
+                <div class="grey--text date">{{ item.date }}</div>
+                <div class="grey--text tag">{{ item.tag }}</div>
               </div>
             </v-card-title>
 
@@ -44,13 +44,27 @@ export default {
 </script>
 
 <style scoped>
-.subheader {
-  margin: 15px 15px;
+@media screen and (min-width: 350px) {
+  .subheader {
+    margin: 15px 15px;
+  }
+  .main {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
 }
-.main {
-  width: 90%;
-  margin: 0 auto;
-  padding-bottom: 20px;
+@media screen and (min-width: 900px) {
+  .main {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  .subheader {
+    width: 60%;
+    margin: 15px auto;
+    padding-bottom: 20px;
+  }
 }
 /* 枠線を消す */
 .v-card {
@@ -60,5 +74,13 @@ export default {
   width: 100%;
   height: 200px;
   object-position: 50% 50%;
+}
+.title {
+  font-size: 30px;
+  /* font-weight: bold; */
+}
+.date,
+.tag {
+  padding-top: 10px;
 }
 </style>

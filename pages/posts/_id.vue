@@ -63,16 +63,27 @@ export default {
 </script>
 
 <style scoped>
-.main-img {
-  padding-top: 30px;
-  width: 90%;
+@media screen and (min-width: 350px) {
+  .main-img {
+    padding-top: 30px;
+    width: 90%;
+  }
+  .main-content {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .main-img {
+    padding-top: 30px;
+    width: 60%;
+  }
+  .main-content {
+    width: 60%;
+  }
 }
 .main-title {
-  padding-top: 30px;
+  padding-top: 20px;
   font-size: 35px;
   font-weight: bold;
-}
-.main-content {
-  width: 90%;
 }
 </style>
