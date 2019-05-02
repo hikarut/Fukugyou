@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <subheader v-if="items.header" :text="items.header" class="subheader" />
+    <subheader v-if="items.header" :text="items.header"/>
     <template v-for="(item, index) in items.data">
       <v-flex :key="item.subtitle" class="main">
         <nuxt-link :to="item.link" >
@@ -45,9 +45,6 @@ export default {
 
 <style scoped>
 @media screen and (min-width: 350px) {
-  .subheader {
-    margin: 15px 15px;
-  }
   .main {
     width: 90%;
     margin: 0 auto;
@@ -58,11 +55,6 @@ export default {
   .main {
     width: 60%;
     margin: 0 auto;
-    padding-bottom: 20px;
-  }
-  .subheader {
-    width: 60%;
-    margin: 15px auto;
     padding-bottom: 20px;
   }
 }

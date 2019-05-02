@@ -1,5 +1,6 @@
 <template>
   <div class="top">
+    <big-img-item :items="listData" />
     <card-item :items="cards"/>
     <list-item :items="fukugyouNews" />
     <list-item :items="techNews" />
@@ -7,13 +8,21 @@
 </template>
 
 <script>
+import { getEntries } from '~/plugins/contentful'
+import { dateString } from '~/plugins/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
+import BigImgItem from '~/components/organisms/BigImgItem.vue'
 
 export default {
   components: {
     CardItem,
-    ListItem
+    ListItem,
+    BigImgItem
+  },
+  // 投稿内容を取得
+  asyncData() {
+    return getEntries(1)
   },
   data: () => ({
     cards: {

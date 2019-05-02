@@ -1,6 +1,7 @@
 <template>
   <v-layout justify-center>
     <v-flex>
+      <subheader v-if="items.header" :text="items.header" />
       <v-card>
         <v-container fluid grid-list-md>
           <v-layout row wrap>
@@ -27,11 +28,13 @@
 import device from '~/mixins/device'
 import CardText from '~/components/molecules/CardText.vue'
 import CardImg from '~/components/molecules/CardImg.vue'
+import Subheader from '~/components/atoms/Subheader.vue'
 
 export default {
   components: {
     CardText,
-    CardImg
+    CardImg,
+    Subheader
   },
   mixins: [device],
   props: {
