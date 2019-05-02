@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="top">
     <card-item :items="cards"/>
     <list-item :items="fukugyouNews" />
     <list-item :items="techNews" />
@@ -165,3 +165,13 @@ export default {
   })
 }
 </script>
+
+<style scoped>
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .top {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+</style>

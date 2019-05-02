@@ -2,7 +2,7 @@
   <v-layout row>
     <v-flex>
       <v-card>
-        <v-list three-line class="list-items">
+        <v-list three-line>
           <subheader v-if="items.header" :text="items.header" />
           <template v-for="(item, index) in items.data">
             <v-list-tile
@@ -50,12 +50,10 @@ export default {
 }
 </script>
 
+
 <style scoped>
-/* PC版は横に広がりすぎないようにする */
-@media screen and (min-width: 600px) {
-  .list-items {
-    width: 60%;
-    margin: 0 auto;
-  }
+/* 枠線を消す */
+.v-card {
+  box-shadow: initial;
 }
 </style>

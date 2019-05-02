@@ -7,7 +7,7 @@
             <v-flex
               v-for="card in items.data"
               :key="card.title"
-              :class="[isMobile ? 'xs6' : 'xs3']"
+              class="xs6"
             >
               <a :href="`${card.link}`">
                 <v-card>
@@ -42,3 +42,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* 枠線を消す */
+.v-card {
+  box-shadow: initial;
+}
+</style>

@@ -23,3 +23,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* ヘッダー下の影を消す */
+.v-card {
+  box-shadow: initial;
+}
+</style>
