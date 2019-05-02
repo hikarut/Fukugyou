@@ -1,6 +1,9 @@
 <template>
   <div class="top">
     <big-img-item :items="listData" />
+    <div class="top-button">
+      <nuxt-link to="/posts"><v-btn block outline color="#134b8a">もっと見る</v-btn></nuxt-link>
+    </div>
     <card-item :items="cards"/>
     <list-item :items="fukugyouNews" />
     <list-item :items="techNews" />
@@ -176,6 +179,11 @@ export default {
 </script>
 
 <style scoped>
+.top-button {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: -10px;
+}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
   .top {

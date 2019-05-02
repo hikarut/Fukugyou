@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <big-img-item :items="listData" />
   </div>
 </template>
@@ -30,5 +30,12 @@ h1 {
 .post {
   width: 90%;
   padding-bottom: 10px;
+}
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .main {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 </style>

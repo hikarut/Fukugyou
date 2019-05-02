@@ -51,13 +51,6 @@ export default {
     padding-bottom: 20px;
   }
 }
-@media screen and (min-width: 900px) {
-  .main {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-  }
-}
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;

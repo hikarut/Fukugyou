@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>
-    <v-flex>
+    <v-flex class="main">
       <subheader v-if="items.header" :text="items.header" />
       <v-card>
         <v-container fluid grid-list-md>
@@ -50,5 +50,12 @@ export default {
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
+}
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .main {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 </style>
