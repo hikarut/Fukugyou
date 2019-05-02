@@ -3,7 +3,7 @@ export default ({ app }) => {
   /*
   ** クライアントサイドかつプロダクションモードでのみ実行
   */
-  if (process.env.value !== 'prod') return
+  if (process.env.conf.value !== 'prod') return
   /*
   ** Google アナリティクスのスクリプトをインクルード
   */

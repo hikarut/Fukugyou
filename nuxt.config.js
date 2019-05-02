@@ -1,19 +1,7 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
 const environment = process.env.NODE_ENV || 'dev'
-const envSet = require(`./config/constant.${environment}.js`)
-/*
-try {
-  // ローカルの場合はファイルから取得する
-  const envSet = require(`./config/constant.${environment}.js`)
-  const apikey = envSet.value
-  console.log(envSet)
-} catch (e) {
-  // 本番は環境変数から取得する
-  console.log('not file')
-  const apikey = process.env.API_KEY || 'apikey'
-}
-*/
+const conf = require(`./config/constant.${environment}.json`)
 
 export default {
   mode: 'spa',
@@ -102,5 +90,9 @@ export default {
   /*
   ** env
   */
-  env: envSet
+  env: {
+    conf: conf,
+    SPACE: process.env.SPACE || 'space',
+    ACCESS_TOKEN: process.env.ACCESS_TOKEN || 'accessToken'
+  }
 }
