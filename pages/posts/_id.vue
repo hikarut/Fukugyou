@@ -7,8 +7,6 @@
          :alt="post.fields.image.fields.title"
          width="200px">
     <p>{{ (new Date(post.fields.date)).toDateString() }}</p>
-    <p>{{ post.fields.content }}</p>
-    <p>{{ post.fields.markdouwn }}</p>
     <vue-markdown>{{ post.fields.markdouwn }}</vue-markdown>
     <p>{{ post.fields.tag }}</p>
   </v-layout>
