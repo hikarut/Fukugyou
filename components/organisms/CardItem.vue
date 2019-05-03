@@ -8,7 +8,7 @@
             <v-flex
               v-for="card in items.data"
               :key="card.title"
-              class="xs6"
+              class="xs6 card-box"
             >
               <a :href="`${card.link}`">
                 <v-card>
@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style scoped>
+.card-box a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(19, 75, 138, 0.7);
+}
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;

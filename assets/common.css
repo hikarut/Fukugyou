@@ -1,12 +1,9 @@
 html {
-  -webkit-tap-highlight-color: rgba(221, 219, 245, 0.4) !important;
+  -webkit-tap-highlight-color: rgba(19, 75, 138, 0.4) !important;
 }
 a {
   text-decoration: none;
 }
-/* a:hover {
-  opacity: .7;
-} */
 /* 見出し */
 .subheader {
   font-size: 20px !important;

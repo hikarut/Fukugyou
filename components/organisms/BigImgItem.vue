@@ -44,6 +44,10 @@ export default {
 </script>
 
 <style scoped>
+.main a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(19, 75, 138, 0.7);
+}
 @media screen and (min-width: 350px) {
   .main {
     width: 90%;
