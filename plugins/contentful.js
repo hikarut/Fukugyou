@@ -20,7 +20,7 @@ export function getEntries(limit) {
 
   return client
     .getEntries({
-      content_type: 'blog',
+      content_type: process.env.CONTENT_TYPE,
       order: '-sys.updatedAt',
       limit: limit
     })

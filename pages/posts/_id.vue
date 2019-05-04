@@ -48,7 +48,7 @@ export default {
   asyncData({ params }) {
     return client
       .getEntries({
-        content_type: 'blog',
+        content_type: process.env.CONTENT_TYPE,
         'fields.url': params.id
       })
       .then(entries => {

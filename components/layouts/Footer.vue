@@ -4,7 +4,7 @@
       text-xs-center class="footer-title">
       <logo /><br>
       <v-btn icon>
-        <v-icon>fa-twitter</v-icon>
+        <a href="https://twitter.com/intent/tweet?url=https://fukugyou.dev&text=エンジニアのための複業メディアサイト&hashtags=複業" target="blank"><v-icon>fa-twitter</v-icon></a>
       </v-btn><br>
       <div>
         <li v-for="(item, i) in menus" :key="i" class="link">
