@@ -15,6 +15,7 @@
       <p class="main-tag">{{ post.fields.tag }}</p>
       <sns-post />
     </div>
+    <list-item :items="recomendNews" />
   </v-layout>
 </template>
 
@@ -22,14 +23,18 @@
 import VueMarkdown from 'vue-markdown'
 import BreadList from '~/components/organisms/BreadList.vue'
 import SnsPost from '~/components/molecules/SnsPost.vue'
+import ListItem from '~/components/organisms/ListItem.vue'
 import { dateString } from '~/plugins/date'
 import { getEntryById } from '~/plugins/contentful'
+
+const recomendNews = require('~/config/recomendNews.json')
 
 export default {
   components: {
     VueMarkdown,
     SnsPost,
-    BreadList
+    BreadList,
+    ListItem
   },
   head() {
     return {
@@ -55,7 +60,8 @@ export default {
     }
   },
   data: () => ({
-    post: []
+    post: [],
+    recomendNews: recomendNews
   }),
   computed: {
     dateString() {
