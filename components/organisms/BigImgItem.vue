@@ -50,6 +50,8 @@ export default {
 }
 @media screen and (min-width: 350px) {
   .main {
+    /* 見出しがない場合は上にスペースをあける */
+    padding-top: 30px;
     width: 90%;
     margin: 0 auto;
     padding-bottom: 20px;

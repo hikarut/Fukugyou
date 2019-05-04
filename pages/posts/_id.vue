@@ -6,6 +6,7 @@
          class="main-img">
     <div class="main-content">
       <p class="main-title">{{ post.fields.title }}</p>
+      <bread-list :items="breadItems"/>
       <p>{{ dateString }}</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag"/>
       <v-divider />
@@ -19,6 +20,7 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import BreadList from '~/components/organisms/BreadList.vue'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import { dateString } from '~/plugins/date'
 import { getEntryById } from '~/plugins/contentful'
@@ -26,7 +28,8 @@ import { getEntryById } from '~/plugins/contentful'
 export default {
   components: {
     VueMarkdown,
-    SnsPost
+    SnsPost,
+    BreadList
   },
   head() {
     return {
@@ -54,6 +57,25 @@ export default {
     },
     shareTag() {
       return this.post.fields.tag
+    },
+    breadItems() {
+      return [
+        {
+          text: 'トップ',
+          disabled: false,
+          url: '/'
+        },
+        {
+          text: '記事一覧',
+          disabled: false,
+          url: '/posts'
+        },
+        {
+          text: this.post.fields.title,
+          disabled: true,
+          url: '/'
+        }
+      ]
     }
   },
   // ユニークなIDを指定して記事を取得
@@ -102,5 +124,9 @@ export default {
   .main-title {
     font-size: 35px;
   }
+}
+/* 詳細ページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 0px 0px 20px 0px !important;
 }
 </style>

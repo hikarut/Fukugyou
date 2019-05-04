@@ -37,9 +37,9 @@
           </p>
         </h4>
         <v-layout align-center row justify-space-around class="sns">
-          <a href="https://github.com/hikarut" target="blank"><v-icon class="square">fa-github-square</v-icon></a>
-          <a href="https://twitter.com/light940" target="blank"><v-icon class="square">fa-twitter-square</v-icon></a>
-          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><v-icon class="square">fa-facebook-square</v-icon></a>
+          <a href="https://github.com/hikarut" target="blank"><v-icon class="square" color="#24292e">fab fa-github-square</v-icon></a>
+          <a href="https://twitter.com/light940" target="blank"><v-icon class="square" color="#55acee">fab fa-twitter-square</v-icon></a>
+          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><v-icon class="square" color="#315096">fab fa-facebook-square</v-icon></a>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -63,10 +63,11 @@ h4 p {
 }
 .author {
   padding-top: 50px;
+  padding-bottom: 10px;
   font-size: 20px;
 }
 .sns {
-  margin: 15px 0px 30px 0px;
+  margin: 5px 0px 30px 0px;
 }
 .square {
   font-size: 35px;

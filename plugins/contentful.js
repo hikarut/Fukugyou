@@ -38,7 +38,8 @@ export function getEntries(limit) {
 
       const listData = {}
       listData.data = data
-      listData.header = '記事一覧'
+      // パンくずリストを見出しの代わりにする
+      // listData.header = '記事一覧'
       return {
         listData
       }

@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <bread-list :items="breadItems"/>
     <big-img-item :items="listData" />
   </div>
 </template>
@@ -9,12 +10,28 @@ import { getEntries } from '~/plugins/contentful'
 import { dateString } from '~/plugins/date'
 import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
+import BreadList from '~/components/organisms/BreadList.vue'
 
 export default {
   components: {
     ListItem,
-    BigImgItem
+    BigImgItem,
+    BreadList
   },
+  data: () => ({
+    breadItems: [
+      {
+        text: 'トップ',
+        disabled: false,
+        url: '/'
+      },
+      {
+        text: '記事一覧',
+        disabled: true,
+        url: '/posts'
+      }
+    ]
+  }),
   // 投稿内容を取得
   asyncData() {
     // TODO:ページング
