@@ -44,7 +44,12 @@ export default {
   },
   methods: {
     go(url) {
-      open(url, '_blank')
+      if (url.match(/fukugyou\.dev/)) {
+        location.href = url
+      } else {
+        // 別サイトの場合は別ウィンドウにする
+        open(url, '_blank')
+      }
     }
   }
 }

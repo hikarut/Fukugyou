@@ -7,6 +7,7 @@
     <card-item :items="cards"/>
     <list-item :items="fukugyouNews" />
     <list-item :items="techNews" />
+    <list-item :items="recomendNews" />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import BigImgItem from '~/components/organisms/BigImgItem.vue'
 const topNews = require('~/config/topNews.json')
 const fukugyouNews = require('~/config/fukugyouNews.json')
 const techNews = require('~/config/techNews.json')
+const recomendNews = require('~/config/recomendNews.json')
 
 export default {
   components: {
@@ -35,7 +37,8 @@ export default {
   data: () => ({
     cards: topNews,
     fukugyouNews: fukugyouNews,
-    techNews: techNews
+    techNews: techNews,
+    recomendNews: recomendNews
   })
 }
 </script>
