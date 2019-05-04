@@ -31,9 +31,9 @@ export default {
   data: () => ({
     date: new Date().getFullYear(),
     twitterUrl: twitterUrl(
-      'https://fukugyou.dev',
-      'エンジニアのための複業メディアサイト',
-      '複業'
+      process.env.constant.url,
+      process.env.constant.title,
+      process.env.constant.twitterTag
     )
   })
 }

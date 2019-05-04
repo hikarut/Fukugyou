@@ -33,11 +33,23 @@ export default {
   },
   head() {
     return {
+      title: `${this.post.fields.title} | ${process.env.constant.title}`,
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
           content: this.post.fields.tag
+        },
+        { hid: 'og:url', property: 'og:url', content: this.shareUrl },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.post.fields.title} | ${process.env.constant.title}`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.post.fields.image.fields.file.url
         }
       ]
     }
@@ -50,7 +62,7 @@ export default {
       return dateString(this.post.fields.date)
     },
     shareUrl() {
-      return `https://fukugyou.dev/posts/${this.post.fields.url}`
+      return `${process.env.constant.url}/posts/${this.post.fields.url}`
     },
     shareText() {
       return this.post.fields.title

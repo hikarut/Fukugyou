@@ -2,6 +2,7 @@ import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
 const environment = process.env.NODE_ENV || 'dev'
 const conf = require(`./config/constant.${environment}.json`)
+const constant = require('./config/constant.json')
 
 // contentfulから記事を取得する
 const contentful = require('contentful')
@@ -14,14 +15,14 @@ const client = contentful.createClient({
 })
 
 export default {
-  // 本来spaモードだがそれだとページごとのmetaが反映されない
+  // 本来spaモードだがそれだとページごとのmetaが反映されないので
   mode: 'universal',
 
   /*
   ** Headers of the page
   */
   head: {
-    title: `エンジニアのための複業メディアサイト Fukugyou`,
+    title: constant.title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -35,8 +36,23 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'エンジニアのための複業メディアサイト。(副業メディアサイト)エンジニアの幸せな人生を送るための働き方として複業(副業)を後押しします'
-      }
+          'エンジニアのための複業メディアサイト。(副業メディアサイト)エンジニアの楽しい働き方として複業(副業)を後押しします'
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: constant.title
+      },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: constant.url },
+      { hid: 'og:title', property: 'og:title', content: constant.title },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'エンジニアのための複業メディアサイト。(副業メディアサイト)エンジニアの楽しい働き方として複業(副業)を後押しします'
+      },
+      { hid: 'og:image', property: 'og:image', content: '/ogimage.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -103,6 +119,7 @@ export default {
   */
   env: {
     conf: conf,
+    constant: constant,
     SPACE: space,
     ACCESS_TOKEN: accessToken,
     CONTENT_TYPE: contentType
