@@ -7,23 +7,27 @@
     <div class="main-content">
       <p class="main-title">{{ post.fields.title }}</p>
       <p>{{ dateString }}</p>
+      <sns-post :url="shareUrl"/>
       <v-divider />
       <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
       <v-divider />
       <p class="main-tag">{{ post.fields.tag }}</p>
+      <sns-post />
     </div>
   </v-layout>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import SnsPost from '~/components/molecules/SnsPost.vue'
 import { createClient } from '~/plugins/contentful'
 import { dateString } from '~/plugins/date'
 const client = createClient()
 
 export default {
   components: {
-    VueMarkdown
+    VueMarkdown,
+    SnsPost
   },
   head() {
     return {
@@ -40,8 +44,11 @@ export default {
     post: []
   }),
   computed: {
-    dateString: function() {
+    dateString() {
       return dateString(this.post.fields.date)
+    },
+    shareUrl() {
+      return location.href
     }
   },
   // ユニークなIDを指定して記事を取得

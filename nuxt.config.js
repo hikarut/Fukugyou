@@ -57,7 +57,7 @@ export default {
   css: [
     '~/assets/style/app.styl',
     '~/assets/common.css',
-    'font-awesome/css/font-awesome.min.css'
+    '@fortawesome/fontawesome-free/css/all.css'
   ],
 
   /*

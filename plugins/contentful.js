@@ -13,7 +13,7 @@ export function createClient() {
 
 /*
  * 記事の取得
- * @param 取得件数
+ * @param limit 取得件数
  */
 export function getEntries(limit) {
   const client = createClient()

@@ -4,7 +4,7 @@
       text-xs-center class="footer-title">
       <logo /><br>
       <v-btn icon>
-        <a href="https://twitter.com/intent/tweet?url=https://fukugyou.dev&text=エンジニアのための複業メディアサイト&hashtags=複業" target="blank"><v-icon>fa-twitter</v-icon></a>
+        <a :href="twitterUrl" target="blank"><v-icon>fab fa-twitter</v-icon></a>
       </v-btn><br>
       <div>
         <li v-for="(item, i) in menus" :key="i" class="link">
@@ -21,6 +21,7 @@
 <script>
 import Logo from '~/components/layouts/Logo.vue'
 import menu from '~/mixins/menu'
+import { twitterUrl } from '~/plugins/sns'
 
 export default {
   components: {
@@ -28,7 +29,12 @@ export default {
   },
   mixins: [menu],
   data: () => ({
-    date: new Date().getFullYear()
+    date: new Date().getFullYear(),
+    twitterUrl: twitterUrl(
+      'https://fukugyou.dev',
+      'エンジニアのための複業メディアサイト',
+      '複業'
+    )
   })
 }
 </script>
