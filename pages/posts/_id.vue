@@ -7,8 +7,10 @@
     <div class="main-content">
       <p class="main-title">{{ post.fields.title }}</p>
       <p>{{ dateString }}</p>
-      <vue-markdown class="markdown">{{ post.fields.markdouwn }}</vue-markdown>
-      <p>{{ post.fields.tag }}</p>
+      <v-divider />
+      <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
+      <v-divider />
+      <p class="main-tag">{{ post.fields.tag }}</p>
     </div>
   </v-layout>
 </template>
@@ -63,15 +65,28 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 350px) {
-  .main-img {
-    padding-top: 30px;
-    width: 90%;
-  }
-  .main-content {
-    width: 90%;
-  }
+.main-img {
+  padding-top: 30px;
+  width: 90%;
 }
+.main-content {
+  width: 90%;
+}
+.markdown {
+  line-height: 30px;
+  padding-top: 20px;
+  font-size: 16px;
+}
+.main-title {
+  padding-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.main-tag {
+  padding-top: 20px;
+  font-weight: bold;
+}
+/* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
   .main-img {
     padding-top: 30px;
@@ -80,10 +95,13 @@ export default {
   .main-content {
     width: 60%;
   }
-}
-.main-title {
-  padding-top: 20px;
-  font-size: 35px;
-  font-weight: bold;
+  .markdown {
+    line-height: 36px;
+    padding-top: 20px;
+    font-size: 18px;
+  }
+  .main-title {
+    font-size: 35px;
+  }
 }
 </style>
