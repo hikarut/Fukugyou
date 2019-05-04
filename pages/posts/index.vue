@@ -56,7 +56,7 @@ h1 {
   }
 }
 /* リストページだけ場所を調整 */
-ul {
+ul li {
   list-style: none;
 }
 .v-breadcrumbs {

@@ -129,7 +129,7 @@ export default {
   }
 }
 /* 詳細ページだけ場所を調整 */
-ul {
+ul li {
   list-style: none;
   display: inline;
 }
