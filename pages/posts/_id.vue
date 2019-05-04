@@ -7,7 +7,7 @@
     <div class="main-content">
       <p class="main-title">{{ post.fields.title }}</p>
       <p>{{ dateString }}</p>
-      <sns-post :url="shareUrl"/>
+      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag"/>
       <v-divider />
       <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
       <v-divider />
@@ -49,6 +49,12 @@ export default {
     },
     shareUrl() {
       return location.href
+    },
+    shareText() {
+      return this.post.fields.title
+    },
+    shareTag() {
+      return this.post.fields.tag
     }
   },
   // ユニークなIDを指定して記事を取得

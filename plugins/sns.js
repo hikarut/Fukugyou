@@ -33,6 +33,6 @@ export function hatenaUrl(url) {
  */
 export function lineUrl(url, text = '') {
   // URLとテキストをエンコードする
-  const shareText = encodeURI(`${url}　${text}`)
+  const shareText = encodeURI(`${text}　${url}`)
   return `http://line.me/R/msg/text/?${shareText}`
 }
