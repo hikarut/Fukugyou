@@ -7,7 +7,7 @@
     <div class="main-content">
       <p class="main-title">{{ post.fields.title }}</p>
       <bread-list :items="breadItems"/>
-      <p>{{ dateString }}</p>
+      <p class="main-date">{{ dateString }}</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag"/>
       <v-divider />
       <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
@@ -103,6 +103,9 @@ export default {
   font-size: 25px;
   font-weight: bold;
 }
+.main-date {
+  padding-top: 20px;
+}
 .main-tag {
   padding-top: 20px;
   font-weight: bold;
@@ -126,7 +129,12 @@ export default {
   }
 }
 /* 詳細ページだけ場所を調整 */
+ul {
+  list-style: none;
+  display: inline;
+}
 .v-breadcrumbs {
   padding: 0px 0px 20px 0px !important;
+  /* margin: 0px 0px 20px 0px !important; */
 }
 </style>
