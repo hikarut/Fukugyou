@@ -20,9 +20,8 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import SnsPost from '~/components/molecules/SnsPost.vue'
-import { createClient } from '~/plugins/contentful'
 import { dateString } from '~/plugins/date'
-const client = createClient()
+import { getEntryById } from '~/plugins/contentful'
 
 export default {
   components: {
@@ -59,20 +58,7 @@ export default {
   },
   // ユニークなIDを指定して記事を取得
   asyncData({ params }) {
-    return client
-      .getEntries({
-        content_type: process.env.CONTENT_TYPE,
-        'fields.url': params.id
-      })
-      .then(entries => {
-        return {
-          post: entries.items[0]
-        }
-      })
-      .catch(error => {
-        console.log('error')
-        console.log(error)
-      })
+    return getEntryById(params.id)
   }
 }
 </script>

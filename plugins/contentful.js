@@ -2,22 +2,18 @@
 import { dateString } from '~/plugins/date'
 const contentful = require('contentful')
 
+// 初期設定
 const config = {
   space: process.env.SPACE,
   accessToken: process.env.ACCESS_TOKEN
 }
-
-export function createClient() {
-  return contentful.createClient(config)
-}
+const client = contentful.createClient(config)
 
 /*
  * 記事の取得
  * @param limit 取得件数
  */
 export function getEntries(limit) {
-  const client = createClient()
-
   return client
     .getEntries({
       content_type: process.env.CONTENT_TYPE,
@@ -39,13 +35,33 @@ export function getEntries(limit) {
         }
         return entryItem
       })
-      console.log(data)
 
       const listData = {}
       listData.data = data
       listData.header = '記事一覧'
       return {
         listData
+      }
+    })
+    .catch(error => {
+      console.log('error')
+      console.log(error)
+    })
+}
+
+/*
+ * IDを指定して特定の記事を取得
+ * @param id ID
+ */
+export function getEntryById(id) {
+  return client
+    .getEntries({
+      content_type: process.env.CONTENT_TYPE,
+      'fields.url': id
+    })
+    .then(entries => {
+      return {
+        post: entries.items[0]
       }
     })
     .catch(error => {
