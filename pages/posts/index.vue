@@ -57,7 +57,7 @@ h1 {
 }
 /* リストページだけ場所を調整 */
 ul li {
-  list-style: none;
+  /* list-style: none; */
 }
 .v-breadcrumbs {
   padding: 20px 0px 20px 24px !important;

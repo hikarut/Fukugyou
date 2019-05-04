@@ -130,8 +130,8 @@ export default {
 }
 /* 詳細ページだけ場所を調整 */
 ul li {
-  list-style: none;
-  display: inline;
+  /* list-style: none;
+  display: inline; */
 }
 .v-breadcrumbs {
   padding: 0px 0px 20px 0px !important;

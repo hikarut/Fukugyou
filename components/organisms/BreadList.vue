@@ -7,7 +7,7 @@
       <template v-else>
         {{ item.text }}
       </template>
-      <div v-if="i !== (items.length - 1)" class="separate">&gt;</div>
+      <template v-if="i !== (items.length - 1)" class="separate">&nbsp;&gt;</template>
     </li>
   </ul>
 </template>
@@ -27,6 +27,8 @@ export default {
 
 <style scoped>
 .v-breadcrumbs li {
+  list-style: none;
+  display: inline;
   font-size: 14px;
 }
 .separate {
