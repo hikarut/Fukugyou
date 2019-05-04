@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     go(url) {
-      location.href = url
+      open(url, '_blank')
     }
   }
 }

@@ -10,10 +10,11 @@
               :key="card.title"
               class="xs6 card-box"
             >
-              <a :href="`${card.link}`">
+              <a :href="`${card.link}`" target="blank">
                 <v-card>
-                  <card-Img :src="card.img" :title="card.title" />
-                  <card-text :text="card.date" />
+                  <card-Img :src="card.img" />
+                  <card-text :text="card.date" class="date"/>
+                  <card-text :text="card.title" />
                 </v-card>
               </a>
             </v-flex>
@@ -52,6 +53,9 @@ export default {
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
+}
+.date span {
+  color: '#9e9e9e';
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

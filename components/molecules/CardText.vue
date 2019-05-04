@@ -1,6 +1,6 @@
 <template>
   <v-card-actions>
-    <span class="black--text" v-text="text"/>
+    <span v-text="text"/>
     <v-spacer/>
     <!-- <out-clip /> -->
   </v-card-actions>

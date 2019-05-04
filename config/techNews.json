@@ -1,0 +1,26 @@
+{
+  "header": "エンジニア向けニュース",
+  "data": [
+    {
+      "img":
+        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+      "date": "2019/05/04(土)",
+      "title": "Bootstrap の開発メンバーになった話",
+      "link": "https://qiita.com/ysds/items/047f6be1fc01d94fa67a"
+    },
+    {
+      "img":
+        "https://techcrunchjp.files.wordpress.com/2019/05/gettyimages-675949746.jpg?w=659&zoom=2",
+      "date": "2019/05/03(金)",
+      "title": "マイクロソフトがドラッグ＆ドロップの機械学習ツールをローンチ、ユーザーはデータを用意するだけ",
+      "link": "https://jp.techcrunch.com/2019/05/03/2019-05-02-microsoft-launches-a-drag-and-drop-machine-learning-tool-and-hosted-jupyter-notebooks/"
+    },
+    {
+      "img":
+        "https://img.logmi.jp/articles/Jenr1s6cpoQmwnBPjJT6zv.jpg",
+      "date": "2019/04/25(木)",
+      "title": "Google検索の一歩先へ 一休がデータサイエンスで挑む、究極のパーソナライズ",
+      "link": "https://logmi.jp/tech/articles/320917"
+    }
+  ]
+}

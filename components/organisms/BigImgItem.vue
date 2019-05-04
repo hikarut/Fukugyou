@@ -12,9 +12,9 @@
 
             <v-card-title primary-title>
               <div>
+                <div >{{ item.date }}</div>
                 <div class="title">{{ item.title }}</div>
-                <div class="grey--text date">{{ item.date }}</div>
-                <div class="grey--text tag">{{ item.tag }}</div>
+                <div class="tag">{{ item.tag }}</div>
               </div>
             </v-card-title>
 
@@ -70,7 +70,7 @@ export default {
   font-size: 30px;
   /* font-weight: bold; */
 }
-.date,
+.title,
 .tag {
   padding-top: 10px;
 }
