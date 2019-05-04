@@ -7,7 +7,7 @@
       <template v-else>
         {{ item.text }}
       </template>
-      <template v-if="i !== (items.length - 1)" class="separate">&nbsp;&gt;</template>
+      <template v-if="i !== (items.length - 1)" class="separate">&nbsp;&nbsp;&gt;&nbsp;</template>
     </li>
   </ul>
 </template>
