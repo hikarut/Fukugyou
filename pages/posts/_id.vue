@@ -71,7 +71,7 @@ export default {
           url: '/posts'
         },
         {
-          text: this.post.fields.title,
+          text: this.post.fields.title.trim(),
           disabled: true,
           url: '/'
         }
@@ -129,12 +129,7 @@ export default {
   }
 }
 /* 詳細ページだけ場所を調整 */
-ul {
-  list-style: none;
-  display: inline;
-}
 .v-breadcrumbs {
   padding: 0px 0px 20px 0px !important;
-  /* margin: 0px 0px 20px 0px !important; */
 }
 </style>
