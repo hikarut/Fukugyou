@@ -25,3 +25,14 @@ export function hatenaUrl(url) {
   const urlString = url.replace('https://', '')
   return `http://b.hatena.ne.jp/entry/s/${url}`
 }
+
+/*
+ * LINEシェアURL
+ * @param url シェアURL
+ * @param text 文言
+ */
+export function lineUrl(url, text = '') {
+  // URLとテキストをエンコードする
+  const shareText = encodeURI(`${url}　${text}`)
+  return `http://line.me/R/msg/text/?${shareText}`
+}

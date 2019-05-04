@@ -1,8 +1,9 @@
 <template>
   <v-layout align-center row justify-space-around class="sns-post">
-    <twitter-btn :url="url"/>
+    <twitter-btn :url="url" :text="text" :tag="tag"/>
     <facebook-btn :url="url"/>
     <hatena-btn :url="url"/>
+    <line-btn :url="url" :text="text"/>
   </v-layout>
 </template>
 
@@ -10,15 +11,25 @@
 import TwitterBtn from '~/components/atoms/TwitterBtn.vue'
 import FacebookBtn from '~/components/atoms/FacebookBtn.vue'
 import HatenaBtn from '~/components/atoms/HatenaBtn.vue'
+import LineBtn from '~/components/atoms/LineBtn.vue'
 
 export default {
   components: {
     TwitterBtn,
     FacebookBtn,
-    HatenaBtn
+    HatenaBtn,
+    LineBtn
   },
   props: {
     url: {
+      type: String,
+      default: ''
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    tag: {
       type: String,
       default: ''
     }
@@ -28,7 +39,7 @@ export default {
 
 <style scoped>
 .sns-post {
-  width: 30%;
+  width: 40%;
   padding-bottom: 10px;
 }
 </style>
