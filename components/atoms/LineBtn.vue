@@ -1,6 +1,6 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <v-icon color="#00c300">fab fa-line</v-icon>
+    <v-icon color="#00c300" class="square">fab fa-line</v-icon>
   </a>
 </template>
 
@@ -25,3 +25,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.square {
+  font-size: 35px;
+}
+</style>

@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .sns-post {
-  width: 40%;
+  width: 60%;
   padding-bottom: 15px;
 }
 </style>
