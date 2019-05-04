@@ -47,7 +47,7 @@ export default {
       return dateString(this.post.fields.date)
     },
     shareUrl() {
-      return location.href
+      return `https://fukugyou.dev/posts/${this.post.fields.url}`
     },
     shareText() {
       return this.post.fields.title

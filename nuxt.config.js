@@ -14,7 +14,8 @@ const client = contentful.createClient({
 })
 
 export default {
-  mode: 'spa',
+  // 本来spaモードだがそれだとページごとのmetaが反映されない
+  mode: 'universal',
 
   /*
   ** Headers of the page

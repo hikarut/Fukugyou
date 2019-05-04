@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import device from '~/mixins/device'
 import CardText from '~/components/molecules/CardText.vue'
 import CardImg from '~/components/molecules/CardImg.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
@@ -36,7 +35,6 @@ export default {
     CardImg,
     Subheader
   },
-  mixins: [device],
   props: {
     items: {
       type: Object,
