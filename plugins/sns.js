@@ -23,7 +23,7 @@ export function facebookUrl(url) {
 export function hatenaUrl(url) {
   // httpsを除外する
   const urlString = url.replace('https://', '')
-  return `http://b.hatena.ne.jp/entry/s/${url}`
+  return `http://b.hatena.ne.jp/entry/s/${urlString}`
 }
 
 /*
