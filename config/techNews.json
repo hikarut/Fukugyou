@@ -1,7 +1,21 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/06(月) 11:30",
+  "updatedAt": "2019/05/07(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+      "date": "2019/05/06(月)",
+      "title": "JavaScriptの日時処理はこう変わる！　Temporal入門",
+      "link": "https://qiita.com/uhyo/items/5f34f5d6f33aa091a104"
+    },
+    {
+      "img":
+        "https://techcrunchjp.files.wordpress.com/2019/05/75253_lsw_boost_2hy19_play.jpg",
+      "date": "2019/05/05(日)",
+      "title": "レゴがSTEM教育用Star Warsキットを発売へ",
+      "link": "https://jp.techcrunch.com/2019/05/05/2019-05-04-lego-introduces-a-new-stem-star-wars-kit/"
+    },
     {
       "img":
         "https://crieit.now.sh/upload_images/5bdf259a1402024ea7590a7f95f091515cccddd781e92.PNG",
@@ -22,13 +36,6 @@
       "date": "2019/05/03(金)",
       "title": "マイクロソフトがドラッグ＆ドロップの機械学習ツールをローンチ、ユーザーはデータを用意するだけ",
       "link": "https://jp.techcrunch.com/2019/05/03/2019-05-02-microsoft-launches-a-drag-and-drop-machine-learning-tool-and-hosted-jupyter-notebooks/"
-    },
-    {
-      "img":
-        "https://img.logmi.jp/articles/Jenr1s6cpoQmwnBPjJT6zv.jpg",
-      "date": "2019/04/25(木)",
-      "title": "Google検索の一歩先へ 一休がデータサイエンスで挑む、究極のパーソナライズ",
-      "link": "https://logmi.jp/tech/articles/320917"
     }
   ]
 }
