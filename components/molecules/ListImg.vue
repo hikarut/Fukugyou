@@ -1,7 +1,17 @@
 <template>
   <div class="tile-parent">
     <div>
-      <img :src="img" class="tile">
+      <v-img :src="img" class="tile" lazy-src="/loading.png">
+        <template v-slot:placeholder>
+          <v-layout
+            fill-height
+            align-center
+            justify-center
+          >
+            <v-progress-circular :size="20" :width="2" indeterminate color="grey lighten-5"/>
+          </v-layout>
+        </template>
+      </v-img>
     </div>
   </div>
 </template>

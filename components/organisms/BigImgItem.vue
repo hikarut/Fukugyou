@@ -5,10 +5,7 @@
       <v-flex :key="item.subtitle" class="main">
         <nuxt-link :to="item.link" >
           <v-card class="card-tile">
-            <v-img
-              :src="item.img"
-              class="big-img"
-            />
+            <big-img :src="item.img" />
 
             <v-card-title primary-title>
               <div>
@@ -29,10 +26,12 @@
 
 <script>
 import Subheader from '~/components/atoms/Subheader.vue'
+import BigImg from '~/components/molecules/BigImg.vue'
 
 export default {
   components: {
-    Subheader
+    Subheader,
+    BigImg
   },
   props: {
     items: {
@@ -60,11 +59,6 @@ export default {
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
-}
-.big-img {
-  width: 100%;
-  height: 200px;
-  object-position: 50% 50%;
 }
 .title {
   font-size: 30px;
