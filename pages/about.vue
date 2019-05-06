@@ -34,6 +34,7 @@
             ・複業：株式会社エッグシステムCTO<br>
             ・2つの会社で正社員として働いており「複業」を体現中<br>
             ・複業先の株式会社エッグシステムでは同じように複業で参加しているエンジニアのコミュニティ作りにも貢献<br>
+            ・Nuxt+Netlify+Vuetify+Contentfulを使って当サイトを開発
           </p>
         </h4>
         <v-layout align-center row justify-space-around class="sns">
