@@ -45,7 +45,8 @@ export default {
         property: 'og:description',
         content: constant.description
       },
-      { hid: 'og:image', property: 'og:image', content: '/ogimage.png' }
+      { hid: 'og:image', property: 'og:image', content: '/ogimage.png' },
+      { hid: 'twitter:card', property: 'twitter:card', content: 'summary' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
