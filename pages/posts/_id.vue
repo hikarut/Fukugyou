@@ -59,7 +59,7 @@ export default {
         {
           hid: 'twitter:image:src',
           property: 'twitter:image:src',
-          content: this.post.fields.image.fields.file.url
+          content: `https:${this.post.fields.image.fields.file.url}`
         }
       ]
     }

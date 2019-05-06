@@ -50,7 +50,7 @@ export default {
       {
         hid: 'twitter:image:src',
         property: 'twitter:image:src',
-        content: '/ogimage.png'
+        content: `${constant.url}/ogimage.png`
       }
     ],
     link: [
