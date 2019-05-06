@@ -8,12 +8,12 @@
       <p class="main-title">{{ post.fields.title }}</p>
       <bread-list :items="breadItems"/>
       <p class="main-date">{{ dateString }}</p>
-      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag"/>
+      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
       <v-divider />
       <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
       <v-divider />
       <p class="main-tag">{{ post.fields.tag }}</p>
-      <sns-post />
+      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
     </div>
     <list-item :items="recomendNews" />
   </v-layout>

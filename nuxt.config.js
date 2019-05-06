@@ -26,17 +26,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'keywords',
-        name: 'keywords',
-        content:
-          '複業,副業,Fukugyou,fukugyou,フクギョウ,エンジニア,働き方,ニュース,メディア,仕事,人生,ライフ,幸せ'
-      },
+      { hid: 'keywords', name: 'keywords', content: constant.keywords },
       {
         hid: 'description',
         name: 'description',
-        content:
-          'エンジニアのための複業メディアサイト。エンジニアのための技術情報や複業(副業)の情報を提供します。'
+        content: constant.description
       },
       {
         hid: 'og:site_name',
@@ -49,8 +43,7 @@ export default {
       {
         hid: 'og:description',
         property: 'og:description',
-        content:
-          'エンジニアのための複業メディアサイト。(副業メディアサイト)エンジニアの楽しい働き方として複業(副業)を後押しします'
+        content: constant.description
       },
       { hid: 'og:image', property: 'og:image', content: '/ogimage.png' }
     ],
