@@ -4,6 +4,7 @@
       <v-card>
         <v-list three-line>
           <subheader v-if="items.header" :text="items.header" />
+          <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
           <template v-for="(item, index) in items.data">
             <v-list-tile
               :key="item.subtitle"
@@ -28,13 +29,15 @@ import OutClip from '~/components/atoms/OutClip.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import ListImg from '~/components/molecules/ListImg.vue'
 import ListText from '~/components/molecules/ListText.vue'
+import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 
 export default {
   components: {
     OutClip,
     Subheader,
     ListImg,
-    ListText
+    ListText,
+    UpdatedAtText
   },
   props: {
     items: {

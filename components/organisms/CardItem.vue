@@ -2,6 +2,7 @@
   <v-layout justify-center>
     <v-flex class="main">
       <subheader v-if="items.header" :text="items.header" />
+      <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
       <v-card>
         <v-container fluid grid-list-md>
           <v-layout row wrap>
@@ -29,12 +30,14 @@
 import CardText from '~/components/molecules/CardText.vue'
 import CardImg from '~/components/molecules/CardImg.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
+import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 
 export default {
   components: {
     CardText,
     CardImg,
-    Subheader
+    Subheader,
+    UpdatedAtText
   },
   props: {
     items: {
