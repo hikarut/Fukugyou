@@ -46,7 +46,12 @@ export default {
         content: constant.description
       },
       { hid: 'og:image', property: 'og:image', content: '/ogimage.png' },
-      { hid: 'twitter:card', property: 'twitter:card', content: 'summary' }
+      { hid: 'twitter:card', property: 'twitter:card', content: 'summary' },
+      {
+        hid: 'twitter:image:src',
+        property: 'twitter:image:src',
+        content: '/ogimage.png'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -55,6 +55,11 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: this.post.fields.image.fields.file.url
+        },
+        {
+          hid: 'twitter:image:src',
+          property: 'twitter:image:src',
+          content: this.post.fields.image.fields.file.url
         }
       ]
     }
