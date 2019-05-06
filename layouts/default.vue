@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="app">
     <div>
       <app-header />
       <nuxt />
@@ -24,5 +24,8 @@ export default {
 body {
   font-family: BlinkMacSystemFont, -apple-system Noto Sans SC, sans-serif;
   color: #424242;
+}
+.app {
+  background: white !important;
 }
 </style>

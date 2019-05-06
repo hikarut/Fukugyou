@@ -2,6 +2,7 @@ html {
   -webkit-tap-highlight-color: rgba(19, 75, 138, 0.4) !important;
   /* 英語でも折り返すようにする */
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 a {
   text-decoration: none;
