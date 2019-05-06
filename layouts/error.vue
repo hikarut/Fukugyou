@@ -3,7 +3,7 @@
     <v-layout align-center column justify-center>
       <div v-if="statusCode === 404" class="error-word" >ページが見つかりません。</div>
       <div v-else class="error-word">エラーです。</div>
-      <div class="error-top"><nuxt-link to="/">ホーム</nuxt-link>に戻る。</div>
+      <div class="error-top"><a href="/">トップページ</a>に戻る。</div>
     </v-layout>
   </div>
 </template>
