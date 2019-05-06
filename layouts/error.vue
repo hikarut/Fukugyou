@@ -10,6 +10,8 @@
 </template>
 
 <script>
+// TODO:本番だとここは使われない
+
 import ListItem from '~/components/organisms/ListItem.vue'
 const recomendNews = require('~/config/recomendNews.json')
 
