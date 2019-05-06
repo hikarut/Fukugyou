@@ -1,7 +1,14 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/03(金) 10:00",
+  "updatedAt": "2019/05/06(月) 11:30",
   "data": [
+    {
+      "img":
+        "https://crieit.now.sh/upload_images/5bdf259a1402024ea7590a7f95f091515cccddd781e92.PNG",
+      "date": "2019/05/04(土)",
+      "title": "VSCodeのRemote Development機能が革命的な話。",
+      "link": "https://crieit.net/posts/VSCode-Remote-Development"
+    },
     {
       "img":
         "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
