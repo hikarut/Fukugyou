@@ -14,6 +14,21 @@ const client = contentful.createClient({
   accessToken: accessToken
 })
 
+// ルーティング
+function routing() {
+  return client
+    .getEntries({
+      content_type: contentType
+    })
+    .then(entries => {
+      return [...entries.items.map(entry => `/posts/${entry.fields.url}`)]
+    })
+    .catch(error => {
+      console.log('error')
+      console.log(error)
+    })
+}
+
 export default {
   // 本来spaモードだがそれだとページごとのmetaが反映されないので
   mode: 'universal',
@@ -88,7 +103,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: [],
+  modules: ['@nuxtjs/sitemap'],
 
   /*
   ** Build configuration
@@ -133,17 +148,19 @@ export default {
   */
   generate: {
     routes() {
-      return client
-        .getEntries({
-          content_type: 'blog'
-        })
-        .then(entries => {
-          return [...entries.items.map(entry => `/posts/${entry.fields.url}`)]
-        })
-        .catch(error => {
-          console.log('error')
-          console.log(error)
-        })
+      return routing()
+    }
+  },
+
+  /*
+  ** sitemap作成オプション
+  */
+  sitemap: {
+    // path: '/sitemap.xml',
+    hostname: constant.url,
+    generate: true,
+    routes() {
+      return routing()
     }
   }
 }
