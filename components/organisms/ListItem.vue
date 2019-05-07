@@ -14,6 +14,7 @@
               <list-img :img="item.img" />
               <list-text :date="item.date" :title="item.title" />
               <!-- <out-clip /> -->
+              <newmark :is-new="item.isNew"/>
             </v-list-tile>
             <v-divider v-if="index !== (items.data.length - 1)" :key="index" inset />
           </template>
@@ -26,6 +27,7 @@
 
 <script>
 import OutClip from '~/components/atoms/OutClip.vue'
+import Newmark from '~/components/atoms/Newmark.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import ListImg from '~/components/molecules/ListImg.vue'
 import ListText from '~/components/molecules/ListText.vue'
@@ -34,6 +36,7 @@ import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 export default {
   components: {
     OutClip,
+    Newmark,
     Subheader,
     ListImg,
     ListText,

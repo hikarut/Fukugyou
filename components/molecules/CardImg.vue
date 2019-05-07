@@ -12,7 +12,7 @@
     <v-container fill-height fluid pa-2>
       <v-layout fill-height>
         <v-flex xs12 align-end flexbox>
-          <span class="black--text" v-text="title"/>
+          <newmark :is-new="isNew"/>
         </v-flex>
       </v-layout>
     </v-container>
@@ -21,19 +21,21 @@
 
 <script>
 import OutClip from '~/components/atoms/OutClip.vue'
+import Newmark from '~/components/atoms/Newmark.vue'
 
 export default {
   components: {
-    OutClip
+    OutClip,
+    Newmark
   },
   props: {
     src: {
       type: String,
       default: ''
     },
-    title: {
-      type: String,
-      default: ''
+    isNew: {
+      type: Boolean,
+      default: false
     }
   }
 }
