@@ -1,7 +1,14 @@
 {
   "header": "トップニュース",
-  "updatedAt": "2019/05/07(火) 08:00",
+  "updatedAt": "2019/05/08(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11522247/rectangle_large_type_2_1c75fb48051b3d757447df04521cd91a.jpeg",
+      "date": "2019/05/07(火)",
+      "title": "「ストック型でいこう！」と「複業ワークスタイルでいこう！」",
+      "link": "https://note.mu/bilifestyle/n/n67cd053fc74a"
+    },
     {
       "img":
         "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11513876/rectangle_large_type_2_fe305b134d63b80b55ae32311d21831e.png",
@@ -22,13 +29,6 @@
       "date": "2019/05/03(金)",
       "title": "【#副業は「やるかやらないか」だけの差】",
       "link": "https://note.mu/aito2214/n/n62cae8e497e8"
-    },
-    {
-      "img":
-        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11307697/rectangle_large_type_2_db6d3703780459c4af3ad3495413aa29.jpeg",
-      "date": "2019/05/02(木)",
-      "title": "本業と複業のバランスは流動的でいいんだよね。複業をやれてない自分をめっためたに甘やす不真面目さを受けいれたい。",
-      "link": "https://note.mu/going_steady/n/nf0a253158ef8"
     }
   ]
 }
