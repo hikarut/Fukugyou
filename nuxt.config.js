@@ -159,6 +159,7 @@ export default {
     // path: '/sitemap.xml',
     hostname: constant.url,
     generate: true,
+    exclude: ['/404', '/contact', '/privacy'],
     routes() {
       return routing()
     }
