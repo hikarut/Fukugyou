@@ -1,22 +1,44 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/08(水) 08:00",
+  "updatedAt": "2019/05/09(木) 08:00",
   "data": [
+    {
+      "img":
+        "https://knowledge.sakura.ad.jp/images/2019/04/audit_headless.png",
+      "date": "2019/05/08(水)",
+      "title": "GoogleによるWebサイトパフォーマンス測定ツール「Lighthouse」入門",
+      "link": "https://knowledge.sakura.ad.jp/21477/",
+      "isNew": true
+    },
+    {
+      "img":
+        "https://www.publickey1.jp/2019/googleio201903.gif",
+      "date": "2019/05/08(水)",
+      "title": "Google、「Flutter for Web」発表。FlutterからWebアプリを生成。",
+      "link": "https://www.publickey1.jp/blog/19/googleflutter_for_webflutterwebfluttergoogle_io_2019.html",
+      "isNew": true
+    },
+    {
+      "img":
+        "https://coliss.com/wp-content/uploads-201902/2019050801.png",
+      "date": "2019/05/08(水)",
+      "title": "最近のWebサイトでよく見かけるUI要素をデザインするCSSの実装テクニックのまとめ",
+      "link": "https://coliss.com/articles/build-websites/operation/css/design-tips-in-tailwindcss.html",
+      "isNew": true
+    },
     {
       "img":
         "https://cdn-ak.f.st-hatena.com/images/fotolife/y/youtatan/20190426/20190426181226.png",
       "date": "2019/05/07(火)",
       "title": "TypeScript + Vue.js の始め方",
-      "link": "https://blog.asial.co.jp/2019/05/07/TypeScript_%2B_Vue_js_%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9",
-      "isNew": true
+      "link": "https://blog.asial.co.jp/2019/05/07/TypeScript_%2B_Vue_js_%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9"
     },
     {
       "img":
         "https://techcrunchjp.files.wordpress.com/2019/05/hero2.png?w=659&zoom=2",
       "date": "2019/05/07(火)",
       "title": "マイクロソフトが「React Native for Windows」を公開",
-      "link": "https://jp.techcrunch.com/2019/05/07/2019-05-06-microsoft-launches-react-native-for-windows/",
-      "isNew": true
+      "link": "https://jp.techcrunch.com/2019/05/07/2019-05-06-microsoft-launches-react-native-for-windows/"
     },
     {
       "img":
@@ -31,13 +53,6 @@
       "date": "2019/05/05(日)",
       "title": "レゴがSTEM教育用Star Warsキットを発売へ",
       "link": "https://jp.techcrunch.com/2019/05/05/2019-05-04-lego-introduces-a-new-stem-star-wars-kit/"
-    },
-    {
-      "img":
-        "https://crieit.now.sh/upload_images/5bdf259a1402024ea7590a7f95f091515cccddd781e92.PNG",
-      "date": "2019/05/04(土)",
-      "title": "VSCodeのRemote Development機能が革命的な話。",
-      "link": "https://crieit.net/posts/VSCode-Remote-Development"
     }
   ]
 }
