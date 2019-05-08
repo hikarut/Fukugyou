@@ -26,7 +26,7 @@
 
 <script>
 import Subheader from '~/components/atoms/Subheader.vue'
-import BigImg from '~/components/molecules/BigImg.vue'
+import BigImg from '~/components/atoms/BigImg.vue'
 
 export default {
   components: {

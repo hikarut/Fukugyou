@@ -13,9 +13,9 @@
             >
               <a :href="`${card.link}`" target="blank">
                 <v-card>
-                  <card-Img :src="card.img" :is-new="card.isNew" />
-                  <card-text :text="card.date" class="date"/>
-                  <card-text :text="card.title" />
+                  <card-Img :src="card.img" />
+                  <card-date :text="card.date" class="date"/>
+                  <card-title :text="card.title" :is-new="card.isNew"/>
                 </v-card>
               </a>
             </v-flex>
@@ -27,14 +27,16 @@
 </template>
 
 <script>
-import CardText from '~/components/molecules/CardText.vue'
-import CardImg from '~/components/molecules/CardImg.vue'
+import CardDate from '~/components/molecules/CardDate.vue'
+import CardTitle from '~/components/molecules/CardTitle.vue'
+import CardImg from '~/components/atoms/CardImg.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 
 export default {
   components: {
-    CardText,
+    CardDate,
+    CardTitle,
     CardImg,
     Subheader,
     UpdatedAtText
