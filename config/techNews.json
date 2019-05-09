@@ -1,30 +1,35 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/09(木) 08:00",
+  "updatedAt": "2019/05/10(金) 08:00",
   "data": [
+    {
+      "img":
+        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+      "date": "2019/05/09(木)",
+      "title": "【2019年】データ分析・可視化に本気でおすすめのツール30選（ノーコード型ツール含め）",
+      "link": "https://qiita.com/keisuuuuke/items/e7b5cc6a5db04f2c8d5c",
+      "isNew": true
+    },
     {
       "img":
         "https://knowledge.sakura.ad.jp/images/2019/04/audit_headless.png",
       "date": "2019/05/08(水)",
       "title": "GoogleによるWebサイトパフォーマンス測定ツール「Lighthouse」入門",
-      "link": "https://knowledge.sakura.ad.jp/21477/",
-      "isNew": true
+      "link": "https://knowledge.sakura.ad.jp/21477/"
     },
     {
       "img":
         "https://www.publickey1.jp/2019/googleio201903.gif",
       "date": "2019/05/08(水)",
       "title": "Google、「Flutter for Web」発表。FlutterからWebアプリを生成。",
-      "link": "https://www.publickey1.jp/blog/19/googleflutter_for_webflutterwebfluttergoogle_io_2019.html",
-      "isNew": true
+      "link": "https://www.publickey1.jp/blog/19/googleflutter_for_webflutterwebfluttergoogle_io_2019.html"
     },
     {
       "img":
         "https://coliss.com/wp-content/uploads-201902/2019050801.png",
       "date": "2019/05/08(水)",
       "title": "最近のWebサイトでよく見かけるUI要素をデザインするCSSの実装テクニックのまとめ",
-      "link": "https://coliss.com/articles/build-websites/operation/css/design-tips-in-tailwindcss.html",
-      "isNew": true
+      "link": "https://coliss.com/articles/build-websites/operation/css/design-tips-in-tailwindcss.html"
     },
     {
       "img":
@@ -46,13 +51,6 @@
       "date": "2019/05/06(月)",
       "title": "JavaScriptの日時処理はこう変わる！　Temporal入門",
       "link": "https://qiita.com/uhyo/items/5f34f5d6f33aa091a104"
-    },
-    {
-      "img":
-        "https://techcrunchjp.files.wordpress.com/2019/05/75253_lsw_boost_2hy19_play.jpg",
-      "date": "2019/05/05(日)",
-      "title": "レゴがSTEM教育用Star Warsキットを発売へ",
-      "link": "https://jp.techcrunch.com/2019/05/05/2019-05-04-lego-introduces-a-new-stem-star-wars-kit/"
     }
   ]
 }
