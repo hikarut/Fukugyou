@@ -4,9 +4,22 @@
     <div class="top-button">
       <nuxt-link to="/posts"><v-btn block outline color="#134b8a">もっと見る</v-btn></nuxt-link>
     </div>
+
     <card-item :items="cards"/>
+    <div class="top-button">
+      <nuxt-link to="/news/top"><v-btn block outline color="#134b8a">もっと見る</v-btn></nuxt-link>
+    </div>
+
     <list-item :items="fukugyouNews" />
+    <div class="top-button">
+      <nuxt-link to="/news/fukugyou"><v-btn block outline color="#134b8a">もっと見る</v-btn></nuxt-link>
+    </div>
+
     <list-item :items="techNews" />
+    <div class="top-button">
+      <nuxt-link to="/news/tech"><v-btn block outline color="#134b8a">もっと見る</v-btn></nuxt-link>
+    </div>
+
     <list-item :items="recomendNews" />
   </div>
 </template>
@@ -19,9 +32,18 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 
 // 手動で拾ってきたニュース
-const topNews = require('~/config/topNews.json')
-const fukugyouNews = require('~/config/fukugyouNews.json')
-const techNews = require('~/config/techNews.json')
+let topNews = require('~/config/topNews.json')
+const topNewsData = topNews.data.slice(0, 4)
+topNews.data = topNewsData
+
+let fukugyouNews = require('~/config/fukugyouNews.json')
+const fukugyouNewsData = fukugyouNews.data.slice(0, 8)
+fukugyouNews.data = fukugyouNewsData
+
+let techNews = require('~/config/techNews.json')
+const techNewsData = techNews.data.slice(0, 4)
+techNews.data = techNewsData
+
 const recomendNews = require('~/config/recomendNews.json')
 
 export default {
