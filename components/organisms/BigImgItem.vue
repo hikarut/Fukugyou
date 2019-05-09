@@ -5,7 +5,7 @@
       <v-flex :key="item.subtitle" class="main">
         <nuxt-link :to="item.link" >
           <v-card class="card-tile">
-            <big-img :src="item.img" />
+            <big-img :src="item.img" :alt="item.title"/>
 
             <v-card-title primary-title>
               <div>

@@ -1,11 +1,15 @@
 <template>
-  <img v-lazy="src" src="/loading.png" class="card-img">
+  <img v-lazy="src" :alt="alt" src="/loading.png" class="card-img">
 </template>
 
 <script>
 export default {
   props: {
     src: {
+      type: String,
+      default: ''
+    },
+    alt: {
       type: String,
       default: ''
     }

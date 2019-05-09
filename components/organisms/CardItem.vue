@@ -13,7 +13,7 @@
             >
               <a :href="`${card.link}`" target="blank">
                 <v-card>
-                  <card-Img :src="card.img" />
+                  <card-Img :src="card.img" :alt="card.title"/>
                   <card-date :text="card.date" class="date"/>
                   <card-title :text="card.title" :is-new="card.isNew"/>
                 </v-card>

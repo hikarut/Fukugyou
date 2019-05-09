@@ -1,7 +1,7 @@
 <template>
   <div class="tile-parent">
     <div>
-      <img v-lazy="img" src="/loading.png" class="tile">
+      <img v-lazy="img" :alt="alt" src="/loading.png" class="tile">
     </div>
   </div>
 </template>
@@ -10,6 +10,10 @@
 export default {
   props: {
     img: {
+      type: String,
+      default: ''
+    },
+    alt: {
       type: String,
       default: ''
     }

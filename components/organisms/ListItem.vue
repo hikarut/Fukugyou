@@ -11,7 +11,7 @@
               avatar
               @click="go(item.link)"
             >
-              <list-img :img="item.img" />
+              <list-img :img="item.img" :alt="item.title"/>
               <list-text :date="item.date" :title="item.title" />
               <!-- <out-clip /> -->
               <newmark :is-new="item.isNew"/>
