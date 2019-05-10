@@ -10,7 +10,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 
 // 手動で拾ってきたニュース
-const techNewsList = require('~/config/techNews.json')
+const techNewsList = require('~/config/techNews.json5')
 
 export default {
   components: {

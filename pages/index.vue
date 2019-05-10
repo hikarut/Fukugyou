@@ -25,19 +25,19 @@ import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 
 // 手動で拾ってきたニュース
-const topNewsOrigin = require('~/config/topNews.json')
+const topNewsOrigin = require('~/config/topNews.json5')
 const topNews = Object.assign({}, topNewsOrigin)
 topNews.data = topNews.data.slice(0, 4)
 
-const fukugyouNewsOrigin = require('~/config/fukugyouNews.json')
+const fukugyouNewsOrigin = require('~/config/fukugyouNews.json5')
 const fukugyouNews = Object.assign({}, fukugyouNewsOrigin)
 fukugyouNews.data = fukugyouNews.data.slice(0, 8)
 
-const techNewsOrigin = require('~/config/techNews.json')
+const techNewsOrigin = require('~/config/techNews.json5')
 const techNews = Object.assign({}, techNewsOrigin)
 techNews.data = techNews.data.slice(0, 4)
 
-const recomendNews = require('~/config/recomendNews.json')
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {

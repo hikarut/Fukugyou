@@ -10,7 +10,7 @@ import CardItem from '~/components/organisms/CardItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 
 // 手動で拾ってきたニュース
-const topNews = require('~/config/topNews.json')
+const topNews = require('~/config/topNews.json5')
 
 export default {
   components: {

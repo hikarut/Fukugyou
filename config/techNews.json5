@@ -8,7 +8,7 @@
       "date": "2019/05/08(水)",
       "title": "GoogleによるWebサイトパフォーマンス測定ツール「Lighthouse」入門",
       "link": "https://knowledge.sakura.ad.jp/21477/",
-      "isNew": true
+      "isNew": true,
     },
     {
       "img":
@@ -16,7 +16,7 @@
       "date": "2019/05/08(水)",
       "title": "Google、「Flutter for Web」発表。FlutterからWebアプリを生成。",
       "link": "https://www.publickey1.jp/blog/19/googleflutter_for_webflutterwebfluttergoogle_io_2019.html",
-      "isNew": true
+      "isNew": true,
     },
     {
       "img":
@@ -24,7 +24,7 @@
       "date": "2019/05/08(水)",
       "title": "最近のWebサイトでよく見かけるUI要素をデザインするCSSの実装テクニックのまとめ",
       "link": "https://coliss.com/articles/build-websites/operation/css/design-tips-in-tailwindcss.html",
-      "isNew": true
+      "isNew": true,
     },
     {
       "img":
@@ -53,6 +53,6 @@
       "date": "2019/05/05(日)",
       "title": "レゴがSTEM教育用Star Warsキットを発売へ",
       "link": "https://jp.techcrunch.com/2019/05/05/2019-05-04-lego-introduces-a-new-stem-star-wars-kit/"
-    }
+    },
   ]
 }
