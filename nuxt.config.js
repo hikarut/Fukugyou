@@ -127,6 +127,11 @@ export default {
           exclude: /(node_modules)/
         })
       }
+      config.module.rules.push({
+        test: /\.json5$/,
+        loader: 'json5-loader',
+        exclude: /(node_modules)/
+      })
     }
   },
 

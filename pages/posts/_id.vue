@@ -27,7 +27,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import { dateString } from '~/plugins/date'
 import { getEntryById } from '~/plugins/contentful'
 
-const recomendNews = require('~/config/recomendNews.json')
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {

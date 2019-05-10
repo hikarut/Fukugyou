@@ -1,12 +1,17 @@
 <template>
   <div class="top">
     <big-img-item :items="listData" />
-    <div class="top-button">
-      <nuxt-link to="/posts"><v-btn block outline color="#134b8a">もっと見る</v-btn></nuxt-link>
-    </div>
+    <button-link link="/posts" text="もっと見る" />
+
     <card-item :items="cards"/>
+    <button-link link="/news/top" text="もっと見る" />
+
     <list-item :items="fukugyouNews" />
+    <button-link link="/news/fukugyou" text="もっと見る" />
+
     <list-item :items="techNews" />
+    <button-link link="/news/tech" text="もっと見る" />
+
     <list-item :items="recomendNews" />
   </div>
 </template>
@@ -17,18 +22,29 @@ import { dateString } from '~/plugins/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
+import ButtonLink from '~/components/atoms/Button.vue'
 
 // 手動で拾ってきたニュース
-const topNews = require('~/config/topNews.json')
-const fukugyouNews = require('~/config/fukugyouNews.json')
-const techNews = require('~/config/techNews.json')
-const recomendNews = require('~/config/recomendNews.json')
+const topNewsOrigin = require('~/config/topNews.json5')
+const topNews = Object.assign({}, topNewsOrigin)
+topNews.data = topNews.data.slice(0, 4)
+
+const fukugyouNewsOrigin = require('~/config/fukugyouNews.json5')
+const fukugyouNews = Object.assign({}, fukugyouNewsOrigin)
+fukugyouNews.data = fukugyouNews.data.slice(0, 8)
+
+const techNewsOrigin = require('~/config/techNews.json5')
+const techNews = Object.assign({}, techNewsOrigin)
+techNews.data = techNews.data.slice(0, 4)
+
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
     CardItem,
     ListItem,
-    BigImgItem
+    BigImgItem,
+    ButtonLink
   },
   // 投稿内容を取得
   asyncData() {
@@ -47,7 +63,6 @@ export default {
 .top-button {
   width: 90%;
   margin: 0 auto;
-  padding-top: -10px;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

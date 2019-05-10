@@ -8,49 +8,49 @@
       "date": "2019/05/09(木)",
       "title": "【2019年】データ分析・可視化に本気でおすすめのツール30選（ノーコード型ツール含め）",
       "link": "https://qiita.com/keisuuuuke/items/e7b5cc6a5db04f2c8d5c",
-      "isNew": true
+      "isNew": true,
     },
     {
       "img":
         "https://knowledge.sakura.ad.jp/images/2019/04/audit_headless.png",
       "date": "2019/05/08(水)",
       "title": "GoogleによるWebサイトパフォーマンス測定ツール「Lighthouse」入門",
-      "link": "https://knowledge.sakura.ad.jp/21477/"
+      "link": "https://knowledge.sakura.ad.jp/21477/",
     },
     {
       "img":
         "https://www.publickey1.jp/2019/googleio201903.gif",
       "date": "2019/05/08(水)",
       "title": "Google、「Flutter for Web」発表。FlutterからWebアプリを生成。",
-      "link": "https://www.publickey1.jp/blog/19/googleflutter_for_webflutterwebfluttergoogle_io_2019.html"
+      "link": "https://www.publickey1.jp/blog/19/googleflutter_for_webflutterwebfluttergoogle_io_2019.html",
     },
     {
       "img":
         "https://coliss.com/wp-content/uploads-201902/2019050801.png",
       "date": "2019/05/08(水)",
       "title": "最近のWebサイトでよく見かけるUI要素をデザインするCSSの実装テクニックのまとめ",
-      "link": "https://coliss.com/articles/build-websites/operation/css/design-tips-in-tailwindcss.html"
+      "link": "https://coliss.com/articles/build-websites/operation/css/design-tips-in-tailwindcss.html",
     },
     {
       "img":
         "https://cdn-ak.f.st-hatena.com/images/fotolife/y/youtatan/20190426/20190426181226.png",
       "date": "2019/05/07(火)",
       "title": "TypeScript + Vue.js の始め方",
-      "link": "https://blog.asial.co.jp/2019/05/07/TypeScript_%2B_Vue_js_%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9"
+      "link": "https://blog.asial.co.jp/2019/05/07/TypeScript_%2B_Vue_js_%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9",
     },
     {
       "img":
         "https://techcrunchjp.files.wordpress.com/2019/05/hero2.png?w=659&zoom=2",
       "date": "2019/05/07(火)",
       "title": "マイクロソフトが「React Native for Windows」を公開",
-      "link": "https://jp.techcrunch.com/2019/05/07/2019-05-06-microsoft-launches-react-native-for-windows/"
+      "link": "https://jp.techcrunch.com/2019/05/07/2019-05-06-microsoft-launches-react-native-for-windows/",
     },
     {
       "img":
         "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
       "date": "2019/05/06(月)",
       "title": "JavaScriptの日時処理はこう変わる！　Temporal入門",
-      "link": "https://qiita.com/uhyo/items/5f34f5d6f33aa091a104"
-    }
+      "link": "https://qiita.com/uhyo/items/5f34f5d6f33aa091a104",
+    },
   ]
 }
