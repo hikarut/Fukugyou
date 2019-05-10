@@ -8,11 +8,9 @@
 <script>
 import ListItem from '~/components/organisms/ListItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
-console.log('aaaaaa')
 
 // 手動で拾ってきたニュース
 const techNewsList = require('~/config/techNews.json')
-console.log(techNewsList)
 
 export default {
   components: {
