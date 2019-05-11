@@ -1,14 +1,29 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/10(金) 08:00",
+  "updatedAt": "2019/05/11(土) 08:30",
   "data": [
+    {
+      "img":
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20121109/20121109103435.jpg",
+      "date": "2019/05/10(金)",
+      "title": "エンジニアの評価制度、他社は一体どうやってるの！？まとめて紹介！",
+      "link": "https://paiza.hatenablog.com/entry/2019/05/10/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E8%A9%95%E4%BE%A1%E5%88%B6%E5%BA%A6%E3%80%81%E4%BB%96%E7%A4%BE%E3%81%AF%E4%B8%80%E4%BD%93%E3%81%A9%E3%81%86%E3%82%84%E3%81%A3%E3%81%A6%E3%82%8B",
+      "isNew": true,
+    },
+    {
+      "img":
+        "https://thebridge.jp/wp-content/uploads/2019/05/rocketa-team.jpg",
+      "date": "2019/05/09(木)",
+      "title": "エンジニア向け記事キュレーション＆ソーシャルメディア「AnyPicks（エニーピックス）」運営、MIRAISEやエンジェル複数から1,200万円を調達",
+      "link": "https://thebridge.jp/2019/05/rocketa-angel-round-funding-for-anypicks",
+      "isNew": true,
+    },
     {
       "img":
         "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
       "date": "2019/05/09(木)",
       "title": "【2019年】データ分析・可視化に本気でおすすめのツール30選（ノーコード型ツール含め）",
       "link": "https://qiita.com/keisuuuuke/items/e7b5cc6a5db04f2c8d5c",
-      "isNew": true,
     },
     {
       "img":
