@@ -1,14 +1,21 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/12(日) 13:00",
+  "updatedAt": "2019/05/13(月) 08:00",
   "data": [
+    {
+      "img":
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/e/ejinote/20190512/20190512163833.png",
+      "date": "2019/05/12(日)",
+      "title": "Dockerでデータ分析環境を手軽に作る方法",
+      "link": "https://amalog.hateblo.jp/entry/data-analysis-docker",
+      "isNew": true,
+    },
     {
       "img":
         "https://www.nikkei.com/content/pic/20190511/96958A9F889DE6E6E4E6E2E1E1E2E3E2E2E7E0E2E3EBE2E2E2E2E2E2-DSXMZO4466306010052019I00001-PB1-3.jpg",
       "date": "2019/05/11(土)",
       "title": "就労者のIT対応、日本は世界に遅れ　潜在力は高く",
       "link": "https://www.nikkei.com/article/DGXMZO44640330Q9A510C1000000/",
-      "isNew": true,
     },
     {
       "img":
@@ -16,7 +23,6 @@
       "date": "2019/05/11(土)",
       "title": "Appleのティム・クックCEO「プログラマーになるのに大学を出る必要ない」",
       "link": "https://iphone-mania.jp/news-247400/",
-      "isNew": true,
     },
     {
       "img":
@@ -24,7 +30,6 @@
       "date": "2019/05/12(日)",
       "title": "プログラミング中級者に読んでほしい良いコードを書くための20箇条",
       "link": "https://anopara.net/2014/04/11/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E4%B8%AD%E7%B4%9A%E8%80%85%E3%81%AB%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%BB%E3%81%97%E3%81%84%E8%89%AF%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89/",
-      "isNew": true,
     },
     {
       "img":
