@@ -1,7 +1,7 @@
 <template>
   <v-list-tile-content>
-    <v-list-tile-title v-html="date"/>
-    <v-list-tile-sub-title v-html="title"/>
+    <v-list-tile-title class="date" v-html="date" />
+    <v-list-tile-sub-title class="title" v-html="title" />
   </v-list-tile-content>
 </template>
 
@@ -19,3 +19,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.date {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+}
+.title {
+  color: #424242 !important;
+  font-size: 14px !important;
+}
+</style>

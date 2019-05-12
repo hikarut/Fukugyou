@@ -60,7 +60,10 @@ export default {
   box-shadow: initial;
 }
 .date span {
-  color: '#9e9e9e';
+  /* color: '#9e9e9e'; */
+}
+.date {
+  color: rgba(0, 0, 0, 0.54);
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

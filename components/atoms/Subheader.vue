@@ -18,5 +18,6 @@ export default {
 <style scoped>
 .subheader {
   margin: 15px 0px;
+  color: #424242;
 }
 </style>
