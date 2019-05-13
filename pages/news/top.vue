@@ -25,7 +25,7 @@ export default {
         url: '/'
       },
       {
-        text: 'トップニュース一覧',
+        text: 'おすすめ複業ニュース一覧',
         disabled: true,
         url: '/news/top'
       }

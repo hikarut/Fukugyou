@@ -1,5 +1,6 @@
 <template>
   <div class="top">
+    <subheader text="トップニュース" />
     <big-img-item :items="listData" />
     <button-link link="/posts" text="もっと見る" />
 
@@ -23,6 +24,7 @@ import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
+import Subheader from '~/components/atoms/Subheader.vue'
 
 // 手動で拾ってきたニュース
 const topNewsOrigin = require('~/config/topNews.json5')
@@ -44,11 +46,12 @@ export default {
     CardItem,
     ListItem,
     BigImgItem,
-    ButtonLink
+    ButtonLink,
+    Subheader
   },
   // 投稿内容を取得
   asyncData() {
-    return getEntries(1)
+    return getEntries(2)
   },
   data: () => ({
     cards: topNews,
