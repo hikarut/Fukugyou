@@ -23,3 +23,16 @@ pre code {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+img[lazy='loaded'] {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: scrollIn;
+}
+@keyframes scrollIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
