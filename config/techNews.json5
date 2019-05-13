@@ -1,14 +1,21 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/13(月) 08:00",
+  "updatedAt": "2019/05/14(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2019/05/eyecatch-400x210.png",
+      "date": "2019/05/13(月)",
+      "title": "マネジメントで悩むすべてのエンジニアが見るべき完全無料テキスト「Google re:Work」",
+      "link": "https://dev.classmethod.jp/etc/re-work/",
+      "isNew": true,
+    },
     {
       "img":
         "https://cdn-ak.f.st-hatena.com/images/fotolife/e/ejinote/20190512/20190512163833.png",
       "date": "2019/05/12(日)",
       "title": "Dockerでデータ分析環境を手軽に作る方法",
       "link": "https://amalog.hateblo.jp/entry/data-analysis-docker",
-      "isNew": true,
     },
     {
       "img":

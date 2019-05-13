@@ -1,14 +1,21 @@
 {
   "header": "おすすめ複業ニュース",
-  "updatedAt": "2019/05/13(月) 08:00",
+  "updatedAt": "2019/05/14(月) 08:00",
   "data": [
+    {
+      "img":
+        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11252756/rectangle_large_type_2_199143b8a5503fadd901772d21cde9b2.jpeg",
+      "date": "2019/05/13(月)",
+      "title": "【田舎で起業】一緒に仕事をしていきたい“フリーランス”の特徴とは",
+      "link": "https://note.mu/dai1112_blueto/n/n6d7bb97cbdb0",
+      "isNew": true,
+    },
     {
       "img":
         "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11620712/rectangle_large_type_2_1e15d974eafb314309d54c1f61ced0b8.jpeg",
       "date": "2019/05/12(日)",
       "title": "わたしが新卒でパラレルワーカーになった理由〈前編〉",
       "link": "https://note.mu/soymaru0102/n/n7aedc017f83e",
-      "isNew": true,
     },
     {
       "img":
