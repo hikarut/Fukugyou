@@ -1,14 +1,29 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/14(火) 08:00",
+  "updatedAt": "2019/05/15(水) 08:30",
   "data": [
+    {
+      "img":
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/v/vasilyjp/20190513/20190513100630.jpg",
+      "date": "2019/05/14(火)",
+      "title": "Vue.js＋Vuex＋TypeScriptのWebフロントエンド開発現場を前向きに改善した話",
+      "link": "https://techblog.zozo.com/entry/frontend_improve",
+      "isNew": true,
+    },
+    {
+      "img":
+        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+      "date": "2019/05/14(火)",
+      "title": "AWS/Azure/GCPサービス比較 2019.05",
+      "link": "https://qiita.com/hayao_k/items/906ac1fba9e239e08ae8",
+      "isNew": true,
+    },
     {
       "img":
         "https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2019/05/eyecatch-400x210.png",
       "date": "2019/05/13(月)",
       "title": "マネジメントで悩むすべてのエンジニアが見るべき完全無料テキスト「Google re:Work」",
       "link": "https://dev.classmethod.jp/etc/re-work/",
-      "isNew": true,
     },
     {
       "img":
