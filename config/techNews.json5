@@ -1,14 +1,29 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/15(水) 08:30",
+  "updatedAt": "2019/05/16(木) 08:00",
   "data": [
+    {
+      "img":
+        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+      "date": "2019/05/15(水)",
+      "title": "Vueの秘密のパフォーマンステク9選紹介",
+      "link": "https://qiita.com/miyaoka/items/5183c143e195455ae65e",
+      "isNew": true,
+    },
+    {
+      "img":
+        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+      "date": "2019/05/15(水)",
+      "title": "Nuxt.js v2.7.0 の変更点と注目のポイントまとめ",
+      "link": "https://qiita.com/potato4d/items/43b4f17c73aebc7a2154",
+      "isNew": true,
+    },
     {
       "img":
         "https://cdn-ak.f.st-hatena.com/images/fotolife/v/vasilyjp/20190513/20190513100630.jpg",
       "date": "2019/05/14(火)",
       "title": "Vue.js＋Vuex＋TypeScriptのWebフロントエンド開発現場を前向きに改善した話",
       "link": "https://techblog.zozo.com/entry/frontend_improve",
-      "isNew": true,
     },
     {
       "img":
@@ -16,7 +31,6 @@
       "date": "2019/05/14(火)",
       "title": "AWS/Azure/GCPサービス比較 2019.05",
       "link": "https://qiita.com/hayao_k/items/906ac1fba9e239e08ae8",
-      "isNew": true,
     },
     {
       "img":

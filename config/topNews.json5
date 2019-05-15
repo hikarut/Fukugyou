@@ -1,14 +1,21 @@
 {
   "header": "おすすめ複業ニュース",
-  "updatedAt": "2019/05/15(水) 08:30",
+  "updatedAt": "2019/05/16(木) 08:00",
   "data": [
+    {
+      "img":
+        "https://dime.jp/genre/files/2019/04/image1.jpeg",
+      "date": "2019/05/15(水)",
+      "title": "メルカリが副業を推奨する理由とは？キーワードは「人と組織が成長し続けられる環境の提供」",
+      "link": "https://dime.jp/genre/702532/",
+      "isNew": true,
+    },
     {
       "img":
         "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11632844/rectangle_large_type_2_3a4fc4790cb023226dc3499e34acb79e.jpeg",
       "date": "2019/05/15(水)",
       "title": "大企業なのに副業を始めたワケ＊その４",
       "link": "https://note.mu/azure_sky08/n/n64fbfa9bdb4b",
-      "isNew": true,
     },
     {
       "img":

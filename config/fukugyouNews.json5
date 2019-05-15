@@ -1,14 +1,29 @@
 {
   "header": "複業ニュース",
-  "updatedAt": "2019/05/15(水) 08:30",
+  "updatedAt": "2019/05/16(木) 08:00",
   "data": [
+    {
+      "img":
+        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11689711/rectangle_large_type_2_0ab6f8b7e2d1c2f50d06b5e5f3283e3d.jpeg",
+      "date": "2019/05/15(水)",
+      "title": "副業や複業が「スキルアップの手段」になりにくい理由",
+      "link": "https://note.mu/ikedanoriyuki/n/nc81046eb2be3",
+      "isNew": true,
+    },
+    {
+      "img":
+        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11697880/rectangle_large_type_2_c2b0b1a00e924a3e1201fa04016a6b34.png",
+      "date": "2019/05/15(水)",
+      "title": "【副業ブログ開始4ヶ月で月10万円稼いだ体験談】記事数やPV数も公開",
+      "link": "https://note.mu/gudon75/n/nb77235b3f628",
+      "isNew": true,
+    },
     {
       "img":
         "https://cdn-ak.f.st-hatena.com/images/fotolife/h/hideyoshi1537/20190514/20190514000748.png",
       "date": "2019/05/14(火)",
       "title": "会社員＋副業戦略は、解雇規制が緩和されたら通用しなくなるかもしれない",
       "link": "https://oreno-yuigon.hatenablog.com/entry/2019/05/14/004306",
-      "isNew": true,
     },
     {
       "img":
@@ -16,7 +31,6 @@
       "date": "2019/05/14(火)",
       "title": "クラウドワークスで実際に仕事してみた",
       "link": "https://note.mu/dai1112_blueto/n/n6d7bb97cbdb0",
-      "isNew": true,
     },
     {
       "img":
@@ -24,7 +38,6 @@
       "date": "2019/05/14(火)",
       "title": "副業ってどーなん。。",
       "link": "https://note.mu/rezista6/n/n41c78b8c1928",
-      "isNew": true,
     },
     {
       "img":
@@ -32,7 +45,6 @@
       "date": "2019/05/15(水)",
       "title": "公務員の副業は解禁されるのか",
       "link": "https://note.mu/ebisutakeshi/n/n460ac8e2a739",
-      "isNew": true,
     },
     {
       "img":
@@ -40,7 +52,6 @@
       "date": "2019/05/15(水)",
       "title": "夢追い人こそ効率のいい副業を",
       "link": "https://note.mu/okuyamatsundi/n/nef9c4e5ed08e",
-      "isNew": true,
     },
     {
       "img":
