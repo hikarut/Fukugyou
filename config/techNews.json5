@@ -1,22 +1,28 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/16(木) 08:00",
+  "updatedAt": "2019/05/17(金) 08:00",
   "data": [
     {
       "img":
-        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+        "https://lh4.googleusercontent.com/YuRqzxzi_cPde__aQa8h6ICjVgcUADxdu8VDNVQPaaSCwc0kOmgDkui3rIsPeJo7rT3zJg=w1200-h630-p",
       "date": "2019/05/15(水)",
-      "title": "Vueの秘密のパフォーマンステク9選紹介",
-      "link": "https://qiita.com/miyaoka/items/5183c143e195455ae65e",
+      "title": "はじめての機械学習と TensorFlow",
+      "link": "https://docs.google.com/presentation/d/1aWaI-h8Qhc3D3SC0arNYrx595__QH27dW6pXQ70zogg/mobilepresent?slide=id.g4df0e15d61_0_709",
       "isNew": true,
     },
     {
       "img":
-        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+        "https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png",
+      "date": "2019/05/15(水)",
+      "title": "Vueの秘密のパフォーマンステク9選紹介",
+      "link": "https://qiita.com/miyaoka/items/5183c143e195455ae65e",
+    },
+    {
+      "img":
+        "https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png",
       "date": "2019/05/15(水)",
       "title": "Nuxt.js v2.7.0 の変更点と注目のポイントまとめ",
       "link": "https://qiita.com/potato4d/items/43b4f17c73aebc7a2154",
-      "isNew": true,
     },
     {
       "img":
@@ -27,7 +33,7 @@
     },
     {
       "img":
-        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+        "https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png",
       "date": "2019/05/14(火)",
       "title": "AWS/Azure/GCPサービス比較 2019.05",
       "link": "https://qiita.com/hayao_k/items/906ac1fba9e239e08ae8",
@@ -83,7 +89,7 @@
     },
     {
       "img":
-        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+        "https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png",
       "date": "2019/05/09(木)",
       "title": "【2019年】データ分析・可視化に本気でおすすめのツール30選（ノーコード型ツール含め）",
       "link": "https://qiita.com/keisuuuuke/items/e7b5cc6a5db04f2c8d5c",
@@ -125,7 +131,7 @@
     },
     {
       "img":
-        "https://pbs.twimg.com/card_img/1122260755594739712/zAGzxqg7?format=png&name=240x240",
+        "https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png",
       "date": "2019/05/06(月)",
       "title": "JavaScriptの日時処理はこう変わる！　Temporal入門",
       "link": "https://qiita.com/uhyo/items/5f34f5d6f33aa091a104",
