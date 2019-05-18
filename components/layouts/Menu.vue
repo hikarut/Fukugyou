@@ -1,21 +1,32 @@
 <template>
-  <v-menu>
-    <template v-slot:activator="{ on }">
-      <v-btn icon v-on="on">
-        <v-icon color="white">fas fa-bars</v-icon>
-      </v-btn>
-    </template>
+  <div>
+    <v-btn icon>
+      <v-icon color="white" @click.stop="drawer = !drawer">fas fa-bars</v-icon>
+    </v-btn>
 
-    <v-list>
-      <v-list-tile
-        v-for="(item, i) in menus"
-        :key="i"
-        @click="go(item.url)"
-      >
-        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-      </v-list-tile>
-    </v-list>
-  </v-menu>
+    <v-navigation-drawer v-model="drawer"
+                         class="side-menu"
+                         absolute
+                         temporary
+                         right
+    >
+      <v-list class="pt-0 list" dense>
+        <v-list-tile
+          v-for="(item, i) in menus"
+          :key="i"
+          class="list-tile"
+          @click="go(item.url)"
+        >
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title class="list-title">{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
 </template>
 
 <script>
@@ -23,6 +34,9 @@ import menu from '~/mixins/menu'
 
 export default {
   mixins: [menu],
+  data: () => ({
+    drawer: null
+  }),
   methods: {
     go(url) {
       this.$router.push(url)
@@ -31,9 +45,23 @@ export default {
 }
 </script>
 
-<style>
-.v-menu__content {
-  width: 150px;
-  /* width: 100%; */
+<style scoped>
+/* スマホの場合は小さくする */
+@media screen and (max-width: 400px) {
+  .side-menu {
+    width: 200px !important;
+  }
+}
+.side-menu {
+  height: 100vh !important;
+}
+.list-title {
+  font-size: 16px;
+}
+.list {
+  margin-top: 10px;
+}
+.list-tile {
+  margin-top: 10px;
 }
 </style>
