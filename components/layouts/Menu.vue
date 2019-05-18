@@ -6,7 +6,7 @@
 
     <v-navigation-drawer v-model="drawer"
                          class="side-menu"
-                         absolute
+                         fixed
                          temporary
                          right
     >
@@ -53,7 +53,7 @@ export default {
   }
 }
 .side-menu {
-  height: 100vh !important;
+  /* height: 100vh !important; */
 }
 .list-title {
   font-size: 16px;
