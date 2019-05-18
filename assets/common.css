@@ -23,6 +23,36 @@ pre code {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+/* マークダウンのテーブルを調整 */
+.markdown thead,
+.markdown tfoot {
+  background-color: #134b8a;
+  color: #fff;
+}
+.markdown tbody {
+  background-color: rgba(19, 75, 138, 0.1);
+}
+.markdown caption {
+  padding: 10px;
+  caption-side: bottom;
+}
+.markdown table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: .8rem;
+  margin: 0 auto;
+}
+.markdown td,
+.markdown th {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;
+}
+.markdown td {
+  text-align: center;
+}
+
 img[lazy='loaded'] {
   animation-duration: 1s;
   animation-fill-mode: both;
