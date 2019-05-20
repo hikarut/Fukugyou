@@ -7,19 +7,22 @@
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
-      v-model="name"
+      v-model="form.name"
       :rules="nameRules"
+      name="name"
       label="お名前"
       required
     />
     <v-text-field
-      v-model="mail"
+      v-model="form.mail"
       :rules="nameRules"
+      name="mail"
       label="メールアドレス"
       required
     />
     <v-textarea
-      name="input_index"
+      v-model="form.inputText"
+      name="contents"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>
@@ -29,9 +32,11 @@
 <script>
 export default {
   data: () => ({
-    name: '',
-    mail: '',
-    inputText: ''
+    form: {
+      name: '',
+      mail: '',
+      inputText: ''
+    }
   }),
   methods: {
     updatePanelist(ev) {
