@@ -71,7 +71,8 @@ export default {
       console.log(this.form)
       axios
         .post(
-          '/',
+          // '/',
+          '/contact/complete',
           this.encode({
             'form-name': 'ask-question',
             ...this.form
