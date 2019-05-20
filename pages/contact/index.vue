@@ -7,9 +7,9 @@
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
-      v-model="form.name"
+      v-model="name"
       :rules="nameRules"
-      name="name1"
+      name="name"
       label="お名前"
       required
     />
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   data: () => ({
     form: {
@@ -38,11 +40,25 @@ export default {
       inputText: ''
     }
   }),
+  computed: {
+    name: {
+      get() {
+        // return this.$store.state.contact.name
+        return 'aa'
+        // return this.name
+      },
+      set(value) {
+        this.setName(value)
+      }
+    }
+  },
   methods: {
     next() {
       console.log('next')
       this.$router.push('/contact/confirm')
-    }
+    },
+    ...mapMutations('contact', ['setName', 'setMail', 'setContents']),
+    ...mapState('contact', ['name', 'mail', 'contents'])
   }
 }
 </script>

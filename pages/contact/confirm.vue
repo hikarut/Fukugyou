@@ -7,7 +7,7 @@
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
-      v-model="form.name"
+      v-model="name"
       :rules="nameRules"
       name="name"
       label="お名前"
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import axios from 'axios'
 
 export default {
@@ -40,6 +41,18 @@ export default {
       inputText: '固定の値'
     }
   }),
+  computed: {
+    name: {
+      get() {
+        // return this.$store.state.contact.name
+        return 'aa'
+        // return this.name
+      },
+      set(value) {
+        this.setName(value)
+      }
+    }
+  },
   methods: {
     encode(data) {
       return Object.keys(data)
@@ -59,7 +72,8 @@ export default {
           '/',
           this.encode({
             'form-name': 'ask-question',
-            ...this.form
+            ...this.form,
+            'name-test': this.name
           }),
           axiosConfig
         )
@@ -71,7 +85,9 @@ export default {
         .catch(error => {
           console.log('error')
         })
-    }
+    },
+    ...mapMutations('contact', ['setName', 'setMail', 'setContents']),
+    ...mapState('contact', ['name', 'mail', 'contents'])
   }
 }
 </script>
