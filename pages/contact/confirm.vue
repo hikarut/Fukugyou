@@ -4,25 +4,26 @@
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    action="/contact/complete"
+    @submit.prevent="complete"
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
-      :rules="nameRules"
+      :value="name"
       name="name"
       label="お名前"
       required
     />
     <v-text-field
       v-model="form.mail"
-      :rules="nameRules"
+      :value="mail"
       name="mail"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="form.inputText"
+      :value="contents"
       name="contents"
       label="お問い合わせ内容"
     />
@@ -48,7 +49,7 @@ export default {
       get() {
         return this.$store.state.contact.name
         // return 'aa'
-        // return this.name
+        // return this.contact.name
       },
       set(value) {
         this.setName(value)
@@ -74,8 +75,7 @@ export default {
           '/',
           this.encode({
             'form-name': 'ask-question',
-            ...this.form,
-            'name-test': this.name
+            ...this.form
           }),
           axiosConfig
         )
@@ -89,7 +89,7 @@ export default {
         })
     },
     ...mapMutations('contact', ['setName', 'setMail', 'setContents']),
-    ...mapState('contact', ['name', 'mail', 'contents'])
+    ...mapState({ contact: state => state.contact })
   }
 }
 </script>

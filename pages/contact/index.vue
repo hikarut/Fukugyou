@@ -8,21 +8,19 @@
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
-      :rules="nameRules"
       name="name"
       label="お名前"
       required
     />
     <v-text-field
       v-model="form.mail"
-      :rules="nameRules"
-      name="mail1"
+      name="mail"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="form.inputText"
-      name="contents1"
+      name="contents"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>
@@ -43,9 +41,12 @@ export default {
   computed: {
     name: {
       get() {
+        console.log('this.contact')
+        console.log(this.contact)
+        // return this.$store.state.contact.name
         return this.$store.state.contact.name
         // return 'aa'
-        // return this.name
+        // return this.contact.name
       },
       set(value) {
         this.setName(value)
@@ -55,10 +56,14 @@ export default {
   methods: {
     next() {
       console.log('next')
+      console.log(this.contact)
+      console.log(this.contact.name)
+      console.log('this.$store.state')
+      console.log(this.$store.state.contact.name)
       this.$router.push('/contact/confirm')
     },
     ...mapMutations('contact', ['setName', 'setMail', 'setContents']),
-    ...mapState('contact', ['name', 'mail', 'contents'])
+    ...mapState({ contact: state => state.contact })
   }
 }
 </script>
