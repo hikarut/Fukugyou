@@ -1,11 +1,11 @@
 <template>
   <form
-    name="ask-question"
+    name="ask-question-2"
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
-    <input type="hidden" name="form-name" value="ask-question" >
+    <input type="hidden" name="form-name" value="ask-question-2" >
     <v-text-field
       v-model="name"
       :rules="nameRules"
@@ -44,8 +44,8 @@ export default {
   computed: {
     name: {
       get() {
-        // return this.$store.state.contact.name
-        return 'aa'
+        return this.$store.state.contact.name
+        // return 'aa'
         // return this.name
       },
       set(value) {
@@ -71,7 +71,7 @@ export default {
         .post(
           '/',
           this.encode({
-            'form-name': 'ask-question',
+            'form-name': 'ask-question-2',
             ...this.form,
             'name-test': this.name
           }),

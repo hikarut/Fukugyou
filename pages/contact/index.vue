@@ -43,8 +43,8 @@ export default {
   computed: {
     name: {
       get() {
-        // return this.$store.state.contact.name
-        return 'aa'
+        return this.$store.state.contact.name
+        // return 'aa'
         // return this.name
       },
       set(value) {
