@@ -1,11 +1,5 @@
 <template>
-  <form
-    name="ask-question"
-    method="post"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field"
-  >
-    <input type="hidden" name="form-name" value="ask-question" >
+  <div>
     <v-text-field
       v-model="form.name"
       :rules="nameRules"
@@ -26,7 +20,7 @@
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>
-  </form>
+  </div>
 </template>
 
 <script>
