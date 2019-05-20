@@ -9,20 +9,20 @@
     <v-text-field
       v-model="form.name"
       :rules="nameRules"
-      name="name"
+      name="name1"
       label="お名前"
       required
     />
     <v-text-field
       v-model="form.mail"
       :rules="nameRules"
-      name="mail"
+      name="mail1"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="form.inputText"
-      name="contents"
+      name="contents1"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>
