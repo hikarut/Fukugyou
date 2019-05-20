@@ -4,7 +4,6 @@
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    @submit.prevent="complete"
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
@@ -27,8 +26,8 @@
       name="contents"
       label="お問い合わせ内容"
     />
-    <!-- <v-btn color="success" @click="complete()">送信</v-btn> -->
-    <v-btn color="success" type="submit">送信</v-btn>
+    <v-btn color="success" @click="complete()">送信</v-btn>
+    <!-- <v-btn color="success" type="submit">送信</v-btn> -->
   </form>
 </template>
 
