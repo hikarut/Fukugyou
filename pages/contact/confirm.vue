@@ -6,7 +6,6 @@
     data-netlify-honeypot="bot-field"
   >
     <input type="hidden" name="form-name" value="ask-question" >
-    <input type="text" name="nameTest" >
     <v-text-field
       v-model="form.name"
       :rules="nameRules"
@@ -26,7 +25,7 @@
       name="contents"
       label="お問い合わせ内容"
     />
-    <v-btn color="success" @click="next()">送信</v-btn>
+    <v-btn color="success" @click="complete()">送信</v-btn>
   </form>
 </template>
 
@@ -49,7 +48,7 @@ export default {
         )
         .join('&')
     },
-    next() {
+    complete() {
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
@@ -66,7 +65,6 @@ export default {
         )
         .then(result => {
           console.log('post')
-          console.log('next')
           console.log(result)
           this.$router.push('/contact/complete')
         })
