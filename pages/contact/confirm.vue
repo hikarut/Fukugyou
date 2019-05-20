@@ -53,17 +53,24 @@ export default {
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
-      axios.post(
-        '/',
-        this.encode({
-          'form-name': 'ask-question',
-          ...this.form
-        }),
-        axiosConfig
-      )
-      console.log('post')
-      console.log('next')
-      this.$router.push('/contact/complete')
+      axios
+        .post(
+          '/',
+          this.encode({
+            'form-name': 'ask-question',
+            ...this.form
+          }),
+          axiosConfig
+        )
+        .then(result => {
+          console.log('post')
+          console.log('next')
+          console.log(result)
+          this.$router.push('/contact/complete')
+        })
+        .catch(error => {
+          console.log('error')
+        })
     }
   }
 }
