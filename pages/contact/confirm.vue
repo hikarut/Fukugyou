@@ -53,6 +53,8 @@ export default {
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
+      console.log('this.form')
+      console.log(this.form)
       axios
         .post(
           '/',

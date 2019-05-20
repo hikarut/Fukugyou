@@ -19,7 +19,7 @@
       required
     />
     <v-textarea
-      name="input-7-1"
+      name="input_index"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>
