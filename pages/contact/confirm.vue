@@ -48,7 +48,6 @@ export default {
     name: {
       get() {
         return this.$store.state.contact.name
-        // return 'aa'
         // return this.contact.name
       },
       set(value) {

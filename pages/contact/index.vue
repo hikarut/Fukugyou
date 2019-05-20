@@ -45,7 +45,6 @@ export default {
         console.log(this.contact)
         // return this.$store.state.contact.name
         return this.$store.state.contact.name
-        // return 'aa'
         // return this.contact.name
       },
       set(value) {
