@@ -1,11 +1,11 @@
 <template>
   <form
-    name="ask-question-2"
+    name="ask-question"
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >
-    <input type="hidden" name="form-name" value="ask-question-2" >
+    <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
       :rules="nameRules"
@@ -71,7 +71,7 @@ export default {
         .post(
           '/',
           this.encode({
-            'form-name': 'ask-question-2',
+            'form-name': 'ask-question',
             ...this.form,
             'name-test': this.name
           }),
