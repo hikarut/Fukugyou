@@ -4,40 +4,66 @@
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    action="/contact/complete"
   >
     <input type="hidden" name="form-name" value="ask-question" >
+    <input type="text" name="nameTest" >
     <v-text-field
-      v-model="name"
+      v-model="form.name"
       :rules="nameRules"
+      name="name"
       label="お名前"
       required
     />
     <v-text-field
-      v-model="mail"
+      v-model="form.mail"
       :rules="nameRules"
+      name="mail"
       label="メールアドレス"
       required
     />
     <v-textarea
-      v-model="inputText"
-      name="input-7-1"
+      v-model="form.inputText"
+      name="contents"
       label="お問い合わせ内容"
     />
-    <v-btn color="success" type="submit">送信</v-btn>
+    <v-btn color="success" @click="next()">送信</v-btn>
   </form>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data: () => ({
-    name: '',
-    mail: '',
-    inputText: '固定の値'
+    form: {
+      name: '',
+      mail: '',
+      inputText: '固定の値'
+    }
   }),
   methods: {
-    updatePanelist(ev) {
-      this.currentPanelist = ev.target.value
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+    },
+    next() {
+      const axiosConfig = {
+        header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      }
+      axios.post(
+        '/',
+        this.encode({
+          'form-name': 'ask-question',
+          ...this.form
+        }),
+        axiosConfig
+      )
+      console.log('post')
+      console.log('next')
+      this.$router.push('/contact/complete')
     }
   }
 }
