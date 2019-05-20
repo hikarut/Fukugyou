@@ -16,14 +16,14 @@
     />
     <v-text-field
       v-model="form.mail"
-      :value="mail"
+      :value="form.mail"
       name="mail"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="form.inputText"
-      :value="contents"
+      :value="form.contents"
       name="contents"
       label="お問い合わせ内容"
     />
