@@ -4,8 +4,9 @@
     <big-img-item :items="listData" />
     <button-link link="/posts" text="もっと見る" />
 
-    <card-item :items="cards"/>
-    <button-link link="/news/top" text="もっと見る" />
+    <card-item :items="fukugyouNewsWhy"/>
+
+    <card-item :items="fukugyouNewsJob"/>
 
     <list-item :items="fukugyouNews" />
     <button-link link="/news/fukugyou" text="もっと見る" />
@@ -26,11 +27,6 @@ import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 
-// 手動で拾ってきたニュース
-const topNewsOrigin = require('~/config/topNews.json5')
-const topNews = Object.assign({}, topNewsOrigin)
-topNews.data = topNews.data.slice(0, 4)
-
 const fukugyouNewsOrigin = require('~/config/fukugyouNews.json5')
 const fukugyouNews = Object.assign({}, fukugyouNewsOrigin)
 fukugyouNews.data = fukugyouNews.data.slice(0, 8)
@@ -39,6 +35,8 @@ const techNewsOrigin = require('~/config/techNews.json5')
 const techNews = Object.assign({}, techNewsOrigin)
 techNews.data = techNews.data.slice(0, 4)
 
+const fukugyouNewsWhy = require('~/config/why.json5')
+const fukugyouNewsJob = require('~/config/job.json5')
 const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
@@ -54,19 +52,16 @@ export default {
     return getEntries(2)
   },
   data: () => ({
-    cards: topNews,
     fukugyouNews: fukugyouNews,
     techNews: techNews,
-    recomendNews: recomendNews
+    recomendNews: recomendNews,
+    fukugyouNewsWhy: fukugyouNewsWhy,
+    fukugyouNewsJob: fukugyouNewsJob
   })
 }
 </script>
 
 <style scoped>
-.top-button {
-  width: 90%;
-  margin: 0 auto;
-}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
   .top {

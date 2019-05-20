@@ -19,7 +19,8 @@ export default {
 .date-subheader {
   font-size: 14px;
   width: 90%;
-  margin: -20px auto 0px 20px;
+  /* margin: -20px auto 0px 20px; */
+  margin: 0px 20px 5px 30px;
   color: rgba(0, 0, 0, 0.54);
 }
 </style>

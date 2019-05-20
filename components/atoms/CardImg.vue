@@ -20,6 +20,13 @@ export default {
 <style scoped>
 .card-img {
   width: 100%;
+  height: 100px;
   object-fit: cover;
+}
+/* PC版は高さを広げる */
+@media screen and (min-width: 800px) {
+  .card-img {
+    height: 200px;
+  }
 }
 </style>
