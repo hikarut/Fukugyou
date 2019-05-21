@@ -8,7 +8,7 @@
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
-      name="name"
+      name="name1"
       label="お名前"
       required
     />

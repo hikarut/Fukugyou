@@ -14,7 +14,6 @@
     />
     <v-text-field
       v-model="form.mail1"
-      :value="form.mail1"
       label="メールアドレス"
       required
     />
@@ -69,9 +68,9 @@ export default {
       axios
         .post(
           '/',
-          // '/contact/complete',
           this.encode({
             'form-name': 'ask-question',
+            name1: this.form.name,
             ...this.form
           }),
           axiosConfig
