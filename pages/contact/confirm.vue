@@ -14,14 +14,13 @@
       required
     />
     <v-text-field
-      v-model="form.mail"
-      :value="form.mail"
-      name="mail"
+      v-model="form.mail1"
+      :value="form.mail1"
       label="メールアドレス"
       required
     />
     <v-textarea
-      v-model="form.inputText"
+      v-model="form.contents"
       :value="form.contents"
       name="contents"
       label="お問い合わせ内容"
@@ -39,8 +38,8 @@ export default {
   data: () => ({
     form: {
       name: '',
-      mail: '',
-      inputText: '固定の値'
+      mail1: '',
+      contents: '固定の値'
     }
   }),
   computed: {
