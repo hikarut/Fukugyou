@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   data: () => ({
@@ -61,8 +61,7 @@ export default {
       console.log(this.$store.state.contact.name)
       this.$router.push('/contact/confirm')
     },
-    ...mapMutations('contact', ['setName', 'setMail', 'setContents']),
-    ...mapState({ contact: state => state.contact })
+    ...mapMutations('contact', ['setName', 'setMail', 'setContents'])
   }
 }
 </script>

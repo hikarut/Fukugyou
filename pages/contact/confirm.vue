@@ -8,7 +8,6 @@
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
-      :value="name"
       label="お名前"
       required
     />
@@ -19,16 +18,14 @@
     />
     <v-textarea
       v-model="form.contents1"
-      :value="form.contents1"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="complete()">送信</v-btn>
-    <!-- <v-btn color="success" type="submit">送信</v-btn> -->
   </form>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import axios from 'axios'
 
 export default {
@@ -66,12 +63,13 @@ export default {
       console.log('this.form')
       console.log(this.form)
       console.log(this.name)
+      console.log(this.$store.state.contact.name)
       axios
         .post(
           '/',
           this.encode({
             'form-name': 'ask-question',
-            name1: this.name,
+            name1: this.$store.state.contact.name,
             ...this.form
           }),
           axiosConfig
@@ -85,8 +83,7 @@ export default {
           console.log('error')
         })
     },
-    ...mapMutations('contact', ['setName', 'setMail', 'setContents']),
-    ...mapState({ contact: state => state.contact })
+    ...mapMutations('contact', ['setName', 'setMail', 'setContents'])
   }
 }
 </script>
