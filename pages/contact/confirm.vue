@@ -65,12 +65,13 @@ export default {
       }
       console.log('this.form')
       console.log(this.form)
+      console.log(this.name)
       axios
         .post(
           '/',
           this.encode({
             'form-name': 'ask-question',
-            name1: this.form.name,
+            name1: this.name,
             ...this.form
           }),
           axiosConfig
