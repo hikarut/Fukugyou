@@ -55,9 +55,6 @@ export default {
   methods: {
     next() {
       console.log('next')
-      console.log(this.contact)
-      console.log(this.contact.name)
-      console.log('this.$store.state')
       console.log(this.$store.state.contact.name)
       this.$router.push('/contact/confirm')
     },

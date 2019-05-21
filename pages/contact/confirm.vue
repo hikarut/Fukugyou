@@ -62,7 +62,6 @@ export default {
       }
       console.log('this.form')
       console.log(this.form)
-      console.log(this.name)
       console.log(this.$store.state.contact.name)
       axios
         .post(
