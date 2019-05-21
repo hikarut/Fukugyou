@@ -14,13 +14,13 @@
     />
     <v-text-field
       v-model="form.mail"
-      name="mail1"
+      name="mail"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="form.inputText"
-      name="contents1"
+      name="contents"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>

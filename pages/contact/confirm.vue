@@ -9,20 +9,18 @@
     <v-text-field
       v-model="name"
       :value="name"
-      name="name"
       label="お名前"
       required
     />
     <v-text-field
-      v-model="form.mail1"
-      :value="form.mail1"
+      v-model="form.mail"
+      :value="form.mail"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="form.contents"
       :value="form.contents"
-      name="contents"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="complete()">送信</v-btn>
@@ -38,7 +36,7 @@ export default {
   data: () => ({
     form: {
       name: '',
-      mail1: '',
+      mail: '',
       contents: '固定の値'
     }
   }),
@@ -69,8 +67,8 @@ export default {
       console.log(this.form)
       axios
         .post(
-          // '/',
-          '/contact/complete',
+          '/',
+          // '/contact/complete',
           this.encode({
             'form-name': 'ask-question',
             ...this.form
