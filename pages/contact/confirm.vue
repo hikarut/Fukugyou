@@ -35,7 +35,7 @@ import axios from 'axios'
 export default {
   data: () => ({
     form: {
-      name: this.name,
+      name: '',
       mail1: '',
       contents1: '固定の値'
     }
