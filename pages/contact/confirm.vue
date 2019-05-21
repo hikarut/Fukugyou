@@ -13,14 +13,14 @@
       required
     />
     <v-text-field
-      v-model="form.mail"
-      :value="form.mail"
+      v-model="form.mail1"
+      :value="form.mail1"
       label="メールアドレス"
       required
     />
     <v-textarea
-      v-model="form.contents"
-      :value="form.contents"
+      v-model="form.contents1"
+      :value="form.contents1"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="complete()">送信</v-btn>
@@ -35,9 +35,9 @@ import axios from 'axios'
 export default {
   data: () => ({
     form: {
-      name: '',
-      mail: '',
-      contents: '固定の値'
+      name: this.name,
+      mail1: '',
+      contents1: '固定の値'
     }
   }),
   computed: {
@@ -48,6 +48,7 @@ export default {
       },
       set(value) {
         this.setName(value)
+        // this.form.name = value
       }
     }
   },

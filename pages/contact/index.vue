@@ -13,14 +13,14 @@
       required
     />
     <v-text-field
-      v-model="form.mail"
-      name="mail"
+      v-model="form.mail1"
+      name="mail1"
       label="メールアドレス"
       required
     />
     <v-textarea
-      v-model="form.inputText"
-      name="contents"
+      v-model="form.contents1"
+      name="contents1"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="next()">送信</v-btn>
@@ -34,8 +34,8 @@ export default {
   data: () => ({
     form: {
       name: '',
-      mail: '',
-      inputText: ''
+      mail1: '',
+      contents1: ''
     }
   }),
   computed: {
