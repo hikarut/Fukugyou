@@ -8,18 +8,21 @@
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
+      :rules="nameRules"
       name="name1"
       label="お名前"
       required
     />
     <v-text-field
       v-model="mail"
+      :rules="mailRules"
       name="mail1"
       label="メールアドレス"
       required
     />
     <v-textarea
       v-model="contents"
+      :rules="contentsRules"
       name="contents1"
       label="お問い合わせ内容"
     />
@@ -29,14 +32,13 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import { checkName, checkMail, checkContents } from '~/lib/validation'
 
 export default {
   data: () => ({
-    form: {
-      name: '',
-      mail1: '',
-      contents1: ''
-    }
+    nameRules: [name => checkName(name)],
+    mailRules: [mail => checkMail(mail)],
+    contentsRules: [contents => checkContents(contents)]
   }),
   computed: {
     name: {
