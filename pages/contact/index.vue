@@ -26,7 +26,7 @@
       name="contents1"
       label="お問い合わせ内容"
     />
-    <v-btn color="primary" @click="next()">確認</v-btn>
+    <v-btn :disabled="!canClick" color="primary" @click="next()">確認</v-btn>
   </form>
 </template>
 
@@ -64,6 +64,17 @@ export default {
       set(value) {
         this.setContents(value)
       }
+    },
+    canClick() {
+      // バリデーションチェック
+      if (
+        checkName(this.$store.state.contact.name) !== true ||
+        checkMail(this.$store.state.contact.mail) !== true ||
+        checkContents(this.$store.state.contact.contents) !== true
+      ) {
+        return false
+      }
+      return true
     }
   },
   methods: {
