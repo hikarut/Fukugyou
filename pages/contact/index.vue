@@ -12,7 +12,7 @@
         v-model="name"
         :rules="nameRules"
         class="text-name"
-        name="名前"
+        name="お名前"
         label="お名前"
         required
       />
@@ -20,7 +20,7 @@
         v-model="mail"
         :rules="mailRules"
         class="text-mail"
-        name="mail1"
+        name="メールアドレス"
         label="メールアドレス"
         required
       />
@@ -29,7 +29,7 @@
         :rules="contentsRules"
         class="text-contents"
         outline
-        name="contents1"
+        name="お問い合わせ内容"
         label="お問い合わせ内容"
       />
       <v-layout align-center justify-center row class="btn-layout">

@@ -85,9 +85,9 @@ export default {
           '/',
           this.encode({
             'form-name': 'ask-question',
-            名前: this.$store.state.contact.name,
-            mail1: this.$store.state.contact.mail,
-            contents1: this.$store.state.contact.contents
+            お名前: this.$store.state.contact.name,
+            メールアドレス: this.$store.state.contact.mail,
+            お問い合わせ内容: this.$store.state.contact.contents
           }),
           axiosConfig
         )
