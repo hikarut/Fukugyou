@@ -26,7 +26,7 @@
       name="contents1"
       label="お問い合わせ内容"
     />
-    <v-btn color="success" @click="next()">確認</v-btn>
+    <v-btn color="primary" @click="next()">確認</v-btn>
   </form>
 </template>
 
