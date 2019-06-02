@@ -1,5 +1,5 @@
 // import { contentful } from 'contentful'
-import { dateString } from '~/plugins/date'
+import { dateString } from '~/lib/date'
 const contentful = require('contentful')
 
 // 初期設定

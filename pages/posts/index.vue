@@ -7,7 +7,7 @@
 
 <script>
 import { getEntries } from '~/plugins/contentful'
-import { dateString } from '~/plugins/date'
+import { dateString } from '~/lib/date'
 import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
