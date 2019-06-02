@@ -45,6 +45,7 @@ export default {
   components: {
     BreadList
   },
+  middleware: ['contact'],
   computed: {
     breadItems() {
       return [
