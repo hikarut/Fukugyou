@@ -9,9 +9,11 @@
   width: 150px;
 }
 .text-name,
-.text-mail,
-.text-contents {
+.text-mail {
   margin-top: 30px;
+}
+.text-contents {
+  margin-top: 50px
 }
 .complete {
   text-align: center;
