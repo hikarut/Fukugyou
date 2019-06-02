@@ -7,6 +7,7 @@
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <div class="form">
+      <bread-list :items="breadItems"/>
       <v-text-field
         v-model="name"
         :rules="nameRules"
@@ -45,10 +46,14 @@
 </template>
 
 <script>
+import BreadList from '~/components/organisms/BreadList.vue'
 import { mapMutations } from 'vuex'
 import { checkName, checkMail, checkContents } from '~/lib/validation'
 
 export default {
+  components: {
+    BreadList
+  },
   data: () => ({
     nameRules: [name => checkName(name)],
     mailRules: [mail => checkMail(mail)],
@@ -89,6 +94,20 @@ export default {
         return false
       }
       return true
+    },
+    breadItems() {
+      return [
+        {
+          text: 'トップ',
+          disabled: false,
+          url: '/'
+        },
+        {
+          text: 'お問い合わせ',
+          disabled: true,
+          url: '/contact'
+        }
+      ]
     }
   },
   methods: {

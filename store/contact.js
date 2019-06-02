@@ -16,5 +16,8 @@ export const mutations = {
   },
   setContents(state, contents) {
     state.contents = contents
+  },
+  reset(state) {
+    state = Object.assign(state, initialState)
   }
 }

@@ -7,6 +7,7 @@
   >
     <input type="hidden" name="form-name" value="ask-question" >
     <div class="form">
+      <bread-list :items="breadItems"/>
       <v-text-field
         v-model="this.$store.state.contact.name"
         :disabled="true"
@@ -37,10 +38,34 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import BreadList from '~/components/organisms/BreadList.vue'
 import axios from 'axios'
 
 export default {
+  components: {
+    BreadList
+  },
+  computed: {
+    breadItems() {
+      return [
+        {
+          text: 'トップ',
+          disabled: false,
+          url: '/'
+        },
+        {
+          text: 'お問い合わせ',
+          disabled: false,
+          url: '/contact'
+        },
+        {
+          text: '確認',
+          disabled: true,
+          url: ''
+        }
+      ]
+    }
+  },
   methods: {
     encode(data) {
       return Object.keys(data)
@@ -77,8 +102,7 @@ export default {
     back() {
       // ブラウザバック
       this.$router.go(-1)
-    },
-    ...mapMutations('contact', ['setName', 'setMail', 'setContents'])
+    }
   }
 }
 </script>
