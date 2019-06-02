@@ -24,9 +24,9 @@ export default {
 @import '~/assets/form.css';
 /* 完了ページだけ上下にスペースを作る */
 .form {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 .btn-layout {
-  padding-bottom: 170px;
+  padding-bottom: 150px;
 }
 </style>
