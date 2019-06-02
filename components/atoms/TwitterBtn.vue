@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { twitterUrl } from '~/plugins/sns'
+import { twitterUrl } from '~/lib/sns'
 
 export default {
   props: {

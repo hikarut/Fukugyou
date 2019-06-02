@@ -1,0 +1,41 @@
+.form {
+  width: 90%;
+  margin: 0 auto;
+}
+.btn-layout {
+  margin: 20px auto 20px auto;
+}
+.btn {
+  width: 150px;
+}
+.text-name,
+.text-mail {
+  margin-top: 30px;
+}
+.text-contents {
+  margin-top: 50px !important;
+}
+.complete {
+  text-align: center;
+  margin-top: 30px;
+}
+/* PC版は横幅を小さくする */
+@media screen and (min-width: 800px) {
+  .form {
+    width: 80%;
+  }
+  .btn {
+    width: 200px;
+  }
+}
+
+/* なぜかパンくずのcssが効いてないので */
+.v-breadcrumbs {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 1 auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 18px 12px;
+}

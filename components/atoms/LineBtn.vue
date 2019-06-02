@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { lineUrl } from '~/plugins/sns'
+import { lineUrl } from '~/lib/sns'
 
 export default {
   props: {

@@ -24,7 +24,7 @@ import VueMarkdown from 'vue-markdown'
 import BreadList from '~/components/organisms/BreadList.vue'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
-import { dateString } from '~/plugins/date'
+import { dateString } from '~/lib/date'
 import { getEntryById } from '~/plugins/contentful'
 
 const recomendNews = require('~/config/recomendNews.json5')
