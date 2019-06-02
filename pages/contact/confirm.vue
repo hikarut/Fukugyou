@@ -8,16 +8,19 @@
     <input type="hidden" name="form-name" value="ask-question" >
     <v-text-field
       v-model="name"
+      :disabled="true"
       label="お名前"
       required
     />
     <v-text-field
-      v-model="form.mail1"
+      v-model="mail"
+      :disabled="true"
       label="メールアドレス"
       required
     />
     <v-textarea
-      v-model="form.contents1"
+      v-model="contents"
+      :disabled="true"
       label="お問い合わせ内容"
     />
     <v-btn color="success" @click="complete()">送信</v-btn>
@@ -29,22 +32,29 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 
 export default {
-  data: () => ({
-    form: {
-      name: '',
-      mail1: '',
-      contents1: '固定の値'
-    }
-  }),
   computed: {
     name: {
       get() {
         return this.$store.state.contact.name
-        // return this.contact.name
       },
       set(value) {
         this.setName(value)
-        // this.form.name = value
+      }
+    },
+    mail: {
+      get() {
+        return this.$store.state.contact.mail
+      },
+      set(value) {
+        this.setMail(value)
+      }
+    },
+    contents: {
+      get() {
+        return this.$store.state.contact.contents
+      },
+      set(value) {
+        this.setContents(value)
       }
     }
   },
@@ -60,8 +70,6 @@ export default {
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
-      console.log('this.form')
-      console.log(this.form)
       console.log(this.$store.state.contact.name)
       axios
         .post(
@@ -69,7 +77,8 @@ export default {
           this.encode({
             'form-name': 'ask-question',
             name1: this.$store.state.contact.name,
-            ...this.form
+            mail1: this.$store.state.contact.mail,
+            contents1: this.$store.state.contact.contents
           }),
           axiosConfig
         )

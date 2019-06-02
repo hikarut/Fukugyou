@@ -13,17 +13,17 @@
       required
     />
     <v-text-field
-      v-model="form.mail1"
+      v-model="mail"
       name="mail1"
       label="メールアドレス"
       required
     />
     <v-textarea
-      v-model="form.contents1"
+      v-model="contents"
       name="contents1"
       label="お問い合わせ内容"
     />
-    <v-btn color="success" @click="next()">送信</v-btn>
+    <v-btn color="success" @click="next()">確認</v-btn>
   </form>
 </template>
 
@@ -41,14 +41,26 @@ export default {
   computed: {
     name: {
       get() {
-        console.log('this.contact')
-        console.log(this.contact)
-        // return this.$store.state.contact.name
         return this.$store.state.contact.name
-        // return this.contact.name
       },
       set(value) {
         this.setName(value)
+      }
+    },
+    mail: {
+      get() {
+        return this.$store.state.contact.mail
+      },
+      set(value) {
+        this.setMail(value)
+      }
+    },
+    contents: {
+      get() {
+        return this.$store.state.contact.contents
+      },
+      set(value) {
+        this.setContents(value)
       }
     }
   },
