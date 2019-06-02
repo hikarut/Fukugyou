@@ -79,7 +79,9 @@ export default {
       return this.post.fields.title
     },
     shareTag() {
-      return this.post.fields.tag
+      // return this.post.fields.tag
+      // 記事によらず共通のタグにする
+      return '複業,エンジニア'
     },
     breadItems() {
       return [

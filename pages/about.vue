@@ -22,7 +22,7 @@
       <v-flex>
         <v-avatar size="100">
           <img
-            src="https://pbs.twimg.com/profile_images/896335739452968961/VnN2H-bw_400x400.jpg"
+            src="https://pbs.twimg.com/profile_images/1134099996658192384/eYLwf5HY_400x400.jpg"
             alt="hikaru takahashi"
           >
         </v-avatar>
