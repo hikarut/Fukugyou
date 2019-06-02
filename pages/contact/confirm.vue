@@ -6,25 +6,33 @@
     data-netlify-honeypot="bot-field"
   >
     <input type="hidden" name="form-name" value="ask-question" >
-    <v-text-field
-      v-model="this.$store.state.contact.name"
-      :disabled="true"
-      label="お名前"
-      required
-    />
-    <v-text-field
-      v-model="this.$store.state.contact.mail"
-      :disabled="true"
-      label="メールアドレス"
-      required
-    />
-    <v-textarea
-      v-model="this.$store.state.contact.contents"
-      :disabled="true"
-      label="お問い合わせ内容"
-    />
-    <v-btn @click="back()">戻る</v-btn>
-    <v-btn color="primary" @click="complete()">送信</v-btn>
+    <div class="form">
+      <v-text-field
+        v-model="this.$store.state.contact.name"
+        :disabled="true"
+        class="text-name"
+        label="お名前"
+        required
+      />
+      <v-text-field
+        v-model="this.$store.state.contact.mail"
+        :disabled="true"
+        class="text-mail"
+        label="メールアドレス"
+        required
+      />
+      <v-textarea
+        v-model="this.$store.state.contact.contents"
+        :disabled="true"
+        outline
+        class="text-contents"
+        label="お問い合わせ内容"
+      />
+      <v-layout align-center justify-center row class="btn-layout">
+        <v-btn class="btn" @click="back()">戻る</v-btn>
+        <v-btn class="btn" color="primary" @click="complete()">送信</v-btn>
+      </v-layout>
+    </div>
   </form>
 </template>
 
@@ -33,32 +41,6 @@ import { mapMutations } from 'vuex'
 import axios from 'axios'
 
 export default {
-  // computed: {
-  //   name: {
-  //     get() {
-  //       return this.$store.state.contact.name
-  //     },
-  //     set(value) {
-  //       this.setName(value)
-  //     }
-  //   },
-  //   mail: {
-  //     get() {
-  //       return this.$store.state.contact.mail
-  //     },
-  //     set(value) {
-  //       this.setMail(value)
-  //     }
-  //   },
-  //   contents: {
-  //     get() {
-  //       return this.$store.state.contact.contents
-  //     },
-  //     set(value) {
-  //       this.setContents(value)
-  //     }
-  //   }
-  // },
   methods: {
     encode(data) {
       return Object.keys(data)
@@ -100,3 +82,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@import '~/assets/form.css';
+</style>

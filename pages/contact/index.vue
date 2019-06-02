@@ -6,27 +6,38 @@
     data-netlify-honeypot="bot-field"
   >
     <input type="hidden" name="form-name" value="ask-question" >
-    <v-text-field
-      v-model="name"
-      :rules="nameRules"
-      name="name1"
-      label="お名前"
-      required
-    />
-    <v-text-field
-      v-model="mail"
-      :rules="mailRules"
-      name="mail1"
-      label="メールアドレス"
-      required
-    />
-    <v-textarea
-      v-model="contents"
-      :rules="contentsRules"
-      name="contents1"
-      label="お問い合わせ内容"
-    />
-    <v-btn :disabled="!canClick" color="primary" @click="next()">確認</v-btn>
+    <div class="form">
+      <v-text-field
+        v-model="name"
+        :rules="nameRules"
+        class="text-name"
+        name="name1"
+        label="お名前"
+        required
+      />
+      <v-text-field
+        v-model="mail"
+        :rules="mailRules"
+        class="text-mail"
+        name="mail1"
+        label="メールアドレス"
+        required
+      />
+      <v-textarea
+        v-model="contents"
+        :rules="contentsRules"
+        class="text-contents"
+        outline
+        name="contents1"
+        label="お問い合わせ内容"
+      />
+      <v-layout align-center justify-center row class="btn-layout">
+        <v-btn :disabled="!canClick" class="btn" color="primary" 
+               @click="next()">
+          確認
+        </v-btn>
+      </v-layout>
+    </div>
   </form>
 </template>
 
@@ -87,3 +98,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+@import '~/assets/form.css';
+</style>
