@@ -15,7 +15,7 @@
         </li>
       </div>
       <div class="copyright">
-        Copyright &copy;&nbsp;{{ date }}&nbsp;-&nbsp;<strong>Fukugyou</strong>
+        Copyright &copy;&nbsp;{{ date }}&nbsp;-&nbsp;Fukugyou
       </div>
     </v-flex>
   </v-footer>
@@ -74,6 +74,6 @@ export default {
 }
 .description {
   font-size: 12px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 </style>
