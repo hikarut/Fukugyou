@@ -24,7 +24,7 @@
 <script>
 import Logo from '~/components/layouts/Logo.vue'
 import menu from '~/mixins/menu'
-import { twitterUrl } from '~/plugins/sns'
+import { twitterUrl } from '~/lib/sns'
 
 export default {
   components: {

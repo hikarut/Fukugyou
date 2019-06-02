@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { hatenaUrl } from '~/plugins/sns'
+import { hatenaUrl } from '~/lib/sns'
 
 export default {
   props: {

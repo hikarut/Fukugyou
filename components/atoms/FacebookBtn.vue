@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { facebookUrl } from '~/plugins/sns'
+import { facebookUrl } from '~/lib/sns'
 
 export default {
   props: {
