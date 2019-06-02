@@ -12,7 +12,7 @@
         v-model="name"
         :rules="nameRules"
         class="text-name"
-        name="name1"
+        name="名前"
         label="お名前"
         required
       />

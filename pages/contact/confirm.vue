@@ -85,7 +85,7 @@ export default {
           '/',
           this.encode({
             'form-name': 'ask-question',
-            name1: this.$store.state.contact.name,
+            名前: this.$store.state.contact.name,
             mail1: this.$store.state.contact.mail,
             contents1: this.$store.state.contact.contents
           }),
