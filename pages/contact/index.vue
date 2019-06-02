@@ -32,8 +32,11 @@
         label="お問い合わせ内容"
       />
       <v-layout align-center justify-center row class="btn-layout">
-        <v-btn :disabled="!canClick" class="btn" color="primary" 
-               @click="next()">
+        <v-btn
+          :disabled="!canClick"
+          class="btn white--text"
+          color="#134b8a"
+          @click="next()">
           確認
         </v-btn>
       </v-layout>

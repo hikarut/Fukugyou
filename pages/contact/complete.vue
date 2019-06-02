@@ -2,7 +2,7 @@
   <div class="form">
     <div class="complete">
       お問い合わせありがとうございました。<br>
-      こちらからご連絡致しますので少々お待ちください。
+      お問い合わせ内容をご確認致しますので少々お待ちください。
     </div>
     <v-layout align-center justify-center row class="btn-layout">
       <v-btn class="btn" color="primary" @click="goTop()">トップページに戻る</v-btn>

@@ -30,7 +30,7 @@
       />
       <v-layout align-center justify-center row class="btn-layout">
         <v-btn class="btn" @click="back()">戻る</v-btn>
-        <v-btn class="btn" color="primary" @click="complete()">送信</v-btn>
+        <v-btn class="btn white--text" color="#134b8a" @click="complete()">送信</v-btn>
       </v-layout>
     </div>
   </form>
