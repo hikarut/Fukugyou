@@ -1,14 +1,21 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/05/31(金) 08:00",
+  "updatedAt": "2019/06/04(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://speakerd.s3.amazonaws.com/presentations/3f7f3cb1c414410d8e44c1469c03404c/slide_0.jpg?520313",
+      "date": "2019/06/01(土)",
+      "title": "Nuxt.js × Atomic Designのサービスデザインフロー",
+      "link": "https://speakerdeck.com/keisukeimura/nuxt-dot-js-x-atomic-designfalsesabisudezainhuro",
+      "isNew": true,
+    },
     {
       "img":
         "https://i.gzn.jp/img/2019/05/24/github-sponsors/00_m.png",
       "date": "2019/05/24(金)",
       "title": "GitHubでクラウドファンディングができる「GitHub Sponsors」がスタート",
       "link": "https://gigazine.net/news/20190524-github-sponsors/",
-      "isNew": true,
     },
     {
       "img":

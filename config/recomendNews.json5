@@ -1,7 +1,14 @@
 {
   "header": "おすすめニュース",
-  "updatedAt": "2019/05/19(日) 09:00",
+  "updatedAt": "2019/06/04(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://images.ctfassets.net/twm9ywlpm6f1/6x1lZ2mdkJIlDCUfDPSwXG/14c4b36b0b15ad87be0a4855d3285520/nuxt_wordpress.png",
+      "date": "2019/05/14(火)",
+      "title": "エンジニアとして複業するならWordPressとNuxt.jsどっちを学ぶのが良いのか？",
+      "link": "https://fukugyou.dev/posts/20190514",
+    },
     {
       "img":
         "https://images.ctfassets.net/twm9ywlpm6f1/5ngTBXqBNIz8pCIEYxSIxh/5e56d0874ea85643162f7aca63a146d2/nuxt_netlify_vuetify_contentful.png",
@@ -29,20 +36,6 @@
       "date": "2018/04/04(木)",
       "title": "フリーランス実態調査 2018年版を発表",
       "link": "https://www.lancers.co.jp/news/pr/14679/",
-    },
-    {
-      "img":
-        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/7684045/rectangle_large_type_2_8c16c6a24571ea0324ad7abbdaa3e4d7.jpg",
-      "date": "2018/09/03(月)",
-      "title": "はじめまして、こんにちは。西村創一朗です。#私の履歴書",
-      "link": "https://note.mu/soutaros/n/n4958e784b199?creator_urlname=soutaros",
-    },
-    {
-      "img":
-        "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11382169/rectangle_large_type_2_d5b99c5d1f279eb8b6ead84fed323c9f.png",
-      "date": "2019/05/01(水)",
-      "title": "令和元年だし、自分のビジョン・ミッション・バリューを言語化してみよう",
-      "link": "https://comemo.nikkei.com/n/n8dc5d781e413",
     },
   ]
 }

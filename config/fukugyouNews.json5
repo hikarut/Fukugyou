@@ -1,14 +1,21 @@
 {
   "header": "複業ニュース",
-  "updatedAt": "2019/05/31(金) 08:00",
+  "updatedAt": "2019/06/04(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://c01.newswitch.jp/cover?url=http%3A%2F%2Fnewswitch.jp%2Fimg%2Fupload%2Fphpp6z6vC_5cf58d6be6eaf.jpg",
+      "date": "2019/06/04(火)",
+      "title": "副業に興味はあるけど…エンジニア「実施率」が７％未満の理由",
+      "link": "https://newswitch.jp/p/17894",
+      "isNew": true,
+    },
     {
       "img":
         "https://d2l930y2yx77uc.cloudfront.net/production/uploads/images/11993904/square_large_31257d8789a3a21d1bb67fa748a3b0d4.jpg",
       "date": "2019/05/30(木)",
       "title": "Vol.04 副業詐欺に気をつけろ！",
       "link": "https://note.mu/soutaros/n/nfeef87bbbc18",
-      "isNew": true,
     },
     {
       "img":
@@ -16,7 +23,6 @@
       "date": "2019/05/29(水)",
       "title": "複業に挑戦したいので、簡易的なポートフォリオを作りました。",
       "link": "https://note.mu/sukoburu_salad/n/ncb640446ba70",
-      "isNew": true,
     },
     {
       "img":
