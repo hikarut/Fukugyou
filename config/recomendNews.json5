@@ -1,7 +1,14 @@
 {
   "header": "おすすめニュース",
-  "updatedAt": "2019/06/04(火) 08:00",
+  "updatedAt": "2019/06/11(火) 08:00",
   "data": [
+    {
+      "img":
+        "https://images.ctfassets.net/twm9ywlpm6f1/7g90unq1ozRWletOuOncWm/681f26491e92f6b0351de8bc1528d35d/time.jpeg",
+      "date": "2019/05/31(金)",
+      "title": "複業する時間を作るなら「仕組み化」するのがおすすめ",
+      "link": "https://fukugyou.dev/posts/20190531",
+    },
     {
       "img":
         "https://images.ctfassets.net/twm9ywlpm6f1/6x1lZ2mdkJIlDCUfDPSwXG/14c4b36b0b15ad87be0a4855d3285520/nuxt_wordpress.png",
