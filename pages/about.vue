@@ -30,7 +30,7 @@
       <v-flex>
         <h4 class="subheading">
           <p>
-            ・本業：web系企業ITエンジニア/マネージャー<br>
+            ・本業：web系企業エンジニア/マネージャー<br>
             ・複業：株式会社エッグシステムCTO<br>
             ・2つの会社で正社員として働いており「複業」を体現中<br>
             ・複業先の株式会社エッグシステムでは同じように複業で参加しているエンジニアのコミュニティ作りにも貢献<br>
@@ -41,6 +41,7 @@
           <a href="https://github.com/hikarut" target="blank"><v-icon class="square" color="#24292e">fab fa-github-square</v-icon></a>
           <a href="https://twitter.com/light940" target="blank"><v-icon class="square" color="#55acee">fab fa-twitter-square</v-icon></a>
           <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><v-icon class="square" color="#315096">fab fa-facebook-square</v-icon></a>
+          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/qiita-favicon.png" class="siteImg"></a>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -75,5 +76,9 @@ h4 p {
 }
 a {
   text-decoration: none;
+}
+.siteImg {
+  width: 30px;
+  border-radius: 5px;
 }
 </style>
