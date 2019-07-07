@@ -57,7 +57,11 @@ export default {
     recomendNews: recomendNews,
     fukugyouNewsWhy: fukugyouNewsWhy,
     fukugyouNewsJob: fukugyouNewsJob
-  })
+  }),
+  mounted() {
+    // news記事の取得
+    this.$store.dispatch('news/getNews')
+  }
 }
 </script>
 

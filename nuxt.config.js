@@ -4,11 +4,20 @@ const environment = process.env.NODE_ENV || 'dev'
 const conf = require(`./config/constant.${environment}.json`)
 const constant = require('./config/constant.json')
 
-// contentfulから記事を取得する
-const contentful = require('contentful')
+// 環境変数
 const space = process.env.SPACE || 'space'
 const accessToken = process.env.ACCESS_TOKEN || 'accessToken'
 const contentType = process.env.CONTENT_TYPE || 'contentType'
+const apiKey = process.env.API_KEY || 'apiKey'
+const authDomain = process.env.AUTH_DOMAIN || 'authDomain'
+const databaseUrl = process.env.DATABASE_URL || 'databaseUrl'
+const projectId = process.env.PROJECT_ID || 'projectId'
+const storageBucket = process.env.STORAGE_BUCKET || 'storageBucket'
+const messagingSenderId = process.env.MESSAGING_SENDER_ID || 'messagingSenderId'
+const appId = process.env.APP_ID || 'appId'
+
+// contentfulから記事を取得する
+const contentful = require('contentful')
 const client = contentful.createClient({
   space: space,
   accessToken: accessToken
@@ -95,7 +104,8 @@ export default {
   plugins: [
     '@/plugins/vuetify',
     { src: '~/plugins/ga.js', ssr: false },
-    { src: '~/plugins/lazyload.js', ssr: false }
+    { src: '~/plugins/lazyload.js', ssr: false },
+    { src: '~/plugins/firebase.js', ssr: false }
   ],
 
   /*
@@ -143,7 +153,14 @@ export default {
     constant: constant,
     SPACE: space,
     ACCESS_TOKEN: accessToken,
-    CONTENT_TYPE: contentType
+    CONTENT_TYPE: contentType,
+    API_KEY: apiKey,
+    AUTH_DOMAIN: authDomain,
+    DATABASE_URL: databaseUrl,
+    PROJECT_ID: projectId,
+    STORAGE_BUCKET: storageBucket,
+    MESSAGING_SENDER_ID: messagingSenderId,
+    APP_ID: appId
   },
 
   /*
