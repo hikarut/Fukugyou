@@ -22,10 +22,10 @@ export const mutations = {
 
 /* actions */
 export const actions = {
-  async getNews({ commit }) {
+  async getNews({ commit }, { date }) {
     const ret = this.$firestore
       .collection('news')
-      .doc('20190630')
+      .doc(date)
       .collection('data')
       .get()
       .then(snapshot => {
@@ -36,6 +36,5 @@ export const actions = {
       .catch(err => {
         console.log('Error getting documents', err)
       })
-    console.log(ret)
   }
 }

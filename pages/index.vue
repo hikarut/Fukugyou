@@ -60,7 +60,7 @@ export default {
   }),
   mounted() {
     // news記事の取得
-    this.$store.dispatch('news/getNews')
+    this.$store.dispatch('news/getNews', { date: '20190707' })
   }
 }
 </script>
