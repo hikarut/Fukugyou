@@ -1,6 +1,12 @@
 <template>
   <div class="top">
-    <card-item :items="topNews"/>
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"/>
+    </template>
+    <template v-else>
+      <card-item :items="topNews"/>
+    </template>
+
 
     <subheader text="トップニュース" />
     <big-img-item :items="listData" />
@@ -62,7 +68,7 @@ export default {
     fukugyouNewsJob: fukugyouNewsJob
   }),
   computed: {
-    ...mapGetters('news', ['topNews'])
+    ...mapGetters('news', ['topNews', 'loading'])
   },
   beforeMount() {
     console.log('beforeMount')

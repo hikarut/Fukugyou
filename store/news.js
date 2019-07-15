@@ -2,7 +2,8 @@ import { getTopTerm, dateString, addSlash } from '~/lib/date'
 
 /* state */
 const initialState = {
-  data: null
+  data: null,
+  loading: true
 }
 export const state = () => Object.assign({}, initialState)
 
@@ -11,6 +12,9 @@ export const mutations = {
   setData(state, data) {
     state.data = data
   },
+  setLoading(state, loading) {
+    state.loading = loading
+  },
   reset(state) {
     state = Object.assign(state, initialState)
   }
@@ -18,6 +22,9 @@ export const mutations = {
 
 /* getters */
 export const getters = {
+  loading(state) {
+    return state.loading
+  },
   topNews(state) {
     const header = '複業(副業)ニュース'
     let tmpDate = ''
@@ -60,6 +67,7 @@ export const getters = {
 export const actions = {
   // トップページ用のニュース記事取得
   async getTopNews({ commit }) {
+    commit('setLoading', true)
     const { start, end } = getTopTerm()
     try {
       const snapshot = await this.$firestore
@@ -77,6 +85,7 @@ export const actions = {
     } catch (err) {
       console.log(err)
     }
+    commit('setLoading', false)
   },
 
   // 日次のニュース記事取得
