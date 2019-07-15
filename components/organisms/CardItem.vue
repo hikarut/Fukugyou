@@ -11,7 +11,8 @@
               :key="card.title"
               class="xs6 card-box"
             >
-              <a :href="`${card.link}`" target="blank">
+              <!-- <a :href="`${card.link}`" target="blank"> -->
+              <a @click="go(card.link)">
                 <v-card>
                   <card-Img :src="card.img" :alt="card.title"/>
                   <card-date :text="card.date" class="date"/>
@@ -45,6 +46,17 @@ export default {
     items: {
       type: Object,
       default: null
+    }
+  },
+  methods: {
+    // TODO:ListItemと共通化
+    go(url) {
+      if (url.match(/fukugyou\.dev/)) {
+        location.href = url
+      } else {
+        // 別サイトの場合は別ウィンドウにする
+        open(url, '_blank')
+      }
     }
   }
 }

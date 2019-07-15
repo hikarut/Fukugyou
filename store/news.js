@@ -1,3 +1,5 @@
+import { getTopTerm, dateString, addSlash } from '~/lib/date'
+
 /* state */
 const initialState = {
   data: null
@@ -6,35 +8,110 @@ export const state = () => Object.assign({}, initialState)
 
 /* mutations */
 export const mutations = {
-  setName(state, name) {
-    state.name = name
-  },
-  setMail(state, mail) {
-    state.mail = mail
-  },
-  setContents(state, contents) {
-    state.contents = contents
+  setData(state, data) {
+    state.data = data
   },
   reset(state) {
     state = Object.assign(state, initialState)
   }
 }
 
+/* getters */
+export const getters = {
+  topNews(state) {
+    const header = '複業(副業)ニュース'
+    let tmpDate = ''
+    if (state.data === null) {
+      return {
+        header: header,
+        data: state.data
+      }
+    }
+
+    let ret = []
+    Object.keys(state.data).forEach(key => {
+      if (tmpDate !== state.data[key].date) {
+        const dateStr = addSlash(state.data[key].date)
+        const item = {
+          img: state.data[key].img,
+          // date: dateString(dateStr),
+          date: `${dateString(dateStr)}の記事一覧`,
+          // title: '複業(副業)記事一覧',
+          title: state.data[key].title,
+          link: `/news/${state.data[key].date}`
+        }
+
+        // 画像が空だったら次の記事の画像を取るためループを続ける
+        if (state.data[key].img !== '') {
+          tmpDate = state.data[key].date
+          ret.push(item)
+        }
+      }
+    })
+    const topData = {
+      header: header,
+      data: ret
+    }
+    return topData
+  }
+}
+
 /* actions */
 export const actions = {
-  async getNews({ commit }, { date }) {
-    const ret = this.$firestore
-      .collection('news')
-      .doc(date)
-      .collection('data')
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          console.log(doc.id, '=>', doc.data())
-        })
+  // トップページ用のニュース記事取得
+  async getTopNews({ commit }) {
+    const { start, end } = getTopTerm()
+    try {
+      const snapshot = await this.$firestore
+        .collection('news')
+        .where('date', '>=', start)
+        .where('date', '<=', end)
+        .orderBy('date', 'desc')
+        .get()
+
+      const data = snapshot.docs.map(doc => {
+        return doc.data()
       })
-      .catch(err => {
-        console.log('Error getting documents', err)
+      console.log(data)
+      commit('setData', data)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
+  // 日次のニュース記事取得
+  async getDailyNews({ commit }, { date }) {
+    console.log('getNews')
+    try {
+      const snapshot = await this.$firestore
+        .collection('news')
+        .where('date', '=', date)
+        .get()
+
+      const data = snapshot.docs.map(doc => {
+        return doc.data()
       })
+      console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
+  // 月次のニュース記事取得
+  async getMonthlyNews({ commit }, { month }) {
+    console.log('getNews')
+    try {
+      const snapshot = await this.$firestore
+        .collection('news')
+        .where('month', '=', month)
+        .get()
+
+      const data = snapshot.docs.map(doc => {
+        return doc.data()
+      })
+      console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

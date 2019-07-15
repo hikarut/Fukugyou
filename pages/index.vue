@@ -1,5 +1,7 @@
 <template>
   <div class="top">
+    <card-item :items="topNews"/>
+
     <subheader text="トップニュース" />
     <big-img-item :items="listData" />
     <button-link link="/posts" text="もっと見る" />
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import { getEntries } from '~/plugins/contentful'
 import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
@@ -58,9 +61,20 @@ export default {
     fukugyouNewsWhy: fukugyouNewsWhy,
     fukugyouNewsJob: fukugyouNewsJob
   }),
-  mounted() {
+  computed: {
+    ...mapGetters('news', ['topNews'])
+  },
+  beforeMount() {
+    console.log('beforeMount')
     // news記事の取得
-    this.$store.dispatch('news/getNews', { date: '20190707' })
+    this.getTopNews()
+  },
+  mounted() {
+    console.log('mounted')
+    // console.log(this.topNews)
+  },
+  methods: {
+    ...mapActions('news', ['getTopNews'])
   }
 }
 </script>
