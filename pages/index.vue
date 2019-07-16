@@ -7,7 +7,6 @@
       <card-item :items="topNews"/>
     </template>
 
-
     <subheader text="トップニュース" />
     <big-img-item :items="listData" />
     <button-link link="/posts" text="もっと見る" />

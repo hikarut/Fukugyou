@@ -45,7 +45,9 @@ export const getters = {
           date: `${dateString(dateStr)}の記事一覧`,
           // title: '複業(副業)記事一覧',
           title: state.data[key].title,
-          link: `/news/${state.data[key].date}`
+          link: `/news/${state.data[key].date.substr(0, 6)}/${
+            state.data[key].date
+          }`
         }
 
         // 画像が空だったら次の記事の画像を取るためループを続ける
