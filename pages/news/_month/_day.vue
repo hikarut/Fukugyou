@@ -20,8 +20,8 @@ export default {
     ListItem
   },
   validate({ params }) {
-    // 数値でなければならない
-    return /^\d+$/.test(params.day)
+    // 日付と月を両方チェック
+    return /^\d{8}$/.test(params.day) && /^\d{6}$/.test(params.month)
   },
   head() {
     return {

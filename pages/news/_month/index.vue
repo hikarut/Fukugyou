@@ -20,8 +20,8 @@ export default {
     ListItem
   },
   validate({ params }) {
-    // 数値でなければならない
-    return /^\d+$/.test(params.month)
+    // 6桁の数値でなければならない
+    return /^\d{6}$/.test(params.month)
   },
   head() {
     return {
