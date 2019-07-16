@@ -64,12 +64,12 @@ export default {
           url: '/'
         },
         {
-          text: '201907',
+          text: this.month,
           disabled: false,
-          url: '/news/201907'
+          url: `/news/${this.month}`
         },
         {
-          text: '20190715',
+          text: this.day,
           disabled: true,
           url: '/'
         }
@@ -78,7 +78,7 @@ export default {
   },
   asyncData({ params, store }) {
     console.log(params)
-    console.log(store)
+    return { month: params.month, day: params.day }
   }
 }
 </script>
