@@ -3,6 +3,8 @@ import { getTopTerm, dateString, addSlash } from '~/lib/date'
 /* state */
 const initialState = {
   data: null,
+  dailyData: null,
+  monthlyData: null,
   loading: true
 }
 export const state = () => Object.assign({}, initialState)
@@ -11,6 +13,12 @@ export const state = () => Object.assign({}, initialState)
 export const mutations = {
   setData(state, data) {
     state.data = data
+  },
+  setDailyData(state, dailyData) {
+    state.dailyData = dailyData
+  },
+  setMonthlyData(state, monthlyData) {
+    state.monthlyData = monthlyData
   },
   setLoading(state, loading) {
     state.loading = loading
@@ -38,11 +46,10 @@ export const getters = {
     let ret = []
     Object.keys(state.data).forEach(key => {
       if (tmpDate !== state.data[key].date) {
-        const dateStr = addSlash(state.data[key].date)
         const item = {
           img: state.data[key].img,
           // date: dateString(dateStr),
-          date: `${dateString(dateStr)}の記事一覧`,
+          date: `${dateString(addSlash(state.data[key].date))}の記事一覧`,
           // title: '複業(副業)記事一覧',
           title: state.data[key].title,
           link: `/news/${state.data[key].date.substr(0, 6)}/${
@@ -61,7 +68,21 @@ export const getters = {
       header: header,
       data: ret
     }
+    console.log('topData')
     return topData
+  },
+  dailyNews(state) {
+    const header = `${dateString(addSlash(state.dailyData[0].date))}の記事一覧`
+    const dailyData = {
+      header: header,
+      data: state.dailyData
+    }
+    console.log('getters dailyData')
+    console.log(dailyData)
+    return dailyData
+  },
+  monthlyNews(state) {
+    return state.monthlyData
   }
 }
 
@@ -82,7 +103,6 @@ export const actions = {
       const data = snapshot.docs.map(doc => {
         return doc.data()
       })
-      console.log(data)
       commit('setData', data)
     } catch (err) {
       console.log(err)
@@ -91,21 +111,23 @@ export const actions = {
   },
 
   // 日次のニュース記事取得
-  async getDailyNews({ commit }, { date }) {
-    console.log('getNews')
+  async getDailyNews({ commit }, date) {
+    commit('setLoading', true)
+    console.log('getDailyNews')
     try {
       const snapshot = await this.$firestore
         .collection('news')
-        .where('date', '=', date)
+        .where('date', '==', date)
         .get()
 
       const data = snapshot.docs.map(doc => {
         return doc.data()
       })
-      console.log(data)
+      commit('setDailyData', data)
     } catch (err) {
       console.log(err)
     }
+    commit('setLoading', false)
   },
 
   // 月次のニュース記事取得
@@ -114,7 +136,7 @@ export const actions = {
     try {
       const snapshot = await this.$firestore
         .collection('news')
-        .where('month', '=', month)
+        .where('month', '==', month)
         .get()
 
       const data = snapshot.docs.map(doc => {

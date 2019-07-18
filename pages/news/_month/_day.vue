@@ -1,15 +1,17 @@
 <template>
   <v-layout align-center column justify-center>
-    <div>day</div>
     <bread-list :items="breadItems"/>
+    <card-item :items="dailyNews"/>
     <list-item :items="recomendNews" />
   </v-layout>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
+import CardItem from '~/components/organisms/CardItem.vue'
 
 const recomendNews = require('~/config/recomendNews.json5')
 
@@ -17,7 +19,8 @@ export default {
   components: {
     SnsPost,
     BreadList,
-    ListItem
+    ListItem,
+    CardItem
   },
   validate({ params }) {
     // 日付と月を両方チェック
@@ -52,7 +55,6 @@ export default {
     }
   },
   data: () => ({
-    post: [],
     recomendNews: recomendNews
   }),
   computed: {
@@ -74,10 +76,18 @@ export default {
           url: '/'
         }
       ]
-    }
+    },
+    ...mapGetters('news', ['dailyNews'])
   },
-  asyncData({ params, store }) {
+  beforeMount() {
+    console.log('beforeMount')
+  },
+  methods: {
+    ...mapActions('news', ['getDailyNews'])
+  },
+  async asyncData({ params, store }) {
     console.log(params)
+    await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }
