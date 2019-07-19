@@ -1,9 +1,9 @@
 <template>
-  <v-layout align-center column justify-center>
+  <div class="main">
     <bread-list :items="breadItems"/>
     <card-item :items="dailyNews"/>
     <list-item :items="recomendNews" />
-  </v-layout>
+  </div>
 </template>
 
 <script>
@@ -94,4 +94,11 @@ export default {
 </script>
 
 <style scoped>
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .main {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
 </style>

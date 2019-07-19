@@ -132,7 +132,8 @@ export const actions = {
 
   // 月次のニュース記事取得
   async getMonthlyNews({ commit }, { month }) {
-    console.log('getNews')
+    console.log('getMonthlyNews')
+    commit('setLoading', true)
     try {
       const snapshot = await this.$firestore
         .collection('news')
@@ -142,9 +143,11 @@ export const actions = {
       const data = snapshot.docs.map(doc => {
         return doc.data()
       })
+      commit('setMonthlyData', data)
       console.log(data)
     } catch (err) {
       console.log(err)
     }
+    commit('setLoading', false)
   }
 }
