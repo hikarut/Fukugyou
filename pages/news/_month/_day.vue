@@ -14,6 +14,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import CardItem from '~/components/organisms/CardItem.vue'
 
 const recomendNews = require('~/config/recomendNews.json5')
+const constant = require('~/config/constant.json')
 
 export default {
   components: {
@@ -28,28 +29,32 @@ export default {
   },
   head() {
     return {
-      title: 'aaaa',
+      title: this.dailyNews.header,
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content: 'aaa'
+          content: this.dailyNews.header
         },
-        { hid: 'og:url', property: 'og:url', content: 'aaaa' },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${constant.url}${this.$route.path}`
+        },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `aaa | aaaa`
+          content: this.dailyNews.header
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'aaaa'
+          content: '/ogimage.png'
         },
         {
           hid: 'twitter:image:src',
           property: 'twitter:image:src',
-          content: `https://yahoo.co.jp`
+          content: `${constant.url}${this.$route.path}`
         }
       ]
     }
@@ -81,6 +86,7 @@ export default {
   },
   beforeMount() {
     console.log('beforeMount')
+    console.log(this.dailyNews)
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
