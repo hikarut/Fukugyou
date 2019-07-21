@@ -102,7 +102,7 @@ export default {
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
-  async asyncData({ params, store }) {
+  asyncData({ params, store }) {
     // await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
