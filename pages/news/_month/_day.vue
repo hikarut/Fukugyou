@@ -3,10 +3,10 @@
     <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
-    <div v-show="loading">
+    <div v-if="loading">
       <v-progress-linear :indeterminate="true"/>
     </div>
-    <div v-show="!loading">
+    <div v-if="!loading">
       <card-item :items="dailyNews"/>
     </div>
 
