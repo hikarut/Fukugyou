@@ -8,6 +8,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { addSlash } from '~/lib/date'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -71,12 +72,12 @@ export default {
           url: '/'
         },
         {
-          text: this.month,
+          text: addSlash(this.month),
           disabled: false,
           url: `/news/${this.month}`
         },
         {
-          text: this.day,
+          text: addSlash(this.day),
           disabled: true,
           url: '/'
         }
