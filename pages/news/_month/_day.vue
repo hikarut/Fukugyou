@@ -3,12 +3,12 @@
     <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
-    <template v-if="loading">
+    <div v-show="loading">
       <v-progress-linear :indeterminate="true"/>
-    </template>
-    <template v-else>
+    </div>
+    <div v-show="!loading">
       <card-item :items="dailyNews"/>
-    </template>
+    </div>
 
     <list-item :items="recomendNews" />
   </div>
@@ -112,6 +112,7 @@ export default {
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
+  // async asyncData({ params, store }) {
   asyncData({ params, store }) {
     // await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
