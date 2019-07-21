@@ -176,6 +176,8 @@ export const actions = {
 
   // 日次のニュース記事取得
   async getDailyNews({ commit }, date) {
+    console.log('getDailyNews')
+    console.log(date)
     commit('setLoading', true)
     try {
       const snapshot = await this.$firestore
@@ -186,6 +188,7 @@ export const actions = {
       const data = snapshot.docs.map(doc => {
         return doc.data()
       })
+      console.log(data)
       commit('setDailyData', data)
     } catch (err) {
       console.log(err)
