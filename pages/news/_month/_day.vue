@@ -2,7 +2,14 @@
   <div class="main">
     <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-    <card-item :items="dailyNews"/>
+
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"/>
+    </template>
+    <template v-else>
+      <card-item :items="dailyNews"/>
+    </template>
+
     <list-item :items="recomendNews" />
   </div>
 </template>
@@ -93,7 +100,7 @@ export default {
     shareTag() {
       return '複業,エンジニア'
     },
-    ...mapGetters('news', ['dailyNews'])
+    ...mapGetters('news', ['dailyNews', 'loading'])
   },
   beforeMount() {
     // news記事の取得

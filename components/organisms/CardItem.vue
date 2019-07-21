@@ -1,8 +1,8 @@
 <template>
   <v-layout justify-center>
     <v-flex class="main">
-      <subheader v-show="items.header" :text="items.header" />
-      <updated-at-text v-show="items.updatedAt" :text="items.updatedAt" />
+      <subheader v-if="items.header" :text="items.header" />
+      <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
       <v-card>
         <v-container fluid grid-list-md>
           <v-layout row wrap>
