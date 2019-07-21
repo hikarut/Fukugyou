@@ -3,12 +3,14 @@
     <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
-    <div v-if="loading">
-      <v-progress-linear :indeterminate="true"/>
-    </div>
-    <div v-if="!loading">
-      <card-item :items="dailyNews"/>
-    </div>
+    <no-ssr>
+      <div v-if="loading">
+        <v-progress-linear :indeterminate="true"/>
+      </div>
+      <div v-if="!loading">
+        <card-item :items="dailyNews"/>
+      </div>
+    </no-ssr>
 
     <list-item :items="recomendNews" />
   </div>
