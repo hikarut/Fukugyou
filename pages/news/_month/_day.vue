@@ -95,12 +95,15 @@ export default {
     },
     ...mapGetters('news', ['dailyNews'])
   },
+  beforeMount() {
+    // news記事の取得
+    this.getDailyNews(this.day)
+  },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store }) {
-    console.log(params)
-    await store.dispatch('news/getDailyNews', params.day)
+    // await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }
