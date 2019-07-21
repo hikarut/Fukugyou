@@ -9,7 +9,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { addSlash } from '~/lib/date'
+import { addDateString } from '~/lib/date'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -73,12 +73,12 @@ export default {
           url: '/'
         },
         {
-          text: addSlash(this.month),
+          text: addDateString(this.month),
           disabled: false,
           url: `/news/${this.month}`
         },
         {
-          text: addSlash(this.day),
+          text: addDateString(this.day),
           disabled: true,
           url: '/'
         }
@@ -94,10 +94,6 @@ export default {
       return '複業,エンジニア'
     },
     ...mapGetters('news', ['dailyNews'])
-  },
-  beforeMount() {
-    console.log('beforeMount')
-    console.log(this.dailyNews)
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])

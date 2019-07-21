@@ -1,58 +1,67 @@
 <template>
-  <v-layout align-center column justify-center>
-    <div>month index</div>
+  <div class="main">
     <bread-list :items="breadItems"/>
+    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+    <card-item :items="monthlyNews"/>
     <list-item :items="recomendNews" />
-  </v-layout>
+  </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+import { addDateString } from '~/lib/date'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
+import CardItem from '~/components/organisms/CardItem.vue'
 
 const recomendNews = require('~/config/recomendNews.json5')
+const constant = require('~/config/constant.json')
 
 export default {
   components: {
     SnsPost,
     BreadList,
-    ListItem
+    ListItem,
+    CardItem
   },
   validate({ params }) {
-    // 6桁の数値でなければならない
+    // 月をチェック
     return /^\d{6}$/.test(params.month)
   },
   head() {
     return {
-      title: 'aaaa',
+      title: this.monthlyNews.header,
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content: 'aaa'
+          content: this.monthlyNews.header
         },
-        { hid: 'og:url', property: 'og:url', content: 'aaaa' },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${constant.url}${this.$route.path}`
+        },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: `aaa | aaaa`
+          content: this.monthlyNews.header
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'aaaa'
+          content: '/ogimage.png'
         },
         {
           hid: 'twitter:image:src',
           property: 'twitter:image:src',
-          content: `https://yahoo.co.jp`
+          content: `${constant.url}${this.$route.path}`
         }
       ]
     }
   },
   data: () => ({
-    post: [],
     recomendNews: recomendNews
   }),
   computed: {
@@ -64,23 +73,45 @@ export default {
           url: '/'
         },
         {
-          text: '201907',
-          disabled: false,
-          url: '/news/201907'
-        },
-        {
-          text: '20190715',
+          text: addDateString(this.month),
           disabled: true,
-          url: '/'
+          url: `/news/${this.month}`
         }
       ]
-    }
+    },
+    shareUrl() {
+      return `${constant.url}${this.$route.path}`
+    },
+    shareText() {
+      return this.monthlyNews.header
+    },
+    shareTag() {
+      return '複業,エンジニア'
+    },
+    ...mapGetters('news', ['monthlyNews'])
   },
-  asyncData({ params, store }) {
+  methods: {
+    ...mapActions('news', ['getMonthlyData'])
+  },
+  async asyncData({ params, store }) {
+    console.log('params')
     console.log(params)
+    await store.dispatch('news/getMonthlyNews', params.month)
+    return { month: params.month }
   }
 }
 </script>
 
 <style scoped>
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .main {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+/* このページだけ横幅いっぱいにする */
+.sns-post {
+  width: 100%;
+}
 </style>

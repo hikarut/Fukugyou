@@ -1,4 +1,4 @@
-import { getTopTerm, dateString, addSlash } from '~/lib/date'
+import { getTopTerm, dateString, addSlash, addDateString } from '~/lib/date'
 
 /* state */
 const initialState = {
@@ -68,21 +68,71 @@ export const getters = {
       header: header,
       data: ret
     }
-    console.log('topData')
     return topData
   },
   dailyNews(state) {
     const header = `${dateString(addSlash(state.dailyData[0].date))}の記事一覧`
+    let ret = []
+    Object.keys(state.dailyData).forEach(key => {
+      const item = {
+        img: state.dailyData[key].img,
+        date: `${dateString(addSlash(state.dailyData[key].date))}の記事`,
+        title: state.dailyData[key].title,
+        link: state.dailyData[key].link
+      }
+      ret.push(item)
+    })
     const dailyData = {
       header: header,
-      data: state.dailyData
+      data: ret
     }
-    console.log('getters dailyData')
-    console.log(dailyData)
     return dailyData
   },
   monthlyNews(state) {
-    return state.monthlyData
+    const header = `${addDateString(state.monthlyData[0].month)}の記事一覧`
+    let tmpDate = []
+    if (state.monthlyData === null) {
+      return {
+        header: header,
+        data: state.monthlyData
+      }
+    }
+
+    let ret = []
+    Object.keys(state.monthlyData).forEach(key => {
+      if (tmpDate.indexOf(state.monthlyData[key].date) == -1) {
+        const item = {
+          img: state.monthlyData[key].img,
+          date: `${dateString(
+            addSlash(state.monthlyData[key].date)
+          )}の記事一覧`,
+          dateSort: state.monthlyData[key].date,
+          title: state.monthlyData[key].title,
+          link: `/news/${state.monthlyData[key].date.substr(0, 6)}/${
+            state.monthlyData[key].date
+          }`
+        }
+
+        // 画像が空だったら次の記事の画像を取るためループを続ける
+        if (state.monthlyData[key].img !== '') {
+          tmpDate.push(state.monthlyData[key].date)
+          ret.push(item)
+        }
+      }
+    })
+    // 日付でソート
+    ret.sort((a, b) => {
+      if (a.dateSort < b.dateSort) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+    const monthlyData = {
+      header: header,
+      data: ret
+    }
+    return monthlyData
   }
 }
 
@@ -113,7 +163,6 @@ export const actions = {
   // 日次のニュース記事取得
   async getDailyNews({ commit }, date) {
     commit('setLoading', true)
-    console.log('getDailyNews')
     try {
       const snapshot = await this.$firestore
         .collection('news')
@@ -131,8 +180,7 @@ export const actions = {
   },
 
   // 月次のニュース記事取得
-  async getMonthlyNews({ commit }, { month }) {
-    console.log('getMonthlyNews')
+  async getMonthlyNews({ commit }, month) {
     commit('setLoading', true)
     try {
       const snapshot = await this.$firestore
@@ -144,7 +192,6 @@ export const actions = {
         return doc.data()
       })
       commit('setMonthlyData', data)
-      console.log(data)
     } catch (err) {
       console.log(err)
     }
