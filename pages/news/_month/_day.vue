@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <bread-list :items="breadItems"/>
+    <!-- <bread-list :items="breadItems"/> -->
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
     <div v-show="loading">
