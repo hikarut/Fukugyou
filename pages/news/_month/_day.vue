@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <bread-list :items="breadItems"/>
+    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
     <card-item :items="dailyNews"/>
     <list-item :items="recomendNews" />
   </div>
@@ -83,6 +84,15 @@ export default {
         }
       ]
     },
+    shareUrl() {
+      return `${constant.url}${this.$route.path}`
+    },
+    shareText() {
+      return this.dailyNews.header
+    },
+    shareTag() {
+      return '複業,エンジニア'
+    },
     ...mapGetters('news', ['dailyNews'])
   },
   beforeMount() {
@@ -107,5 +117,9 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
+}
+/* このページだけ横幅いっぱいにする */
+.sns-post {
+  width: 100%;
 }
 </style>
