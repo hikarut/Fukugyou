@@ -1,14 +1,14 @@
 <template>
   <div class="main">
-    <!-- <bread-list :items="breadItems"/> -->
-    <!-- <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" /> -->
+    <bread-list :items="breadItems"/>
+    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
-    <!-- <div v-show="loading">
+    <div v-show="loading">
       <v-progress-linear :indeterminate="true"/>
     </div>
     <div v-show="!loading">
       <card-item :items="dailyNews"/>
-    </div> -->
+    </div>
 
     <list-item :items="recomendNews" />
   </div>
@@ -107,14 +107,14 @@ export default {
     console.log('beforeMount')
     console.log(this.day)
     console.log(this.$route.params)
-    this.getDailyNews(this.$route.params.day)
+    // this.getDailyNews(this.$route.params.day)
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
-  // async asyncData({ params, store }) {
-  asyncData({ params, store }) {
-    // await store.dispatch('news/getDailyNews', params.day)
+  async asyncData({ params, store }) {
+    // asyncData({ params, store }) {
+    await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }
