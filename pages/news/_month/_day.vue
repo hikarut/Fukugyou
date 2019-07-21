@@ -97,7 +97,10 @@ export default {
   },
   beforeMount() {
     // news記事の取得
-    this.getDailyNews(this.day)
+    console.log('beforeMount')
+    console.log(this.day)
+    console.log(this.$route.params)
+    this.getDailyNews(this.$route.params.day)
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
