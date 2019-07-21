@@ -1,6 +1,6 @@
 {
   "header": "おすすめニュース",
-  "updatedAt": "2019/06/11(火) 08:00",
+  "updatedAt": "2019/07/20(土) 14:00",
   "data": [
     {
       "img":
@@ -29,13 +29,6 @@
       "date": "2019/05/01(水)",
       "title": "複業して良かった7つの事",
       "link": "https://fukugyou.dev/posts/20190501_01",
-    },
-    {
-      "img":
-        "https://s3-ap-northeast-1.amazonaws.com/peatix-files/event/670061/cover-ekgjI06npoFq40aKQFqg0zb5azKZuyFB.jpeg",
-      "date": "2019/05/12(日)",
-      "title": "複業FES 2019 〜複業家同士がつながる場〜",
-      "link": "https://fes2019.peatix.com/",
     },
     {
       "img":

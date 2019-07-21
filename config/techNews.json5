@@ -1,14 +1,21 @@
 {
   "header": "エンジニア向けニュース",
-  "updatedAt": "2019/06/11(火) 08:00",
+  "updatedAt": "2019/07/20(土) 14:00",
   "data": [
+    {
+      "img":
+        "https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png",
+      "date": "2019/07/05(金)",
+      "title": "Firebase + Nuxt.js + RaspberryPiで作る猫監視システム",
+      "link": "https://qiita.com/reireias/items/2e377b2a42e4cb3aded1",
+      "isNew": true,
+    },
     {
       "img":
         "https://avatars3.githubusercontent.com/u/29566738?s=400&amp;v=4",
       "date": "2019/06/10(月)",
       "title": "nuxt-community/python-module",
       "link": "https://github.com/nuxt-community/python-module",
-      "isNew": true,
     },
     {
       "img":
