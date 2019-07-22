@@ -80,13 +80,7 @@ export const getters = {
       console.log('getters dailyNews null')
       return {
         header: '記事一覧',
-        // data: state.dailyData
-        data: {
-          img: '',
-          date: 'aaaa',
-          title: 'aaaa',
-          link: 'aaa'
-        }
+        data: state.dailyData
       }
     }
 

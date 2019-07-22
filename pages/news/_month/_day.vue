@@ -7,7 +7,7 @@
       <v-progress-linear :indeterminate="true"/>
     </div>
     <div v-show="!loading">
-      <card-item :items="dailyNews"/>
+      <!-- <card-item :items="dailyNews"/> -->
     </div>
 
     <list-item :items="recomendNews" />
