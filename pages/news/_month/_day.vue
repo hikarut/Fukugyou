@@ -38,12 +38,14 @@ export default {
   },
   head() {
     return {
-      title: this.dailyNews.header,
+      // title: this.dailyNews.header,
+      title: '記事一覧',
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content: this.dailyNews.header
+          // content: this.dailyNews.header
+          content: '記事一覧'
         },
         {
           hid: 'og:url',
@@ -53,7 +55,8 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.dailyNews.header
+          // content: this.dailyNews.header
+          content: '記事一覧'
         },
         {
           hid: 'og:image',
@@ -95,7 +98,8 @@ export default {
       return `${constant.url}${this.$route.path}`
     },
     shareText() {
-      return this.dailyNews.header
+      // return this.dailyNews.header
+      return '記事一覧'
     },
     shareTag() {
       return '複業,エンジニア'
@@ -108,6 +112,9 @@ export default {
     console.log(this.day)
     console.log(this.$route.params)
     // this.getDailyNews(this.$route.params.day)
+  },
+  mounted() {
+    console.log('mounted')
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
