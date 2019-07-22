@@ -57,6 +57,7 @@ export default {
   },
   // 投稿内容を取得
   asyncData() {
+    console.log('top asyncData')
     return getEntries(2)
   },
   data: () => ({

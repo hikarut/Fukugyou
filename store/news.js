@@ -34,9 +34,11 @@ export const getters = {
     return state.loading
   },
   topNews(state) {
+    console.log('getters topNews')
     const header = '複業(副業)ニュース'
     let tmpDate = ''
     if (state.data === null) {
+      console.log('getters topNews null')
       return {
         header: header,
         data: state.data
@@ -64,6 +66,7 @@ export const getters = {
         }
       }
     })
+    console.log(`ret：${ret.length}`)
     const topData = {
       header: header,
       data: ret
@@ -71,7 +74,9 @@ export const getters = {
     return topData
   },
   dailyNews(state) {
+    console.log('getters dailyNews')
     if (state.dailyData === null) {
+      console.log('getters dailyNews null')
       return {
         header: '記事一覧',
         data: state.dailyData
@@ -93,6 +98,7 @@ export const getters = {
       header: header,
       data: ret
     }
+    console.log(`ret：${ret.length}`)
     return dailyData
   },
   monthlyNews(state) {
@@ -154,6 +160,7 @@ export const getters = {
 export const actions = {
   // トップページ用のニュース記事取得
   async getTopNews({ commit }) {
+    console.log('actions getTopNews')
     commit('setLoading', true)
     const { start, end } = getTopTerm()
     try {
@@ -176,7 +183,7 @@ export const actions = {
 
   // 日次のニュース記事取得
   async getDailyNews({ commit }, date) {
-    console.log('getDailyNews')
+    console.log('actions getDailyNews')
     console.log(date)
     commit('setLoading', true)
     try {
@@ -188,7 +195,6 @@ export const actions = {
       const data = snapshot.docs.map(doc => {
         return doc.data()
       })
-      console.log(data)
       commit('setDailyData', data)
     } catch (err) {
       console.log(err)
