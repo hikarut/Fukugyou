@@ -3,12 +3,12 @@
     <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
-    <div v-show="loading">
+    <template v-if="loading">
       <v-progress-linear :indeterminate="true"/>
-    </div>
-    <div v-show="!loading">
+    </template>
+    <template v-else>
       <card-item :items="dailyNews"/>
-    </div>
+    </template>
 
     <list-item :items="recomendNews" />
   </div>
@@ -144,5 +144,9 @@ export default {
 /* このページだけ横幅いっぱいにする */
 .sns-post {
   width: 100%;
+}
+/* リストページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 20px 0px 20px 24px !important;
 }
 </style>
