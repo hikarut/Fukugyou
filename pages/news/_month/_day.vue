@@ -1,16 +1,17 @@
 <template>
   <div class="main">
-    <bread-list :items="breadItems"/>
+    aa
+    <!-- <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
     <div v-show="loading">
       <v-progress-linear :indeterminate="true"/>
     </div>
     <div v-show="!loading">
-      <!-- <card-item :items="dailyNews"/> -->
+      <card-item :items="dailyNews"/>
     </div>
 
-    <list-item :items="recomendNews" />
+    <list-item :items="recomendNews" /> -->
   </div>
 </template>
 
