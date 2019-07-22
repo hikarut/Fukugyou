@@ -73,6 +73,7 @@ export const getters = {
     }
     return topData
   },
+
   dailyNews(state) {
     console.log('getters dailyNews')
     if (state.dailyData === null) {
@@ -101,6 +102,7 @@ export const getters = {
     console.log(`getters ret：${ret.length}`)
     return dailyData
   },
+
   monthlyNews(state) {
     if (state.monthlyData === null) {
       return {

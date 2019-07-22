@@ -111,7 +111,7 @@ export default {
     console.log('beforeMount')
     console.log(this.day)
     console.log(this.$route.params)
-    this.getDailyNews(this.$route.params.day)
+    // this.getDailyNews(this.$route.params.day)
   },
   mounted() {
     console.log('mounted')
@@ -122,7 +122,7 @@ export default {
   async asyncData({ params, store }) {
     console.log('_day asyncData')
     // asyncData({ params, store }) {
-    // await store.dispatch('news/getDailyNews', params.day)
+    await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }
