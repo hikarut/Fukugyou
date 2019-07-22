@@ -1,7 +1,6 @@
 <template>
   <div class="main">
-    aa
-    <!-- <bread-list :items="breadItems"/>
+    <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
     <div v-show="loading">
@@ -11,7 +10,7 @@
       <card-item :items="dailyNews"/>
     </div>
 
-    <list-item :items="recomendNews" /> -->
+    <list-item :items="recomendNews" />
   </div>
 </template>
 

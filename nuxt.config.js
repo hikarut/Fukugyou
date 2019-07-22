@@ -30,7 +30,11 @@ function routing() {
       content_type: contentType
     })
     .then(entries => {
-      return [...entries.items.map(entry => `/posts/${entry.fields.url}`)]
+      return [
+        ...entries.items.map(entry => `/posts/${entry.fields.url}`),
+        // TODO:テストで
+        '/news/201907/20190721'
+      ]
     })
     .catch(error => {
       console.log('error')
@@ -167,7 +171,7 @@ export default {
   ** generateオプション
   */
   generate: {
-    routes() {
+    async routes() {
       return routing()
     }
   },
