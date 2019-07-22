@@ -66,7 +66,7 @@ export const getters = {
         }
       }
     })
-    console.log(`ret：${ret.length}`)
+    console.log(`getters ret：${ret.length}`)
     const topData = {
       header: header,
       data: ret
@@ -98,7 +98,7 @@ export const getters = {
       header: header,
       data: ret
     }
-    console.log(`ret：${ret.length}`)
+    console.log(`getters ret：${ret.length}`)
     return dailyData
   },
   monthlyNews(state) {
@@ -175,6 +175,8 @@ export const actions = {
         return doc.data()
       })
       commit('setData', data)
+      console.log('setData')
+      console.log(`actions ret：${data.length}`)
     } catch (err) {
       console.log(err)
     }
@@ -196,6 +198,8 @@ export const actions = {
         return doc.data()
       })
       commit('setDailyData', data)
+      console.log('setDailyData')
+      console.log(`actions ret：${data.length}`)
     } catch (err) {
       console.log(err)
     }
