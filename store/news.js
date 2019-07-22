@@ -46,22 +46,19 @@ export const getters = {
     let ret = []
     Object.keys(state.data).forEach(key => {
       if (tmpDate !== state.data[key].date) {
+        console.log(state.data[key].img)
+        console.log(typeof state.data[key].img)
         const item = {
-          img: state.data[key].img,
-          // date: dateString(dateStr),
+          img:
+            state.data[key].img === '' ? 'newsImage.png' : state.data[key].img,
           date: `${dateString(addSlash(state.data[key].date))}の記事一覧`,
-          // title: '複業(副業)記事一覧',
           title: state.data[key].title,
           link: `/news/${state.data[key].date.substr(0, 6)}/${
             state.data[key].date
           }`
         }
-
-        // 画像が空だったら次の記事の画像を取るためループを続ける
-        if (state.data[key].img !== '') {
-          tmpDate = state.data[key].date
-          ret.push(item)
-        }
+        tmpDate = state.data[key].date
+        ret.push(item)
       }
     })
     const topData = {
@@ -128,12 +125,8 @@ export const getters = {
             state.monthlyData[key].date
           }`
         }
-
-        // 画像が空だったら次の記事の画像を取るためループを続ける
-        if (state.monthlyData[key].img !== '') {
-          tmpDate.push(state.monthlyData[key].date)
-          ret.push(item)
-        }
+        tmpDate.push(state.monthlyData[key].date)
+        ret.push(item)
       }
     })
     // 日付でソート
