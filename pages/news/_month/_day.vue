@@ -38,14 +38,14 @@ export default {
   },
   head() {
     return {
-      // title: this.dailyNews.header,
-      title: '記事一覧',
+      title: this.dailyNews.header,
+      // title: '記事一覧',
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          // content: this.dailyNews.header
-          content: '記事一覧'
+          content: this.dailyNews.header
+          // content: '記事一覧'
         },
         {
           hid: 'og:url',
@@ -55,8 +55,8 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          // content: this.dailyNews.header
-          content: '記事一覧'
+          content: this.dailyNews.header
+          // content: '記事一覧'
         },
         {
           hid: 'og:image',
@@ -98,8 +98,8 @@ export default {
       return `${constant.url}${this.$route.path}`
     },
     shareText() {
-      // return this.dailyNews.header
-      return '記事一覧'
+      return this.dailyNews.header
+      // return '記事一覧'
     },
     shareTag() {
       return '複業,エンジニア'
