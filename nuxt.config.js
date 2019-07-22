@@ -35,9 +35,10 @@ function routing() {
     .then(entries => {
       return [
         ...entries.items.map(entry => `/posts/${entry.fields.url}`),
-        // TODO:テストで
-        // '/news/201907/20190721'
-        ...allTerm.map(data => `/news/${data.key}/${data.value}`)
+        // 日次のパス生成
+        ...allTerm.map(data => `/news/${data.key}/${data.value}`),
+        // 月次のパス生成
+        ...allTerm.map(data => `/news/${data.key}`)
       ]
     })
     .catch(error => {
