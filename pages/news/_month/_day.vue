@@ -16,7 +16,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { addDateString } from '~/lib/date'
+import { addDateString, getAllTerm } from '~/lib/date'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -112,6 +112,11 @@ export default {
     console.log(this.day)
     console.log(this.$route.params)
     // this.getDailyNews(this.$route.params.day)
+    // const allTerm = getAllTerm()
+    // console.log('getAllTerm')
+    // console.log(allTerm)
+    // const allTermPath = allTerm.map(data => `/news/${data.key}/${data.value}`)
+    // console.log(allTermPath)
   },
   mounted() {
     console.log('mounted')

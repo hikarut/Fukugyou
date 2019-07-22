@@ -1,4 +1,5 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+import { getAllTerm } from './lib/date'
 import pkg from './package'
 const environment = process.env.NODE_ENV || 'dev'
 const conf = require(`./config/constant.${environment}.json`)
@@ -25,6 +26,8 @@ const client = contentful.createClient({
 
 // ルーティング
 function routing() {
+  const allTerm = getAllTerm()
+  console.log(allTerm)
   return client
     .getEntries({
       content_type: contentType
@@ -33,13 +36,22 @@ function routing() {
       return [
         ...entries.items.map(entry => `/posts/${entry.fields.url}`),
         // TODO:テストで
-        '/news/201907/20190721'
+        // '/news/201907/20190721'
+        ...allTerm.map(data => `/news/${data.key}/${data.value}`)
       ]
     })
     .catch(error => {
       console.log('error')
       console.log(error)
     })
+}
+async function routing2() {
+  const ret = await client.getEntries({
+    content_type: contentType
+  })
+  console.log('routing2 ret')
+  console.log(ret)
+  return ret.items.map(entry => `/posts/${entry.fields.url}`)
 }
 
 export default {
@@ -173,6 +185,7 @@ export default {
   generate: {
     async routes() {
       return routing()
+      // return routing2()
     }
   },
 
