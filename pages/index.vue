@@ -57,7 +57,6 @@ export default {
   },
   // 投稿内容を取得
   asyncData() {
-    console.log('top asyncData')
     return getEntries(2)
   },
   data: () => ({
@@ -71,13 +70,8 @@ export default {
     ...mapGetters('news', ['topNews', 'loading'])
   },
   beforeMount() {
-    console.log('beforeMount')
     // news記事の取得
     this.getTopNews()
-  },
-  mounted() {
-    console.log('mounted')
-    // console.log(this.topNews)
   },
   methods: {
     ...mapActions('news', ['getTopNews'])

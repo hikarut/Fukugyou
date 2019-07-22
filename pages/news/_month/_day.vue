@@ -106,27 +106,10 @@ export default {
     },
     ...mapGetters('news', ['dailyNews', 'loading'])
   },
-  beforeMount() {
-    // news記事の取得
-    console.log('beforeMount')
-    console.log(this.day)
-    console.log(this.$route.params)
-    // this.getDailyNews(this.$route.params.day)
-    // const allTerm = getAllTerm()
-    // console.log('getAllTerm')
-    // console.log(allTerm)
-    // const allTermPath = allTerm.map(data => `/news/${data.key}/${data.value}`)
-    // console.log(allTermPath)
-  },
-  mounted() {
-    console.log('mounted')
-  },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store }) {
-    console.log('_day asyncData')
-    // asyncData({ params, store }) {
     await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }

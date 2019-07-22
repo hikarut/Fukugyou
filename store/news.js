@@ -34,11 +34,9 @@ export const getters = {
     return state.loading
   },
   topNews(state) {
-    console.log('getters topNews')
     const header = '複業(副業)ニュース'
     let tmpDate = ''
     if (state.data === null) {
-      console.log('getters topNews null')
       return {
         header: header,
         data: state.data
@@ -66,7 +64,6 @@ export const getters = {
         }
       }
     })
-    console.log(`getters ret：${ret.length}`)
     const topData = {
       header: header,
       data: ret
@@ -75,9 +72,7 @@ export const getters = {
   },
 
   dailyNews(state) {
-    console.log('getters dailyNews')
     if (state.dailyData === null) {
-      console.log('getters dailyNews null')
       return {
         header: '記事一覧',
         data: state.dailyData
@@ -99,7 +94,6 @@ export const getters = {
       header: header,
       data: ret
     }
-    console.log(`getters ret：${ret.length}`)
     return dailyData
   },
 
@@ -162,7 +156,6 @@ export const getters = {
 export const actions = {
   // トップページ用のニュース記事取得
   async getTopNews({ commit }) {
-    console.log('actions getTopNews')
     commit('setLoading', true)
     const { start, end } = getTopTerm()
     try {
@@ -177,8 +170,6 @@ export const actions = {
         return doc.data()
       })
       commit('setData', data)
-      console.log('setData')
-      console.log(`actions ret：${data.length}`)
     } catch (err) {
       console.log(err)
     }
@@ -187,8 +178,6 @@ export const actions = {
 
   // 日次のニュース記事取得
   async getDailyNews({ commit }, date) {
-    console.log('actions getDailyNews')
-    console.log(date)
     commit('setLoading', true)
     try {
       const snapshot = await this.$firestore
@@ -200,8 +189,6 @@ export const actions = {
         return doc.data()
       })
       commit('setDailyData', data)
-      console.log('setDailyData')
-      console.log(`actions ret：${data.length}`)
     } catch (err) {
       console.log(err)
     }

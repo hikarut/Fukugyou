@@ -27,7 +27,6 @@ const client = contentful.createClient({
 // ルーティング
 function routing() {
   const allTerm = getAllTerm()
-  console.log(allTerm)
   return client
     .getEntries({
       content_type: contentType
@@ -45,14 +44,6 @@ function routing() {
       console.log('error')
       console.log(error)
     })
-}
-async function routing2() {
-  const ret = await client.getEntries({
-    content_type: contentType
-  })
-  console.log('routing2 ret')
-  console.log(ret)
-  return ret.items.map(entry => `/posts/${entry.fields.url}`)
 }
 
 export default {
