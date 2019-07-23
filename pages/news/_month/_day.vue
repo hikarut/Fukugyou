@@ -16,7 +16,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { addDateString, getAllTerm } from '~/lib/date'
+import { addDateString } from '~/lib/date'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -39,13 +39,11 @@ export default {
   head() {
     return {
       title: this.dailyNews.header,
-      // title: '記事一覧',
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
           content: this.dailyNews.header
-          // content: '記事一覧'
         },
         {
           hid: 'og:url',
@@ -56,7 +54,6 @@ export default {
           hid: 'og:title',
           property: 'og:title',
           content: this.dailyNews.header
-          // content: '記事一覧'
         },
         {
           hid: 'og:image',

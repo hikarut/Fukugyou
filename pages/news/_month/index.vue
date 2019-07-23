@@ -2,7 +2,14 @@
   <div class="main">
     <bread-list :items="breadItems"/>
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-    <card-item :items="monthlyNews"/>
+
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"/>
+    </template>
+    <template v-else>
+      <card-item :items="monthlyNews"/>
+    </template>
+
     <list-item :items="recomendNews" />
   </div>
 </template>
@@ -94,8 +101,6 @@ export default {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    console.log('params')
-    console.log(params)
     await store.dispatch('news/getMonthlyNews', params.month)
     return { month: params.month }
   }
@@ -113,5 +118,9 @@ export default {
 /* このページだけ横幅いっぱいにする */
 .sns-post {
   width: 100%;
+}
+/* リストページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 20px 0px 20px 24px !important;
 }
 </style>
