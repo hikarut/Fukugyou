@@ -13,7 +13,7 @@
             >
               <!-- <a :href="`${card.link}`" target="blank"> -->
               <a @click="go(card.link)">
-                <v-card>
+                <v-card class="card">
                   <card-Img :src="card.img" :alt="card.title"/>
                   <card-date :text="card.date" class="date"/>
                   <card-title :text="card.title" :is-new="card.isNew"/>
@@ -69,6 +69,9 @@ export default {
 .card-box a:hover {
   text-decoration: underline;
   text-decoration-color: rgba(19, 75, 138, 0.7);
+}
+.card {
+  padding-bottom: 30px;
 }
 /* 枠線を消す */
 .v-card {
