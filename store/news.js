@@ -1,4 +1,5 @@
 import { getTopTerm, dateString, addSlash, addDateString } from '~/lib/date'
+const constant = require('~/config/constant.json')
 
 /* state */
 const initialState = {
@@ -50,7 +51,9 @@ export const getters = {
         console.log(typeof state.data[key].img)
         const item = {
           img:
-            state.data[key].img === '' ? 'newsImage.png' : state.data[key].img,
+            state.data[key].img === ''
+              ? constant.newsImage
+              : state.data[key].img,
           date: `${dateString(addSlash(state.data[key].date))}の記事一覧`,
           title: state.data[key].title,
           link: `/news/${state.data[key].date.substr(0, 6)}/${
@@ -80,7 +83,10 @@ export const getters = {
     let ret = []
     Object.keys(state.dailyData).forEach(key => {
       const item = {
-        img: state.dailyData[key].img,
+        img:
+          state.dailyData[key].img === ''
+            ? constant.newsImage
+            : state.dailyData[key].img,
         date: `${dateString(addSlash(state.dailyData[key].date))}の記事`,
         title: state.dailyData[key].title,
         link: state.dailyData[key].link
@@ -115,7 +121,10 @@ export const getters = {
     Object.keys(state.monthlyData).forEach(key => {
       if (tmpDate.indexOf(state.monthlyData[key].date) == -1) {
         const item = {
-          img: state.monthlyData[key].img,
+          img:
+            state.monthlyData[key].img === ''
+              ? constant.newsImage
+              : state.monthlyData[key].img,
           date: `${dateString(
             addSlash(state.monthlyData[key].date)
           )}の記事一覧`,
