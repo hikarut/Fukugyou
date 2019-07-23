@@ -95,7 +95,7 @@ export default {
     shareTag() {
       return '複業,エンジニア'
     },
-    ...mapGetters('news', ['monthlyNews'])
+    ...mapGetters('news', ['monthlyNews', 'loading'])
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])

@@ -177,7 +177,6 @@ export default {
   generate: {
     async routes() {
       return routing()
-      // return routing2()
     }
   },
 

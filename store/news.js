@@ -166,10 +166,12 @@ export const actions = {
         .orderBy('date', 'desc')
         .get()
 
-      const data = snapshot.docs.map(doc => {
-        return doc.data()
-      })
-      commit('setData', data)
+      if (snapshot.docs.length > 0) {
+        const data = snapshot.docs.map(doc => {
+          return doc.data()
+        })
+        commit('setData', data)
+      }
     } catch (err) {
       console.log(err)
     }
@@ -185,10 +187,12 @@ export const actions = {
         .where('date', '==', date)
         .get()
 
-      const data = snapshot.docs.map(doc => {
-        return doc.data()
-      })
-      commit('setDailyData', data)
+      if (snapshot.docs.length > 0) {
+        const data = snapshot.docs.map(doc => {
+          return doc.data()
+        })
+        commit('setDailyData', data)
+      }
     } catch (err) {
       console.log(err)
     }
@@ -204,10 +208,12 @@ export const actions = {
         .where('month', '==', month)
         .get()
 
-      const data = snapshot.docs.map(doc => {
-        return doc.data()
-      })
-      commit('setMonthlyData', data)
+      if (snapshot.docs.length > 0) {
+        const data = snapshot.docs.map(doc => {
+          return doc.data()
+        })
+        commit('setMonthlyData', data)
+      }
     } catch (err) {
       console.log(err)
     }
