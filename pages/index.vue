@@ -59,6 +59,10 @@ export default {
   asyncData() {
     return getEntries(2)
   },
+  async fetch({ store }) {
+    // news記事の取得
+    await store.dispatch('news/getTopNews')
+  },
   data: () => ({
     fukugyouNews: fukugyouNews,
     techNews: techNews,
@@ -68,10 +72,6 @@ export default {
   }),
   computed: {
     ...mapGetters('news', ['topNews', 'loading'])
-  },
-  beforeMount() {
-    // news記事の取得
-    this.getTopNews()
   },
   methods: {
     ...mapActions('news', ['getTopNews'])
