@@ -74,12 +74,12 @@ export const getters = {
   dailyNews(state) {
     if (state.dailyData === null) {
       return {
-        header: '記事一覧',
+        header: '複業記事一覧',
         data: state.dailyData
       }
     }
 
-    const header = `${dateString(addSlash(state.dailyData[0].date))}の記事一覧`
+    const header = `${dateString(addSlash(state.dailyData[0].date))}の複業記事`
     let ret = []
     Object.keys(state.dailyData).forEach(key => {
       const item = {
@@ -108,7 +108,7 @@ export const getters = {
       }
     }
 
-    const header = `${addDateString(state.monthlyData[0].month)}の記事一覧`
+    const header = `${addDateString(state.monthlyData[0].month)}の複業記事`
     let tmpDate = []
     if (state.monthlyData === null) {
       return {
