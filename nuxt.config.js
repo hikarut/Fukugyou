@@ -119,7 +119,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/sitemap', '~/modules/generator'],
 
   /*
   ** Build configuration

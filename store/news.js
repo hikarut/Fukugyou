@@ -155,10 +155,13 @@ export const getters = {
 /* actions */
 export const actions = {
   // トップページ用のニュース記事取得
-  async getTopNews({ commit }) {
+  async getTopNews({ commit, state }) {
+    if (state.data !== null) return
+
     commit('setLoading', true)
     const { start, end } = getTopTerm()
     try {
+      console.log('request firebase')
       const snapshot = await this.$firestore
         .collection('news')
         .where('date', '>=', start)
@@ -179,7 +182,9 @@ export const actions = {
   },
 
   // 日次のニュース記事取得
-  async getDailyNews({ commit }, date) {
+  async getDailyNews({ commit, state }, date) {
+    if (state.dailyData !== null) return
+
     commit('setLoading', true)
     try {
       const snapshot = await this.$firestore
@@ -200,7 +205,9 @@ export const actions = {
   },
 
   // 月次のニュース記事取得
-  async getMonthlyNews({ commit }, month) {
+  async getMonthlyNews({ commit, state }, month) {
+    if (state.monthlyData !== null) return
+
     commit('setLoading', true)
     try {
       const snapshot = await this.$firestore
