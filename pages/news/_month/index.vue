@@ -1,7 +1,6 @@
 <template>
   <div class="main">
     <bread-list :items="breadItems"/>
-    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
     <template v-if="loading">
       <v-progress-linear :indeterminate="true"/>
@@ -9,6 +8,8 @@
     <template v-else>
       <card-item :items="monthlyNews"/>
     </template>
+
+    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
     <list-item :items="recomendNews" />
   </div>

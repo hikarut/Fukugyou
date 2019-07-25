@@ -54,9 +54,8 @@ export const getters = {
               : state.data[key].img,
           date: `${dateString(addSlash(state.data[key].date))}の複業記事`,
           title: state.data[key].title,
-          link: `/news/${state.data[key].date.substr(0, 6)}/${
-            state.data[key].date
-          }`
+          link: `/news/${state.data[key].month}/${state.data[key].date}`,
+          monthLink: `/news/${state.data[key].month}`
         }
         tmpDate = state.data[key].date
         ret.push(item)
@@ -128,7 +127,7 @@ export const getters = {
           )}の複業記事`,
           dateSort: state.monthlyData[key].date,
           title: state.monthlyData[key].title,
-          link: `/news/${state.monthlyData[key].date.substr(0, 6)}/${
+          link: `/news/${state.monthlyData[key].month}/${
             state.monthlyData[key].date
           }`
         }

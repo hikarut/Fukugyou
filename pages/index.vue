@@ -5,6 +5,7 @@
     </template>
     <template v-else>
       <card-item :items="topNews"/>
+      <button-link :link="topNews.data[0].monthLink" text="もっと見る" />
     </template>
 
     <subheader text="トップニュース" />
