@@ -21,6 +21,7 @@
     "contentful": "^7.5.0",
     "cross-env": "^5.2.0",
     "firebase": "^6.2.4",
+    "fs": "0.0.1-security",
     "json5": "^2.1.0",
     "nuxt": "^2.4.0",
     "vue-markdown": "^2.2.4",

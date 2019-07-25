@@ -150,6 +150,9 @@ export default {
         loader: 'json5-loader',
         exclude: /(node_modules)/
       })
+      config.node = {
+        fs: 'empty'
+      }
     }
   },
 
