@@ -38,7 +38,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 
 const fukugyouNewsOrigin = require('~/config/fukugyouNews.json5')
 const fukugyouNews = Object.assign({}, fukugyouNewsOrigin)
-fukugyouNews.data = fukugyouNews.data.slice(0, 8)
+fukugyouNews.data = fukugyouNews.data.slice(0, 4)
 
 const techNewsOrigin = require('~/config/techNews.json5')
 const techNews = Object.assign({}, techNewsOrigin)
