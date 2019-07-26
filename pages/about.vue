@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="main">
+    <bread-list :items="breadItems"/>
     <v-layout align-center column justify-center>
       <h4 class="subheading">
         <p>
@@ -49,8 +50,26 @@
 </template>
 
 <script>
+import BreadList from '~/components/organisms/BreadList.vue'
+
 export default {
-  components: {}
+  components: { BreadList },
+  computed: {
+    breadItems() {
+      return [
+        {
+          text: 'トップ',
+          disabled: false,
+          url: '/'
+        },
+        {
+          text: 'Fukugyouとは',
+          disabled: true,
+          url: '/'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -80,5 +99,12 @@ a {
 .siteImg {
   width: 30px;
   border-radius: 5px;
+}
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 600px) {
+  .main {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 </style>

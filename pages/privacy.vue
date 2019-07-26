@@ -17,10 +17,9 @@
 
 <script>
 import BreadList from '~/components/organisms/BreadList.vue'
+
 export default {
-  components: {
-    BreadList
-  },
+  components: { BreadList },
   head() {
     return {
       title: 'プライバシーポリシー'
