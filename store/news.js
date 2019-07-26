@@ -155,6 +155,7 @@ export const getters = {
 export const actions = {
   // トップページ用のニュース記事取得
   async getTopNews({ commit, state }) {
+    // トップページは普遍のため
     if (state.data !== null) return
 
     // 静的ファイルから取得
@@ -167,8 +168,6 @@ export const actions = {
 
   // 日次のニュース記事取得
   async getDailyNews({ commit, state }, date) {
-    if (state.dailyData !== null) return
-
     // 静的ファイルから取得
     commit('setLoading', true)
     // TODO:ファイルの存在チェック
@@ -179,8 +178,6 @@ export const actions = {
 
   // 月次のニュース記事取得
   async getMonthlyNews({ commit, state }, month) {
-    if (state.monthlyData !== null) return
-
     // 静的ファイルから取得
     commit('setLoading', true)
     // TODO:ファイルの存在チェック
