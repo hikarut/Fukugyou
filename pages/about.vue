@@ -107,6 +107,12 @@ a {
     margin: 0 auto;
   }
 }
+@media screen and (min-width: 1000px) {
+  .main {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
 /* 場所を調整 */
 .v-breadcrumbs {
   padding: 20px 0px 20px 24px !important;
