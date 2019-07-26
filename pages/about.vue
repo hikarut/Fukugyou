@@ -107,4 +107,8 @@ a {
     margin: 0 auto;
   }
 }
+/* 場所を調整 */
+.v-breadcrumbs {
+  padding: 20px 0px 20px 24px !important;
+}
 </style>

@@ -60,7 +60,7 @@ h4 p {
     margin: 0 auto;
   }
 }
-/* リストページだけ場所を調整 */
+/* 場所を調整 */
 .v-breadcrumbs {
   padding: 20px 0px 20px 24px !important;
 }
