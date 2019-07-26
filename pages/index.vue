@@ -1,5 +1,13 @@
 <template>
   <div class="top">
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"/>
+    </template>
+    <template v-else>
+      <card-item :items="topNews"/>
+      <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
+    </template>
+
     <subheader text="トップニュース" />
     <big-img-item :items="listData" />
     <button-link link="/posts" text="もっと見る" />
@@ -19,6 +27,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import { getEntries } from '~/plugins/contentful'
 import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
@@ -51,13 +60,23 @@ export default {
   asyncData() {
     return getEntries(2)
   },
+  async fetch({ store }) {
+    // news記事の取得
+    await store.dispatch('news/getTopNews')
+  },
   data: () => ({
     fukugyouNews: fukugyouNews,
     techNews: techNews,
     recomendNews: recomendNews,
     fukugyouNewsWhy: fukugyouNewsWhy,
     fukugyouNewsJob: fukugyouNewsJob
-  })
+  }),
+  computed: {
+    ...mapGetters('news', ['topNews', 'loading'])
+  },
+  methods: {
+    ...mapActions('news', ['getTopNews'])
+  }
 }
 </script>
 
@@ -68,5 +87,9 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
+}
+.news-more {
+  margin-top: -20px;
+  padding-bottom: 30px;
 }
 </style>

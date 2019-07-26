@@ -49,8 +49,12 @@ export default {
     }
   },
   methods: {
+    // TODO:CardItemと共通化
     go(url) {
-      if (url.match(/fukugyou\.dev/)) {
+      // 同じサイトないでパス指定の場合(httpが入ってない場合)は通常の画面遷移にする
+      if (!url.match(/http/)) {
+        this.$router.push(url)
+      } else if (url.match(/fukugyou\.dev/)) {
         location.href = url
       } else {
         // 別サイトの場合は別ウィンドウにする

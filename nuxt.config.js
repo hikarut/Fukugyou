@@ -1,14 +1,24 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+import { getAllTerm } from './lib/date'
 import pkg from './package'
 const environment = process.env.NODE_ENV || 'dev'
 const conf = require(`./config/constant.${environment}.json`)
 const constant = require('./config/constant.json')
 
-// contentfulから記事を取得する
-const contentful = require('contentful')
+// 環境変数
 const space = process.env.SPACE || 'space'
 const accessToken = process.env.ACCESS_TOKEN || 'accessToken'
 const contentType = process.env.CONTENT_TYPE || 'contentType'
+const apiKey = process.env.API_KEY || 'apiKey'
+const authDomain = process.env.AUTH_DOMAIN || 'authDomain'
+const databaseUrl = process.env.DATABASE_URL || 'databaseUrl'
+const projectId = process.env.PROJECT_ID || 'projectId'
+const storageBucket = process.env.STORAGE_BUCKET || 'storageBucket'
+const messagingSenderId = process.env.MESSAGING_SENDER_ID || 'messagingSenderId'
+const appId = process.env.APP_ID || 'appId'
+
+// contentfulから記事を取得する
+const contentful = require('contentful')
 const client = contentful.createClient({
   space: space,
   accessToken: accessToken
@@ -16,12 +26,19 @@ const client = contentful.createClient({
 
 // ルーティング
 function routing() {
+  const allTerm = getAllTerm()
   return client
     .getEntries({
       content_type: contentType
     })
     .then(entries => {
-      return [...entries.items.map(entry => `/posts/${entry.fields.url}`)]
+      return [
+        ...entries.items.map(entry => `/posts/${entry.fields.url}`),
+        // 日次のパス生成
+        ...allTerm.map(data => `/news/${data.key}/${data.value}`),
+        // 月次のパス生成
+        ...allTerm.map(data => `/news/${data.key}`)
+      ]
     })
     .catch(error => {
       console.log('error')
@@ -101,7 +118,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/sitemap', '~/modules/generator'],
 
   /*
   ** Build configuration
@@ -132,6 +149,9 @@ export default {
         loader: 'json5-loader',
         exclude: /(node_modules)/
       })
+      config.node = {
+        fs: 'empty'
+      }
     }
   },
 
@@ -143,14 +163,21 @@ export default {
     constant: constant,
     SPACE: space,
     ACCESS_TOKEN: accessToken,
-    CONTENT_TYPE: contentType
+    CONTENT_TYPE: contentType,
+    API_KEY: apiKey,
+    AUTH_DOMAIN: authDomain,
+    DATABASE_URL: databaseUrl,
+    PROJECT_ID: projectId,
+    STORAGE_BUCKET: storageBucket,
+    MESSAGING_SENDER_ID: messagingSenderId,
+    APP_ID: appId
   },
 
   /*
   ** generateオプション
   */
   generate: {
-    routes() {
+    async routes() {
       return routing()
     }
   },
@@ -162,7 +189,7 @@ export default {
     // path: '/sitemap.xml',
     hostname: constant.url,
     generate: true,
-    exclude: ['/404', '/privacy'],
+    exclude: ['/404'],
     routes() {
       return routing()
     }
