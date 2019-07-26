@@ -190,7 +190,7 @@ export default {
     // path: '/sitemap.xml',
     hostname: constant.url,
     generate: true,
-    exclude: ['/404', '/privacy'],
+    exclude: ['/404'],
     routes() {
       return routing()
     }
