@@ -111,7 +111,6 @@ export default {
   */
   plugins: [
     '@/plugins/vuetify',
-    '~/plugins/firebase.js',
     { src: '~/plugins/ga.js', ssr: false },
     { src: '~/plugins/lazyload.js', ssr: false }
   ],

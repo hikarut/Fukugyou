@@ -159,31 +159,10 @@ export const actions = {
 
     // 静的ファイルから取得
     commit('setLoading', true)
+    // TODO:ファイルの存在チェック
     const topNews = require('~/data/top.json')
     commit('setData', topNews)
     commit('setLoading', false)
-
-    // commit('setLoading', true)
-    // const { start, end } = getTopTerm()
-    // try {
-    //   console.log('request firebase')
-    //   const snapshot = await this.$firestore
-    //     .collection('news')
-    //     .where('date', '>=', start)
-    //     .where('date', '<=', end)
-    //     .orderBy('date', 'desc')
-    //     .get()
-    //
-    //   if (snapshot.docs.length > 0) {
-    //     const data = snapshot.docs.map(doc => {
-    //       return doc.data()
-    //     })
-    //     commit('setData', data)
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    // }
-    // commit('setLoading', false)
   },
 
   // 日次のニュース記事取得
@@ -192,27 +171,10 @@ export const actions = {
 
     // 静的ファイルから取得
     commit('setLoading', true)
+    // TODO:ファイルの存在チェック
     const dailyNews = require(`~/data/${date}.json`)
     commit('setDailyData', dailyNews)
     commit('setLoading', false)
-
-    // commit('setLoading', true)
-    // try {
-    //   const snapshot = await this.$firestore
-    //     .collection('news')
-    //     .where('date', '==', date)
-    //     .get()
-    //
-    //   if (snapshot.docs.length > 0) {
-    //     const data = snapshot.docs.map(doc => {
-    //       return doc.data()
-    //     })
-    //     commit('setDailyData', data)
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    // }
-    // commit('setLoading', false)
   },
 
   // 月次のニュース記事取得
@@ -221,26 +183,9 @@ export const actions = {
 
     // 静的ファイルから取得
     commit('setLoading', true)
+    // TODO:ファイルの存在チェック
     const monthlyNews = require(`~/data/${month}.json`)
     commit('setMonthlyData', monthlyNews)
     commit('setLoading', false)
-
-    // commit('setLoading', true)
-    // try {
-    //   const snapshot = await this.$firestore
-    //     .collection('news')
-    //     .where('month', '==', month)
-    //     .get()
-    //
-    //   if (snapshot.docs.length > 0) {
-    //     const data = snapshot.docs.map(doc => {
-    //       return doc.data()
-    //     })
-    //     commit('setMonthlyData', data)
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    // }
-    // commit('setLoading', false)
   }
 }

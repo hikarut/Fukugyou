@@ -5,7 +5,7 @@
     </template>
     <template v-else>
       <card-item :items="topNews"/>
-      <button-link :link="topNews.data[0].monthLink" text="もっと見る" />
+      <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
     </template>
 
     <subheader text="トップニュース" />
@@ -87,5 +87,9 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
+}
+.news-more {
+  margin-top: -20px;
+  padding-bottom: 30px;
 }
 </style>
