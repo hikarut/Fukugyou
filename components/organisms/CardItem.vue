@@ -11,7 +11,6 @@
               :key="card.title"
               class="xs6 card-box"
             >
-              <!-- <a :href="`${card.link}`" target="blank"> -->
               <a @click="go(card.link)">
                 <v-card class="card">
                   <card-Img :src="card.img" :alt="card.title"/>
