@@ -5,7 +5,6 @@
     </template>
     <template v-else>
       <card-item :items="topNews"/>
-      <adsbygoogle :ad-slot="'3461625950'" :ad-format="'fluid'" :ad-layout-key="'-70+e0+29-1q-g'" :data-adtest="'on'" />
       <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
     </template>
 
