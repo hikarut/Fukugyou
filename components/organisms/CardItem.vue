@@ -11,7 +11,7 @@
 
               <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
               <template v-if="index === 2 || index === 3 || index === 8 || index === 9">
-                <v-flex :key="index" class="card-box">
+                <v-flex :key="index" class="xs12 card-box">
                   <!-- 3番目と9番目の時だけ広告を表示 -->
                   <template v-if="index === 3 || index === 9">
                     <adsbygoogle
