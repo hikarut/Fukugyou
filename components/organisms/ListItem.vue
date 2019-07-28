@@ -17,6 +17,16 @@
               <newmark :is-new="item.isNew"/>
             </v-list-tile>
             <v-divider v-if="index !== (items.data.length - 1)" :key="index" inset />
+            <!-- 2,8番目に広告を挿入 -->
+            <template v-if="index === 2 || index === 8">
+              <adsbygoogle
+                :key="index"
+                :ad-slot="'5591791813'"
+                :ad-format="'fluid'"
+                :ad-layout-key="'-fb+5w+4e-db+86'"
+                class="adsbygoogle infeed" />
+              <v-divider :key="index" inset />
+            </template>
           </template>
         </v-list>
       </v-card>
@@ -70,5 +80,8 @@ export default {
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
+}
+.infeed {
+  height: 88px;
 }
 </style>
