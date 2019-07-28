@@ -17,8 +17,8 @@
               <newmark :is-new="item.isNew"/>
             </v-list-tile>
             <v-divider v-if="index !== (items.data.length - 1)" :key="index" inset />
-            <!-- 2,8番目に広告を挿入 -->
-            <template v-if="index === 2 || index === 8">
+            <!-- 3つづつに広告を挿入 -->
+            <template v-if="(index + 1) % 3 === 0">
               <adsbygoogle
                 :key="index"
                 :ad-slot="'5591791813'"
@@ -83,5 +83,7 @@ export default {
 }
 .infeed {
   height: 88px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 </style>
