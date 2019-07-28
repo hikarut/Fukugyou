@@ -18,7 +18,7 @@
                       :ad-slot="'8969297024'"
                       :ad-format="'fluid'"
                       :ad-layout-key="'-6x+ct+5n-11-7j'"
-                      class="adsbygoogle" />
+                      class="adsbygoogle infeed" />
                   </template>
                   <a @click="go(card.link)">
                     <v-card class="card">
@@ -114,7 +114,8 @@ export default {
     margin: 0 auto;
   }
 }
-.adsbygoogle {
+.infeed {
+  height: 250px;
   margin-bottom: 40px;
 }
 </style>
