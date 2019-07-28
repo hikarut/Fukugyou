@@ -16,7 +16,7 @@
                 <v-flex :key="index" class="card-box">
                   <!-- 3番目と9番目の時だけ広告を表示 -->
                   <template v-if="index === 3 || index === 9">
-                    <adsbygoogle :ad-slot="'9419889018'" :ad-format="'fluid'" :ad-layout-key="'-6t+ed+2i-1n-4w'" />
+                    <adsbygoogle :ad-slot="'8969297024'" :ad-format="'fluid'" :ad-layout-key="'--6v+cn+4z-s-41'" class="adsbygoogle" />
                   </template>
                   <a @click="go(card.link)">
                     <v-card class="card">
