@@ -17,8 +17,8 @@
               <newmark :is-new="item.isNew"/>
             </v-list-tile>
             <v-divider v-if="index !== (items.data.length - 1)" :key="index" inset />
-            <!-- 3つづつに広告を挿入 -->
-            <template v-if="(index + 1) % 3 === 0">
+            <!-- 4つづつに広告を挿入 -->
+            <template v-if="(index + 1) % 4 === 0">
               <adsbygoogle
                 :key="index"
                 :ad-slot="'5591791813'"
