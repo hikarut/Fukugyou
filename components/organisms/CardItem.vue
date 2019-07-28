@@ -17,7 +17,7 @@
                     <adsbygoogle
                       :ad-slot="'8969297024'"
                       :ad-format="'fluid'"
-                      :ad-layout-key="'-67+ct+5n-11-7j'"
+                      :ad-layout-key="'-6x+ct+5n-11-7j'"
                       class="adsbygoogle" />
                   </template>
                   <a @click="go(card.link)">
@@ -113,5 +113,8 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
+}
+.adsbygoogle {
+  margin-bottom: 30px;
 }
 </style>
