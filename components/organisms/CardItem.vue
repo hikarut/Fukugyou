@@ -7,9 +7,7 @@
         <v-container fluid grid-list-md>
           <v-layout row wrap>
 
-            <template
-              v-for="(card, index) in items.data"
-            >
+            <template v-for="(card, index) in items.data">
 
               <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
               <template v-if="index === 2 || index === 3 || index === 8 || index === 9">
@@ -39,6 +37,7 @@
                   </a>
                 </v-flex>
               </template>
+
             </template>
 
           </v-layout>
