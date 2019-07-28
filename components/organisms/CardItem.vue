@@ -14,8 +14,8 @@
               <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
               <template v-if="index === 2 || index === 3 || index === 8 || index === 9">
                 <v-flex :key="index" class="card-box">
-                  <!-- 2番目と8番目の時だけ広告を表示 -->
-                  <template v-if="index === 2 || index === 8">
+                  <!-- 3番目と9番目の時だけ広告を表示 -->
+                  <template v-if="index === 3 || index === 9">
                     <adsbygoogle :ad-slot="'9419889018'" :ad-format="'fluid'" :ad-layout-key="'-6t+ed+2i-1n-4w'" />
                   </template>
                   <a @click="go(card.link)">
