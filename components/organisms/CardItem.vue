@@ -10,10 +10,9 @@
             <template v-for="(card, index) in items.data">
 
               <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
-              <template v-if="index === 2 || index === 3 || index === 8 || index === 9">
+              <template v-if="isShowWide(index)">
                 <v-flex :key="index" class="xs12 card-box">
-                  <!-- 3番目と9番目の時だけ広告を表示 -->
-                  <template v-if="index === 3 || index === 9">
+                  <template v-if="isShowAd(index)">
                     <adsbygoogle
                       :ad-slot="'8969297024'"
                       :ad-format="'fluid'"
@@ -83,6 +82,47 @@ export default {
       } else {
         // 別サイトの場合は別ウィンドウにする
         open(url, '_blank')
+      }
+    },
+    isShowWide(index) {
+      // 0スタートなのでわかりやすく1スタートにする
+      const number = index + 1
+      // 最初の開始位置の2つ
+      const start1 = 3
+      const start2 = 4
+      // 間隔
+      const interval = 4
+      // 1個目は個別に判定するためマイナス1する
+      const cnt1 = Math.floor(number / start1) - 1
+      const cnt2 = Math.floor(number / start2) - 1
+
+      if (
+        number === start1 ||
+        number === start2 ||
+        number - interval * cnt1 === start1 ||
+        number - interval * cnt2 === start2
+      ) {
+        return true
+      } else {
+        return false
+      }
+    },
+    isShowAd(index) {
+      // 0スタートなのでわかりやすく1スタートにする
+      const number = index + 1
+      // 表示する位置
+      const start = 4
+      // 間隔
+      const interval = 4
+      // 1個目は個別に判定するためマイナス1する
+      const cnt = Math.floor(number / start) - 1
+
+      if (number === start || number - interval * cnt === start) {
+        console.log('ad')
+        console.log(number)
+        return true
+      } else {
+        return false
       }
     }
   }
