@@ -44,23 +44,44 @@ export const getters = {
       }
     }
 
-    let ret = []
+    let retDict = {}
     Object.keys(state.data).forEach(key => {
-      if (tmpDate !== state.data[key].date) {
-        const item = {
-          img:
-            state.data[key].img === ''
-              ? constant.newsImage
-              : state.data[key].img,
-          date: `${dateString(addSlash(state.data[key].date))}の複業記事`,
-          title: state.data[key].title,
-          link: `/news/${state.data[key].month}/${state.data[key].date}`,
-          monthLink: `/news/${state.data[key].month}`
+      const item = {
+        img:
+          state.data[key].img === '' ? constant.newsImage : state.data[key].img,
+        date: `${dateString(addSlash(state.data[key].date))}の複業記事`,
+        dateSort: state.data[key].date,
+        title: state.data[key].title,
+        link: `/news/${state.data[key].month}/${state.data[key].date}`,
+        monthLink: `/news/${state.data[key].month}`
+      }
+      if (!retDict[state.data[key].date]) {
+        // データがない場合は必ず入れる
+        retDict[state.data[key].date] = item
+      } else {
+        // データがある場合は画像があれば再度入れ直す
+        if (state.data[key].img !== '') {
+          retDict[state.data[key].date] = item
         }
-        tmpDate = state.data[key].date
-        ret.push(item)
       }
     })
+
+    let ret = []
+    Object.keys(retDict).forEach(key => {
+      // 連想配列から配列にする
+      ret.push(retDict[key])
+    })
+
+    // TODO:ソート処理まとめる
+    // 日付でソート
+    ret.sort((a, b) => {
+      if (a.dateSort < b.dateSort) {
+        return 1
+      } else {
+        return -1
+      }
+    })
+
     const topData = {
       header: header,
       data: ret
@@ -114,27 +135,38 @@ export const getters = {
       }
     }
 
-    let ret = []
+    let retDict = {}
     Object.keys(state.monthlyData).forEach(key => {
-      if (tmpDate.indexOf(state.monthlyData[key].date) == -1) {
-        const item = {
-          img:
-            state.monthlyData[key].img === ''
-              ? constant.newsImage
-              : state.monthlyData[key].img,
-          date: `${dateString(
-            addSlash(state.monthlyData[key].date)
-          )}の複業記事`,
-          dateSort: state.monthlyData[key].date,
-          title: state.monthlyData[key].title,
-          link: `/news/${state.monthlyData[key].month}/${
-            state.monthlyData[key].date
-          }`
+      const item = {
+        img:
+          state.monthlyData[key].img === ''
+            ? constant.newsImage
+            : state.monthlyData[key].img,
+        date: `${dateString(addSlash(state.monthlyData[key].date))}の複業記事`,
+        dateSort: state.monthlyData[key].date,
+        title: state.monthlyData[key].title,
+        link: `/news/${state.monthlyData[key].month}/${
+          state.monthlyData[key].date
+        }`
+      }
+      if (!retDict[state.monthlyData[key].date]) {
+        // データがない場合は必ず入れる
+        retDict[state.monthlyData[key].date] = item
+      } else {
+        // データがある場合は画像があれば再度入れ直す
+        if (state.monthlyData[key].img !== '') {
+          retDict[state.monthlyData[key].date] = item
         }
-        tmpDate.push(state.monthlyData[key].date)
-        ret.push(item)
       }
     })
+
+    let ret = []
+    Object.keys(retDict).forEach(key => {
+      // 連想配列から配列にする
+      ret.push(retDict[key])
+    })
+
+    // TODO:ソート処理まとめる
     // 日付でソート
     ret.sort((a, b) => {
       if (a.dateSort < b.dateSort) {
@@ -143,6 +175,7 @@ export const getters = {
         return -1
       }
     })
+
     const monthlyData = {
       header: header,
       data: ret
