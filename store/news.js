@@ -135,36 +135,6 @@ export const getters = {
       }
     }
 
-    // let ret = []
-    // Object.keys(state.monthlyData).forEach(key => {
-    //   if (tmpDate.indexOf(state.monthlyData[key].date) == -1) {
-    //     const item = {
-    //       img:
-    //         state.monthlyData[key].img === ''
-    //           ? constant.newsImage
-    //           : state.monthlyData[key].img,
-    //       date: `${dateString(
-    //         addSlash(state.monthlyData[key].date)
-    //       )}の複業記事`,
-    //       dateSort: state.monthlyData[key].date,
-    //       title: state.monthlyData[key].title,
-    //       link: `/news/${state.monthlyData[key].month}/${
-    //         state.monthlyData[key].date
-    //       }`
-    //     }
-    //     tmpDate.push(state.monthlyData[key].date)
-    //     ret.push(item)
-    //   }
-    // })
-    // // 日付でソート
-    // ret.sort((a, b) => {
-    //   if (a.dateSort < b.dateSort) {
-    //     return 1
-    //   } else {
-    //     return -1
-    //   }
-    // })
-
     let retDict = {}
     Object.keys(state.monthlyData).forEach(key => {
       const item = {
