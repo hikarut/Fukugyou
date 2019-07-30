@@ -118,8 +118,6 @@ export default {
       const cnt = Math.floor(number / start) - 1
 
       if (number === start || number - interval * cnt === start) {
-        console.log('ad')
-        console.log(number)
         return true
       } else {
         return false
