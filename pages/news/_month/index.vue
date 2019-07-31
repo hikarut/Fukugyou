@@ -55,16 +55,6 @@ export default {
           hid: 'og:title',
           property: 'og:title',
           content: this.monthlyNews.header
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: '/ogimage.png'
-        },
-        {
-          hid: 'twitter:image:src',
-          property: 'twitter:image:src',
-          content: `${constant.url}${this.$route.path}`
         }
       ]
     }
