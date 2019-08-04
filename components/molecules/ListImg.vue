@@ -28,9 +28,10 @@ export default {
   min-width: 56px;
 }
 .tile {
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 80px;
   object-fit: cover;
+  margin: 15px 0px 0px 0px;
 }
 .tile img {
   /* border-radius: 50%; */

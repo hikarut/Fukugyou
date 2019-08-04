@@ -9,6 +9,7 @@
             <v-list-tile
               :key="item.subtitle"
               avatar
+              class="list"
               @click="go(item.link)"
             >
               <list-img :img="item.img" :alt="item.title"/>
@@ -16,7 +17,7 @@
               <!-- <out-clip /> -->
               <newmark :is-new="item.isNew"/>
             </v-list-tile>
-            <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index" inset />
+            <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index" />
             <!-- 4つづつに広告を挿入 -->
             <template v-if="(index + 1) % 4 === 0">
               <adsbygoogle
@@ -25,7 +26,7 @@
                 :ad-format="'fluid'"
                 :ad-layout-key="'-fb+5w+4e-db+86'"
                 class="adsbygoogle infeed" />
-              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 4" :key="index" inset />
+              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 4" :key="index" />
             </template>
           </template>
         </v-list>
@@ -80,6 +81,9 @@ export default {
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
+}
+.list {
+  height: 100px;
 }
 .infeed {
   height: 88px;
