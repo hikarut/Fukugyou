@@ -16,6 +16,7 @@ const projectId = process.env.PROJECT_ID || 'projectId'
 const storageBucket = process.env.STORAGE_BUCKET || 'storageBucket'
 const messagingSenderId = process.env.MESSAGING_SENDER_ID || 'messagingSenderId'
 const appId = process.env.APP_ID || 'appId'
+const adsenseId = process.env.ADSENSE_ID || 'adsenseId'
 
 // contentfulから記事を取得する
 const contentful = require('contentful')
@@ -118,7 +119,16 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@nuxtjs/sitemap', '~/modules/generator'],
+  modules: [
+    '@nuxtjs/sitemap',
+    '~/modules/generator',
+    [
+      '@nuxtjs/google-adsense',
+      {
+        id: adsenseId
+      }
+    ]
+  ],
 
   /*
   ** Build configuration
@@ -189,7 +199,7 @@ export default {
     // path: '/sitemap.xml',
     hostname: constant.url,
     generate: true,
-    exclude: ['/404'],
+    exclude: ['/404', 'ads.txt'],
     routes() {
       return routing()
     }

@@ -6,20 +6,43 @@
       <v-card>
         <v-container fluid grid-list-md>
           <v-layout row wrap>
-            <v-flex
-              v-for="card in items.data"
-              :key="card.title"
-              class="xs6 card-box"
-            >
-              <!-- <a :href="`${card.link}`" target="blank"> -->
-              <a @click="go(card.link)">
-                <v-card class="card">
-                  <card-Img :src="card.img" :alt="card.title"/>
-                  <card-date :text="card.date" class="date"/>
-                  <card-title :text="card.title" :is-new="card.isNew"/>
-                </v-card>
-              </a>
-            </v-flex>
+
+            <template v-for="(card, index) in items.data">
+
+              <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
+              <template v-if="isShowWide(index)">
+                <v-flex :key="index" class="xs12 card-box">
+                  <template v-if="isShowAd(index)">
+                    <adsbygoogle
+                      :ad-slot="'8969297024'"
+                      :ad-format="'fluid'"
+                      :ad-layout-key="'-6x+ct+5n-11-7j'"
+                      class="adsbygoogle infeed" />
+                  </template>
+                  <a @click="go(card.link)">
+                    <v-card class="card">
+                      <card-Img :src="card.img" :alt="card.title"/>
+                      <card-date :text="card.date" class="date"/>
+                      <card-title :text="card.title" :is-new="card.isNew"/>
+                    </v-card>
+                  </a>
+                </v-flex>
+              </template>
+
+              <template v-else>
+                <v-flex :key="index" class="xs6 card-box">
+                  <a @click="go(card.link)">
+                    <v-card class="card">
+                      <card-Img :src="card.img" :alt="card.title"/>
+                      <card-date :text="card.date" class="date"/>
+                      <card-title :text="card.title" :is-new="card.isNew"/>
+                    </v-card>
+                  </a>
+                </v-flex>
+              </template>
+
+            </template>
+
           </v-layout>
         </v-container>
       </v-card>
@@ -60,6 +83,45 @@ export default {
         // 別サイトの場合は別ウィンドウにする
         open(url, '_blank')
       }
+    },
+    isShowWide(index) {
+      // 0スタートなのでわかりやすく1スタートにする
+      const number = index + 1
+      // 最初の開始位置の2つ
+      const start1 = 3
+      const start2 = 4
+      // 間隔
+      const interval = 4
+      // 1個目は個別に判定するためマイナス1する
+      const cnt1 = Math.floor(number / start1) - 1
+      const cnt2 = Math.floor(number / start2) - 1
+
+      if (
+        number === start1 ||
+        number === start2 ||
+        number - interval * cnt1 === start1 ||
+        number - interval * cnt2 === start2
+      ) {
+        return true
+      } else {
+        return false
+      }
+    },
+    isShowAd(index) {
+      // 0スタートなのでわかりやすく1スタートにする
+      const number = index + 1
+      // 表示する位置
+      const start = 4
+      // 間隔
+      const interval = 4
+      // 1個目は個別に判定するためマイナス1する
+      const cnt = Math.floor(number / start) - 1
+
+      if (number === start || number - interval * cnt === start) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
@@ -89,5 +151,9 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
+}
+.infeed {
+  height: 250px;
+  margin-bottom: 40px;
 }
 </style>
