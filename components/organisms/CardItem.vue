@@ -21,7 +21,7 @@
                   </template>
                   <a @click="go(card.link)">
                     <v-card class="card">
-                      <card-Img :src="card.img" :alt="card.title"/>
+                      <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="card.title" :is-new="card.isNew"/>
                     </v-card>
