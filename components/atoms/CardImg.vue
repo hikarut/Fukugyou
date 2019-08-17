@@ -38,4 +38,9 @@ export default {
     height: 200px;
   }
 }
+@media screen and (min-width: 1000px) {
+  .card-img-big {
+    height: 350px;
+  }
+}
 </style>
