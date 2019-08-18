@@ -18,8 +18,6 @@ import {
   getNextDate,
   getBeforeDate,
   getDateLink,
-  addSlash,
-  dateString,
   addDateString
 } from '~/lib/date'
 
@@ -39,7 +37,6 @@ export default {
       return getDateLink(this.nextDate)
     },
     nextText() {
-      // return dateString(addSlash(this.nextDate))
       return addDateString(this.nextDate)
     },
     beforeDate() {
@@ -49,7 +46,6 @@ export default {
       return getDateLink(this.beforeDate)
     },
     beforeText() {
-      // return dateString(addSlash(this.beforeDate))
       return addDateString(this.beforeDate)
     }
   }
