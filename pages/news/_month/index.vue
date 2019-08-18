@@ -11,6 +11,8 @@
 
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
+    <paging :date="month" />
+
     <list-item :items="recomendNews" />
   </div>
 </template>
@@ -22,6 +24,7 @@ import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import CardItem from '~/components/organisms/CardItem.vue'
+import Paging from '~/components/molecules/Paging.vue'
 
 const recomendNews = require('~/config/recomendNews.json5')
 const constant = require('~/config/constant.json')
@@ -31,7 +34,8 @@ export default {
     SnsPost,
     BreadList,
     ListItem,
-    CardItem
+    CardItem,
+    Paging
   },
   validate({ params }) {
     // 月をチェック
