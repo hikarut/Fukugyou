@@ -11,7 +11,7 @@
 
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
-    <paging :date="month" />
+    <!-- <paging :date="month" /> -->
 
     <list-item :items="recomendNews" />
   </div>
