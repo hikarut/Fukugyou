@@ -31,7 +31,7 @@ export default {
   width: 150px;
   height: 80px;
   object-fit: cover;
-  margin: 15px 0px 0px 0px;
+  margin: 15px 0px 0px -5px;
 }
 .tile img {
   /* border-radius: 50%; */
