@@ -10,19 +10,11 @@
 
     <subheader text="エンジニア向け複業記事" />
     <big-img-item :items="listData" />
-    <button-link link="/posts" text="もっと見る" />
+    <button-link link="/posts" class="tech-more" text="もっと見る" />
 
-    <card-item :items="fukugyouNewsWhy"/>
+    <subheader text="複業情報" />
+    <menu-link />
 
-    <card-item :items="fukugyouNewsJob"/>
-
-    <list-item :items="fukugyouNews" />
-    <button-link link="/news/fukugyou" text="もっと見る" />
-
-    <list-item :items="techNews" />
-    <button-link link="/news/tech" text="もっと見る" />
-
-    <list-item :items="recomendNews" />
   </div>
 </template>
 
@@ -35,18 +27,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
-
-const fukugyouNewsOrigin = require('~/config/fukugyouNews.json5')
-const fukugyouNews = Object.assign({}, fukugyouNewsOrigin)
-fukugyouNews.data = fukugyouNews.data.slice(0, 4)
-
-const techNewsOrigin = require('~/config/techNews.json5')
-const techNews = Object.assign({}, techNewsOrigin)
-techNews.data = techNews.data.slice(0, 4)
-
-const fukugyouNewsWhy = require('~/config/why.json5')
-const fukugyouNewsJob = require('~/config/job.json5')
-const recomendNews = require('~/config/recomendNews.json5')
+import MenuLink from '~/components/molecules/Menu.vue'
 
 export default {
   components: {
@@ -54,7 +35,8 @@ export default {
     ListItem,
     BigImgItem,
     ButtonLink,
-    Subheader
+    Subheader,
+    MenuLink
   },
   // 投稿内容を取得
   asyncData() {
@@ -64,13 +46,6 @@ export default {
     // news記事の取得
     await store.dispatch('news/getTopNews')
   },
-  data: () => ({
-    fukugyouNews: fukugyouNews,
-    techNews: techNews,
-    recomendNews: recomendNews,
-    fukugyouNewsWhy: fukugyouNewsWhy,
-    fukugyouNewsJob: fukugyouNewsJob
-  }),
   computed: {
     ...mapGetters('news', ['topNews', 'loading'])
   },
@@ -90,6 +65,9 @@ export default {
 }
 .news-more {
   margin-top: -20px;
+  padding-bottom: 30px;
+}
+.tech-more {
   padding-bottom: 30px;
 }
 </style>

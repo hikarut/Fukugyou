@@ -1,7 +1,7 @@
 <template>
   <div class="list-item-top">
     <bread-list :items="breadItems"/>
-    <list-item :items="techNewsList" />
+    <list-item :items="fukugyouWhy" />
     <button-link link="/" class="more" text="トップに戻る" />
   </div>
 </template>
@@ -12,7 +12,7 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 
 // 手動で拾ってきたニュース
-const techNewsList = require('~/config/techNews.json5')
+const fukugyouWhy = require('~/config/why.json5')
 
 export default {
   components: {
@@ -28,12 +28,12 @@ export default {
         url: '/'
       },
       {
-        text: 'エンジニア向けニュース一覧',
+        text: fukugyouWhy.header,
         disabled: true,
-        url: '/news/fukugyou'
+        url: ''
       }
     ],
-    techNewsList: techNewsList
+    fukugyouWhy: fukugyouWhy
   })
 }
 </script>

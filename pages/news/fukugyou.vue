@@ -2,12 +2,14 @@
   <div class="list-item-top">
     <bread-list :items="breadItems"/>
     <list-item :items="fukugyouNews" />
+    <button-link link="/" class="more" text="トップに戻る" />
   </div>
 </template>
 
 <script>
 import ListItem from '~/components/organisms/ListItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
+import ButtonLink from '~/components/atoms/Button.vue'
 
 // 手動で拾ってきたニュース
 const fukugyouNews = require('~/config/fukugyouNews.json5')
@@ -15,7 +17,8 @@ const fukugyouNews = require('~/config/fukugyouNews.json5')
 export default {
   components: {
     ListItem,
-    BreadList
+    BreadList,
+    ButtonLink
   },
   data: () => ({
     breadItems: [
@@ -46,5 +49,8 @@ export default {
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
   padding: 20px 0px 20px 24px !important;
+}
+.more {
+  padding-bottom: 30px;
 }
 </style>
