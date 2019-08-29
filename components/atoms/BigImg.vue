@@ -23,4 +23,12 @@ export default {
   height: 200px;
   object-fit: cover;
 }
+/* PC版は高さを広げる */
+@media screen and (min-width: 1000px) {
+  .big-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+  }
+}
 </style>
