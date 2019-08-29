@@ -87,24 +87,17 @@ export default {
     isShowWide(index) {
       // 0スタートなのでわかりやすく1スタートにする
       const number = index + 1
-      // 最初の開始位置の2つ
-      const start1 = 3
-      const start2 = 4
       // 間隔
       const interval = 4
-      // 1個目は個別に判定するためマイナス1する
-      const cnt1 = Math.floor(number / start1) - 1
-      const cnt2 = Math.floor(number / start2) - 1
 
-      if (
-        number === start1 ||
-        number === start2 ||
-        number - interval * cnt1 === start1 ||
-        number - interval * cnt2 === start2
-      ) {
-        return true
-      } else {
+      if (number === 1 || number % interval === 1) {
         return false
+      } else if (number === 2 || number % interval === 2) {
+        return false
+      } else if (number === 3 || number % interval === 3) {
+        return true
+      } else if (number === 4 || number % interval === 4) {
+        return true
       }
     },
     isShowAd(index) {
