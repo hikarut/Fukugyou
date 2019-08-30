@@ -90,13 +90,13 @@ export default {
       // 間隔
       const interval = 4
 
-      if (number === 1 || number % interval === 1) {
+      if (number % interval === 1) {
         return false
-      } else if (number === 2 || number % interval === 2) {
+      } else if (number % interval === 2) {
         return false
-      } else if (number === 3 || number % interval === 3) {
+      } else if (number % interval === 3) {
         return true
-      } else if (number === 4 || number % interval === 4) {
+      } else if (number % interval === 0) {
         return true
       }
     },
