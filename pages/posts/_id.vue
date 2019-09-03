@@ -14,6 +14,10 @@
       <v-divider />
       <p class="main-tag">{{ post.fields.tag }}</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+      <adsbygoogle
+        :ad-slot="'7321120508'"
+        :ad-format="'auto'"
+        class="adsbygoogle" />
     </div>
     <list-item :items="recomendNews" />
   </v-layout>

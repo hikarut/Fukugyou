@@ -18,6 +18,14 @@
           </v-card>
         </nuxt-link>
         <v-divider v-if="index !== (items.data.length - 1)" :key="index" />
+        <template v-if="isShowAd(index)">
+          <adsbygoogle
+            :ad-slot="'8969297024'"
+            :ad-format="'fluid'"
+            :ad-layout-key="'-6x+ct+5n-11-7j'"
+            class="adsbygoogle infeed" />
+        </template>
+        <v-divider v-if="index !== (items.data.length - 1)" :key="index" />
       </v-flex>
     </template>
   </v-layout>
@@ -37,6 +45,20 @@ export default {
     items: {
       type: Object,
       default: null
+    }
+  },
+  methods: {
+    isShowAd(index) {
+      // 0スタートなのでわかりやすく1スタートにする
+      const number = index + 1
+      // 間隔
+      const interval = 3
+
+      if (number % interval === 0) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
