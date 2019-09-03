@@ -90,7 +90,9 @@ export default {
       return `${constant.url}${this.$route.path}`
     },
     shareText() {
-      return this.dailyNews.header
+      return `【${this.dailyNews.header}】%0a・${encodeURIComponent(
+        this.dailyNews.data[0].title
+      )}%0aほか${this.dailyNews.data.length}件%0a`
       // return '記事一覧'
     },
     shareTag() {
