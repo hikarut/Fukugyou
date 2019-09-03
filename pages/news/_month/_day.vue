@@ -90,10 +90,11 @@ export default {
       return `${constant.url}${this.$route.path}`
     },
     shareText() {
+      // ランダムで呟くタイトルを変える
+      const rand = Math.floor(Math.random() * this.dailyNews.data.length)
       return `【${this.dailyNews.header}】%0a・${encodeURIComponent(
-        this.dailyNews.data[0].title
+        this.dailyNews.data[rand].title
       )}%0aほか${this.dailyNews.data.length}件%0a`
-      // return '記事一覧'
     },
     shareTag() {
       return '複業,エンジニア'
