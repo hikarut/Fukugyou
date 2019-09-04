@@ -94,4 +94,8 @@ export default {
 .tag {
   color: rgba(0, 0, 0, 0.54);
 }
+.infeed {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 </style>
