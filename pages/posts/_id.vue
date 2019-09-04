@@ -14,12 +14,16 @@
       <v-divider />
       <p class="main-tag">{{ post.fields.tag }}</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-      <adsbygoogle
-        :ad-slot="'7321120508'"
-        :ad-format="'auto'"
-        class="adsbygoogle" />
+      <div class="ad">
+        <adsbygoogle
+          :ad-slot="'7321120508'"
+          :ad-format="'auto'"
+          class="adsbygoogle" />
+      </div>
     </div>
-    <list-item :items="recomendNews" />
+    <div class="list">
+      <list-item :items="recomendNews" />
+    </div>
   </v-layout>
 </template>
 
@@ -139,6 +143,10 @@ export default {
   padding-top: 20px;
   font-weight: bold;
 }
+.list {
+  width: 100%;
+  margin: 0 auto;
+}
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
   .main-img {
@@ -156,9 +164,17 @@ export default {
   .main-title {
     font-size: 35px;
   }
+  .list {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 /* 詳細ページだけ場所を調整 */
 .v-breadcrumbs {
   padding: 0px 0px 20px 0px !important;
+}
+.ad {
+  width: 90%;
+  margin: 0 auto;
 }
 </style>
