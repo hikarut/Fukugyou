@@ -1,7 +1,14 @@
 {
   "header": "おすすめニュース",
-  "updatedAt": "2019/09/01(日) 11:00",
+  "updatedAt": "2019/09/07(土) 10:00",
   "data": [
+    {
+      "img":
+        "https://images.ctfassets.net/twm9ywlpm6f1/6pevxUxQhFMNkSJ51JWiA6/aca7e40c04fc14d38a610fcfdb87524a/hukugyou_pm.png",
+      "date": "2019/09/05(木)",
+      "title": "「副業PM」イベントのまとめ",
+      "link": "https://fukugyou.dev/posts/20190905",
+    },
     {
       "img":
         "https://images.ctfassets.net/twm9ywlpm6f1/60HpYJb6FCMKzWysBfmjr7/c8bc35ebfa1ec4b1e5290a18029b7f01/python_firebase_heroku.png",
