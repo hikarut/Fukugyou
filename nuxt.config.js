@@ -1,6 +1,5 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import { getAllTerm } from './lib/date'
-import pkg from './package'
 const environment = process.env.NODE_ENV || 'dev'
 const conf = require(`./config/constant.${environment}.json`)
 const constant = require('./config/constant.json')
