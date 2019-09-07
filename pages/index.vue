@@ -8,7 +8,7 @@
       <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
     </template>
 
-    <subheader text="エンジニア向け複業記事" />
+    <subheader text="エンジニア向け複業ニュース" />
     <big-img-item :items="listData" />
     <button-link link="/posts" class="tech-more" text="もっと見る" />
 

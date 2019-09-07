@@ -2,12 +2,12 @@
   <v-layout align-center row justify-space-around class="paging">
     <nuxt-link :to="(beforeLink === '') ? '' : `/news/${beforeLink}`">
       <v-btn :disabled="(beforeLink === '') ? true : false" outline color="#134b8a">
-        {{ beforeText }}<br>の複業記事
+        {{ beforeText }}<br>の複業ニュース
       </v-btn>
     </nuxt-link>
     <nuxt-link :to="(nextLink === '') ? '' : `/news/${nextLink}`">
       <v-btn :disabled="(nextLink === '') ? true : false" outline color="#134b8a">
-        {{ nextText }}<br>の複業記事
+        {{ nextText }}<br>の複業ニュース
       </v-btn>
     </nuxt-link>
   </v-layout>

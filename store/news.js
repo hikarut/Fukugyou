@@ -49,7 +49,7 @@ export const getters = {
       const item = {
         img:
           state.data[key].img === '' ? constant.newsImage : state.data[key].img,
-        date: `${dateString(addSlash(state.data[key].date))}の複業記事`,
+        date: `${dateString(addSlash(state.data[key].date))}の複業ニュース`,
         dateSort: state.data[key].date,
         title: state.data[key].title,
         link: `/news/${state.data[key].month}/${state.data[key].date}`,
@@ -92,12 +92,14 @@ export const getters = {
   dailyNews(state) {
     if (state.dailyData === null) {
       return {
-        header: '複業記事一覧',
+        header: '複業ニュース一覧',
         data: state.dailyData
       }
     }
 
-    const header = `${dateString(addSlash(state.dailyData[0].date))}の複業記事`
+    const header = `${dateString(
+      addSlash(state.dailyData[0].date)
+    )}の複業ニュース`
     let ret = []
     Object.keys(state.dailyData).forEach(key => {
       const item = {
@@ -121,12 +123,12 @@ export const getters = {
   monthlyNews(state) {
     if (state.monthlyData === null) {
       return {
-        header: '複業記事一覧',
+        header: '複業ニュース一覧',
         data: state.monthlyData
       }
     }
 
-    const header = `${addDateString(state.monthlyData[0].month)}の複業記事`
+    const header = `${addDateString(state.monthlyData[0].month)}の複業ニュース`
     let tmpDate = []
     if (state.monthlyData === null) {
       return {
@@ -142,7 +144,9 @@ export const getters = {
           state.monthlyData[key].img === ''
             ? constant.newsImage
             : state.monthlyData[key].img,
-        date: `${dateString(addSlash(state.monthlyData[key].date))}の複業記事`,
+        date: `${dateString(
+          addSlash(state.monthlyData[key].date)
+        )}の複業ニュース`,
         dateSort: state.monthlyData[key].date,
         title: state.monthlyData[key].title,
         link: `/news/${state.monthlyData[key].month}/${
