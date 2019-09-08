@@ -38,8 +38,7 @@ export function getEntries(limit) {
 
       const listData = {}
       listData.data = data
-      // パンくずリストを見出しの代わりにする
-      // listData.header = '記事一覧'
+      listData.header = 'エンジニア向け複業(副業)ニュース'
       return {
         listData
       }

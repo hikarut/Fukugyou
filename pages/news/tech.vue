@@ -1,7 +1,7 @@
 <template>
   <div class="list-item-top">
-    <bread-list :items="breadItems"/>
-    <list-item :items="techNewsList" />
+    <bread-list :items="breadItems" />
+    <list-item :items="techNewsList" tag="h1" />
     <button-link link="/" class="more" text="トップに戻る" />
   </div>
 </template>

@@ -5,7 +5,9 @@
          :alt="post.fields.image.fields.title"
          class="main-img">
     <div class="main-content">
-      <p class="main-title">{{ post.fields.title }}</p>
+      <h1>
+        <p class="main-title">{{ post.fields.title }}</p>
+      </h1>
       <bread-list :items="breadItems"/>
       <p class="main-date">{{ dateString }}</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />

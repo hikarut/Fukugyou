@@ -3,7 +3,7 @@
     <v-flex>
       <v-card>
         <v-list three-line>
-          <subheader v-if="items.header" :text="items.header" />
+          <subheader v-if="items.header" :text="items.header" :tag="tag" />
           <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
           <template v-for="(item, index) in items.data">
             <v-list-tile
@@ -57,6 +57,10 @@ export default {
     items: {
       type: Object,
       default: null
+    },
+    tag: {
+      type: String,
+      default: 'h1'
     }
   },
   methods: {
