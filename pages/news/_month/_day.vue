@@ -6,14 +6,14 @@
       <v-progress-linear :indeterminate="true"/>
     </template>
     <template v-else>
-      <card-item :items="dailyNews"/>
+      <card-item :items="dailyNews" tag="h1" />
     </template>
 
     <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
 
     <paging :date="day" />
 
-    <list-item :items="recomendNews" />
+    <list-item :items="recomendNews" tag="h2" />
   </div>
 </template>
 

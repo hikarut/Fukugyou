@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <bread-list :items="breadItems"/>
-    <big-img-item :items="listData" />
+    <bread-list :items="breadItems" />
+    <big-img-item :items="listData" tag="h1" />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <subheader v-if="items.header" :text="items.header"/>
+    <subheader v-if="items.header" :text="items.header" :tag="tag" />
     <template v-for="(item, index) in items.data">
       <v-flex :key="item.subtitle" class="main">
         <nuxt-link :to="item.link" >
@@ -45,6 +45,10 @@ export default {
     items: {
       type: Object,
       default: null
+    },
+    tag: {
+      type: String,
+      default: 'h1'
     }
   },
   methods: {

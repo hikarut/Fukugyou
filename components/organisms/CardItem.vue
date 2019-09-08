@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-center>
     <v-flex class="main">
-      <subheader v-if="items.header" :text="items.header" />
+      <subheader v-if="items.header" :text="items.header" :tag="tag" />
       <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
       <v-card>
         <v-container fluid grid-list-md>
@@ -69,6 +69,10 @@ export default {
     items: {
       type: Object,
       default: null
+    },
+    tag: {
+      type: String,
+      default: 'h1'
     }
   },
   methods: {
