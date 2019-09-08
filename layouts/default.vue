@@ -22,7 +22,8 @@ export default {
 
 <style>
 body {
-  font-family: BlinkMacSystemFont, -apple-system Noto Sans SC, sans-serif;
+  /* font-family: BlinkMacSystemFont, -apple-system Noto Sans SC, sans-serif; */
+  font-family: sans-serif;
   color: #424242;
 }
 .app {
