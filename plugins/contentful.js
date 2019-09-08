@@ -38,7 +38,7 @@ export function getEntries(limit) {
 
       const listData = {}
       listData.data = data
-      listData.header = 'エンジニア向け複業ニュース'
+      listData.header = 'エンジニア向け複業(副業)ニュース'
       return {
         listData
       }

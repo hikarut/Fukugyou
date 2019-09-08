@@ -97,9 +97,7 @@ export const getters = {
       }
     }
 
-    const header = `${dateString(
-      addSlash(state.dailyData[0].date)
-    )}の複業ニュース`
+    const header = `${addDateString(state.dailyData[0].date)}の複業ニュース`
     let ret = []
     Object.keys(state.dailyData).forEach(key => {
       const item = {
