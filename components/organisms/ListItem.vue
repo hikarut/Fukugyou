@@ -24,7 +24,7 @@
                 :key="index"
                 :ad-slot="'5591791813'"
                 :ad-format="'fluid'"
-                :ad-layout-key="'-fb+5w+4e-db+86'"
+                :ad-layout-key="'-fa+63+2l-ce+cu'"
                 class="adsbygoogle infeed" />
               <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 4" :key="index" />
             </template>
