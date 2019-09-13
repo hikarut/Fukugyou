@@ -157,7 +157,4 @@ export default {
   height: 250px;
   margin-bottom: 40px;
 }
-.clip {
-  float: right;
-}
 </style>
