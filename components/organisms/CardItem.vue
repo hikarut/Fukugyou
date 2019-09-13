@@ -24,6 +24,7 @@
                       <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="card.title" :is-new="card.isNew"/>
+                      <out-clip :text="card.service"/>
                     </v-card>
                   </a>
                 </v-flex>
@@ -36,6 +37,7 @@
                       <card-Img :src="card.img" :alt="card.title"/>
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="card.title" :is-new="card.isNew"/>
+                      <out-clip :text="card.service"/>
                     </v-card>
                   </a>
                 </v-flex>
@@ -56,6 +58,7 @@ import CardTitle from '~/components/molecules/CardTitle.vue'
 import CardImg from '~/components/atoms/CardImg.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
+import OutClip from '~/components/atoms/OutClip.vue'
 
 export default {
   components: {
@@ -63,7 +66,8 @@ export default {
     CardTitle,
     CardImg,
     Subheader,
-    UpdatedAtText
+    UpdatedAtText,
+    OutClip
   },
   props: {
     items: {
