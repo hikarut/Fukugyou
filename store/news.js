@@ -54,7 +54,10 @@ export const getters = {
         title: state.data[key].title,
         link: `/news/${state.data[key].month}/${state.data[key].date}`,
         monthLink: `/news/${state.data[key].month}`,
-        service: state.data[key].service
+        service:
+          typeof state.data[key].service !== 'undefined'
+            ? state.data[key].service
+            : ''
       }
       if (!retDict[state.data[key].date]) {
         // データがない場合は必ず入れる
@@ -109,7 +112,10 @@ export const getters = {
         date: dateString(addSlash(state.dailyData[key].date)),
         title: state.dailyData[key].title,
         link: state.dailyData[key].link,
-        service: state.dailyData[key].service
+        service:
+          typeof state.dailyData[key].service !== 'undefined'
+            ? state.dailyData[key].service
+            : ''
       }
       ret.push(item)
     })
@@ -152,7 +158,10 @@ export const getters = {
         link: `/news/${state.monthlyData[key].month}/${
           state.monthlyData[key].date
         }`,
-        service: state.monthlyData[key].service
+        service:
+          typeof state.monthlyData[key].service !== 'undefined'
+            ? state.monthlyData[key].service
+            : ''
       }
       if (!retDict[state.monthlyData[key].date]) {
         // データがない場合は必ず入れる
