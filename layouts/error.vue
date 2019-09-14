@@ -25,6 +25,9 @@ export default {
     statusCode() {
       return (this.error && this.error.statusCode) || 500
     }
+  },
+  beforeMount() {
+    console.log(this.error)
   }
 }
 </script>
