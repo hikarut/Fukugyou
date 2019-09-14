@@ -22,7 +22,7 @@
           <adsbygoogle
             :ad-slot="'8969297024'"
             :ad-format="'fluid'"
-            :ad-layout-key="'-6x+ct+5n-11-7j'"
+            :ad-layout-key="'-70+dz+1u-28+2r'"
             class="adsbygoogle infeed" />
         </template>
         <v-divider v-if="index !== (items.data.length - 1)" :key="index" />
