@@ -36,7 +36,7 @@ module.exports = function generateModule(moduleOptions) {
       return doc.data()
     })
     // JSONを生成
-    const distJosonFile = './data/top.json'
+    const distJosonFile = './static/data/top.json'
     fs.writeFile(distJosonFile, JSON.stringify(topNews), (err, result) => {
       if (err) console.log('error', err)
     })
@@ -57,7 +57,7 @@ module.exports = function generateModule(moduleOptions) {
         })
       }
       // JSONを生成
-      const distJosonFile = `./data/${day.value}.json`
+      const distJosonFile = `./static/data/${day.value}.json`
       fs.writeFile(distJosonFile, JSON.stringify(dailyData), err => {
         if (err) console.log('error', err)
       })
@@ -86,7 +86,7 @@ module.exports = function generateModule(moduleOptions) {
         })
       }
       // JSONを生成
-      const distJosonFile = `./data/${month}.json`
+      const distJosonFile = `./static/data/${month}.json`
       fs.writeFile(distJosonFile, JSON.stringify(monthlyData), err => {
         if (err) console.log('error', err)
       })

@@ -9,7 +9,12 @@
       <card-item :items="dailyNews" tag="h1" />
     </template>
 
-    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"/>
+    </template>
+    <template v-else>
+      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+    </template>
 
     <paging :date="day" />
 
@@ -101,11 +106,14 @@ export default {
     },
     ...mapGetters('news', ['dailyNews', 'loading'])
   },
+  async mounted() {
+    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+  },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store }) {
-    await store.dispatch('news/getDailyNews', params.day)
+    // await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }
