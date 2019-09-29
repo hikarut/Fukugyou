@@ -107,7 +107,7 @@ export default {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    // await store.dispatch('news/getMonthlyNews', params.month)
+    await store.dispatch('news/getMonthlyNews', params.month)
     return { month: params.month }
   }
 }

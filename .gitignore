@@ -86,5 +86,3 @@ sw.*
 # generate file
 /data/*
 !/data/.gitkeep
-/static/data/*
-!/static/data/.gitkeep
