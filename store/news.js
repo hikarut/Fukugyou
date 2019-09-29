@@ -1,5 +1,4 @@
 import { getTopTerm, dateString, addSlash, addDateString } from '~/lib/date'
-import axios from 'axios'
 const constant = require('~/config/constant.json')
 
 /* state */
@@ -208,49 +207,29 @@ export const actions = {
 
     // 静的ファイルから取得
     commit('setLoading', true)
-    axios
-      .get(`${constant.url}/data/top.json`)
-      .then(result => {
-        commit('setData', result.data)
-        commit('setLoading', false)
-      })
-      .catch(error => {
-        console.log(error)
-        commit('setLoading', false)
-      })
+    // TODO:ファイルの存在チェック
+    const topNews = require('~/data/top.json')
+    commit('setData', topNews)
+    commit('setLoading', false)
   },
 
   // 日次のニュース記事取得
-  // async getDailyNews({ commit, state }, date) {
   async getDailyNews({ commit, state }, date) {
     // 静的ファイルから取得
     commit('setLoading', true)
-    axios
-      .get(`${constant.url}/data/${date}.json`)
-      .then(result => {
-        commit('setDailyData', result.data)
-        commit('setLoading', false)
-      })
-      .catch(error => {
-        console.log(error)
-        commit('setLoading', false)
-      })
+    // TODO:ファイルの存在チェック
+    const dailyNews = require(`~/data/${date}.json`)
+    commit('setDailyData', dailyNews)
+    commit('setLoading', false)
   },
 
   // 月次のニュース記事取得
   async getMonthlyNews({ commit, state }, month) {
     // 静的ファイルから取得
     commit('setLoading', true)
-    axios
-      .get(`${constant.url}/data/${month}.json`)
-      .then(result => {
-        commit('setDailyData', result.data)
-        commit('setMonthlyData', result.data)
-        commit('setLoading', false)
-      })
-      .catch(error => {
-        console.log(error)
-        commit('setLoading', false)
-      })
+    // TODO:ファイルの存在チェック
+    const monthlyNews = require(`~/data/${month}.json`)
+    commit('setMonthlyData', monthlyNews)
+    commit('setLoading', false)
   }
 }
