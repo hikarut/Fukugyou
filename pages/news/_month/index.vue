@@ -98,10 +98,10 @@ export default {
     ...mapGetters('news', ['monthlyNews', 'loading'])
   },
   async mounted() {
-    await this.$store.dispatch(
-      'news/getMonthlyNews',
-      this.$route.params['month']
-    )
+    // await this.$store.dispatch(
+    //   'news/getMonthlyNews',
+    //   this.$route.params['month']
+    // )
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])

@@ -1,3 +1,4 @@
 {
-  "value": "dev"
+  "value": "dev",
+  "url": "http://localhost:3333"
 }

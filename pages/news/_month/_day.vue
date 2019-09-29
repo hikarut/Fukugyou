@@ -107,7 +107,7 @@ export default {
     ...mapGetters('news', ['dailyNews', 'loading'])
   },
   async mounted() {
-    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+    // await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
