@@ -1,6 +1,5 @@
 # Fukugyou
-
-> My fabulous Nuxt.js project
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4bd29a1d-21af-45d6-ab20-904abd937c83/deploy-status)](https://app.netlify.com/sites/fukugyou/deploys)
 
 ## Build Setup
 
@@ -18,5 +17,3 @@ $ npm start
 # generate static project
 $ ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV='dev' SPACE='contentful space id' ACCESS_TOKEN='contentful accessToken' CONTENT_TYPE='contentful contentType' node_modules/nuxt/bin/nuxt.js generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).

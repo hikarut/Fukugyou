@@ -9,9 +9,14 @@
       <card-item :items="monthlyNews" tag="h1" />
     </template>
 
-    <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"/>
+    </template>
+    <template v-else>
+      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+    </template>
 
-    <!-- <paging :date="month" /> -->
+    <paging :date="month" />
 
     <list-item :items="recomendNews" tag="h2" />
   </div>
@@ -91,6 +96,12 @@ export default {
       return '複業,エンジニア'
     },
     ...mapGetters('news', ['monthlyNews', 'loading'])
+  },
+  async mounted() {
+    await this.$store.dispatch(
+      'news/getMonthlyNews',
+      this.$route.params['month']
+    )
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])
