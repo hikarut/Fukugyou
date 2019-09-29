@@ -209,8 +209,7 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     axios
-      // .get(`${constant.url}/data/top.json`)
-      .get(`http://localhost:3333/data/top.json`)
+      .get(`${constant.url}/data/top.json`)
       .then(result => {
         commit('setData', result.data)
         commit('setLoading', false)
@@ -227,8 +226,7 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     axios
-      // .get(`${constant.url}/data/${date}.json`)
-      .get(`http://localhost:3333/data/${date}.json`)
+      .get(`${constant.url}/data/${date}.json`)
       .then(result => {
         commit('setDailyData', result.data)
         commit('setLoading', false)
@@ -244,8 +242,7 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     axios
-      // .get(`${constant.url}/data/${month}.json`)
-      .get(`http://localhost:3333/data/${month}.json`)
+      .get(`${constant.url}/data/${month}.json`)
       .then(result => {
         commit('setDailyData', result.data)
         commit('setMonthlyData', result.data)
