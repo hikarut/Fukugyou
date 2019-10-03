@@ -1,5 +1,5 @@
 import { getTopTerm, dateString, addSlash, addDateString } from '~/lib/date'
-const constant = require('~/config/constant.json')
+import axios from 'axios'
 
 /* state */
 const initialState = {
@@ -48,7 +48,9 @@ export const getters = {
     Object.keys(state.data).forEach(key => {
       const item = {
         img:
-          state.data[key].img === '' ? constant.newsImage : state.data[key].img,
+          state.data[key].img === ''
+            ? process.env.constant.newsImage
+            : state.data[key].img,
         date: `${dateString(addSlash(state.data[key].date))}の複業ニュース`,
         dateSort: state.data[key].date,
         title: state.data[key].title,
@@ -107,7 +109,7 @@ export const getters = {
       const item = {
         img:
           state.dailyData[key].img === ''
-            ? constant.newsImage
+            ? process.env.constant.newsImage
             : state.dailyData[key].img,
         date: dateString(addSlash(state.dailyData[key].date)),
         title: state.dailyData[key].title,
@@ -148,7 +150,7 @@ export const getters = {
       const item = {
         img:
           state.monthlyData[key].img === ''
-            ? constant.newsImage
+            ? process.env.constant.newsImage
             : state.monthlyData[key].img,
         date: `${dateString(
           addSlash(state.monthlyData[key].date)
@@ -228,8 +230,20 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     // TODO:ファイルの存在チェック
-    const monthlyNews = require(`~/data/${month}.json`)
-    commit('setMonthlyData', monthlyNews)
-    commit('setLoading', false)
+    // const monthlyNews = require(`~/data/${month}.json`)
+    // commit('setMonthlyData', monthlyNews)
+    // commit('setLoading', false)
+    // 月次だけなぜかうまく取得できないのでAPI経由にする
+    axios
+      .get(`${process.env.conf.url}/data/${month}.json`)
+      .then(result => {
+        commit('setDailyData', result.data)
+        commit('setMonthlyData', result.data)
+        commit('setLoading', false)
+      })
+      .catch(error => {
+        console.log(error)
+        commit('setLoading', false)
+      })
   }
 }

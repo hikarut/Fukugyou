@@ -86,7 +86,8 @@ module.exports = function generateModule(moduleOptions) {
         })
       }
       // JSONを生成
-      const distJosonFile = `./data/${month}.json`
+      // const distJosonFile = `./data/${month}.json`
+      const distJosonFile = `./static/data/${month}.json`
       fs.writeFile(distJosonFile, JSON.stringify(monthlyData), err => {
         if (err) console.log('error', err)
       })
