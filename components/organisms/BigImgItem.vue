@@ -101,5 +101,6 @@ export default {
 .infeed {
   margin-top: 20px;
   margin-bottom: 20px;
+  font-family: sans-serif !important;
 }
 </style>
