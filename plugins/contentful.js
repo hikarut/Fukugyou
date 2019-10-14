@@ -1,6 +1,7 @@
 // import { contentful } from 'contentful'
 import { dateString } from '~/lib/date'
 const contentful = require('contentful')
+const constant = require('~/config/constant.json')
 
 // 初期設定
 const config = {
@@ -12,13 +13,16 @@ const client = contentful.createClient(config)
 /*
  * 記事の取得
  * @param limit 取得件数
+ * @param skip 取得開始位置
  */
-export function getEntries(limit) {
+// export function getEntries(limit, page = 1) {
+export async function getEntries(limit, page = 1) {
   return client
     .getEntries({
       content_type: process.env.CONTENT_TYPE,
       order: '-sys.updatedAt',
-      limit: limit
+      limit: limit,
+      skip: (page - 1) * constant.postsPerPage
     })
     .then(entries => {
       // 表示用データに整形
@@ -38,6 +42,7 @@ export function getEntries(limit) {
 
       const listData = {}
       listData.data = data
+      listData.total = entries.total
       listData.header = 'エンジニア向け複業(副業)ニュース'
       return {
         listData
