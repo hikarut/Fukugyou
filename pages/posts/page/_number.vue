@@ -41,8 +41,6 @@ export default {
   async asyncData({ params }) {
     const page = checkPage(params.number)
     const data = await getEntries(constant.postsPerPage, page)
-    console.log('asyncData data')
-    console.log(data)
     return {
       postData: data,
       page: page,
