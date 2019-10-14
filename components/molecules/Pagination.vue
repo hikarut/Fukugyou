@@ -1,14 +1,28 @@
 <template>
   <div class="text-xs-center">
-    <div>
-      {{ start }}/{{ total }}件
+    <div class="count">
+      {{ start }}件 〜 {{ end }}件 / {{ total }}件
     </div>
     <div class="paging">
+      <nuxt-link :to="`/posts/page/${page - 1}`" :class="[page - 1 < 1 ? 'disabled' : '']">
+        <v-icon :class="[page - 1 < 1 ? 'angle_disabled' : 'angle_normal']" class="angle">
+          fas fa-angle-left
+        </v-icon>
+      </nuxt-link>
       <template v-for="n of length">
-        <nuxt-link :key="n" :class="[page === n + start ? 'number_checked' : 'number']" :to="`/posts/page/${n + start}`" >
-          {{ n + start }}
+        <nuxt-link
+          :key="n"
+          :class="[page === n + add ? 'checked' : 'other']"
+          :to="`/posts/page/${n + add}`"
+          class="number" >
+          {{ n + add }}
         </nuxt-link>
       </template>
+      <nuxt-link :to="`/posts/page/${page + 1}`" :class="[page + 1 > totalPage ? 'disabled' : '']">
+        <v-icon :class="[page + 1 > totalPage ? 'angle_disabled' : 'angle_normal']" class="angle">
+          fas fa-angle-right
+        </v-icon>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -28,18 +42,14 @@ export default {
     }
   },
   data: () => ({
-    length: 3
+    length: 3,
+    postsPerPage: constant.postsPerPage
   }),
   computed: {
     totalPage() {
       return Math.ceil(this.total / constant.postsPerPage)
     },
-    start() {
-      console.log('computed start')
-      console.log(`total:${this.total}`)
-      console.log(`page:${this.page}`)
-      console.log(`totalPage:${this.totalPage}`)
-
+    add() {
       if (this.page <= 2) {
         return 0
       } else if (this.page === this.totalPage) {
@@ -47,6 +57,14 @@ export default {
       } else {
         return this.page - this.length + 1
       }
+    },
+    start() {
+      return this.page * constant.postsPerPage - 1
+    },
+    end() {
+      return this.page * constant.postsPerPage >= this.total
+        ? this.total
+        : this.page * constant.postsPerPage
     }
   }
 }
@@ -56,28 +74,41 @@ export default {
 .paging {
   height: 40px;
   line-height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  margin-right: 20px;
 }
-.number_checked {
-  font-size: 15px;
-  height: 40px;
-  width: 40px;
-  background-color: #bbb;
-  color: #fff;
-  border-radius: 50%;
-  margin-left: 30px;
+.count {
+  margin-bottom: 15px;
+}
+.angle {
   display: inline-flex;
-  justify-content: center;
-  pointer-events: none;
+  height: 15px;
+  margin-left: 20px;
+}
+.angle_normal {
+  color: #55acee;
+}
+.angle_disabled {
+  color: #bbb;
 }
 .number {
   font-size: 15px;
   height: 40px;
   width: 40px;
-  color: black;
-  border-radius: 50%;
   margin-left: 30px;
   display: inline-flex;
   justify-content: center;
+  border-radius: 50%;
+}
+.checked {
+  background-color: #bbb;
+  color: #fff;
+  pointer-events: none;
+}
+.disabled {
+  pointer-events: none;
+}
+.other {
+  color: black;
 }
 </style>
