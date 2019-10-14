@@ -59,7 +59,9 @@ export default {
       }
     },
     start() {
-      return this.page * constant.postsPerPage - 1
+      return this.page === 1
+        ? this.page
+        : (this.page - 1) * constant.postsPerPage + 1
     },
     end() {
       return this.page * constant.postsPerPage >= this.total

@@ -23,6 +23,16 @@ export default {
     BreadList,
     Pagination
   },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: `${constant.url}/posts/page/1`
+        }
+      ]
+    }
+  },
   data: () => ({
     breadItems: [
       {

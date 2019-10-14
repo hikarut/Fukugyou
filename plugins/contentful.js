@@ -15,7 +15,6 @@ const client = contentful.createClient(config)
  * @param limit 取得件数
  * @param skip 取得開始位置
  */
-// export function getEntries(limit, page = 1) {
 export async function getEntries(limit, page = 1) {
   return client
     .getEntries({
