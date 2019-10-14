@@ -14,7 +14,9 @@
       <v-divider />
       <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
       <v-divider />
-      <p class="main-tag">{{ post.fields.tag }}</p>
+      <p class="main-tag">
+        <tag-list :tags="post.fields.tag" />
+      </p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
       <div class="ad">
         <adsbygoogle
@@ -34,6 +36,7 @@ import VueMarkdown from 'vue-markdown'
 import BreadList from '~/components/organisms/BreadList.vue'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
+import TagList from '~/components/molecules/TagList.vue'
 import { dateString } from '~/lib/date'
 import { getEntryById } from '~/plugins/contentful'
 
@@ -44,7 +47,8 @@ export default {
     VueMarkdown,
     SnsPost,
     BreadList,
-    ListItem
+    ListItem,
+    TagList
   },
   head() {
     return {

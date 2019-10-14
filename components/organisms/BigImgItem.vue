@@ -11,7 +11,9 @@
               <div>
                 <div class="date">{{ item.date }}</div>
                 <div class="title">{{ item.title }}</div>
-                <div class="tag">{{ item.tag }}</div>
+                <div class="tag">
+                  <tag-list :tags="item.tag" />
+                </div>
               </div>
             </v-card-title>
 
@@ -35,11 +37,13 @@
 <script>
 import Subheader from '~/components/atoms/Subheader.vue'
 import BigImg from '~/components/atoms/BigImg.vue'
+import TagList from '~/components/molecules/TagList.vue'
 
 export default {
   components: {
     Subheader,
-    BigImg
+    BigImg,
+    TagList
   },
   props: {
     items: {
@@ -87,7 +91,7 @@ export default {
   box-shadow: initial;
 }
 .title {
-  font-size: 30px;
+  font-size: 14px !important;
   line-height: 1.5 !important;
 }
 .title,

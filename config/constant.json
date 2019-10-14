@@ -4,5 +4,6 @@
   "keywords": "複業,副業,Fukugyou,fukugyou,フクギョウ,エンジニア,働き方,ニュース,メディア,仕事,人生,ライフ,幸せ",
   "description": "エンジニアのための複業メディアサイト。エンジニアのための技術情報や複業(副業)の情報を提供します。",
   "twitterTag": "複業",
-  "newsImage": "https://fukugyou.dev/newsImage.png"
+  "newsImage": "https://fukugyou.dev/newsImage.png",
+  "postsPerPage": 4
 }
