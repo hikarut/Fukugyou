@@ -1,19 +1,12 @@
-# Fukugyou
+<img src="https://fukugyou.dev/ogimage.png">
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4bd29a1d-21af-45d6-ab20-904abd937c83/deploy-status)](https://app.netlify.com/sites/fukugyou/deploys)
 
-## Build Setup
+## Fukugyou
+「Fukugyou」はエンジニアのための複業メディアサイトです。<br>
+複業・副業に関するニュースを毎日自動で更新します。
+https://fukugyou.dev/
 
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3333
-$ PORT=3333 ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV='dev' SPACE='contentful space id' ACCESS_TOKEN='contentful accessToken' CONTENT_TYPE='contentful contentType' node_modules/nuxt/bin/nuxt.js
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV='dev' SPACE='contentful space id' ACCESS_TOKEN='contentful accessToken' CONTENT_TYPE='contentful contentType' node_modules/nuxt/bin/nuxt.js generate
-```
+## 構成
+* [Nuxt+Netlify+Vuetify+Contentfulでエンジニア向け複業メディアサイト作りました](https://fukugyou.dev/posts/20190506/)
+* [複業メディアサイトをアップデートしました(Python+Firebase+Herokuのサーバレス構成)](https://fukugyou.dev/posts/20190818/)
