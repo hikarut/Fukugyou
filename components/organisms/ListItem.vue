@@ -17,7 +17,8 @@
               <!-- <out-clip /> -->
               <newmark :is-new="item.isNew"/>
             </v-list-tile>
-            <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index" />
+            <!-- エラー対応で暫定でkeyにプラスする -->
+            <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index + 100" />
             <!-- 4つづつに広告を挿入 -->
             <template v-if="(index + 1) % 4 === 0">
               <adsbygoogle
@@ -26,7 +27,8 @@
                 :ad-format="'fluid'"
                 :ad-layout-key="'-ff+64+2d-c2+cy'"
                 class="adsbygoogle infeed" />
-              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 4" :key="index" />
+              <!-- エラー対応で暫定でkeyにプラスする -->
+              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 4" :key="index + 200" />
             </template>
           </template>
         </v-list>
