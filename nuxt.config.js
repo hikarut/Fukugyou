@@ -36,7 +36,7 @@ function routing() {
       return [
         ...entries.items.map(entry => `/posts/${entry.fields.url}`),
         // ページング
-        ...[...Array(page).keys()].map(i => `/posts/page/${i}`),
+        ...[...Array(page).keys()].map(i => `/posts/page/${i + 1}`),
         // 日次のパス生成
         ...allTerm.map(data => `/news/${data.key}/${data.value}`),
         // 月次のパス生成
