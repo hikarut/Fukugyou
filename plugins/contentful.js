@@ -6,7 +6,9 @@ const constant = require('~/config/constant.json')
 // 初期設定
 const config = {
   space: process.env.SPACE,
-  accessToken: process.env.ACCESS_TOKEN
+  accessToken: process.env.ACCESS_TOKEN,
+  timeout: 60000,
+  retryLimit: 10
 }
 const client = contentful.createClient(config)
 

@@ -21,7 +21,9 @@ const adsenseId = process.env.ADSENSE_ID || 'adsenseId'
 const contentful = require('contentful')
 const client = contentful.createClient({
   space: space,
-  accessToken: accessToken
+  accessToken: accessToken,
+  timeout: 60000,
+  retryLimit: 10
 })
 
 // ルーティング
