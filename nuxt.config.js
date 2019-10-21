@@ -98,7 +98,12 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'dns-prefetch', href: '//pagead2.googlesyndication.com' },
       { rel: 'dns-prefetch', href: '//tpc.googlesyndication.com' },
-      { rel: 'dns-prefetch', href: '//googleads.g.doubleclick.net' }
+      { rel: 'dns-prefetch', href: '//googleads.g.doubleclick.net' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap'
+      }
     ]
   },
 
