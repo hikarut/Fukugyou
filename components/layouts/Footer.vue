@@ -33,11 +33,7 @@ export default {
   mixins: [menu],
   data: () => ({
     date: new Date().getFullYear(),
-    twitterUrl: twitterUrl(
-      process.env.constant.url,
-      process.env.constant.title,
-      process.env.constant.twitterTag
-    )
+    twitterUrl: process.env.constant.twitterUrl
   })
 }
 </script>
