@@ -29,4 +29,9 @@ export default {
   display: inline-block;
   font-size: 12px;
 }
+.tag_text:after {
+  content: '';
+  margin-right: 1px;
+  float: right;
+}
 </style>
