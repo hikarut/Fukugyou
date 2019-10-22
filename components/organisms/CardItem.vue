@@ -16,7 +16,7 @@
                     <adsbygoogle
                       :ad-slot="'8969297024'"
                       :ad-format="'fluid'"
-                      :ad-layout-key="'-70+dz+1u-28+2r'"
+                      :ad-layout-key="'-70+dy+29-1o-8'"
                       class="adsbygoogle infeed" />
                   </template>
                   <a @click="go(card.link)">
