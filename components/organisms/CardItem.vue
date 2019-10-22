@@ -35,10 +35,10 @@
               <template v-else>
                 <v-flex :key="index" class="xs6 card-box">
                   <a @click="go(card.link)">
-                    <v-card class="card">
+                    <v-card class="card card-small">
                       <card-Img :src="card.img" :alt="card.title"/>
                       <card-date :text="card.date" class="date"/>
-                      <card-title :text="card.title" :is-new="card.isNew"/>
+                      <card-title :text="cut(card.title)" :is-new="card.isNew"/>
                       <out-clip :text="card.service"/>
                     </v-card>
                   </a>
@@ -61,6 +61,7 @@ import CardImg from '~/components/atoms/CardImg.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
+import { cutString } from '~/lib/string'
 
 export default {
   components: {
@@ -119,6 +120,9 @@ export default {
       } else {
         return false
       }
+    },
+    cut(title) {
+      return cutString(title)
     }
   }
 }
@@ -152,6 +156,9 @@ export default {
 .v-card > *:first-child:not(.v-btn):not(.v-chip) {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+.card-small {
+  height: 350px;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
