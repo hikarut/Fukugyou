@@ -107,7 +107,7 @@ export default {
 .infeed {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-family: sans-serif !important;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 /* vuetifyから上書き */
 .v-card > *:first-child:not(.v-btn):not(.v-chip) {
