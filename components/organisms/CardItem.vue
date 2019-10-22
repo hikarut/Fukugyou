@@ -119,21 +119,6 @@ export default {
       } else {
         return false
       }
-
-      // // 0スタートなのでわかりやすく1スタートにする
-      // const number = index + 1
-      // // 表示する位置
-      // const start = 4
-      // // 間隔
-      // const interval = 3
-      // // 1個目は個別に判定するためマイナス1する
-      // const cnt = Math.floor(number / start) - 1
-      //
-      // if (number === start || number - interval * cnt === start) {
-      //   return true
-      // } else {
-      //   return false
-      // }
     }
   }
 }
