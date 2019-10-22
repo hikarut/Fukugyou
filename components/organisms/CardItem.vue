@@ -16,7 +16,7 @@
                     <adsbygoogle
                       :ad-slot="'8969297024'"
                       :ad-format="'fluid'"
-                      :ad-layout-key="'-70+dz+1u-28+2r'"
+                      :ad-layout-key="'-70+dy+29-1o-8'"
                       class="adsbygoogle infeed" />
                   </template>
                   <a @click="go(card.link)">
@@ -35,7 +35,7 @@
               <template v-else>
                 <v-flex :key="index" class="xs6 card-box">
                   <a @click="go(card.link)">
-                    <v-card class="card card-small">
+                    <v-card class="card">
                       <card-Img :src="card.img" :alt="card.title"/>
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="cut(card.title)" :is-new="card.isNew"/>
@@ -156,14 +156,6 @@ export default {
 .v-card > *:first-child:not(.v-btn):not(.v-chip) {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-}
-.card-small {
-  height: 350px;
-}
-@media screen and (min-width: 800px) and (max-width: 1100px) {
-  .card-small {
-    height: 400px;
-  }
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
