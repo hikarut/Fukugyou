@@ -31,7 +31,7 @@ export default {
   background-color: black;
   color: white;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 5px !important;
   margin: 0 0 0 10px;
 }
 .newspicks {
@@ -44,10 +44,6 @@ export default {
   background-color: #2cb696;
 }
 /* vuetifyから上書き */
-.v-card > :last-child:not(.v-btn):not(.v-chip) {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
 .v-card > *:last-child:not(.v-btn):not(.v-chip) {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
