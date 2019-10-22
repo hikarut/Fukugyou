@@ -95,6 +95,6 @@ export default {
   height: 88px;
   margin-top: 5px;
   margin-bottom: 5px;
-  font-family: sans-serif !important;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 </style>
