@@ -160,6 +160,11 @@ export default {
 .card-small {
   height: 350px;
 }
+@media screen and (min-width: 800px) and (max-width: 1100px) {
+  .card-small {
+    height: 400px;
+  }
+}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
   .main {

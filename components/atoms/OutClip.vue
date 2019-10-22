@@ -44,6 +44,10 @@ export default {
   background-color: #2cb696;
 }
 /* vuetifyから上書き */
+.v-card > :last-child:not(.v-btn):not(.v-chip) {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 .v-card > *:last-child:not(.v-btn):not(.v-chip) {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
