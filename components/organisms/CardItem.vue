@@ -24,7 +24,9 @@
                       <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="card.title" :is-new="card.isNew"/>
-                      <out-clip :text="card.service"/>
+                      <div class="out-clip">
+                        <out-clip :text="card.service"/>
+                      </div>
                     </v-card>
                   </a>
                 </v-flex>
@@ -96,33 +98,42 @@ export default {
       // 0スタートなのでわかりやすく1スタートにする
       const number = index + 1
       // 間隔
-      const interval = 4
+      const interval = 3
 
       if (number % interval === 1) {
-        return false
+        return true
       } else if (number % interval === 2) {
         return false
-      } else if (number % interval === 3) {
-        return true
       } else if (number % interval === 0) {
-        return true
+        return false
       }
     },
     isShowAd(index) {
       // 0スタートなのでわかりやすく1スタートにする
       const number = index + 1
-      // 表示する位置
-      const start = 4
       // 間隔
-      const interval = 4
-      // 1個目は個別に判定するためマイナス1する
-      const cnt = Math.floor(number / start) - 1
-
-      if (number === start || number - interval * cnt === start) {
+      const interval = 3
+      // 1番目は表示しない
+      if (number !== 1 && number % interval === 1) {
         return true
       } else {
         return false
       }
+
+      // // 0スタートなのでわかりやすく1スタートにする
+      // const number = index + 1
+      // // 表示する位置
+      // const start = 4
+      // // 間隔
+      // const interval = 3
+      // // 1個目は個別に判定するためマイナス1する
+      // const cnt = Math.floor(number / start) - 1
+      //
+      // if (number === start || number - interval * cnt === start) {
+      //   return true
+      // } else {
+      //   return false
+      // }
     }
   }
 }
@@ -134,7 +145,7 @@ export default {
   text-decoration-color: rgba(19, 75, 138, 0.7);
 }
 .card {
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 /* 枠線を消す */
 .v-card {
@@ -145,6 +156,17 @@ export default {
 }
 .date {
   color: rgba(0, 0, 0, 0.54);
+  background-color: whitesmoke;
+}
+.card.v-card.v-sheet.theme--light {
+  background-color: whitesmoke;
+  border-radius: 10px 10px 10px 10px;
+  margin-bottom: 15px;
+}
+/* vuetifyから上書き */
+.v-card > *:first-child:not(.v-btn):not(.v-chip) {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

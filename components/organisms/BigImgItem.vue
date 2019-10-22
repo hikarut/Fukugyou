@@ -19,7 +19,7 @@
 
           </v-card>
         </nuxt-link>
-        <v-divider v-if="index !== (items.data.length - 1)" />
+        <!-- <v-divider v-if="index !== (items.data.length - 1)" /> -->
         <template v-if="isShowAd(index)">
           <adsbygoogle
             :ad-slot="'8969297024'"
@@ -27,7 +27,7 @@
             :ad-layout-key="'-70+dz+1u-28+2r'"
             class="adsbygoogle infeed" />
         </template>
-        <v-divider v-if="index !== (items.data.length - 1)" />
+        <!-- <v-divider v-if="index !== (items.data.length - 1)" /> -->
       </v-flex>
     </template>
   </v-layout>
@@ -89,6 +89,8 @@ export default {
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
+  background-color: whitesmoke;
+  border-radius: 10px 10px 10px 10px;
 }
 .title {
   font-size: 14px !important;
@@ -106,5 +108,10 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: sans-serif !important;
+}
+/* vuetifyから上書き */
+.v-card > *:first-child:not(.v-btn):not(.v-chip) {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 </style>

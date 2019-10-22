@@ -40,7 +40,7 @@ pre code {
   border-collapse: collapse;
   border: 2px solid rgb(200, 200, 200);
   letter-spacing: 1px;
-  font-family: sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: .8rem;
   margin: 0 auto;
 }
