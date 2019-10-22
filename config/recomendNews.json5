@@ -1,7 +1,14 @@
 {
   "header": "おすすめ複業(副業)ニュース",
-  "updatedAt": "2019/10/07(月) 07:00",
+  "updatedAt": "2019/10/22(月) 23:00",
   "data": [
+    {
+      "img":
+        "https://images.ctfassets.net/twm9ywlpm6f1/2qk8KHKvpGGQuNWgAC0HdO/d17edd7561a44d53f62008cb673aa445/code.jpeg",
+      "date": "2019/10/17(木)",
+      "title": "複業メディアサイトのソースコード公開しました",
+      "link": "https://fukugyou.dev/posts/20191017",
+    },
     {
       "img":
         "https://images.ctfassets.net/twm9ywlpm6f1/4YQQxVgC6YdYw1avfRCWU9/cc2ee93d79a758dcba53106fc3ca7886/_______________.png",
