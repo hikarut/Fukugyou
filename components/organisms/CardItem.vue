@@ -166,7 +166,7 @@ export default {
 }
 .infeed {
   height: 250px;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   font-family: 'Noto Sans JP', sans-serif;
 }
 </style>

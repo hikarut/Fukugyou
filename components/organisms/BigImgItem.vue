@@ -105,8 +105,8 @@ export default {
   color: rgba(0, 0, 0, 0.54);
 }
 .infeed {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 45px;
+  /* margin-bottom: 20px; */
   font-family: 'Noto Sans JP', sans-serif;
 }
 /* vuetifyから上書き */
