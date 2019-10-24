@@ -23,7 +23,7 @@
                     <v-card class="card">
                       <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
                       <card-date :text="card.date" class="date"/>
-                      <card-title :text="card.title" :is-new="card.isNew"/>
+                      <card-title :text="card.title" :is-new="card.isNew" class="card-title"/>
                       <div class="out-clip">
                         <out-clip :text="card.service"/>
                       </div>
@@ -38,7 +38,7 @@
                     <v-card class="card">
                       <card-Img :src="card.img" :alt="card.title"/>
                       <card-date :text="card.date" class="date"/>
-                      <card-title :text="cut(card.title)" :is-new="card.isNew"/>
+                      <card-title :text="cut(card.title)" :is-new="card.isNew" class="card-title"/>
                       <out-clip :text="card.service"/>
                     </v-card>
                   </a>
@@ -146,6 +146,12 @@ export default {
 .date {
   color: rgba(0, 0, 0, 0.54);
   background-color: whitesmoke;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card-title {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .card.v-card.v-sheet.theme--light {
   background-color: whitesmoke;

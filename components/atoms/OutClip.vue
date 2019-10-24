@@ -32,7 +32,7 @@ export default {
   color: white;
   text-align: center;
   border-radius: 5px !important;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 18px;
 }
 .newspicks {
   background-color: black;
