@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown'
 import BreadList from '~/components/organisms/BreadList.vue'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -44,7 +43,6 @@ const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
-    VueMarkdown,
     SnsPost,
     BreadList,
     ListItem,
