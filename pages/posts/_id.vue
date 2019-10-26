@@ -12,7 +12,7 @@
       <p class="main-date">{{ dateString }}</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
       <v-divider />
-      <vue-markdown class="markdown">{{ post.fields.markdown }}</vue-markdown>
+      <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
       <v-divider />
       <p class="main-tag">
         <tag-list :tags="post.fields.tag" />
