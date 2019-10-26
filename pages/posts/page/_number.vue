@@ -3,6 +3,12 @@
     <bread-list :items="breadItems" />
     <big-img-item :items="postData.listData" tag="h1" />
     <pagination :total="total" :page="page" />
+    <div class="ad">
+      <adsbygoogle
+        :ad-slot="'7321120508'"
+        :ad-format="'auto'"
+        class="adsbygoogle" />
+    </div>
   </div>
 </template>
 
@@ -78,5 +84,10 @@ h1 {
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
   padding: 20px 0px 20px 24px !important;
+}
+.ad {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 20px;
 }
 </style>
