@@ -93,7 +93,7 @@ export default {
 }
 @media screen and (max-width: 959px) {
   .container {
-    padding: 5px !important;
+    padding: 0px !important;
   }
 }
 .news-more {
