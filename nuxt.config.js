@@ -142,7 +142,8 @@ export default {
         id: adsenseId
       }
     ],
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    '@nuxtjs/device'
   ],
 
   markdownit: {
