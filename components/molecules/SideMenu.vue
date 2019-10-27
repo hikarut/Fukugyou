@@ -28,6 +28,8 @@ export default {
 
 <style scoped>
 .ad {
+  width: 90%;
+  margin: 0 auto;
   padding-bottom: 20px;
 }
 </style>
