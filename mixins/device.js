@@ -1,10 +1,11 @@
 export default {
-  computed: {
-    isDesktop() {
-      return this.$isDesktop
-    },
-    isMobile() {
-      return this.$isMobile
-    }
+  data: () => ({
+    // デフォルト
+    isMobile: false,
+    isDesktop: false
+  }),
+  mounted() {
+    this.isMobile = this.$isMobile
+    this.isDesktop = this.$isDesktop
   }
 }

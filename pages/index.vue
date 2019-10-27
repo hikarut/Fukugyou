@@ -1,6 +1,5 @@
 <template>
   <v-container grid-list-md text-xs-center class="all">
-    <template v-if="isDesktop"/>
     <v-layout row wrap>
       <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
         <div class="top">
