@@ -1,7 +1,7 @@
 <template>
   <div class="tile-parent">
     <div>
-      <img v-lazy="img" :alt="alt" :class="[$device.isDesktop ? 'responsive' : '']"
+      <img v-lazy="img" :alt="alt" :class="[isDesktop ? 'responsive' : '']"
            src="/loading.png"
            class="tile">
     </div>
@@ -9,7 +9,10 @@
 </template>
 
 <script>
+import device from '~/mixins/device'
+
 export default {
+  mixins: [device],
   props: {
     img: {
       type: String,
