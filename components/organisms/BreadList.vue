@@ -34,4 +34,7 @@ export default {
 .separate {
   padding-left: 10px;
 }
+.v-breadcrumbs {
+  text-align: left;
+}
 </style>
