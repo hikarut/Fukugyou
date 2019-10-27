@@ -1,7 +1,9 @@
 <template>
   <div class="tile-parent">
     <div>
-      <img v-lazy="img" :alt="alt" src="/loading.png" class="tile">
+      <img v-lazy="img" :alt="alt" :class="[$device.isDesktop ? 'responsive' : '']"
+           src="/loading.png"
+           class="tile">
     </div>
   </div>
 </template>
@@ -38,5 +40,13 @@ export default {
   display: inline-flex;
   height: inherit;
   width: inherit;
+}
+@media screen and (max-width: 1100px) {
+  .responsive {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    margin: 15px 0px 0px -5px;
+  }
 }
 </style>

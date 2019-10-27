@@ -80,10 +80,10 @@ export default {
 @media screen and (min-width: 350px) {
   .main {
     /* 見出しがない場合は上にスペースをあける */
-    padding-top: 30px;
+    padding-top: 30px !important;
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
   }
 }
 /* 枠線を消す */
@@ -96,13 +96,19 @@ export default {
   font-size: 14px !important;
   line-height: 1.5 !important;
 }
+.date,
+.title {
+  padding-left: 10px;
+}
 .title,
 .tag {
   padding-top: 10px;
+  text-align: left;
 }
 .date,
 .tag {
   color: rgba(0, 0, 0, 0.54);
+  text-align: left;
 }
 .infeed {
   margin-top: 45px;

@@ -152,6 +152,7 @@ export default {
 .card-title {
   margin-left: 10px;
   margin-right: 10px;
+  text-align: left;
 }
 .card.v-card.v-sheet.theme--light {
   background-color: whitesmoke;

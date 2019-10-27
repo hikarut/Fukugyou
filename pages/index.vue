@@ -1,20 +1,30 @@
 <template>
-  <div class="top">
-    <template v-if="loading">
-      <v-progress-linear :indeterminate="true"/>
-    </template>
-    <template v-else>
-      <card-item :items="topNews" tag="h1" />
-      <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
-    </template>
+  <v-container grid-list-md text-xs-center class="all">
+    <v-layout row wrap>
+      <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
+        <div class="top">
+          <template v-if="loading">
+            <v-progress-linear :indeterminate="true"/>
+          </template>
+          <template v-else>
+            <card-item :items="topNews" tag="h1" />
+            <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
+          </template>
 
-    <big-img-item :items="listData" tag="h2" />
-    <button-link link="/posts" class="tech-more" text="もっと見る" />
+          <big-img-item :items="listData" tag="h2" />
+          <button-link link="/posts" class="tech-more" text="もっと見る" />
 
-    <subheader text="複業(副業)情報" tag="h2" />
-    <menu-link />
+          <subheader text="複業(副業)情報" tag="h2" />
+          <menu-link />
+        </div>
 
-  </div>
+      </v-flex>
+
+      <template v-if="isDesktop">
+        <side-menu />
+      </template>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -27,6 +37,8 @@ import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
+import SideMenu from '~/components/molecules/SideMenu.vue'
+import device from '~/mixins/device'
 
 export default {
   components: {
@@ -35,8 +47,10 @@ export default {
     BigImgItem,
     ButtonLink,
     Subheader,
-    MenuLink
+    MenuLink,
+    SideMenu
   },
+  mixins: [device],
   // 投稿内容を取得
   asyncData() {
     return getEntries(2)
@@ -56,10 +70,15 @@ export default {
 
 <style scoped>
 /* PC版は横に広がりすぎないようにする */
-@media screen and (min-width: 600px) {
-  .top {
-    width: 60%;
+@media screen and (min-width: 1400px) {
+  .all {
+    width: 70%;
     margin: 0 auto;
+  }
+}
+@media screen and (max-width: 959px) {
+  .container {
+    padding: 0px !important;
   }
 }
 .news-more {

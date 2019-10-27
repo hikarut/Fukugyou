@@ -32,5 +32,6 @@ h1,
 h2 {
   font-size: 20px;
   font-weight: normal;
+  text-align: left;
 }
 </style>
