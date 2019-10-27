@@ -81,6 +81,9 @@ export default {
     padding: 0px !important;
   }
 }
+.container.grid-list-md .layout:only-child {
+  margin: 0px;
+}
 .news-more {
   margin-top: -20px;
   padding-bottom: 30px;
