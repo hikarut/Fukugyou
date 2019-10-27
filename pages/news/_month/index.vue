@@ -143,4 +143,7 @@ export default {
     padding: 0px !important;
   }
 }
+.container.grid-list-md .layout:only-child {
+  margin: 0px;
+}
 </style>
