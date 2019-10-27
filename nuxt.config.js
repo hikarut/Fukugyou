@@ -127,7 +127,8 @@ export default {
   plugins: [
     '@/plugins/vuetify',
     { src: '~/plugins/ga.js', ssr: false },
-    { src: '~/plugins/lazyload.js', ssr: false }
+    { src: '~/plugins/lazyload.js', ssr: false },
+    { src: '~/plugins/device.js', ssr: false }
   ],
 
   /*

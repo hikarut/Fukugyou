@@ -1,7 +1,8 @@
 <template>
   <v-container grid-list-md text-xs-center class="all">
+    <template v-if="isDesktop"/>
     <v-layout row wrap>
-      <v-flex :class="[$device.isDesktop ? 'xs8' : 'xs12']" >
+      <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
         <div class="top">
           <template v-if="loading">
             <v-progress-linear :indeterminate="true"/>
@@ -20,7 +21,7 @@
 
       </v-flex>
 
-      <template v-if="$device.isDesktop">
+      <template v-if="isDesktop">
         <side-menu />
       </template>
     </v-layout>
@@ -38,6 +39,7 @@ import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
+import device from '~/mixins/device'
 
 export default {
   components: {
@@ -49,6 +51,7 @@ export default {
     MenuLink,
     SideMenu
   },
+  mixins: [device],
   // 投稿内容を取得
   asyncData() {
     return getEntries(2)

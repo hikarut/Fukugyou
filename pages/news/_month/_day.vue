@@ -1,7 +1,8 @@
 <template>
   <v-container grid-list-md text-xs-center class="all">
+    <template v-if="isDesktop"/>
     <v-layout row wrap>
-      <v-flex :class="[$device.isDesktop ? 'xs8' : 'xs12']" >
+      <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
         <div class="main">
           <bread-list :items="breadItems"/>
 
@@ -38,6 +39,7 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import CardItem from '~/components/organisms/CardItem.vue'
 import Paging from '~/components/molecules/Paging.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
+import device from '~/mixins/device'
 
 const constant = require('~/config/constant.json')
 
@@ -49,6 +51,7 @@ export default {
     Paging,
     SideMenu
   },
+  mixins: [device],
   validate({ params }) {
     // 日付と月を両方チェック
     return /^\d{8}$/.test(params.day) && /^\d{6}$/.test(params.month)
