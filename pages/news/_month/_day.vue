@@ -1,25 +1,34 @@
 <template>
-  <div class="main">
-    <bread-list :items="breadItems"/>
+  <v-container grid-list-md text-xs-center class="all">
+    <v-layout row wrap>
+      <v-flex :class="[$device.isDesktop ? 'xs8' : 'xs12']" >
+        <div class="main">
+          <bread-list :items="breadItems"/>
 
-    <template v-if="loading">
-      <v-progress-linear :indeterminate="true"/>
-    </template>
-    <template v-else>
-      <card-item :items="dailyNews" tag="h1" />
-    </template>
+          <template v-if="loading">
+            <v-progress-linear :indeterminate="true"/>
+          </template>
+          <template v-else>
+            <card-item :items="dailyNews" tag="h1" />
+          </template>
 
-    <template v-if="loading">
-      <v-progress-linear :indeterminate="true"/>
-    </template>
-    <template v-else>
-      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-    </template>
+          <template v-if="loading">
+            <v-progress-linear :indeterminate="true"/>
+          </template>
+          <template v-else>
+            <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+          </template>
 
-    <paging :date="day" />
+          <paging :date="day" />
 
-    <list-item :items="recomendNews" tag="h2" />
-  </div>
+        </div>
+      </v-flex>
+
+      <side-menu />
+
+    </v-layout>
+  </v-container>
+
 </template>
 
 <script>
@@ -27,20 +36,19 @@ import { mapActions, mapGetters } from 'vuex'
 import { addDateString } from '~/lib/date'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
-import ListItem from '~/components/organisms/ListItem.vue'
 import CardItem from '~/components/organisms/CardItem.vue'
 import Paging from '~/components/molecules/Paging.vue'
+import SideMenu from '~/components/molecules/SideMenu.vue'
 
-const recomendNews = require('~/config/recomendNews.json5')
 const constant = require('~/config/constant.json')
 
 export default {
   components: {
     SnsPost,
     BreadList,
-    ListItem,
     CardItem,
-    Paging
+    Paging,
+    SideMenu
   },
   validate({ params }) {
     // 日付と月を両方チェック
@@ -68,9 +76,6 @@ export default {
       ]
     }
   },
-  data: () => ({
-    recomendNews: recomendNews
-  }),
   computed: {
     breadItems() {
       return [
@@ -129,8 +134,15 @@ export default {
 <style scoped>
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
-  .main {
+  /* .main {
     width: 60%;
+    margin: 0 auto;
+  } */
+}
+/* PC版は横に広がりすぎないようにする */
+@media screen and (min-width: 1400px) {
+  .all {
+    width: 70%;
     margin: 0 auto;
   }
 }
@@ -141,5 +153,11 @@ export default {
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
   padding: 20px 0px 20px 24px !important;
+}
+/* サイドメニューの調整 */
+@media screen and (max-width: 959px) {
+  .container {
+    padding: 0px !important;
+  }
 }
 </style>

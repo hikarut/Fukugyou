@@ -22,13 +22,13 @@
 
       <template v-if="$device.isDesktop">
         <v-flex xs4>
-          <list-item :items="recomendNews" />
           <div class="ad">
             <adsbygoogle
               :ad-slot="'7321120508'"
               :ad-format="'auto'"
               class="adsbygoogle" />
           </div>
+          <list-item :items="recomendNews" />
         </v-flex>
       </template>
     </v-layout>
