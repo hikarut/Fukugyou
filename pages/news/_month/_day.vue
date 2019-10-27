@@ -28,7 +28,6 @@
 
     </v-layout>
   </v-container>
-
 </template>
 
 <script>
@@ -132,13 +131,6 @@ export default {
 </script>
 
 <style scoped>
-/* PC版は横に広がりすぎないようにする */
-@media screen and (min-width: 600px) {
-  /* .main {
-    width: 60%;
-    margin: 0 auto;
-  } */
-}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 1400px) {
   .all {

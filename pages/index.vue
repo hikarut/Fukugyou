@@ -21,15 +21,7 @@
       </v-flex>
 
       <template v-if="$device.isDesktop">
-        <v-flex xs4>
-          <div class="ad">
-            <adsbygoogle
-              :ad-slot="'7321120508'"
-              :ad-format="'auto'"
-              class="adsbygoogle" />
-          </div>
-          <list-item :items="recomendNews" />
-        </v-flex>
+        <side-menu />
       </template>
     </v-layout>
   </v-container>
@@ -45,7 +37,7 @@ import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
-const recomendNews = require('~/config/recomendNews.json5')
+import SideMenu from '~/components/molecules/SideMenu.vue'
 
 export default {
   components: {
@@ -54,11 +46,9 @@ export default {
     BigImgItem,
     ButtonLink,
     Subheader,
-    MenuLink
+    MenuLink,
+    SideMenu
   },
-  data: () => ({
-    recomendNews: recomendNews
-  }),
   // 投稿内容を取得
   asyncData() {
     return getEntries(2)
@@ -77,13 +67,6 @@ export default {
 </script>
 
 <style scoped>
-/* PC版は横に広がりすぎないようにする */
-@media screen and (min-width: 600px) {
-  /* .top {
-    width: 60%;
-    margin: 0 auto;
-  } */
-}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 1400px) {
   .all {

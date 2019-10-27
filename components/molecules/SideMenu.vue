@@ -1,18 +1,17 @@
 <template>
   <v-flex :class="[$device.isDesktop ? 'xs4' : 'xs12']" >
+    <list-item :items="recomendNews" />
     <div class="ad">
       <adsbygoogle
         :ad-slot="'7321120508'"
         :ad-format="'auto'"
         class="adsbygoogle" />
     </div>
-    <list-item :items="recomendNews" />
   </v-flex>
 </template>
 
 <script>
 import ListItem from '~/components/organisms/ListItem.vue'
-
 const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
