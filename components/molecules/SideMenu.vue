@@ -27,4 +27,7 @@ export default {
 </script>
 
 <style scoped>
+.ad {
+  padding-bottom: 20px;
+}
 </style>
