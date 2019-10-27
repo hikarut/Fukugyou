@@ -146,12 +146,13 @@ export default {
 .date {
   color: rgba(0, 0, 0, 0.54);
   background-color: whitesmoke;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  text-align: left;
 }
 .card-title {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
   text-align: left;
 }
 .card.v-card.v-sheet.theme--light {
