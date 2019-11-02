@@ -26,9 +26,15 @@ export default {
 </script>
 
 <style scoped>
+.v-breadcrumbs {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
 .v-breadcrumbs li {
   list-style: none;
-  display: inline;
+  display: inline-block;
   font-size: 14px;
 }
 .separate {
