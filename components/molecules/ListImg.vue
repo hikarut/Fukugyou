@@ -1,7 +1,7 @@
 <template>
   <div class="tile-parent">
     <div>
-      <img v-lazy="img" :alt="alt" :class="[isDesktop ? 'responsive' : '']"
+      <img v-lazy="imgUrl" :alt="alt" :class="[isDesktop ? 'responsive' : '']"
            src="/loading.png"
            class="tile">
     </div>
@@ -21,6 +21,11 @@ export default {
     alt: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    imgUrl() {
+      return this.img === '' ? process.env.constant.newsImage : this.img
     }
   }
 }

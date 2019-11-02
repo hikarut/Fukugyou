@@ -3,6 +3,8 @@
     <v-layout row wrap>
       <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
         <div class="top">
+          <bread-list :items="breadItems"/>
+
           <template v-if="loading">
             <v-progress-linear :indeterminate="true"/>
           </template>
@@ -15,9 +17,7 @@
 
       </v-flex>
 
-      <template v-if="isDesktop">
-        <side-menu />
-      </template>
+      <side-menu />
     </v-layout>
   </v-container>
 </template>
@@ -32,6 +32,7 @@ import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
+import BreadList from '~/components/organisms/BreadList.vue'
 import device from '~/mixins/device'
 
 export default {
@@ -41,7 +42,8 @@ export default {
     ButtonLink,
     Subheader,
     MenuLink,
-    SideMenu
+    SideMenu,
+    BreadList
   },
   mixins: [device],
   async fetch({ store }) {
@@ -49,6 +51,20 @@ export default {
     await store.dispatch('news/getTopNews')
   },
   computed: {
+    breadItems() {
+      return [
+        {
+          text: 'トップ',
+          disabled: false,
+          url: '/'
+        },
+        {
+          text: '複業ニュース',
+          disabled: true,
+          url: '/news'
+        }
+      ]
+    },
     ...mapGetters('news', ['topNews', 'loading'])
   },
   methods: {
@@ -76,5 +92,9 @@ export default {
 .news-more {
   margin-top: -20px;
   padding-bottom: 30px;
+}
+/* リストページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 20px 0px 20px 24px !important;
 }
 </style>

@@ -86,6 +86,11 @@ export default {
           url: '/'
         },
         {
+          text: '複業ニュース',
+          disabled: false,
+          url: '/news'
+        },
+        {
           text: addDateString(this.month),
           disabled: false,
           url: `/news/${this.month}`
