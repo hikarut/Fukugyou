@@ -24,7 +24,7 @@
         </div>
       </v-flex>
 
-      <side-menu />
+      <side-menu :items="recomendNews"/>
 
     </v-layout>
   </v-container>
@@ -41,6 +41,7 @@ import SideMenu from '~/components/molecules/SideMenu.vue'
 import device from '~/mixins/device'
 
 const constant = require('~/config/constant.json')
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
@@ -77,6 +78,9 @@ export default {
       ]
     }
   },
+  data: () => ({
+    recomendNews: recomendNews
+  }),
   computed: {
     breadItems() {
       return [

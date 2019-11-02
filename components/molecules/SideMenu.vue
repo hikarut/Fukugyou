@@ -1,6 +1,6 @@
 <template>
   <v-flex :class="[isDesktop ? 'xs4' : 'xs12']" >
-    <list-item :items="recomendNews" />
+    <list-item :items="items" />
     <div class="ad">
       <adsbygoogle
         :ad-slot="'7321120508'"
@@ -13,16 +13,18 @@
 <script>
 import ListItem from '~/components/organisms/ListItem.vue'
 import device from '~/mixins/device'
-const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
     ListItem
   },
   mixins: [device],
-  data: () => ({
-    recomendNews: recomendNews
-  })
+  props: {
+    items: {
+      type: Object,
+      default: null
+    }
+  }
 }
 </script>
 

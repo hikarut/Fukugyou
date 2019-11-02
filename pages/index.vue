@@ -21,7 +21,7 @@
       </v-flex>
 
       <template v-if="isDesktop">
-        <side-menu />
+        <side-menu :items="recomendNews"/>
       </template>
     </v-layout>
   </v-container>
@@ -39,6 +39,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import device from '~/mixins/device'
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
@@ -51,6 +52,9 @@ export default {
     SideMenu
   },
   mixins: [device],
+  data: () => ({
+    recomendNews: recomendNews
+  }),
   // 投稿内容を取得
   asyncData() {
     return getEntries(2)

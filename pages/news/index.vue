@@ -17,7 +17,7 @@
 
       </v-flex>
 
-      <side-menu />
+      <side-menu :items="monthlyList"/>
     </v-layout>
   </v-container>
 </template>
@@ -34,6 +34,7 @@ import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import device from '~/mixins/device'
+const monthlyList = require('~/config/monthly.json5')
 
 export default {
   components: {
@@ -50,6 +51,9 @@ export default {
     // news記事の取得
     await store.dispatch('news/getTopNews')
   },
+  data: () => ({
+    monthlyList: monthlyList
+  }),
   computed: {
     breadItems() {
       return [
