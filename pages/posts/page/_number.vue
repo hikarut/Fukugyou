@@ -47,7 +47,7 @@ export default {
         url: '/'
       },
       {
-        text: '記事一覧',
+        text: process.env.constant.postList,
         disabled: true,
         url: '/posts'
       }

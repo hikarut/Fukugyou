@@ -44,7 +44,7 @@ export async function getEntries(limit, page = 1) {
       const listData = {}
       listData.data = data
       listData.total = entries.total
-      listData.header = 'エンジニア向け複業(副業)ニュース'
+      listData.header = process.env.constant.postList
       return {
         listData
       }
