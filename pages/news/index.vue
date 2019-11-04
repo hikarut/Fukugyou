@@ -19,6 +19,7 @@
 
       <side-menu :items="monthlyList"/>
     </v-layout>
+    <script type="application/ld+json" v-html="ldJson" />
   </v-container>
 </template>
 
@@ -69,7 +70,29 @@ export default {
         }
       ]
     },
-    ...mapGetters('news', ['topNews', 'loading'])
+    ...mapGetters('news', ['topNews', 'loading']),
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${process.env.constant.url}/news`
+        },
+        headline: process.env.constant.newsList,
+        description: process.env.constant.description,
+        image: {
+          '@type': 'ImageObject',
+          url: `${process.env.constant.url}/ogimage.png`,
+          width: 1200,
+          height: 800
+        },
+        author: {
+          '@type': 'Organization',
+          name: 'Fukugyou'
+        }
+      })
+    }
   },
   methods: {
     ...mapActions('news', ['getTopNews'])

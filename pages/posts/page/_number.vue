@@ -9,6 +9,7 @@
         :ad-format="'auto'"
         class="adsbygoogle" />
     </div>
+    <script type="application/ld+json" v-html="ldJson" />
   </div>
 </template>
 
@@ -53,6 +54,28 @@ export default {
       }
     ]
   }),
+  computed: {
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'トップ',
+            item: process.env.constant.url
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: process.env.constant.postList,
+            item: '${process.env.constant.url}/posts/page/1'
+          }
+        ]
+      })
+    }
+  },
   // 投稿内容を取得
   async asyncData({ params }) {
     const page = checkPage(params.number)

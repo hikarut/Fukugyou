@@ -27,6 +27,7 @@
       <side-menu :items="recomendNews"/>
 
     </v-layout>
+    <script type="application/ld+json" v-html="ldJson" />
   </v-container>
 </template>
 
@@ -41,7 +42,6 @@ import Paging from '~/components/molecules/Paging.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import device from '~/mixins/device'
 
-const constant = require('~/config/constant.json')
 const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
@@ -70,7 +70,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${constant.url}${this.$route.path}`
+          content: `${process.env.constant.url}${this.$route.path}`
         },
         {
           hid: 'og:title',
@@ -104,15 +104,38 @@ export default {
       ]
     },
     shareUrl() {
-      return `${constant.url}${this.$route.path}`
+      return `${process.env.constant.url}${this.$route.path}`
     },
     shareText() {
       return this.monthlyNews.header
     },
     shareTag() {
-      return '複業,エンジニア'
+      return process.env.constant.twitterTag
     },
-    ...mapGetters('news', ['monthlyNews', 'loading'])
+    ...mapGetters('news', ['monthlyNews', 'loading']),
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${process.env.constant.url}${this.$route.path}`
+        },
+        headline: this.monthlyNews.header,
+        description: process.env.constant.description,
+        image: {
+          '@type': 'ImageObject',
+          url: `${process.env.constant.url}/ogimage.png`,
+          width: 1200,
+          height: 800
+        },
+        author: {
+          '@type': 'Organization',
+          name: 'Fukugyou'
+        },
+        datePublished: this.month
+      })
+    }
   },
   async mounted() {
     await this.$store.dispatch(

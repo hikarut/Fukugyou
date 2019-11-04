@@ -11,7 +11,7 @@
           </template>
           <template v-else>
             <card-item :items="topNews" tag="h1" />
-            <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
+            <button-link :link="'/news'" class="news-more" text="もっと見る" />
           </template>
 
           <subheader text="複業(副業)情報" tag="h2" />
@@ -24,6 +24,7 @@
         <side-menu :items="recomendNews"/>
       </template>
     </v-layout>
+    <script type="application/ld+json" v-html="ldJson" />
   </v-container>
 </template>
 
@@ -64,6 +65,19 @@ export default {
     await store.dispatch('news/getTopNews')
   },
   computed: {
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'WebSite',
+        name: 'Fukugyou',
+        url: process.env.constant.url,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: '',
+          'query-input': ''
+        }
+      })
+    },
     ...mapGetters('news', ['topNews', 'loading'])
   },
   methods: {
