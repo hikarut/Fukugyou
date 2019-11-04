@@ -28,6 +28,7 @@
     <div class="list">
       <list-item :items="recomendNews" />
     </div>
+    <script type="application/ld+json" v-html="ldJson" />
   </v-layout>
 </template>
 
@@ -93,7 +94,7 @@ export default {
     shareTag() {
       // return this.post.fields.tag
       // 記事によらず共通のタグにする
-      return '複業,エンジニア'
+      return process.env.constant.twitterTag
     },
     breadItems() {
       return [
@@ -103,7 +104,7 @@ export default {
           url: '/'
         },
         {
-          text: '記事一覧',
+          text: process.env.constant.postList,
           disabled: false,
           url: '/posts'
         },
@@ -113,6 +114,29 @@ export default {
           url: '/'
         }
       ]
+    },
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${process.env.constant.url}/posts/${this.post.fields.url}`
+        },
+        headline: this.post.fields.title,
+        description: process.env.constant.description,
+        image: {
+          '@type': 'ImageObject',
+          url: this.post.fields.image.fields.file.url,
+          width: 1200,
+          height: 800
+        },
+        author: {
+          '@type': 'Person',
+          name: 'hikaru takahashi'
+        },
+        datePublished: this.post.fields.date
+      })
     }
   },
   // ユニークなIDを指定して記事を取得

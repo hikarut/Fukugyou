@@ -3,16 +3,16 @@
     <v-layout row wrap>
       <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
         <div class="top">
+          <big-img-item :items="listData" tag="h2" />
+          <button-link link="/posts" class="tech-more" text="もっと見る" />
+
           <template v-if="loading">
             <v-progress-linear :indeterminate="true"/>
           </template>
           <template v-else>
             <card-item :items="topNews" tag="h1" />
-            <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
+            <button-link :link="'/news'" class="news-more" text="もっと見る" />
           </template>
-
-          <big-img-item :items="listData" tag="h2" />
-          <button-link link="/posts" class="tech-more" text="もっと見る" />
 
           <subheader text="複業(副業)情報" tag="h2" />
           <menu-link />
@@ -21,9 +21,10 @@
       </v-flex>
 
       <template v-if="isDesktop">
-        <side-menu />
+        <side-menu :items="recomendNews"/>
       </template>
     </v-layout>
+    <script type="application/ld+json" v-html="ldJson" />
   </v-container>
 </template>
 
@@ -39,6 +40,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import device from '~/mixins/device'
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
@@ -51,6 +53,9 @@ export default {
     SideMenu
   },
   mixins: [device],
+  data: () => ({
+    recomendNews: recomendNews
+  }),
   // 投稿内容を取得
   asyncData() {
     return getEntries(2)
@@ -60,6 +65,19 @@ export default {
     await store.dispatch('news/getTopNews')
   },
   computed: {
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'WebSite',
+        name: 'Fukugyou',
+        url: process.env.constant.url,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: '',
+          'query-input': ''
+        }
+      })
+    },
     ...mapGetters('news', ['topNews', 'loading'])
   },
   methods: {

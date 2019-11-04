@@ -24,9 +24,11 @@
         </div>
       </v-flex>
 
-      <side-menu />
+      <side-menu :items="recomendNews"/>
 
     </v-layout>
+    <script type="application/ld+json" v-html="ldJson" />
+    <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
   </v-container>
 </template>
 
@@ -40,7 +42,7 @@ import Paging from '~/components/molecules/Paging.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import device from '~/mixins/device'
 
-const constant = require('~/config/constant.json')
+const recomendNews = require('~/config/recomendNews.json5')
 
 export default {
   components: {
@@ -67,7 +69,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${constant.url}${this.$route.path}`
+          content: `${process.env.constant.url}${this.$route.path}`
         },
         {
           hid: 'og:title',
@@ -77,6 +79,9 @@ export default {
       ]
     }
   },
+  data: () => ({
+    recomendNews: recomendNews
+  }),
   computed: {
     breadItems() {
       return [
@@ -84,6 +89,11 @@ export default {
           text: 'トップ',
           disabled: false,
           url: '/'
+        },
+        {
+          text: process.env.constant.newsList,
+          disabled: false,
+          url: '/news'
         },
         {
           text: addDateString(this.month),
@@ -98,7 +108,7 @@ export default {
       ]
     },
     shareUrl() {
-      return `${constant.url}${this.$route.path}`
+      return `${process.env.constant.url}${this.$route.path}`
     },
     shareText() {
       // ランダムで呟くタイトルを変える
@@ -108,9 +118,64 @@ export default {
       )}%0aほか${this.dailyNews.data.length}件%0a`
     },
     shareTag() {
-      return '複業,エンジニア'
+      return process.env.constant.twitterTag
     },
-    ...mapGetters('news', ['dailyNews', 'loading'])
+    ...mapGetters('news', ['dailyNews', 'loading']),
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${process.env.constant.url}${this.$route.path}`
+        },
+        headline: this.dailyNews.header,
+        description: process.env.constant.description,
+        image: {
+          '@type': 'ImageObject',
+          url: `${process.env.constant.url}/ogimage.png`,
+          width: 1200,
+          height: 800
+        },
+        author: {
+          '@type': 'Organization',
+          name: 'Fukugyou'
+        },
+        datePublished: this.day
+      })
+    },
+    ldJsonBreadcrumb() {
+      return JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'トップ',
+            item: process.env.constant.url
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: process.env.constant.newsList,
+            item: `${process.env.constant.url}/news`
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: addDateString(this.month),
+            item: `${process.env.constant.url}/news/${this.month}`
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: addDateString(this.day),
+            item: `${process.env.constant.url}/news/${this.month}/${this.day}`
+          }
+        ]
+      })
+    }
   },
   async mounted() {
     // await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])

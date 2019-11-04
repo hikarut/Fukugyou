@@ -46,6 +46,7 @@
         </v-layout>
       </v-flex>
     </v-layout>
+    <script type="application/ld+json" v-html="ldJson" />
   </div>
 </template>
 
@@ -68,6 +69,21 @@ export default {
           url: '/'
         }
       ]
+    },
+    ldJson() {
+      return JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'Person',
+        name: 'hikaru takahashi',
+        url: `${process.env.constant.url}/about`,
+        image:
+          'https://pbs.twimg.com/profile_images/1134099996658192384/eYLwf5HY_400x400.jpg',
+        sameAs: [
+          'https://twitter.com/light940/',
+          'https://github.com/hikarut',
+          'https://www.facebook.com/hikaru.takahashi.5031'
+        ]
+      })
     }
   }
 }

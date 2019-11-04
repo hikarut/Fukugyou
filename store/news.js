@@ -35,7 +35,7 @@ export const getters = {
     return state.loading
   },
   topNews(state) {
-    const header = '複業(副業)ニュース'
+    const header = process.env.constant.newsList
     let tmpDate = ''
     if (state.data === null) {
       return {
@@ -51,7 +51,9 @@ export const getters = {
           state.data[key].img === ''
             ? process.env.constant.newsImage
             : state.data[key].img,
-        date: `${dateString(addSlash(state.data[key].date))}の複業ニュース`,
+        date: `${dateString(addSlash(state.data[key].date))}の${
+          process.env.constant.newsList
+        }`,
         dateSort: state.data[key].date,
         title: state.data[key].title,
         link: `/news/${state.data[key].month}/${state.data[key].date}`,
@@ -98,12 +100,14 @@ export const getters = {
   dailyNews(state) {
     if (state.dailyData === null) {
       return {
-        header: '複業ニュース一覧',
+        header: process.env.constant.newsList,
         data: state.dailyData
       }
     }
 
-    const header = `${addDateString(state.dailyData[0].date)}の複業ニュース`
+    const header = `${addDateString(state.dailyData[0].date)}の${
+      process.env.constant.newsList
+    }`
     let ret = []
     Object.keys(state.dailyData).forEach(key => {
       const item = {
@@ -131,12 +135,14 @@ export const getters = {
   monthlyNews(state) {
     if (state.monthlyData === null) {
       return {
-        header: '複業ニュース一覧',
+        header: process.env.constant.newsList,
         data: state.monthlyData
       }
     }
 
-    const header = `${addDateString(state.monthlyData[0].month)}の複業ニュース`
+    const header = `${addDateString(state.monthlyData[0].month)}の${
+      process.env.constant.newsList
+    }`
     let tmpDate = []
     if (state.monthlyData === null) {
       return {
@@ -152,9 +158,9 @@ export const getters = {
           state.monthlyData[key].img === ''
             ? process.env.constant.newsImage
             : state.monthlyData[key].img,
-        date: `${dateString(
-          addSlash(state.monthlyData[key].date)
-        )}の複業ニュース`,
+        date: `${dateString(addSlash(state.monthlyData[key].date))}の${
+          process.env.constant.newsList
+        }`,
         dateSort: state.monthlyData[key].date,
         title: state.monthlyData[key].title,
         link: `/news/${state.monthlyData[key].month}/${
