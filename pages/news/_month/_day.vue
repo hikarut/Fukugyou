@@ -28,6 +28,7 @@
 
     </v-layout>
     <script type="application/ld+json" v-html="ldJson" />
+    <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
   </v-container>
 </template>
 
@@ -141,6 +142,38 @@ export default {
           name: 'Fukugyou'
         },
         datePublished: this.day
+      })
+    },
+    ldJsonBreadcrumb() {
+      return JSON.stringify({
+        '@context': 'https://schema.org/',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'トップ',
+            item: process.env.constant.url
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: process.env.constant.newsList,
+            item: `${process.env.constant.url}/news`
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: addDateString(this.month),
+            item: `${process.env.constant.url}/news/${this.month}`
+          },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            name: addDateString(this.day),
+            item: `${process.env.constant.url}/news/${this.month}/${this.day}`
+          }
+        ]
       })
     }
   },
