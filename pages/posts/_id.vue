@@ -93,7 +93,7 @@ export default {
     shareTag() {
       // return this.post.fields.tag
       // 記事によらず共通のタグにする
-      return '複業,エンジニア'
+      return process.env.constant.twitterTag
     },
     breadItems() {
       return [

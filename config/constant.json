@@ -1,9 +1,9 @@
 {
   "url": "https://fukugyou.dev",
   "title": "エンジニアのための複業メディアサイト Fukugyou",
-  "keywords": "複業,副業,Fukugyou,fukugyou,フクギョウ,エンジニア,働き方,ニュース,メディア,仕事,人生,ライフ,幸せ",
-  "description": "エンジニアのための複業メディアサイト。エンジニアのための技術情報や複業(副業)の情報を提供します。",
-  "twitterTag": "複業",
+  "keywords": "複業,副業,Fukugyou,fukugyou,フクギョウ,エンジニア,働き方,ニュース,メディア,毎日更新,仕事,人生,ライフ,幸せ",
+  "description": "毎日更新！エンジニアのための複業(副業)メディアサイト。エンジニアのための技術情報や複業(副業)の情報を提供します。",
+  "twitterTag": "複業,副業,エンジニア",
   "twitterUrl": "https://twitter.com/fukugyou_dev",
   "newsImage": "https://fukugyou.dev/newsImage.png",
   "postsPerPage": 4
