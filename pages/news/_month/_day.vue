@@ -90,7 +90,7 @@ export default {
           url: '/'
         },
         {
-          text: '複業ニュース',
+          text: process.env.constant.newsList,
           disabled: false,
           url: '/news'
         },
