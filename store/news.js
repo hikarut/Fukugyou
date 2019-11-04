@@ -35,7 +35,7 @@ export const getters = {
     return state.loading
   },
   topNews(state) {
-    const header = '複業(副業)ニュース'
+    const header = process.env.constant.newsList
     let tmpDate = ''
     if (state.data === null) {
       return {
