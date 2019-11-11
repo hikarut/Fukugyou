@@ -70,12 +70,7 @@ export default {
         '@context': 'https://schema.org/',
         '@type': 'WebSite',
         name: 'Fukugyou',
-        url: process.env.constant.url,
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: '',
-          'query-input': ''
-        }
+        url: process.env.constant.url
       })
     },
     ...mapGetters('news', ['topNews', 'loading'])

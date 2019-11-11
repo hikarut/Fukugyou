@@ -223,7 +223,13 @@ export default {
     // path: '/sitemap.xml',
     hostname: constant.url,
     generate: true,
-    exclude: ['/404', 'ads.txt'],
+    exclude: [
+      '/404',
+      'ads.txt',
+      '/posts',
+      '/contact/complete',
+      '/contact/confirm'
+    ],
     routes() {
       return routing()
     }
