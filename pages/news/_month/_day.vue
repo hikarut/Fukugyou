@@ -222,4 +222,7 @@ export default {
 .container.grid-list-md .layout:only-child {
   margin: 0px;
 }
+.container.grid-list-md .layout:not(:only-child) {
+  margin: auto 0px;
+}
 </style>

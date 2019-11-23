@@ -137,6 +137,9 @@ export default {
 .container.grid-list-md .layout:only-child {
   margin: 0px;
 }
+.container.grid-list-md .layout:not(:only-child) {
+  margin: auto 0px;
+}
 .news-more {
   margin-top: -20px;
   padding-bottom: 30px;
