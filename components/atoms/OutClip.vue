@@ -34,6 +34,12 @@ export default {
   border-radius: 5px !important;
   margin: 0 0 0 18px;
 }
+/* スマホの場合は小さくする */
+@media screen and (max-width: 400px) {
+  .outclip {
+    width: 60px;
+  }
+}
 .newspicks {
   background-color: black;
 }

@@ -184,22 +184,18 @@ export default {
   border-bottom-right-radius: 0px;
 }
 .cnt {
-  margin-left: 70%;
   border: solid 1px black;
   width: 90px;
+  margin-top: -20px;
+  float: right;
+  margin-right: 10px;
 }
 .sm-cnt {
-  margin-left: 60%;
   border: solid 1px black;
   width: 55px;
   margin-top: 10px;
-}
-@media screen and (min-width: 600px) {
-  .cnt {
-    margin-left: 80%;
-  }
-  .sm-cnt {
-    margin-left: 70%;
-  }
+  margin-top: -20px;
+  float: right;
+  margin-right: 10px;
 }
 </style>
