@@ -45,6 +45,7 @@ export const getters = {
     }
 
     let retDict = {}
+    let cnt = {}
     Object.keys(state.data).forEach(key => {
       const item = {
         img:
@@ -63,6 +64,13 @@ export const getters = {
             ? state.data[key].service
             : ''
       }
+      // 日付事の記事数カウント
+      if (!cnt[state.data[key].date]) {
+        cnt[state.data[key].date] = 1
+      } else {
+        cnt[state.data[key].date] += 1
+      }
+
       if (!retDict[state.data[key].date]) {
         // データがない場合は必ず入れる
         retDict[state.data[key].date] = item
@@ -76,6 +84,8 @@ export const getters = {
 
     let ret = []
     Object.keys(retDict).forEach(key => {
+      // 日付ごとの件数を追加
+      retDict[key].cnt = cnt[key]
       // 連想配列から配列にする
       ret.push(retDict[key])
     })
@@ -152,6 +162,7 @@ export const getters = {
     }
 
     let retDict = {}
+    let cnt = {}
     Object.keys(state.monthlyData).forEach(key => {
       const item = {
         img:
@@ -171,6 +182,13 @@ export const getters = {
             ? state.monthlyData[key].service
             : ''
       }
+      // 日付事の記事数カウント
+      if (!cnt[state.data[key].date]) {
+        cnt[state.data[key].date] = 1
+      } else {
+        cnt[state.data[key].date] += 1
+      }
+
       if (!retDict[state.monthlyData[key].date]) {
         // データがない場合は必ず入れる
         retDict[state.monthlyData[key].date] = item
@@ -184,6 +202,8 @@ export const getters = {
 
     let ret = []
     Object.keys(retDict).forEach(key => {
+      // 日付ごとの件数を追加
+      retDict[key].cnt = cnt[key]
       // 連想配列から配列にする
       ret.push(retDict[key])
     })

@@ -25,7 +25,8 @@
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="card.title" :is-new="card.isNew" class="card-title"/>
                       <div class="out-clip">
-                        <out-clip :text="card.service"/>
+                        <out-clip :text="card.service" class="out-clip-cnt"/>
+                        <div v-if="card.cnt" class="cnt">他{{ card.cnt }}件</div>
                       </div>
                     </v-card>
                   </a>
@@ -40,6 +41,7 @@
                       <card-date :text="card.date" class="date"/>
                       <card-title :text="cut(card.title)" :is-new="card.isNew" class="card-title"/>
                       <out-clip :text="card.service"/>
+                      <div v-if="card.cnt" class="sm-cnt">他{{ card.cnt }}件</div>
                     </v-card>
                   </a>
                 </v-flex>
@@ -176,5 +178,24 @@ export default {
   height: 250px;
   margin-bottom: 25px;
   font-family: 'Noto Sans JP', sans-serif;
+}
+.v-card > *:last-child:not(.v-btn):not(.v-chip) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.cnt {
+  border: solid 1px black;
+  width: 90px;
+  margin-top: -20px;
+  float: right;
+  margin-right: 10px;
+}
+.sm-cnt {
+  border: solid 1px black;
+  width: 55px;
+  margin-top: 10px;
+  margin-top: -20px;
+  float: right;
+  margin-right: 10px;
 }
 </style>
