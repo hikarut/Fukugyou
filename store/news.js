@@ -183,10 +183,10 @@ export const getters = {
             : ''
       }
       // 日付事の記事数カウント
-      if (!cnt[state.data[key].date]) {
-        cnt[state.data[key].date] = 1
+      if (!cnt[state.monthlyData[key].date]) {
+        cnt[state.monthlyData[key].date] = 1
       } else {
-        cnt[state.data[key].date] += 1
+        cnt[state.monthlyData[key].date] += 1
       }
 
       if (!retDict[state.monthlyData[key].date]) {
