@@ -184,18 +184,20 @@ export default {
   border-bottom-right-radius: 0px;
 }
 .cnt {
-  border: solid 1px black;
+  border: solid 1px gray;
   width: 90px;
   margin-top: -20px;
   float: right;
   margin-right: 10px;
+  color: gray;
 }
 .sm-cnt {
-  border: solid 1px black;
+  border: solid 1px gray;
   width: 55px;
   margin-top: 10px;
   margin-top: -20px;
   float: right;
   margin-right: 10px;
+  color: gray;
 }
 </style>
