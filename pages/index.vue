@@ -3,9 +3,6 @@
     <v-layout row wrap>
       <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
         <div class="top">
-          <big-img-item :items="listData" tag="h2" />
-          <button-link link="/posts" class="tech-more" text="もっと見る" />
-
           <template v-if="loading">
             <v-progress-linear :indeterminate="true"/>
           </template>
@@ -13,6 +10,9 @@
             <card-item :items="topNews" tag="h1" />
             <button-link :link="'/news'" class="news-more" text="もっと見る" />
           </template>
+
+          <big-img-item :items="listData" tag="h2" />
+          <button-link link="/posts" class="tech-more" text="もっと見る" />
 
           <subheader text="複業(副業)情報" tag="h2" />
           <menu-link />
