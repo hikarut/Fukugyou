@@ -101,8 +101,7 @@ export default {
       { rel: 'dns-prefetch', href: '//googleads.g.doubleclick.net' },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap'
+        href: 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
       }
     ]
   },
