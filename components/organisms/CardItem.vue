@@ -177,7 +177,9 @@ export default {
 .infeed {
   height: 250px;
   margin-bottom: 25px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: Quicksand, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 .v-card > *:last-child:not(.v-btn):not(.v-chip) {
   border-bottom-left-radius: 0px;

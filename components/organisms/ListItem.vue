@@ -95,6 +95,8 @@ export default {
   height: 88px;
   margin-top: 5px;
   margin-bottom: 5px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: Quicksand, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 </style>
