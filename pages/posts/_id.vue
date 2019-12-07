@@ -75,11 +75,10 @@ export default {
           content: `https:${this.post.fields.image.fields.file.url}`
         }
       ],
-      link: [
+      script: [
         {
-          rel: 'stylesheet',
-          href:
-            'https://ton.twimg.com/syndication/publish/ddac03b/css/publish.css'
+          src: 'https://platform.twitter.com/widgets.js',
+          defer: true
         }
       ]
     }
