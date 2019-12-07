@@ -74,6 +74,13 @@ export default {
           property: 'twitter:image:src',
           content: `https:${this.post.fields.image.fields.file.url}`
         }
+      ],
+      link: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://ton.twimg.com/syndication/publish/ddac03b/css/publish.css'
+        }
       ]
     }
   },
@@ -148,8 +155,8 @@ export default {
 
 <style scoped>
 .main-img {
-  padding-top: 30px;
-  width: 90%;
+  /* padding-top: 30px; */
+  width: 100%;
 }
 .main-content {
   width: 90%;

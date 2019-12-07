@@ -28,6 +28,7 @@ export default {
 .title {
   color: #424242 !important;
   font-size: 14px !important;
+  font-weight: 400;
 }
 .v-list__tile__content {
   margin: 0px 0px 0px 10px;
