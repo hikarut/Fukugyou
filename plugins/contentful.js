@@ -21,7 +21,7 @@ export async function getEntries(limit, page = 1) {
   return client
     .getEntries({
       content_type: process.env.CONTENT_TYPE,
-      order: '-sys.updatedAt',
+      order: '-sys.createdAt',
       limit: limit,
       skip: (page - 1) * constant.postsPerPage
     })
