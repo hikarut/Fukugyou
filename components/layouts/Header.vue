@@ -29,4 +29,7 @@ export default {
 .v-card {
   box-shadow: initial;
 }
+.v-sheet {
+  border-radius: 0px;
+}
 </style>

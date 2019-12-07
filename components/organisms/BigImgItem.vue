@@ -95,6 +95,7 @@ export default {
 .title {
   font-size: 14px !important;
   line-height: 1.5 !important;
+  font-weight: 400;
 }
 .date,
 .title {
