@@ -246,9 +246,21 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     // TODO:ファイルの存在チェック
-    const dailyNews = require(`~/data/${date}.json`)
-    commit('setDailyData', dailyNews)
-    commit('setLoading', false)
+    // const dailyNews = require(`~/data/${date}.json`)
+    // commit('setDailyData', dailyNews)
+    // commit('setLoading', false)
+    // 日次もAPI経由にする
+    axios
+      .get(`${process.env.conf.url}/data/${date}.json`)
+      .then(result => {
+        commit('setDailyData', result.data)
+        // commit('setMonthlyData', result.data)
+        commit('setLoading', false)
+      })
+      .catch(error => {
+        console.log(error)
+        commit('setLoading', false)
+      })
   },
 
   // 月次のニュース記事取得
@@ -263,7 +275,7 @@ export const actions = {
     axios
       .get(`${process.env.conf.url}/data/${month}.json`)
       .then(result => {
-        commit('setDailyData', result.data)
+        // commit('setDailyData', result.data)
         commit('setMonthlyData', result.data)
         commit('setLoading', false)
       })
