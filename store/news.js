@@ -253,7 +253,6 @@ export const actions = {
     axios
       .get(`${process.env.conf.url}/data/${date}.json`)
       .then(result => {
-        console.log(result)
         commit('setDailyData', result.data)
         // commit('setMonthlyData', result.data)
         commit('setLoading', false)
