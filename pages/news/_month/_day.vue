@@ -178,20 +178,12 @@ export default {
     }
   },
   async mounted() {
-    // await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store, error }) {
-    await store.dispatch('news/getDailyNews', params.day)
-    // データがない場合はエラーページに飛ばす
-    if (Object.keys(store.state['news'].dailyData).length === 0) {
-      error({
-        statusCode: 404,
-        message: 'データがありません'
-      })
-    }
     return { month: params.month, day: params.day }
   }
 }
