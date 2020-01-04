@@ -66,3 +66,7 @@ img[lazy='loaded'] {
     opacity: 1;
   }
 }
+
+.v-btn {
+  font-weight: 400;
+}
