@@ -67,6 +67,11 @@ export default {
           content: this.dailyNews.header
         },
         {
+          hid: 'description',
+          name: 'description',
+          content: this.dailyNews.header
+        },
+        {
           hid: 'og:url',
           property: 'og:url',
           content: `${process.env.constant.url}${this.$route.path}`
@@ -74,6 +79,11 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
+          content: this.dailyNews.header
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
           content: this.dailyNews.header
         }
       ]
@@ -178,12 +188,13 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+    // await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store, error }) {
+    await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }

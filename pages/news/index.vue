@@ -53,6 +53,11 @@ export default {
     // news記事の取得
     await store.dispatch('news/getTopNews')
   },
+  head() {
+    return {
+      title: process.env.constant.newsList
+    }
+  },
   data: () => ({
     monthlyList: monthlyList
   }),

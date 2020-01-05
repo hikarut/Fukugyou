@@ -69,6 +69,11 @@ export default {
           content: this.monthlyNews.header
         },
         {
+          hid: 'description',
+          name: 'description',
+          content: this.monthlyNews.header
+        },
+        {
           hid: 'og:url',
           property: 'og:url',
           content: `${process.env.constant.url}${this.$route.path}`
@@ -76,6 +81,11 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
+          content: this.monthlyNews.header
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
           content: this.monthlyNews.header
         }
       ]
@@ -165,16 +175,16 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch(
-      'news/getMonthlyNews',
-      this.$route.params['month']
-    )
+    // await this.$store.dispatch(
+    //   'news/getMonthlyNews',
+    //   this.$route.params['month']
+    // )
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    // await store.dispatch('news/getMonthlyNews', params.month)
+    await store.dispatch('news/getMonthlyNews', params.month)
     return { month: params.month }
   }
 }

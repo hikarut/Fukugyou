@@ -250,7 +250,7 @@ export const actions = {
     // commit('setDailyData', dailyNews)
     // commit('setLoading', false)
     // 日次もAPI経由にする
-    axios
+    await axios
       .get(`${process.env.conf.url}/data/${date}.json`)
       .then(result => {
         commit('setDailyData', result.data)
@@ -272,7 +272,7 @@ export const actions = {
     // commit('setMonthlyData', monthlyNews)
     // commit('setLoading', false)
     // 月次だけなぜかうまく取得できないのでAPI経由にする
-    axios
+    await axios
       .get(`${process.env.conf.url}/data/${month}.json`)
       .then(result => {
         // commit('setDailyData', result.data)
