@@ -32,4 +32,7 @@ export default {
 .v-sheet {
   border-radius: 0px;
 }
+.v-card__title {
+  padding: 5px;
+}
 </style>
