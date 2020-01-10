@@ -245,43 +245,49 @@ export const actions = {
   async getDailyNews({ commit, state }, date) {
     // 静的ファイルから取得
     commit('setLoading', true)
-    // TODO:ファイルの存在チェック
-    // const dailyNews = require(`~/data/${date}.json`)
-    // commit('setDailyData', dailyNews)
-    // commit('setLoading', false)
     // 日次もAPI経由にする
-    await axios
-      .get(`${process.env.conf.url}/data/${date}.json`)
-      .then(result => {
-        commit('setDailyData', result.data)
-        // commit('setMonthlyData', result.data)
-        commit('setLoading', false)
-      })
-      .catch(error => {
-        console.log(error)
-        commit('setLoading', false)
-      })
+    let isOk = false
+    for (let i = 0; i < process.env.constant.retryCount; i++) {
+      if (!isOk) {
+        await axios
+          .get(`${process.env.conf.url}/data/${date}.json`)
+          .then(result => {
+            if (result.status === 200) {
+              isOk = true
+            }
+            commit('setDailyData', result.data)
+            commit('setLoading', false)
+          })
+          .catch(error => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      }
+    }
   },
 
   // 月次のニュース記事取得
   async getMonthlyNews({ commit, state }, month) {
     // 静的ファイルから取得
     commit('setLoading', true)
-    // TODO:ファイルの存在チェック
-    // const monthlyNews = require(`~/data/${month}.json`)
-    // commit('setMonthlyData', monthlyNews)
-    // commit('setLoading', false)
     // 月次だけなぜかうまく取得できないのでAPI経由にする
-    await axios
-      .get(`${process.env.conf.url}/data/${month}.json`)
-      .then(result => {
-        // commit('setDailyData', result.data)
-        commit('setMonthlyData', result.data)
-        commit('setLoading', false)
-      })
-      .catch(error => {
-        console.log(error)
-        commit('setLoading', false)
-      })
+    let isOk = false
+    for (let i = 0; i < process.env.constant.retryCount; i++) {
+      if (!isOk) {
+        await axios
+          .get(`${process.env.conf.url}/data/${month}.json`)
+          .then(result => {
+            if (result.status === 200) {
+              isOk = true
+            }
+            commit('setMonthlyData', result.data)
+            commit('setLoading', false)
+          })
+          .catch(error => {
+            console.log(error)
+            commit('setLoading', false)
+          })
+      }
+    }
   }
 }

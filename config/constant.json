@@ -8,5 +8,6 @@
   "newsList": "複業/副業ニュース",
   "twitterUrl": "https://twitter.com/fukugyou_dev",
   "newsImage": "https://fukugyou.dev/newsImage.png",
-  "postsPerPage": 4
+  "postsPerPage": 4,
+  "retryCount": 3
 }
