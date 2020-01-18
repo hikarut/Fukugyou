@@ -19,6 +19,11 @@ pre code {
   font-weight: 100;
   box-shadow: none;
   color: #424242;
+  padding: 10px;
+}
+.markdown code:before,
+.markdown code:after {
+  content: none;
 }
 /* マークダウンの見出しを調整 */
 .markdown h1, h2, h3, h4, h5 {
@@ -53,6 +58,9 @@ pre code {
 }
 .markdown td {
   text-align: center;
+}
+.markdown img {
+  width: 100%;
 }
 
 img[lazy='loaded'] {
