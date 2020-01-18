@@ -17,6 +17,8 @@ pre code {
   padding-left: 10px;
   margin: 15px 0 15px 0;
   font-weight: 100;
+  box-shadow: none;
+  color: #424242;
 }
 /* マークダウンの見出しを調整 */
 .markdown h1, h2, h3, h4, h5 {
