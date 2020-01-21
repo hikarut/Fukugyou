@@ -1,24 +1,24 @@
 <template>
   <div class="menu">
     <v-layout align-center row justify-space-around>
-      <nuxt-link to="/fukugyou/why">
+      <nuxt-link to="/fukugyou/why/">
         <v-btn outline color="#134b8a">
           複業をする理由<br>複業のメリット
         </v-btn>
       </nuxt-link>
-      <nuxt-link to="/fukugyou/job">
+      <nuxt-link to="/fukugyou/job/">
         <v-btn outline color="#134b8a">
           複業の探し方
         </v-btn>
       </nuxt-link>
     </v-layout>
     <v-layout align-center row justify-space-around>
-      <nuxt-link to="/news/fukugyou">
+      <nuxt-link to="/news/fukugyou/">
         <v-btn outline color="#134b8a">
           複業<br>ニュース
         </v-btn>
       </nuxt-link>
-      <nuxt-link to="/news/tech">
+      <nuxt-link to="/news/tech/">
         <v-btn outline color="#134b8a">
           エンジニア向け<br>ニュース
         </v-btn>

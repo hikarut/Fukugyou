@@ -36,13 +36,13 @@ function routing() {
     .then(entries => {
       const page = Math.ceil(entries.total / constant.postsPerPage)
       return [
-        ...entries.items.map(entry => `/posts/${entry.fields.url}`),
+        ...entries.items.map(entry => `/posts/${entry.fields.url}/`),
         // ページング
-        ...[...Array(page).keys()].map(i => `/posts/page/${i + 1}`),
+        ...[...Array(page).keys()].map(i => `/posts/page/${i + 1}/`),
         // 日次のパス生成
-        ...allTerm.map(data => `/news/${data.key}/${data.value}`),
+        ...allTerm.map(data => `/news/${data.key}/${data.value}/`),
         // 月次のパス生成
-        ...allTerm.map(data => `/news/${data.key}`)
+        ...allTerm.map(data => `/news/${data.key}/`)
       ]
     })
     .catch(error => {

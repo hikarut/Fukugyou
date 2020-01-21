@@ -72,7 +72,7 @@ export default {
         {
           text: process.env.constant.newsList,
           disabled: true,
-          url: '/news'
+          url: '/news/'
         }
       ]
     },
@@ -83,7 +83,7 @@ export default {
         '@type': 'NewsArticle',
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `${process.env.constant.url}/news`
+          '@id': `${process.env.constant.url}/news/`
         },
         headline: process.env.constant.newsList,
         description: process.env.constant.description,
@@ -114,7 +114,7 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.newsList,
-            item: `${process.env.constant.url}/news`
+            item: `${process.env.constant.url}/news/`
           }
         ]
       })

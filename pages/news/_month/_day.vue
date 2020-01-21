@@ -103,12 +103,12 @@ export default {
         {
           text: process.env.constant.newsList,
           disabled: false,
-          url: '/news'
+          url: '/news/'
         },
         {
           text: addDateString(this.month),
           disabled: false,
-          url: `/news/${this.month}`
+          url: `/news/${this.month}/`
         },
         {
           text: addDateString(this.day),
@@ -169,19 +169,19 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.newsList,
-            item: `${process.env.constant.url}/news`
+            item: `${process.env.constant.url}/news/`
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: addDateString(this.month),
-            item: `${process.env.constant.url}/news/${this.month}`
+            item: `${process.env.constant.url}/news/${this.month}/`
           },
           {
             '@type': 'ListItem',
             position: 4,
             name: addDateString(this.day),
-            item: `${process.env.constant.url}/news/${this.month}/${this.day}`
+            item: `${process.env.constant.url}/news/${this.month}/${this.day}/`
           }
         ]
       })
