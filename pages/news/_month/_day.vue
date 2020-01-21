@@ -189,7 +189,7 @@ export default {
   },
   async mounted() {
     // 静的ファイルの時にasyncDataでうまく取得できてない場合があるのでここでも実行する(※一時的な対応)
-    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+    // await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
