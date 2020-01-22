@@ -175,16 +175,16 @@ export default {
     }
   },
   async mounted() {
-    // await this.$store.dispatch(
-    //   'news/getMonthlyNews',
-    //   this.$route.params['month']
-    // )
+    await this.$store.dispatch(
+      'news/getMonthlyNews',
+      this.$route.params['month']
+    )
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    await store.dispatch('news/getMonthlyNews', params.month)
+    // await store.dispatch('news/getMonthlyNews', params.month)
     return { month: params.month }
   }
 }
