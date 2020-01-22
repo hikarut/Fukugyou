@@ -184,7 +184,10 @@ export default {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    await store.dispatch('news/getMonthlyNews', params.month)
+    if (!process.browser) {
+      // サーバサイドの時だけ
+      await store.dispatch('news/getMonthlyNews', params.month)
+    }
     return { month: params.month }
   }
 }
