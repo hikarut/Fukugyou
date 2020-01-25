@@ -6,7 +6,7 @@
          class="main-img">
     <div class="main-content">
       <h1>
-        <p class="main-title">{{ post.fields.title }}</p>
+        {{ post.fields.title }}
       </h1>
       <bread-list :items="breadItems"/>
       <p class="main-date">{{ dateString }}</p>
@@ -165,8 +165,9 @@ export default {
   padding-top: 20px;
   font-size: 16px;
 }
-.main-title {
+h1 {
   padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 25px;
   font-weight: bold;
 }
