@@ -1,7 +1,7 @@
 <template>
   <v-layout align-center column justify-center>
     <img v-if="post.fields.image"
-         :src="post.fields.image.fields.file.url"
+         :src="`${post.fields.image.fields.file.url}?w=600`"
          :alt="post.fields.image.fields.title"
          class="main-img">
     <div class="main-content">
