@@ -80,7 +80,12 @@
     "env": {
       "test": {
         "presets": [
-          "@babel/preset-env"
+          [
+            "@babel/preset-env",
+            {
+              "useBuiltIns": "usage"
+            }
+          ]
         ]
       }
     }
