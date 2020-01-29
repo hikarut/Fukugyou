@@ -1,7 +1,7 @@
 <template>
   <v-layout align-center column justify-center>
     <img v-if="post.fields.image"
-         :src="`${post.fields.image.fields.file.url}?w=600`"
+         :src="imgUrl"
          :alt="post.fields.image.fields.title"
          class="main-img">
     <div class="main-content">
@@ -58,6 +58,16 @@ export default {
           name: 'keywords',
           content: this.post.fields.tag
         },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.fields.description
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.fields.description
+        },
         { hid: 'og:url', property: 'og:url', content: this.shareUrl },
         {
           hid: 'og:title',
@@ -88,8 +98,14 @@ export default {
     recomendNews: recomendNews
   }),
   computed: {
+    imgUrl() {
+      return `${this.post.fields.image.fields.file.url}?w=${
+        process.env.constant.imageWidth
+      }`
+    },
     dateString() {
-      return dateString(this.post.fields.date)
+      const detail = true
+      return dateString(this.post.sys.createdAt, detail)
     },
     shareUrl() {
       return `${process.env.constant.url}/posts/${this.post.fields.url}`
