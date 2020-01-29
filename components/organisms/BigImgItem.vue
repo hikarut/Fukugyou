@@ -5,7 +5,7 @@
       <v-flex :key="item.subtitle" class="main">
         <nuxt-link :to="item.link" >
           <v-card class="card-tile">
-            <big-img :src="item.img" :alt="item.title"/>
+            <big-img :src="imgUrl(item.img)" :alt="item.title"/>
 
             <v-card-title primary-title>
               <div>
@@ -53,6 +53,11 @@ export default {
     tag: {
       type: String,
       default: 'h1'
+    }
+  },
+  computed: {
+    imgUrl(img) {
+      return `${img}?w=${process.env.constant.imageWidth}`
     }
   },
   methods: {

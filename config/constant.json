@@ -9,5 +9,6 @@
   "twitterUrl": "https://twitter.com/fukugyou_dev",
   "newsImage": "https://fukugyou.dev/newsImage.png",
   "postsPerPage": 4,
-  "retryCount": 3
+  "retryCount": 3,
+  "imageWidth": 800
 }

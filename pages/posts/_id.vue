@@ -1,7 +1,7 @@
 <template>
   <v-layout align-center column justify-center>
     <img v-if="post.fields.image"
-         :src="`${post.fields.image.fields.file.url}?w=600`"
+         :src="imgUrl"
          :alt="post.fields.image.fields.title"
          class="main-img">
     <div class="main-content">
@@ -98,6 +98,11 @@ export default {
     recomendNews: recomendNews
   }),
   computed: {
+    imgUrl() {
+      return `${post.fields.image.fields.file.url}?w=${
+        process.env.constant.imageWidth
+      }`
+    },
     dateString() {
       const detail = true
       return dateString(this.post.sys.createdAt, detail)
