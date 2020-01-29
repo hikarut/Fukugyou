@@ -161,9 +161,6 @@ export default {
       })
     }
   },
-  beforeMount() {
-    console.log(this.post)
-  },
   // ユニークなIDを指定して記事を取得
   asyncData({ params }) {
     return getEntryById(params.id)
