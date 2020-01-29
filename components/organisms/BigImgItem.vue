@@ -55,12 +55,10 @@ export default {
       default: 'h1'
     }
   },
-  computed: {
+  methods: {
     imgUrl(img) {
       return `${img}?w=${process.env.constant.imageWidth}`
-    }
-  },
-  methods: {
+    },
     isShowAd(index) {
       // 0スタートなのでわかりやすく1スタートにする
       const number = index + 1

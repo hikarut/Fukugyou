@@ -99,7 +99,7 @@ export default {
   }),
   computed: {
     imgUrl() {
-      return `${post.fields.image.fields.file.url}?w=${
+      return `${this.post.fields.image.fields.file.url}?w=${
         process.env.constant.imageWidth
       }`
     },
