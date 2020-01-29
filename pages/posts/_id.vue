@@ -58,6 +58,16 @@ export default {
           name: 'keywords',
           content: this.post.fields.tag
         },
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.fields.description
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.post.fields.description
+        },
         { hid: 'og:url', property: 'og:url', content: this.shareUrl },
         {
           hid: 'og:title',
@@ -89,7 +99,8 @@ export default {
   }),
   computed: {
     dateString() {
-      return dateString(this.post.fields.date)
+      const detail = true
+      return dateString(this.post.sys.createdAt, detail)
     },
     shareUrl() {
       return `${process.env.constant.url}/posts/${this.post.fields.url}`
@@ -144,6 +155,9 @@ export default {
         datePublished: this.post.fields.date
       })
     }
+  },
+  beforeMount() {
+    console.log(this.post)
   },
   // ユニークなIDを指定して記事を取得
   asyncData({ params }) {
