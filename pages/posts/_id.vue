@@ -77,7 +77,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.post.fields.image.fields.file.url
+          content: `https:${this.post.fields.image.fields.file.url}`
         },
         {
           hid: 'twitter:image:src',
