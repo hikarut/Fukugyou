@@ -248,21 +248,21 @@ export const actions = {
     // 日次もAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
-      if (!isOk) {
-        await axios
-          .get(`${process.env.conf.url}/data/${date}.json`)
-          .then(result => {
-            if (result.status === 200) {
-              isOk = true
-            }
-            commit('setDailyData', result.data)
-            commit('setLoading', false)
-          })
-          .catch(error => {
-            console.log(error)
-            commit('setLoading', false)
-          })
-      }
+      await axios
+        .get(`${process.env.conf.url}/data/${date}.json`)
+        .then(result => {
+          if (result.status === 200) {
+            isOk = true
+          }
+          commit('setDailyData', result.data)
+          commit('setLoading', false)
+        })
+        .catch(error => {
+          console.log(error)
+          commit('setLoading', false)
+        })
+
+      if (isOk) break
     }
   },
 
