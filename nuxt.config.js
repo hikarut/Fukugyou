@@ -85,7 +85,11 @@ export default {
         property: 'og:description',
         content: constant.description
       },
-      { hid: 'og:image', property: 'og:image', content: '/ogimage.png' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${constant.url}/ogimage.png`
+      },
       {
         hid: 'twitter:card',
         property: 'twitter:card',
