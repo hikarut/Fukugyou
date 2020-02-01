@@ -88,7 +88,15 @@ export default {
       script: [
         {
           src: 'https://platform.twitter.com/widgets.js',
-          async: true
+          defer: true
+        }
+      ],
+      // twitterのwidgets.jsからcssが読み込まれない時があるので
+      link: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://platform.twitter.com/css/tweet.b19b28e5dd6afdadd09507e64bad84c7.light.ltr.css'
         }
       ]
     }
