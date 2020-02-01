@@ -90,14 +90,6 @@ export default {
           src: 'https://platform.twitter.com/widgets.js',
           defer: true
         }
-      ],
-      // twitterのwidgets.jsからcssが読み込まれない時があるので
-      link: [
-        {
-          rel: 'stylesheet',
-          href:
-            'https://platform.twitter.com/css/tweet.b19b28e5dd6afdadd09507e64bad84c7.light.ltr.css'
-        }
       ]
     }
   },
@@ -177,10 +169,6 @@ export default {
 </script>
 
 <style scoped>
-.main-img {
-  /* padding-top: 30px; */
-  width: 100%;
-}
 .main-content {
   width: 90%;
 }
@@ -228,6 +216,14 @@ h1 {
     margin: 0 auto;
   }
 }
+/* スマホの場合は上下左右にスペースを開ける */
+@media screen and (max-width: 400px) {
+  .main-img {
+    padding-top: 20px;
+    width: 90%;
+  }
+}
+
 /* 詳細ページだけ場所を調整 */
 .v-breadcrumbs {
   padding: 0px 0px 20px 0px !important;

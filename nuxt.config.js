@@ -120,6 +120,7 @@ export default {
   css: [
     '~/assets/style/app.styl',
     '~/assets/common.css',
+    '~/assets/embed.css',
     '@fortawesome/fontawesome-free/css/all.css'
   ],
 
