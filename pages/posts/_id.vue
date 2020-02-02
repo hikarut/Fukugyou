@@ -179,6 +179,7 @@ export default {
   line-height: 30px;
   padding-top: 20px;
   font-size: 16px;
+  margin-top: -30px;
 }
 h1 {
   padding-top: 20px;
