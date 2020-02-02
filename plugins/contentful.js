@@ -35,7 +35,7 @@ export async function getEntries(limit, page = 1) {
               : value.fields.image.fields.file.url,
           date: dateString(value.fields.date),
           title: value.fields.title,
-          link: `/posts/${value.fields.url}`,
+          link: `/posts/${value.fields.url}/`,
           tag: value.fields.tag
         }
         return entryItem

@@ -108,7 +108,7 @@ export default {
       return dateString(this.post.sys.createdAt, detail)
     },
     shareUrl() {
-      return `${process.env.constant.url}/posts/${this.post.fields.url}`
+      return `${process.env.constant.url}/posts/${this.post.fields.url}/`
     },
     shareText() {
       return this.post.fields.title
