@@ -200,7 +200,6 @@ h1 {
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
   .main-img {
-    padding-top: 30px;
     width: 60%;
   }
   .main-content {
