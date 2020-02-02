@@ -24,7 +24,7 @@
   clear: both;
 }
 .embed-html-box_image {
-  width: 150px;
+  width: 200px;
   display: table-cell;
 }
 .embed-html-box_image img {
@@ -82,7 +82,7 @@
     padding: 10px;
   }
   .embed-html-box_image {
-    width: 80px;
+    width: 100px;
   }
   .embed-html-box_meta {
     padding: 0 0 0 10px;

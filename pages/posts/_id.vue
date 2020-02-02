@@ -169,6 +169,9 @@ export default {
 </script>
 
 <style scoped>
+.main-img {
+  padding-top: 20px;
+}
 .main-content {
   width: 90%;
 }
