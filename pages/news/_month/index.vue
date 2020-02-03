@@ -93,6 +93,12 @@ export default {
           name: 'og:description',
           content: this.monthlyNews.header
         }
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.constant.url}${this.$route.path}`
+        }
       ]
     }
   },

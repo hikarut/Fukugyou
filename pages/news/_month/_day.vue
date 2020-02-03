@@ -91,6 +91,12 @@ export default {
           name: 'og:description',
           content: this.dailyNews.header
         }
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.constant.url}${this.$route.path}`
+        }
       ]
     }
   },

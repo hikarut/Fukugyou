@@ -12,7 +12,7 @@
           </template>
 
           <big-img-item :items="listData" tag="h2" />
-          <button-link link="/posts/" class="tech-more" text="もっと見る" />
+          <button-link link="/posts/page/1/" class="tech-more" text="もっと見る" />
 
           <subheader text="複業(副業)情報" tag="h2" />
           <menu-link />
@@ -53,6 +53,16 @@ export default {
     SideMenu
   },
   mixins: [device],
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: process.env.constant.url
+        }
+      ]
+    }
+  },
   data: () => ({
     recomendNews: recomendNews
   }),

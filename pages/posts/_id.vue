@@ -90,6 +90,12 @@ export default {
           src: 'https://platform.twitter.com/widgets.js',
           defer: true
         }
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: this.shareUrl
+        }
       ]
     }
   },

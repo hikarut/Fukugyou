@@ -30,16 +30,6 @@ export default {
     BreadList,
     Pagination
   },
-  head() {
-    return {
-      link: [
-        {
-          rel: 'canonical',
-          href: `${constant.url}/posts/page/1`
-        }
-      ]
-    }
-  },
   data: () => ({
     breadItems: [
       {
@@ -70,7 +60,7 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.postList,
-            item: '${process.env.constant.url}/posts/page/1'
+            item: '${process.env.constant.url}/posts/page/1/'
           }
         ]
       })
