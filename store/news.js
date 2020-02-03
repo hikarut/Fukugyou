@@ -6,7 +6,8 @@ const initialState = {
   data: null,
   dailyData: null,
   monthlyData: null,
-  loading: true
+  loading: true,
+  error: false
 }
 export const state = () => Object.assign({}, initialState)
 
@@ -24,6 +25,9 @@ export const mutations = {
   setLoading(state, loading) {
     state.loading = loading
   },
+  setError(state, error) {
+    state.error = error
+  },
   reset(state) {
     state = Object.assign(state, initialState)
   }
@@ -33,6 +37,9 @@ export const mutations = {
 export const getters = {
   loading(state) {
     return state.loading
+  },
+  error(state) {
+    return state.error
   },
   topNews(state) {
     const header = process.env.constant.newsList
@@ -245,6 +252,7 @@ export const actions = {
   async getDailyNews({ commit, state }, date) {
     // 静的ファイルから取得
     commit('setLoading', true)
+    commit('setError', false)
     // 日次もAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
@@ -260,6 +268,7 @@ export const actions = {
         .catch(error => {
           console.log(error)
           commit('setLoading', false)
+          commit('setError', true)
         })
 
       if (isOk) break
@@ -270,24 +279,26 @@ export const actions = {
   async getMonthlyNews({ commit, state }, month) {
     // 静的ファイルから取得
     commit('setLoading', true)
+    commit('setError', false)
     // 月次だけなぜかうまく取得できないのでAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
-      if (!isOk) {
-        await axios
-          .get(`${process.env.conf.url}/data/${month}.json`)
-          .then(result => {
-            if (result.status === 200) {
-              isOk = true
-            }
-            commit('setMonthlyData', result.data)
-            commit('setLoading', false)
-          })
-          .catch(error => {
-            console.log(error)
-            commit('setLoading', false)
-          })
-      }
+      await axios
+        .get(`${process.env.conf.url}/data/${month}.json`)
+        .then(result => {
+          if (result.status === 200) {
+            isOk = true
+          }
+          commit('setMonthlyData', result.data)
+          commit('setLoading', false)
+        })
+        .catch(error => {
+          console.log(error)
+          commit('setLoading', false)
+          commit('setError', true)
+        })
+
+      if (isOk) break
     }
   }
 }

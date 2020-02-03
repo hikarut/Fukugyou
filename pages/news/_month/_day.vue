@@ -9,14 +9,19 @@
             <v-progress-linear :indeterminate="true"/>
           </template>
           <template v-else>
-            <card-item :items="dailyNews" tag="h1" />
+            <template v-if="dailyNews.data === null">
+              <div>データがありません</div>
+            </template>
+            <template v-else>
+              <card-item :items="dailyNews" tag="h1" />
+            </template>
           </template>
 
           <template v-if="loading">
             <v-progress-linear :indeterminate="true"/>
           </template>
           <template v-else>
-            <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+            <sns-post v-if="dailyNews.data !== null" :url="shareUrl" :text="shareText" :tag="shareTag" />
           </template>
 
           <paging :date="day" />
@@ -130,7 +135,7 @@ export default {
     shareTag() {
       return process.env.constant.twitterTag
     },
-    ...mapGetters('news', ['dailyNews', 'loading']),
+    ...mapGetters('news', ['dailyNews', 'loading', 'error']),
     ldJson() {
       return JSON.stringify({
         '@context': 'https://schema.org',
@@ -187,18 +192,17 @@ export default {
       })
     }
   },
-  async mounted() {
-    // 静的ファイルの時にasyncDataでうまく取得できてない場合があるのでここでも実行する(※一時的な対応)
-    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+  async beforeMount() {
+    if (this.error) {
+      // asyncDataでデータが取れなかった場合再取得
+      await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+    }
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store, error }) {
-    if (!process.browser) {
-      // サーバサイドの時だけ
-      await store.dispatch('news/getDailyNews', params.day)
-    }
+    await store.dispatch('news/getDailyNews', params.day)
     return { month: params.month, day: params.day }
   }
 }

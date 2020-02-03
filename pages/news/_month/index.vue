@@ -9,14 +9,19 @@
             <v-progress-linear :indeterminate="true"/>
           </template>
           <template v-else>
-            <card-item :items="monthlyNews" tag="h1" />
+            <template v-if="monthlyNews.data === null">
+              <div>データがありません</div>
+            </template>
+            <template v-else>
+              <card-item :items="monthlyNews" tag="h1" />
+            </template>
           </template>
 
           <template v-if="loading">
             <v-progress-linear :indeterminate="true"/>
           </template>
           <template v-else>
-            <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+            <sns-post v-if="monthlyNews.data !== null" :url="shareUrl" :text="shareText" :tag="shareTag" />
           </template>
 
           <paging :date="month" />
@@ -123,7 +128,7 @@ export default {
     shareTag() {
       return process.env.constant.twitterTag
     },
-    ...mapGetters('news', ['monthlyNews', 'loading']),
+    ...mapGetters('news', ['monthlyNews', 'loading', 'error']),
     ldJson() {
       return JSON.stringify({
         '@context': 'https://schema.org',
@@ -174,20 +179,20 @@ export default {
       })
     }
   },
-  async mounted() {
-    await this.$store.dispatch(
-      'news/getMonthlyNews',
-      this.$route.params['month']
-    )
+  async beforeMount() {
+    if (this.error) {
+      // asyncDataでデータが取れなかった場合再取得
+      await this.$store.dispatch(
+        'news/getMonthlyNews',
+        this.$route.params['month']
+      )
+    }
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    if (!process.browser) {
-      // サーバサイドの時だけ
-      await store.dispatch('news/getMonthlyNews', params.month)
-    }
+    await store.dispatch('news/getMonthlyNews', params.month)
     return { month: params.month }
   }
 }
