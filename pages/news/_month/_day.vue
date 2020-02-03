@@ -10,7 +10,10 @@
           </template>
           <template v-else>
             <template v-if="dailyNews.data === null">
-              <div>データがありません</div>
+              <div>
+                データがありません。<br>
+                <a href="/">トップページ</a>に戻る。
+              </div>
             </template>
             <template v-else>
               <card-item :items="dailyNews" tag="h1" />
