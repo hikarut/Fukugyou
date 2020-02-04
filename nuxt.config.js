@@ -239,6 +239,12 @@ export default {
     ],
     routes() {
       return routing()
+    },
+    filter({ routes }) {
+      return routes.map(route => {
+        route.url = route.url.endsWith('/') ? route.url : `${route.url}/`
+        return route
+      })
     }
   }
 }

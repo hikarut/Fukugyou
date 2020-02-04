@@ -58,7 +58,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: process.env.constant.url
+          href: `${process.env.constant.url}/`
         }
       ]
     }
