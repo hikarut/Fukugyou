@@ -9,7 +9,8 @@
         {{ post.fields.title }}
       </h1>
       <bread-list :items="breadItems"/>
-      <p class="main-date">{{ dateString }}</p>
+      <p class="main-date">{{ dateString(post.sys.createdAt) }}</p>
+      <p class="sub-date">(更新：{{ dateString(post.sys.updatedAt) }})</p>
       <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
       <v-divider />
       <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
@@ -109,10 +110,6 @@ export default {
         process.env.constant.imageWidth
       }`
     },
-    dateString() {
-      const detail = true
-      return dateString(this.post.sys.createdAt, detail)
-    },
     shareUrl() {
       return `${process.env.constant.url}/posts/${this.post.fields.url}/`
     },
@@ -163,8 +160,15 @@ export default {
           '@type': 'Person',
           name: 'hikaru takahashi'
         },
-        datePublished: this.post.fields.date
+        datePublished: this.dateString(this.post.sys.createdAt, true),
+        dateModified: this.dateString(this.post.sys.updatedAt, true)
       })
+    }
+  },
+  methods: {
+    dateString(date) {
+      const detail = true
+      return dateString(date, detail)
     }
   },
   // ユニークなIDを指定して記事を取得
@@ -193,8 +197,9 @@ h1 {
   font-size: 25px;
   font-weight: bold;
 }
-.main-date {
-  padding-top: 20px;
+.sub-date {
+  font-size: 12px;
+  margin-top: -10px;
 }
 .main-tag {
   padding-top: 20px;
