@@ -82,10 +82,12 @@
     padding: 10px;
   }
   .embed-html-box_image {
-    width: 100px;
+    width: 250px;
+    display: block;
   }
   .embed-html-box_meta {
     padding: 0 0 0 10px;
+    display: block;
   }
   .embed-html-box_title q {
     font-size: 14px;
