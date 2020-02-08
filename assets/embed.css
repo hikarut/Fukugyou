@@ -84,6 +84,7 @@
   .embed-html-box_image {
     width: 250px;
     display: block;
+    margin: auto;
   }
   .embed-html-box_meta {
     padding: 0 0 0 10px;
