@@ -82,7 +82,7 @@
     padding: 10px;
   }
   .embed-html-box_image {
-    width: 250px;
+    width: 100%;
     display: block;
     margin: auto;
   }
