@@ -45,7 +45,7 @@ export default {
 .v-tabs__item {
   opacity: 1 !important;
   font-weight: bold;
-  color: white;
+  color: white !important;
 }
 .v-tabs__slider-wrapper {
   display: none !important;
