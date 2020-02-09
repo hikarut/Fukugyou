@@ -1,43 +1,46 @@
 <template>
-  <v-container grid-list-md text-xs-center class="all">
-    <v-layout row wrap>
-      <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
-        <div class="main">
-          <bread-list :items="breadItems"/>
+  <div>
+    <tab />
+    <v-container grid-list-md text-xs-center class="all">
+      <v-layout row wrap>
+        <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
+          <div class="main">
+            <bread-list :items="breadItems"/>
 
-          <template v-if="loading">
-            <v-progress-linear :indeterminate="true"/>
-          </template>
-          <template v-else>
-            <template v-if="dailyNews.data === null">
-              <div>
-                データがありません。<br>
-                <a href="/">トップページ</a>に戻る。
-              </div>
+            <template v-if="loading">
+              <v-progress-linear :indeterminate="true"/>
             </template>
             <template v-else>
-              <card-item :items="dailyNews" tag="h1" />
+              <template v-if="dailyNews.data === null">
+                <div>
+                  データがありません。<br>
+                  <a href="/">トップページ</a>に戻る。
+                </div>
+              </template>
+              <template v-else>
+                <card-item :items="dailyNews" tag="h1" />
+              </template>
             </template>
-          </template>
 
-          <template v-if="loading">
-            <v-progress-linear :indeterminate="true"/>
-          </template>
-          <template v-else>
-            <sns-post v-if="dailyNews.data !== null" :url="shareUrl" :text="shareText" :tag="shareTag" />
-          </template>
+            <template v-if="loading">
+              <v-progress-linear :indeterminate="true"/>
+            </template>
+            <template v-else>
+              <sns-post v-if="dailyNews.data !== null" :url="shareUrl" :text="shareText" :tag="shareTag" />
+            </template>
 
-          <paging :date="day" />
+            <paging :date="day" />
 
-        </div>
-      </v-flex>
+          </div>
+        </v-flex>
 
-      <side-menu :items="recomendNews"/>
+        <side-menu :items="recomendNews"/>
 
-    </v-layout>
-    <script type="application/ld+json" v-html="ldJson" />
-    <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
-  </v-container>
+      </v-layout>
+      <script type="application/ld+json" v-html="ldJson" />
+      <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -48,6 +51,7 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import CardItem from '~/components/organisms/CardItem.vue'
 import Paging from '~/components/molecules/Paging.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
+import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
 
 const recomendNews = require('~/config/recomendNews.json5')
@@ -58,7 +62,8 @@ export default {
     BreadList,
     CardItem,
     Paging,
-    SideMenu
+    SideMenu,
+    Tab
   },
   mixins: [device],
   validate({ params }) {
@@ -110,7 +115,7 @@ export default {
     breadItems() {
       return [
         {
-          text: 'トップ',
+          text: 'ホーム',
           disabled: false,
           url: '/'
         },
@@ -176,7 +181,7 @@ export default {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'トップ',
+            name: 'ホーム',
             item: process.env.constant.url
           },
           {

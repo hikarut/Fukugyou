@@ -1,31 +1,34 @@
 <template>
-  <v-container grid-list-md text-xs-center class="all">
-    <v-layout row wrap>
-      <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
-        <div class="top">
-          <template v-if="loading">
-            <v-progress-linear :indeterminate="true"/>
-          </template>
-          <template v-else>
-            <card-item :items="topNews" tag="h1" />
-            <button-link :link="'/news/'" class="news-more" text="もっと見る" />
-          </template>
+  <div>
+    <tab />
+    <v-container grid-list-md text-xs-center class="all">
+      <v-layout row wrap>
+        <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
+          <div class="top">
+            <template v-if="loading">
+              <v-progress-linear :indeterminate="true"/>
+            </template>
+            <template v-else>
+              <card-item :items="topNews" tag="h1" />
+              <button-link :link="'/news/'" class="news-more" text="もっと見る" />
+            </template>
 
-          <big-img-item :items="listData" tag="h2" />
-          <button-link link="/posts/page/1/" class="tech-more" text="もっと見る" />
+            <big-img-item :items="listData" tag="h2" />
+            <button-link link="/posts/page/1/" class="tech-more" text="もっと見る" />
 
-          <subheader text="複業(副業)情報" tag="h2" />
-          <menu-link />
-        </div>
+            <subheader text="複業(副業)情報" tag="h2" />
+            <menu-link />
+          </div>
 
-      </v-flex>
+        </v-flex>
 
-      <template v-if="isDesktop">
-        <side-menu :items="recomendNews"/>
-      </template>
-    </v-layout>
-    <script type="application/ld+json" v-html="ldJson" />
-  </v-container>
+        <template v-if="isDesktop">
+          <side-menu :items="recomendNews"/>
+        </template>
+      </v-layout>
+      <script type="application/ld+json" v-html="ldJson" />
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -39,6 +42,7 @@ import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
+import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
 const recomendNews = require('~/config/recomendNews.json5')
 
@@ -50,7 +54,8 @@ export default {
     ButtonLink,
     Subheader,
     MenuLink,
-    SideMenu
+    SideMenu,
+    Tab
   },
   mixins: [device],
   head() {

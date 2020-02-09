@@ -24,7 +24,7 @@ export default {
     breadItems() {
       return [
         {
-          text: 'トップ',
+          text: 'ホーム',
           disabled: false,
           url: '/'
         },

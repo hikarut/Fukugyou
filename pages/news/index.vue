@@ -1,27 +1,30 @@
 <template>
-  <v-container grid-list-md text-xs-center class="all">
-    <v-layout row wrap>
-      <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
-        <div class="top">
-          <bread-list :items="breadItems"/>
+  <div>
+    <tab />
+    <v-container grid-list-md text-xs-center class="all">
+      <v-layout row wrap>
+        <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
+          <div class="top">
+            <bread-list :items="breadItems"/>
 
-          <template v-if="loading">
-            <v-progress-linear :indeterminate="true"/>
-          </template>
-          <template v-else>
-            <card-item :items="topNews" tag="h1" />
-            <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
-          </template>
+            <template v-if="loading">
+              <v-progress-linear :indeterminate="true"/>
+            </template>
+            <template v-else>
+              <card-item :items="topNews" tag="h1" />
+              <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
+            </template>
 
-        </div>
+          </div>
 
-      </v-flex>
+        </v-flex>
 
-      <side-menu :items="monthlyList"/>
-    </v-layout>
-    <script type="application/ld+json" v-html="ldJson" />
-    <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
-  </v-container>
+        <side-menu :items="monthlyList"/>
+      </v-layout>
+      <script type="application/ld+json" v-html="ldJson" />
+      <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -35,6 +38,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
+import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
 const monthlyList = require('~/config/monthly.json5')
 
@@ -46,7 +50,8 @@ export default {
     Subheader,
     MenuLink,
     SideMenu,
-    BreadList
+    BreadList,
+    Tab
   },
   mixins: [device],
   async fetch({ store }) {
@@ -65,7 +70,7 @@ export default {
     breadItems() {
       return [
         {
-          text: 'トップ',
+          text: 'ホーム',
           disabled: false,
           url: '/'
         },
@@ -107,7 +112,7 @@ export default {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'トップ',
+            name: 'ホーム',
             item: process.env.constant.url
           },
           {

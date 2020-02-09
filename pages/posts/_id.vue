@@ -1,36 +1,39 @@
 <template>
-  <v-layout align-center column justify-center>
-    <img v-if="post.fields.image"
-         :src="imgUrl"
-         :alt="post.fields.image.fields.title"
-         class="main-img">
-    <div class="main-content">
-      <h1>
-        {{ post.fields.title }}
-      </h1>
-      <bread-list :items="breadItems"/>
-      <p class="main-date">{{ dateString(post.sys.createdAt) }}</p>
-      <p class="sub-date">(更新：{{ dateString(post.sys.updatedAt) }})</p>
-      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-      <v-divider />
-      <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
-      <v-divider />
-      <p class="main-tag">
-        <tag-list :tags="post.fields.tag" />
-      </p>
-      <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-      <div class="ad">
-        <adsbygoogle
-          :ad-slot="'7321120508'"
-          :ad-format="'auto'"
-          class="adsbygoogle" />
+  <div>
+    <tab />
+    <v-layout align-center column justify-center>
+      <img v-if="post.fields.image"
+           :src="imgUrl"
+           :alt="post.fields.image.fields.title"
+           class="main-img">
+      <div class="main-content">
+        <h1>
+          {{ post.fields.title }}
+        </h1>
+        <bread-list :items="breadItems"/>
+        <p class="main-date">{{ dateString(post.sys.createdAt) }}</p>
+        <p class="sub-date">(更新：{{ dateString(post.sys.updatedAt) }})</p>
+        <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+        <v-divider />
+        <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
+        <v-divider />
+        <p class="main-tag">
+          <tag-list :tags="post.fields.tag" />
+        </p>
+        <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
+        <div class="ad">
+          <adsbygoogle
+            :ad-slot="'7321120508'"
+            :ad-format="'auto'"
+            class="adsbygoogle" />
+        </div>
       </div>
-    </div>
-    <div class="list">
-      <list-item :items="recomendNews" />
-    </div>
-    <script type="application/ld+json" v-html="ldJson" />
-  </v-layout>
+      <div class="list">
+        <list-item :items="recomendNews" />
+      </div>
+      <script type="application/ld+json" v-html="ldJson" />
+    </v-layout>
+  </div>
 </template>
 
 <script>
@@ -38,6 +41,7 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import SnsPost from '~/components/molecules/SnsPost.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import TagList from '~/components/molecules/TagList.vue'
+import Tab from '~/components/layouts/Tab.vue'
 import { dateString } from '~/lib/date'
 import { getEntryById } from '~/plugins/contentful'
 
@@ -48,7 +52,8 @@ export default {
     SnsPost,
     BreadList,
     ListItem,
-    TagList
+    TagList,
+    Tab
   },
   head() {
     return {
@@ -124,7 +129,7 @@ export default {
     breadItems() {
       return [
         {
-          text: 'トップ',
+          text: 'ホーム',
           disabled: false,
           url: '/'
         },

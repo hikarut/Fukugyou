@@ -23,7 +23,7 @@ export default {
   data: () => ({
     breadItems: [
       {
-        text: 'トップ',
+        text: 'ホーム',
         disabled: false,
         url: '/'
       },

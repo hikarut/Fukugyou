@@ -1,15 +1,18 @@
 <template>
-  <div class="main">
-    <bread-list :items="breadItems" />
-    <big-img-item :items="postData.listData" tag="h1" />
-    <pagination :total="total" :page="page" />
-    <div class="ad">
-      <adsbygoogle
-        :ad-slot="'7321120508'"
-        :ad-format="'auto'"
-        class="adsbygoogle" />
+  <div>
+    <tab />
+    <div class="main">
+      <bread-list :items="breadItems" />
+      <big-img-item :items="postData.listData" tag="h1" />
+      <pagination :total="total" :page="page" />
+      <div class="ad">
+        <adsbygoogle
+          :ad-slot="'7321120508'"
+          :ad-format="'auto'"
+          class="adsbygoogle" />
+      </div>
+      <script type="application/ld+json" v-html="ldJson" />
     </div>
-    <script type="application/ld+json" v-html="ldJson" />
   </div>
 </template>
 
@@ -21,6 +24,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Pagination from '~/components/molecules/Pagination.vue'
+import Tab from '~/components/layouts/Tab.vue'
 const constant = require('~/config/constant.json')
 
 export default {
@@ -28,12 +32,13 @@ export default {
     ListItem,
     BigImgItem,
     BreadList,
-    Pagination
+    Pagination,
+    Tab
   },
   data: () => ({
     breadItems: [
       {
-        text: 'トップ',
+        text: 'ホーム',
         disabled: false,
         url: '/'
       },
@@ -53,7 +58,7 @@ export default {
           {
             '@type': 'ListItem',
             position: 1,
-            name: 'トップ',
+            name: 'ホーム',
             item: process.env.constant.url
           },
           {
