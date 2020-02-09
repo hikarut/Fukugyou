@@ -64,6 +64,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
 import { cutString } from '~/lib/string'
+import method from '~/mixins/method'
 
 export default {
   components: {
@@ -74,6 +75,7 @@ export default {
     UpdatedAtText,
     OutClip
   },
+  mixins: [method],
   props: {
     items: {
       type: Object,
@@ -85,18 +87,6 @@ export default {
     }
   },
   methods: {
-    // TODO:ListItemと共通化
-    go(url) {
-      // 同じサイトないでパス指定の場合(httpが入ってない場合)は通常の画面遷移にする
-      if (!url.match(/http/)) {
-        this.$router.push(url)
-      } else if (url.match(/fukugyou\.dev/)) {
-        location.href = url
-      } else {
-        // 別サイトの場合は別ウィンドウにする
-        open(url, '_blank')
-      }
-    },
     isShowWide(index) {
       // 0スタートなのでわかりやすく1スタートにする
       const number = index + 1

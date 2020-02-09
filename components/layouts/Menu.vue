@@ -31,17 +31,13 @@
 
 <script>
 import menu from '~/mixins/menu'
+import method from '~/mixins/method'
 
 export default {
-  mixins: [menu],
+  mixins: [menu, method],
   data: () => ({
     drawer: null
-  }),
-  methods: {
-    go(url) {
-      this.$router.push(url)
-    }
-  }
+  })
 }
 </script>
 

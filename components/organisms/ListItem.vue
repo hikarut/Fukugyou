@@ -45,6 +45,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import ListImg from '~/components/molecules/ListImg.vue'
 import ListText from '~/components/molecules/ListText.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
+import method from '~/mixins/method'
 
 export default {
   components: {
@@ -55,6 +56,7 @@ export default {
     ListText,
     UpdatedAtText
   },
+  mixins: [method],
   props: {
     items: {
       type: Object,
@@ -63,20 +65,6 @@ export default {
     tag: {
       type: String,
       default: 'h1'
-    }
-  },
-  methods: {
-    // TODO:CardItemと共通化
-    go(url) {
-      // 同じサイトないでパス指定の場合(httpが入ってない場合)は通常の画面遷移にする
-      if (!url.match(/http/)) {
-        this.$router.push(url)
-      } else if (url.match(/fukugyou\.dev/)) {
-        location.href = url
-      } else {
-        // 別サイトの場合は別ウィンドウにする
-        open(url, '_blank')
-      }
     }
   }
 }
