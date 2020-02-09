@@ -3,7 +3,6 @@
     centered
     color="#134b8a"
   >
-    <v-tabs-slider color="rgba(19, 75, 138, 0.6)"/>
 
     <v-tab :class="[isHome ? 'active' : '']" @click="go('/')">
       ホーム
