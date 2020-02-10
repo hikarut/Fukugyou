@@ -26,7 +26,7 @@ pre code {
   content: none;
 }
 /* マークダウンの見出しを調整 */
-.markdown h1, h2, h3, h4, h5 {
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5 {
   padding-top: 50px;
   padding-bottom: 20px;
 }
