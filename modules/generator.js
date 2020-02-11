@@ -93,5 +93,26 @@ module.exports = function generateModule(moduleOptions) {
         if (err) console.log('error', err)
       })
     })
+
+    // 更新日時データの取得
+    const updatedAt = await firebase
+      .firestore()
+      .collection('updatedAt')
+      .get()
+    console.log(updatedAt)
+
+    const updatedAtJson = updatedAt.docs.map(doc => {
+      return doc.data()
+    })
+    console.log(updatedAtJson)
+    // JSONを生成
+    const updatedAtJsonFile = './data/updatedAt.json'
+    fs.writeFile(
+      updatedAtJsonFile,
+      JSON.stringify(updatedAtJson),
+      (err, result) => {
+        if (err) console.log('error', err)
+      }
+    )
   })
 }
