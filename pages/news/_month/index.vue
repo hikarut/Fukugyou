@@ -226,12 +226,15 @@ export default {
 }
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
-  padding: 20px 0px 20px 24px !important;
+  padding: 0px 0px 0px 24px !important;
 }
 /* サイドメニューの調整 */
 @media screen and (max-width: 959px) {
   .container {
     padding: 0px !important;
+  }
+  .v-breadcrumbs {
+    padding: 20px 0px 0px 24px !important;
   }
 }
 .container.grid-list-md .layout:only-child {

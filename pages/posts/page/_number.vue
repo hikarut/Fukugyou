@@ -101,7 +101,7 @@ h1 {
 }
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
-  padding: 20px 0px 20px 24px !important;
+  padding: 20px 0px 0px 24px !important;
 }
 .ad {
   width: 90%;

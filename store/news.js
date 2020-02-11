@@ -4,6 +4,7 @@ import axios from 'axios'
 /* state */
 const initialState = {
   data: null,
+  updatedAt: null,
   dailyData: null,
   monthlyData: null,
   loading: true,
@@ -15,6 +16,9 @@ export const state = () => Object.assign({}, initialState)
 export const mutations = {
   setData(state, data) {
     state.data = data
+  },
+  setUpdatedAt(state, updatedAt) {
+    state.updatedAt = updatedAt
   },
   setDailyData(state, dailyData) {
     state.dailyData = dailyData
@@ -43,10 +47,12 @@ export const getters = {
   },
   topNews(state) {
     const header = process.env.constant.newsList
+    const updatedAt = state.updatedAt[0].updatedAt || ''
     let tmpDate = ''
     if (state.data === null) {
       return {
         header: header,
+        updatedAt: updatedAt,
         data: state.data
       }
     }
@@ -109,15 +115,18 @@ export const getters = {
 
     const topData = {
       header: header,
+      updatedAt: updatedAt,
       data: ret
     }
     return topData
   },
 
   dailyNews(state) {
+    const updatedAt = state.updatedAt[0].updatedAt || ''
     if (state.dailyData === null) {
       return {
         header: process.env.constant.newsList,
+        updatedAt: updatedAt,
         data: state.dailyData
       }
     }
@@ -144,15 +153,18 @@ export const getters = {
     })
     const dailyData = {
       header: header,
+      updatedAt: updatedAt,
       data: ret
     }
     return dailyData
   },
 
   monthlyNews(state) {
+    const updatedAt = state.updatedAt[0].updatedAt || ''
     if (state.monthlyData === null) {
       return {
         header: process.env.constant.newsList,
+        updatedAt: updatedAt,
         data: state.monthlyData
       }
     }
@@ -164,6 +176,7 @@ export const getters = {
     if (state.monthlyData === null) {
       return {
         header: header,
+        updatedAt: updatedAt,
         data: state.monthlyData
       }
     }
@@ -227,6 +240,7 @@ export const getters = {
 
     const monthlyData = {
       header: header,
+      updatedAt: updatedAt,
       data: ret
     }
     return monthlyData
@@ -244,7 +258,9 @@ export const actions = {
     commit('setLoading', true)
     // TODO:ファイルの存在チェック
     const topNews = require('~/data/top.json')
+    const updatedAt = require('~/data/updatedAt.json')
     commit('setData', topNews)
+    commit('setUpdatedAt', updatedAt)
     commit('setLoading', false)
   },
 
@@ -253,6 +269,9 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     commit('setError', false)
+    // 更新日時
+    const updatedAt = require('~/data/updatedAt.json')
+    commit('setUpdatedAt', updatedAt)
     // 日次もAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
@@ -280,6 +299,9 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     commit('setError', false)
+    // 更新日時
+    const updatedAt = require('~/data/updatedAt.json')
+    commit('setUpdatedAt', updatedAt)
     // 月次だけなぜかうまく取得できないのでAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
