@@ -19,8 +19,8 @@
             </v-list-tile>
             <!-- エラー対応で暫定でkeyにプラスする -->
             <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index + 100" />
-            <!-- 4つづつに広告を挿入 -->
-            <template v-if="(index + 1) % 4 === 0">
+            <!-- 3つづつに広告を挿入 -->
+            <template v-if="(index + 1) % 3 === 0">
               <adsbygoogle
                 :key="index"
                 :ad-slot="'5591791813'"
@@ -28,7 +28,7 @@
                 :ad-layout-key="'-ff+64+2d-c2+cy'"
                 class="adsbygoogle infeed" />
               <!-- エラー対応で暫定でkeyにプラスする -->
-              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 4" :key="index + 200" />
+              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 3" :key="index + 200" />
             </template>
           </template>
         </v-list>

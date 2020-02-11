@@ -65,5 +65,12 @@
       "title": "複業して良かった7つの事",
       "link": "/posts/20190501_01/",
     },
+    {
+      "img":
+        "http://images.ctfassets.net/twm9ywlpm6f1/2aIXN177cOXxRWe1O3xXEZ/0e68c76c65445799bd09c9adedbc88b6/nuxt_wordpress_compare.png?w=300",
+      "date": "2019月05日19(日)",
+      "title": "複業でWebサイト制作する際のWordPressとNuxt.jsのメリデメ比較",
+      "link": "/posts/20190519/",
+    },
   ]
 }
