@@ -122,9 +122,11 @@ export const getters = {
   },
 
   dailyNews(state) {
+    const updatedAt = state.updatedAt[0].updatedAt || ''
     if (state.dailyData === null) {
       return {
         header: process.env.constant.newsList,
+        updatedAt: updatedAt,
         data: state.dailyData
       }
     }
@@ -151,15 +153,18 @@ export const getters = {
     })
     const dailyData = {
       header: header,
+      updatedAt: updatedAt,
       data: ret
     }
     return dailyData
   },
 
   monthlyNews(state) {
+    const updatedAt = state.updatedAt[0].updatedAt || ''
     if (state.monthlyData === null) {
       return {
         header: process.env.constant.newsList,
+        updatedAt: updatedAt,
         data: state.monthlyData
       }
     }
@@ -171,6 +176,7 @@ export const getters = {
     if (state.monthlyData === null) {
       return {
         header: header,
+        updatedAt: updatedAt,
         data: state.monthlyData
       }
     }
@@ -234,6 +240,7 @@ export const getters = {
 
     const monthlyData = {
       header: header,
+      updatedAt: updatedAt,
       data: ret
     }
     return monthlyData
@@ -262,6 +269,9 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     commit('setError', false)
+    // 更新日時
+    const updatedAt = require('~/data/updatedAt.json')
+    commit('setUpdatedAt', updatedAt)
     // 日次もAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
@@ -289,6 +299,9 @@ export const actions = {
     // 静的ファイルから取得
     commit('setLoading', true)
     commit('setError', false)
+    // 更新日時
+    const updatedAt = require('~/data/updatedAt.json')
+    commit('setUpdatedAt', updatedAt)
     // 月次だけなぜかうまく取得できないのでAPI経由にする
     let isOk = false
     for (let i = 0; i < process.env.constant.retryCount; i++) {
