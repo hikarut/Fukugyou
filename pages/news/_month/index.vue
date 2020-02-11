@@ -233,6 +233,9 @@ export default {
   .container {
     padding: 0px !important;
   }
+  .v-breadcrumbs {
+    padding: 20px 0px 0px 24px !important;
+  }
 }
 .container.grid-list-md .layout:only-child {
   margin: 0px;

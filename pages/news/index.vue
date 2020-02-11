@@ -132,6 +132,10 @@ export default {
 </script>
 
 <style scoped>
+/* リストページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 0px 0px 0px 24px !important;
+}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 1400px) {
   .all {
@@ -143,6 +147,9 @@ export default {
   .container {
     padding: 0px !important;
   }
+  .v-breadcrumbs {
+    padding: 20px 0px 0px 24px !important;
+  }
 }
 .container.grid-list-md .layout:only-child {
   margin: 0px;
@@ -153,9 +160,5 @@ export default {
 .news-more {
   margin-top: -20px;
   padding-bottom: 30px;
-}
-/* リストページだけ場所を調整 */
-.v-breadcrumbs {
-  padding: 0px 0px 0px 24px !important;
 }
 </style>
