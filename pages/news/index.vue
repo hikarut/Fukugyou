@@ -156,6 +156,6 @@ export default {
 }
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
-  padding: 20px 0px 0px 24px !important;
+  padding: 0px 0px 0px 24px !important;
 }
 </style>
