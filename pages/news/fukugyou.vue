@@ -1,56 +1,11 @@
 <template>
-  <div class="list-item-top">
-    <bread-list :items="breadItems" />
-    <list-item :items="fukugyouNews" tag="h1" />
-    <button-link link="/" class="more" text="トップに戻る" />
-  </div>
+  <div/>
 </template>
 
 <script>
-import ListItem from '~/components/organisms/ListItem.vue'
-import BreadList from '~/components/organisms/BreadList.vue'
-import ButtonLink from '~/components/atoms/Button.vue'
-
-// 手動で拾ってきたニュース
-const fukugyouNews = require('~/config/fukugyouNews.json5')
-
 export default {
-  components: {
-    ListItem,
-    BreadList,
-    ButtonLink
-  },
-  data: () => ({
-    breadItems: [
-      {
-        text: 'ホーム',
-        disabled: false,
-        url: '/'
-      },
-      {
-        text: '複業ニュース一覧',
-        disabled: true,
-        url: '/news/fukugyou'
-      }
-    ],
-    fukugyouNews: fukugyouNews
-  })
-}
-</script>
-
-<style scoped>
-/* PC版は横に広がりすぎないようにする */
-@media screen and (min-width: 600px) {
-  .list-item-top {
-    width: 60%;
-    margin: 0 auto;
+  fetch({ redirect }) {
+    redirect(301, '/news/')
   }
 }
-/* リストページだけ場所を調整 */
-.v-breadcrumbs {
-  padding: 20px 0px 0px 24px !important;
-}
-.more {
-  padding-bottom: 30px;
-}
-</style>
+</script>

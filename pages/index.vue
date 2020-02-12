@@ -16,8 +16,6 @@
             <big-img-item :items="listData" tag="h2" />
             <button-link link="/posts/page/1/" class="tech-more" text="もっと見る" />
 
-            <subheader text="複業(副業)情報" tag="h2" />
-            <menu-link />
           </div>
 
         </v-flex>
@@ -40,7 +38,6 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
-import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
@@ -53,7 +50,6 @@ export default {
     BigImgItem,
     ButtonLink,
     Subheader,
-    MenuLink,
     SideMenu,
     Tab
   },

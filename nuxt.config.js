@@ -235,7 +235,11 @@ export default {
       'ads.txt',
       '/posts',
       '/contact/complete',
-      '/contact/confirm'
+      '/contact/confirm',
+      '/fukugyou/job',
+      '/fukugyou/why',
+      '/news/fukugyou',
+      '/news/tech'
     ],
     routes() {
       return routing()

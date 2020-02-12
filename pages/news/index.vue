@@ -35,7 +35,6 @@ import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
-import MenuLink from '~/components/molecules/Menu.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Tab from '~/components/layouts/Tab.vue'
@@ -48,7 +47,6 @@ export default {
     ListItem,
     ButtonLink,
     Subheader,
-    MenuLink,
     SideMenu,
     BreadList,
     Tab
