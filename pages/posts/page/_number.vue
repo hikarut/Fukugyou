@@ -1,22 +1,29 @@
 <template>
   <div>
     <tab />
-    <div class="main">
-      <bread-list :items="breadItems" />
-      <big-img-item :items="postData.listData" tag="h1" />
-      <pagination :total="total" :page="page" />
-      <div class="ad">
-        <adsbygoogle
-          :ad-slot="'7321120508'"
-          :ad-format="'auto'"
-          class="adsbygoogle" />
-      </div>
+    <v-container grid-list-md text-xs-center class="all">
+      <v-layout row wrap>
+        <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
+          <bread-list :items="breadItems" />
+          <big-img-item :items="postData.listData" tag="h1" />
+          <pagination :total="total" :page="page" />
+          <div class="ad">
+            <adsbygoogle
+              :ad-slot="'7321120508'"
+              :ad-format="'auto'"
+              class="adsbygoogle" />
+          </div>
+        </v-flex>
+
+        <side-menu :items="topNews"/>
+      </v-layout>
       <script type="application/ld+json" v-html="ldJson" />
-    </div>
+    </v-container>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import { getEntries } from '~/plugins/contentful'
 import { dateString } from '~/lib/date'
 import { checkPage } from '~/lib/validation'
@@ -25,6 +32,9 @@ import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Pagination from '~/components/molecules/Pagination.vue'
 import Tab from '~/components/layouts/Tab.vue'
+import SideMenu from '~/components/molecules/SideMenu.vue'
+import recomendNews from '~/config/recomendNews.json5'
+import device from '~/mixins/device'
 const constant = require('~/config/constant.json')
 
 export default {
@@ -33,9 +43,12 @@ export default {
     BigImgItem,
     BreadList,
     Pagination,
-    Tab
+    Tab,
+    SideMenu
   },
+  mixins: [device],
   data: () => ({
+    recomendNews: recomendNews,
     breadItems: [
       {
         text: 'ホーム',
@@ -69,7 +82,15 @@ export default {
           }
         ]
       })
-    }
+    },
+    ...mapGetters('news', ['topNews', 'loading'])
+  },
+  methods: {
+    ...mapActions('news', ['getTopNews'])
+  },
+  async fetch({ store }) {
+    // news記事の取得
+    await store.dispatch('news/getTopNews')
   },
   // 投稿内容を取得
   async asyncData({ params }) {
@@ -99,13 +120,28 @@ h1 {
     margin: 0 auto;
   }
 }
-/* リストページだけ場所を調整 */
-.v-breadcrumbs {
-  padding: 20px 0px 0px 24px !important;
-}
 .ad {
   width: 90%;
   margin: 0 auto;
   margin-bottom: 20px;
+}
+/* リストページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 0px 0px 0px 24px !important;
+}
+@media screen and (max-width: 959px) {
+  .container {
+    padding: 0px !important;
+  }
+  /* リストページだけ場所を調整 */
+  .v-breadcrumbs {
+    padding: 20px 0px 0px 24px !important;
+  }
+}
+.container.grid-list-md .layout:only-child {
+  margin: 0px;
+}
+.container.grid-list-md .layout:not(:only-child) {
+  margin: auto 0px;
 }
 </style>
