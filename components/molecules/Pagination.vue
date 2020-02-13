@@ -4,7 +4,7 @@
       {{ start }}件 〜 {{ end }}件 / {{ total }}件
     </div>
     <div class="paging">
-      <nuxt-link :to="`/posts/page/${page - 1}`" :class="[page - 1 < 1 ? 'disabled' : '']">
+      <nuxt-link :to="`/posts/page/${page - 1}/`" :class="[page - 1 < 1 ? 'disabled' : '']">
         <v-icon :class="[page - 1 < 1 ? 'angle_disabled' : 'angle_normal']" class="angle">
           fas fa-angle-left
         </v-icon>
@@ -18,7 +18,7 @@
           {{ n + add }}
         </nuxt-link>
       </template>
-      <nuxt-link :to="`/posts/page/${page + 1}`" :class="[page + 1 > totalPage ? 'disabled' : '']">
+      <nuxt-link :to="`/posts/page/${page + 1}/`" :class="[page + 1 > totalPage ? 'disabled' : '']">
         <v-icon :class="[page + 1 > totalPage ? 'angle_disabled' : 'angle_normal']" class="angle">
           fas fa-angle-right
         </v-icon>
