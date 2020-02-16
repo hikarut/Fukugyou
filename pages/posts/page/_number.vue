@@ -46,6 +46,28 @@ export default {
     Tab,
     SideMenu
   },
+  head() {
+    return {
+      title: `エンジニア向け副複業(副業)情報一覧 ページ${this.page}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `エンジニア向け副複業(副業)情報一覧 ページ${this.page}`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `エンジニア向け副複業(副業)情報一覧 ページ${this.page}`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `エンジニア向け副複業(副業)情報一覧 ページ${this.page}`
+        }
+      ]
+    }
+  },
   mixins: [device],
   data: () => ({
     recomendNews: recomendNews,

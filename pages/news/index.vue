@@ -58,7 +58,26 @@ export default {
   },
   head() {
     return {
-      title: process.env.constant.newsList
+      title: process.env.constant.newsList,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            '毎日複業(副業)ニュースを更新！日次/月次で複業(副業)ニュースをまとめます'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            '毎日複業(副業)ニュースを更新！日次/月次で複業(副業)ニュースをまとめます'
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: process.env.constant.newsList
+        }
+      ]
     }
   },
   data: () => ({

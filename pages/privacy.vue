@@ -47,7 +47,26 @@ export default {
   components: { BreadList },
   head() {
     return {
-      title: 'プライバシーポリシー'
+      title: 'プライバシーポリシー',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'エンジニアのための複業メディアサイト「Fukugyou」のプライバシーポリシーについて'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'エンジニアのための複業メディアサイト「Fukugyou」のプライバシーポリシーについて'
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'プライバシーポリシー'
+        }
+      ]
     }
   },
   computed: {

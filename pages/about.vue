@@ -55,6 +55,28 @@ import BreadList from '~/components/organisms/BreadList.vue'
 
 export default {
   components: { BreadList },
+  head() {
+    return {
+      title: 'Fukugyouとは',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'エンジニアのための複業メディアサイト「Fukugyou」について'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'エンジニアのための複業メディアサイト「Fukugyou」について'
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Fukugyouとは'
+        }
+      ]
+    }
+  },
   computed: {
     breadItems() {
       return [

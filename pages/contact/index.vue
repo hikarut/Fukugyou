@@ -54,6 +54,30 @@ export default {
   components: {
     BreadList
   },
+  head() {
+    return {
+      title: 'お問い合わせ',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'エンジニアのための複業メディアサイト「Fukugyou」へのお問い合わせ'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'エンジニアのための複業メディアサイト「Fukugyou」へのお問い合わせ'
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'お問い合わせ'
+        }
+      ]
+    }
+  },
   data: () => ({
     nameRules: [name => checkName(name)],
     mailRules: [mail => checkMail(mail)],
