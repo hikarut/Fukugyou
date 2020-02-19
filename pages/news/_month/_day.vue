@@ -207,16 +207,18 @@ export default {
     }
   },
   async beforeMount() {
-    // if (this.error) {
-    // 静的ファイルの時にasyncDataでうまく取得できてない場合があるのでここでも実行する(※一時的な対応)
-    await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
-    // }
+    if (process.browser) {
+      // 静的ファイルの時にasyncDataでうまく取得できてない場合があるのでここでも実行する(※一時的な対応)
+      await this.$store.dispatch('news/getDailyNews', this.$route.params['day'])
+    }
   },
   methods: {
     ...mapActions('news', ['getDailyNews'])
   },
   async asyncData({ params, store, error }) {
-    await store.dispatch('news/getDailyNews', params.day)
+    if (!process.browser) {
+      await store.dispatch('news/getDailyNews', params.day)
+    }
     return { month: params.month, day: params.day }
   }
 }

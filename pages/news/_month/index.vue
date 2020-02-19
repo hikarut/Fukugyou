@@ -194,19 +194,21 @@ export default {
     }
   },
   async beforeMount() {
-    // if (this.error) {
-    // 静的ファイルの時にasyncDataでうまく取得できてない場合があるのでここでも実行する(※一時的な対応)
-    await this.$store.dispatch(
-      'news/getMonthlyNews',
-      this.$route.params['month']
-    )
-    // }
+    if (process.browser) {
+      // 静的ファイルの時にasyncDataでうまく取得できてない場合があるのでここでも実行する(※一時的な対応)
+      await this.$store.dispatch(
+        'news/getMonthlyNews',
+        this.$route.params['month']
+      )
+    }
   },
   methods: {
     ...mapActions('news', ['getMonthlyData'])
   },
   async asyncData({ params, store }) {
-    await store.dispatch('news/getMonthlyNews', params.month)
+    if (!process.browser) {
+      await store.dispatch('news/getMonthlyNews', params.month)
+    }
     return { month: params.month }
   }
 }
