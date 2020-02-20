@@ -37,7 +37,7 @@ pre code {
   color: #fff;
 }
 .markdown tbody {
-  background-color: rgba(19, 75, 138, 0.1);
+  /* background-color: rgba(19, 75, 138, 0.1); */
 }
 .markdown caption {
   padding: 10px;
