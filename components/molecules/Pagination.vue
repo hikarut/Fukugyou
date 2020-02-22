@@ -13,7 +13,7 @@
         <nuxt-link
           :key="n"
           :class="[page === n + add ? 'checked' : 'other']"
-          :to="`/posts/page/${n + add}`"
+          :to="`/posts/page/${n + add}/`"
           class="number" >
           {{ n + add }}
         </nuxt-link>
@@ -28,8 +28,6 @@
 </template>
 
 <script>
-const constant = require('~/config/constant.json')
-
 export default {
   props: {
     page: {
@@ -42,12 +40,12 @@ export default {
     }
   },
   data: () => ({
-    length: 3,
-    postsPerPage: constant.postsPerPage
+    length: 2,
+    postsPerPage: process.env.constant.postsPerPage
   }),
   computed: {
     totalPage() {
-      return Math.ceil(this.total / constant.postsPerPage)
+      return Math.ceil(this.total / process.env.constant.postsPerPage)
     },
     add() {
       if (this.page <= 2) {
@@ -61,12 +59,12 @@ export default {
     start() {
       return this.page === 1
         ? this.page
-        : (this.page - 1) * constant.postsPerPage + 1
+        : (this.page - 1) * process.env.constant.postsPerPage + 1
     },
     end() {
-      return this.page * constant.postsPerPage >= this.total
+      return this.page * process.env.constant.postsPerPage >= this.total
         ? this.total
-        : this.page * constant.postsPerPage
+        : this.page * process.env.constant.postsPerPage
     }
   }
 }
