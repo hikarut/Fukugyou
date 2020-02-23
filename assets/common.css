@@ -27,8 +27,13 @@ pre code {
 }
 /* マークダウンの見出しを調整 */
 .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5 {
-  padding-top: 50px;
-  padding-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.markdown h2 {
+  border-left: solid 5px rgba(19, 75, 138, 0.6);
+  padding-left: 10px;
 }
 /* マークダウンのテーブルを調整 */
 .markdown thead,
