@@ -121,12 +121,7 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-    '~/assets/style/app.styl',
-    '~/assets/common.css',
-    '~/assets/embed.css',
-    '@fortawesome/fontawesome-free/css/all.css'
-  ],
+  css: ['~/assets/style/app.styl', '~/assets/common.css', '~/assets/embed.css'],
 
   /*
   ** Plugins to load before mounting the App
@@ -150,7 +145,13 @@ export default {
         id: adsenseId
       }
     ],
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
+    [
+      'nuxt-fontawesome',
+      {
+        component: 'fa'
+      }
+    ]
   ],
 
   markdownit: {

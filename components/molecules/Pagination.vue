@@ -5,9 +5,7 @@
     </div>
     <div class="paging">
       <nuxt-link :to="`/posts/page/${page - 1}/`" :class="[page - 1 < 1 ? 'disabled' : '']">
-        <v-icon :class="[page - 1 < 1 ? 'angle_disabled' : 'angle_normal']" class="angle">
-          fas fa-angle-left
-        </v-icon>
+        <fa :icon="faAngleLeft" :class="[page - 1 < 1 ? 'angle_disabled' : 'angle_normal']" class="angle" />
       </nuxt-link>
       <template v-for="n of length">
         <nuxt-link
@@ -19,15 +17,15 @@
         </nuxt-link>
       </template>
       <nuxt-link :to="`/posts/page/${page + 1}/`" :class="[page + 1 > totalPage ? 'disabled' : '']">
-        <v-icon :class="[page + 1 > totalPage ? 'angle_disabled' : 'angle_normal']" class="angle">
-          fas fa-angle-right
-        </v-icon>
+        <fa :icon="faAngleRight" :class="[page + 1 > totalPage ? 'angle_disabled' : 'angle_normal']" class="angle" />
       </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+
 export default {
   props: {
     page: {
@@ -44,6 +42,12 @@ export default {
     postsPerPage: process.env.constant.postsPerPage
   }),
   computed: {
+    faAngleLeft() {
+      return faAngleLeft
+    },
+    faAngleRight() {
+      return faAngleRight
+    },
     totalPage() {
       return Math.ceil(this.total / process.env.constant.postsPerPage)
     },
@@ -82,7 +86,7 @@ export default {
 }
 .angle {
   display: inline-flex;
-  height: 15px;
+  height: 20px;
   margin-left: 20px;
 }
 .angle_normal {

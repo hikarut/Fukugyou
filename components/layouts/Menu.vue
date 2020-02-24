@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn icon>
-      <v-icon color="white" @click.stop="drawer = !drawer">fas fa-bars</v-icon>
+      <fa :icon="faBars" style="font-size: 23px" color="white" @click.stop="drawer = !drawer" />
     </v-btn>
 
     <v-navigation-drawer v-model="drawer"
@@ -18,7 +18,7 @@
           @click="go(item.url)"
         >
           <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <fa :icon="item.icon" class="menu-icon" />
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title class="list-title">{{ item.title }}</v-list-tile-title>
@@ -32,12 +32,18 @@
 <script>
 import menu from '~/mixins/menu'
 import method from '~/mixins/method'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 export default {
   mixins: [menu, method],
   data: () => ({
     drawer: null
-  })
+  }),
+  computed: {
+    faBars() {
+      return faBars
+    }
+  }
 }
 </script>
 
@@ -59,5 +65,9 @@ export default {
 }
 .list-tile {
   margin-top: 10px;
+}
+.menu-icon {
+  font-size: 23px;
+  color: gray;
 }
 </style>

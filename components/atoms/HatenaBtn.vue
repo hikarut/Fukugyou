@@ -1,11 +1,12 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <v-icon color="#00a4de" class="square">fab fa-bootstrap</v-icon>
+    <fa :icon="faBootstrap" class="square" color="#00a4de" />
   </a>
 </template>
 
 <script>
 import { hatenaUrl } from '~/lib/sns'
+import { faBootstrap } from '@fortawesome/free-brands-svg-icons'
 
 export default {
   props: {
@@ -15,6 +16,9 @@ export default {
     }
   },
   computed: {
+    faBootstrap() {
+      return faBootstrap
+    },
     shareUrl() {
       return hatenaUrl(this.url)
     }
