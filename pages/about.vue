@@ -31,7 +31,7 @@
       <v-flex>
         <h4 class="subheading">
           <p>
-            ・本業：Web系企業エンジニア/マネージャー/データアナリスト<br>
+            ・本業：Web系企業エンジニア/マネージャー/データサイエンティスト<br>
             ・複業：株式会社エッグシステムCTO<br>
             ・2つの会社で正社員として働いており「複業」を体現中<br>
             ・複業先の株式会社エッグシステムでは同じように複業で参加しているエンジニアのコミュニティ作りにも貢献<br>
@@ -39,10 +39,10 @@
           </p>
         </h4>
         <v-layout align-center row justify-space-around class="sns">
-          <a href="https://github.com/hikarut" target="blank"><v-icon class="square" color="#24292e">fab fa-github-square</v-icon></a>
-          <a href="https://twitter.com/light940" target="blank"><v-icon class="square" color="#55acee">fab fa-twitter-square</v-icon></a>
-          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><v-icon class="square" color="#315096">fab fa-facebook-square</v-icon></a>
-          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/qiita-favicon.png" class="siteImg"></a>
+          <a href="https://github.com/hikarut" target="blank"><fa :icon="faGithubSquare" class="square" color="#24292e" /></a>
+          <a href="https://twitter.com/light940" target="blank"><fa :icon="faTwitterSquare" class="square" color="#55acee" /></a>
+          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><fa :icon="faFacebookSquare" class="square" color="#315096" /></a>
+          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/qiita-favicon.png" class="qiita"></a>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -52,6 +52,11 @@
 
 <script>
 import BreadList from '~/components/organisms/BreadList.vue'
+import {
+  faGithubSquare,
+  faTwitterSquare,
+  faFacebookSquare
+} from '@fortawesome/free-brands-svg-icons'
 
 export default {
   components: { BreadList },
@@ -78,6 +83,15 @@ export default {
     }
   },
   computed: {
+    faGithubSquare() {
+      return faGithubSquare
+    },
+    faTwitterSquare() {
+      return faTwitterSquare
+    },
+    faFacebookSquare() {
+      return faFacebookSquare
+    },
     breadItems() {
       return [
         {
@@ -134,9 +148,10 @@ h4 p {
 a {
   text-decoration: none;
 }
-.siteImg {
+.qiita {
   width: 30px;
   border-radius: 5px;
+  margin-top: 3px;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

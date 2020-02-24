@@ -1,11 +1,12 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <v-icon color="#00c300" class="square">fab fa-line</v-icon>
+    <fa :icon="faLine" class="square" color="#00c300" />
   </a>
 </template>
 
 <script>
 import { lineUrl } from '~/lib/sns'
+import { faLine } from '@fortawesome/free-brands-svg-icons'
 
 export default {
   props: {
@@ -19,6 +20,9 @@ export default {
     }
   },
   computed: {
+    faLine() {
+      return faLine
+    },
     shareUrl() {
       return lineUrl(this.url, this.text)
     }

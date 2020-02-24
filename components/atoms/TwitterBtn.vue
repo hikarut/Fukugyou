@@ -1,11 +1,12 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <v-icon color="#55acee" class="square">fab fa-twitter-square</v-icon>
+    <fa :icon="faTwitterSquare" class="square" color="#55acee" />
   </a>
 </template>
 
 <script>
 import { twitterUrl } from '~/lib/sns'
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 
 export default {
   props: {
@@ -23,6 +24,9 @@ export default {
     }
   },
   computed: {
+    faTwitterSquare() {
+      return faTwitterSquare
+    },
     shareUrl() {
       return twitterUrl(this.url, this.text, this.tag)
     }

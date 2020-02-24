@@ -1,12 +1,21 @@
+import {
+  faHome,
+  faQuestionCircle,
+  faNewspaper,
+  faLaptopCode,
+  faEnvelope,
+  faKey
+} from '@fortawesome/free-solid-svg-icons'
+
 export default {
   data: () => ({
     menus: [
-      { title: 'Home', url: '/', icon: 'fas fa-home' },
-      { title: 'About', url: '/about/', icon: 'fas fa-question-circle' },
-      { title: 'News', url: '/news/', icon: 'fas fa-newspaper' },
-      { title: 'Posts', url: '/posts/', icon: 'far fa-newspaper' },
-      { title: 'Contact', url: '/contact/', icon: 'far fa-envelope' },
-      { title: 'Privacy', url: '/privacy/', icon: 'fas fa-key' }
+      { title: 'Home', url: '/', icon: faHome },
+      { title: 'About', url: '/about/', icon: faQuestionCircle },
+      { title: 'News', url: '/news/', icon: faNewspaper },
+      { title: 'Engineer', url: '/posts/', icon: faLaptopCode },
+      { title: 'Contact', url: '/contact/', icon: faEnvelope },
+      { title: 'Privacy', url: '/privacy/', icon: faKey }
     ]
   })
 }

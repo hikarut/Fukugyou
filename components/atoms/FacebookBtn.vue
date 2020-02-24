@@ -1,11 +1,12 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <v-icon color="#315096" class="square">fab fa-facebook-square</v-icon>
+    <fa :icon="faFacebookSquare" class="square" color="#315096" />
   </a>
 </template>
 
 <script>
 import { facebookUrl } from '~/lib/sns'
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 
 export default {
   props: {
@@ -15,6 +16,9 @@ export default {
     }
   },
   computed: {
+    faFacebookSquare() {
+      return faFacebookSquare
+    },
     shareUrl() {
       return facebookUrl(this.url)
     }

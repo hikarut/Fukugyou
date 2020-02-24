@@ -7,7 +7,7 @@
         エンジニアのための技術情報や<br>
         複業(副業)の情報を提供します。</p>
       <v-btn icon>
-        <a :href="twitterUrl" target="blank"><v-icon>fab fa-twitter</v-icon></a>
+        <a :href="twitterUrl" target="blank"><fa :icon="faTwitter" style="font-size: 23px" color="white" /></a>
       </v-btn><br>
       <div>
         <li v-for="(item, i) in menus" :key="i" class="link">
@@ -24,6 +24,7 @@
 <script>
 import Logo from '~/components/layouts/Logo.vue'
 import menu from '~/mixins/menu'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { twitterUrl } from '~/lib/sns'
 
 export default {
@@ -34,7 +35,12 @@ export default {
   data: () => ({
     date: new Date().getFullYear(),
     twitterUrl: process.env.constant.twitterUrl
-  })
+  }),
+  computed: {
+    faTwitter() {
+      return faTwitter
+    }
+  }
 }
 </script>
 
