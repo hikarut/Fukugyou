@@ -36,7 +36,6 @@
         <v-btn
           :disabled="!canClick"
           class="btn white--text"
-          color="#134b8a"
           @click="next()">
           確認
         </v-btn>
@@ -136,7 +135,6 @@ export default {
   },
   methods: {
     next() {
-      console.log('next')
       console.log(this.$store.state.contact.name)
       this.$router.push('/contact/confirm')
     },
@@ -145,6 +143,11 @@ export default {
 }
 </script>
 
-<style scoped>
-@import '~/assets/form.css';
+<style lang="scss" scoped>
+@import '~/assets/scss/form.scss';
+
+.btn {
+  background-color: $mainColor !important;
+  border-color: $mainColor !important;
+}
 </style>

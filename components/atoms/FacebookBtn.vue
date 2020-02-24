@@ -1,6 +1,6 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <fa :icon="faFacebookSquare" class="square" color="#315096" />
+    <fa :icon="faFacebookSquare" class="square" />
   </a>
 </template>
 
@@ -26,8 +26,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .square {
   font-size: 35px;
+  color: $facebookColor;
 }
 </style>

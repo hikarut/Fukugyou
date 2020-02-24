@@ -20,13 +20,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .date {
-  color: rgba(0, 0, 0, 0.54);
+  color: $darkGrayLight;
   font-size: 14px;
 }
 .title {
-  color: #424242 !important;
+  color: $darkGray !important;
   font-size: 14px !important;
   font-weight: 400;
   -webkit-line-clamp: 3;

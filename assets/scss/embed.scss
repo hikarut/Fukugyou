@@ -2,7 +2,7 @@
   box-sizing: border-box;
   display: block;
   width: 100%;
-  background-color: #fff;
+  background-color: $white;
 }
 .embed-html-box > p {
   display: table-cell !important;
@@ -17,7 +17,7 @@
   display: table;
   vertical-align: middle;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid $whiteGray;
 }
 .embed-html-box a:after {
   content: '';
@@ -44,7 +44,7 @@
   padding: 0;
 }
 .embed-html-box_title q {
-  color: #363636;
+  color: $darkGray;
   font-size: 16px;
   font-weight: 700;
   line-height: 1.6;
@@ -59,7 +59,7 @@
 }
 .embed-html-box_description q {
   margin-top: 8px;
-  color: #363636;
+  color: $darkGray;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0;

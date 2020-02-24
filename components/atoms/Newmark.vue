@@ -1,5 +1,5 @@
 <template>
-  <v-chip v-if="isNew" color="#e6b276" text-color="white" class="newmark">
+  <v-chip v-if="isNew" text-color="white" class="newmark">
     new!
   </v-chip>
 </template>
@@ -15,9 +15,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .newmark {
   font-size: 10px;
   font-weight: bold;
+  color: $newmarkColor;
 }
 </style>

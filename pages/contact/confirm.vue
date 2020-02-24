@@ -31,7 +31,7 @@
       />
       <v-layout align-center justify-center row class="btn-layout">
         <v-btn class="btn" @click="back()">戻る</v-btn>
-        <v-btn class="btn white--text" color="#134b8a" @click="complete()">送信</v-btn>
+        <v-btn class="btn btn-main white--text" @click="complete()">送信</v-btn>
       </v-layout>
     </div>
   </form>
@@ -79,7 +79,6 @@ export default {
       const axiosConfig = {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
       }
-      console.log(this.$store.state.contact.name)
       axios
         .post(
           '/',
@@ -92,8 +91,6 @@ export default {
           axiosConfig
         )
         .then(result => {
-          console.log('post')
-          console.log(result)
           this.$router.push('/contact/complete')
         })
         .catch(error => {
@@ -108,6 +105,11 @@ export default {
 }
 </script>
 
-<style scoped>
-@import '~/assets/form.css';
+<style lang="scss" scoped>
+@import '~/assets/scss/form.scss';
+
+.btn-main {
+  background-color: $mainColor !important;
+  border-color: $mainColor !important;
+}
 </style>

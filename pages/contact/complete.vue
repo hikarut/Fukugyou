@@ -6,7 +6,7 @@
       お問い合わせ内容をご確認致しますので少々お待ちください。
     </div>
     <v-layout align-center justify-center row class="btn-layout">
-      <v-btn class="btn white--text" color="#134b8a" @click="goTop()">トップページに戻る</v-btn>
+      <v-btn class="btn btn-main white--text" @click="goTop()">トップページに戻る</v-btn>
     </v-layout>
   </div>
 </template>
@@ -53,13 +53,17 @@ export default {
 }
 </script>
 
-<style scoped>
-@import '~/assets/form.css';
+<style lang="scss" scoped>
+@import '~/assets/scss/form.scss';
 /* 完了ページだけ上下にスペースを作る */
 .complete {
   padding-top: 50px;
 }
 .btn-layout {
   padding-bottom: 150px;
+}
+.btn-main {
+  background-color: $mainColor !important;
+  border-color: $mainColor !important;
 }
 </style>

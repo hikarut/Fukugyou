@@ -132,9 +132,6 @@ export default {
 .v-card {
   box-shadow: initial;
 }
-.date span {
-  /* color: '#9e9e9e'; */
-}
 .date {
   color: rgba(0, 0, 0, 0.54);
   background-color: whitesmoke;

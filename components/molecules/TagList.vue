@@ -17,9 +17,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .tag_text {
-  background-color: #bbb;
+  background-color: $midleGray;
   border-radius: 5%;
   margin-left: 10px;
   color: white;
