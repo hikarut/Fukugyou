@@ -1,6 +1,6 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <fa :icon="faLine" class="square" color="#00c300" />
+    <fa :icon="faLine" class="square" />
   </a>
 </template>
 
@@ -30,8 +30,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .square {
   font-size: 35px;
+  color: $lineColor;
 }
 </style>

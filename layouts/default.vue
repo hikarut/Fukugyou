@@ -20,11 +20,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 body {
-  color: #424242;
+  color: $darkGray;
 }
 .app {
-  background: white !important;
+  background: $white !important;
 }
 </style>

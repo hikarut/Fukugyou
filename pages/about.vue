@@ -39,9 +39,9 @@
           </p>
         </h4>
         <v-layout align-center row justify-space-around class="sns">
-          <a href="https://github.com/hikarut" target="blank"><fa :icon="faGithubSquare" class="square" color="#24292e" /></a>
-          <a href="https://twitter.com/light940" target="blank"><fa :icon="faTwitterSquare" class="square" color="#55acee" /></a>
-          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><fa :icon="faFacebookSquare" class="square" color="#315096" /></a>
+          <a href="https://github.com/hikarut" target="blank"><fa :icon="faGithubSquare" class="square github" /></a>
+          <a href="https://twitter.com/light940" target="blank"><fa :icon="faTwitterSquare" class="square twitter" /></a>
+          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><fa :icon="faFacebookSquare" class="square facebook" /></a>
           <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/qiita-favicon.png" class="qiita"></a>
         </v-layout>
       </v-flex>
@@ -52,6 +52,7 @@
 
 <script>
 import BreadList from '~/components/organisms/BreadList.vue'
+
 import {
   faGithubSquare,
   faTwitterSquare,
@@ -125,7 +126,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* h1 img { */
 h4 {
   padding-top: 30px;
@@ -152,6 +153,15 @@ a {
   width: 30px;
   border-radius: 5px;
   margin-top: 3px;
+}
+.github {
+  color: $githubColor;
+}
+.twitter {
+  color: $twitterColor;
+}
+.facebook {
+  color: $facebookColor;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

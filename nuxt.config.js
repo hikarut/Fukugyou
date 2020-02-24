@@ -121,7 +121,11 @@ export default {
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/app.styl', '~/assets/common.css', '~/assets/embed.css'],
+  css: [
+    '~/assets/style/app.styl',
+    { src: '~assets/scss/markdown.scss', lang: 'scss' },
+    { src: '~assets/scss/embed.scss', lang: 'scss' }
+  ],
 
   /*
   ** Plugins to load before mounting the App
@@ -151,8 +155,13 @@ export default {
       {
         component: 'fa'
       }
-    ]
+    ],
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    scss: ['~/assets/scss/common.scss']
+  },
 
   markdownit: {
     injected: true, // $mdを利用してmarkdownをhtmlにレンダリングする

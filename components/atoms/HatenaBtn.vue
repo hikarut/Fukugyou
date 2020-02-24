@@ -1,6 +1,6 @@
 <template>
   <a :href="shareUrl" target="blank">
-    <fa :icon="faBootstrap" class="square" color="#00a4de" />
+    <fa :icon="faBootstrap" class="square" />
   </a>
 </template>
 
@@ -26,8 +26,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .square {
   font-size: 35px;
+  color: $hatenaColor;
 }
 </style>

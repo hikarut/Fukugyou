@@ -1,0 +1,48 @@
+$mainColor: #134b8a;
+$mainColorLight: rgba($mainColor, 0.6);
+$darkGray: #424242;
+$darkGrayLight: rgba($darkGray, 0.6);
+$midleGray: #bbb;
+$whiteGray: #ddd;
+$white: #fff;
+$black: #000000;
+$newmarkColor: #e6b276;
+
+$facebookColor: #315096;
+$hatenaColor: #00a4de;
+$lineColor: #00c300;
+$noteColor: #2cb696;
+$twitterColor: #55acee;
+$githubColor: #24292e;
+
+
+html {
+  -webkit-tap-highlight-color: rgba(19, 75, 138, 0.4) !important;
+  /* 英語でも折り返すようにする */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+a {
+  text-decoration: none;
+}
+/* 見出し */
+.subheader {
+  font-size: 20px !important;
+}
+img[lazy='loaded'] {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: scrollIn;
+}
+@keyframes scrollIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.v-btn {
+  font-weight: 400 !important;
+}

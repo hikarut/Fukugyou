@@ -1,7 +1,6 @@
 <template>
   <v-tabs
     centered
-    color="#134b8a"
   >
 
     <v-tab :class="[isHome ? 'active' : '']" @click="go('/')">
@@ -38,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-tabs {
   margin-top: -1px;
 }
@@ -50,9 +49,13 @@ export default {
 .v-tabs__slider-wrapper {
   display: none !important;
 }
+.theme--light.v-tabs__bar {
+  background-color: $mainColor !important;
+  border-color: $mainColor !important;
+}
 </style>
 
-<style scoped>
+<style lang="scss" scoped>
 .active {
   padding-top: 5px;
   border-bottom: solid 5px white;

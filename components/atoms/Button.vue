@@ -1,7 +1,7 @@
 <template>
   <div class="button">
     <nuxt-link :to="link">
-      <v-btn block outline color="#134b8a">
+      <v-btn block outline class="button-line">
         {{ text }}
       </v-btn>
     </nuxt-link>
@@ -24,9 +24,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .button {
   width: 90%;
   margin: 0 auto;
+}
+.button-line {
+  color: $mainColor;
 }
 </style>

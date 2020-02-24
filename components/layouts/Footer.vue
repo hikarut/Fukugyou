@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="footer" color="#134b8a" height="250">
+  <v-footer height="250">
     <v-flex
       text-xs-center class="footer-title">
       <logo /><br>
@@ -44,17 +44,16 @@ export default {
 }
 </script>
 
-<style>
-.footer {
-  position: absolute;
-  width: 100%;
-}
+<style lang="scss" scoped>
 .footer-title {
   color: white;
 }
+.theme--light.v-footer {
+  background: $mainColor;
+}
 /* twitter icon */
 .v-btn .v-btn__content .v-icon {
-  color: white;
+  color: $white;
 }
 .link {
   list-style: none;
@@ -63,19 +62,16 @@ export default {
 }
 .link a {
   text-decoration: none;
-  /* color: black; */
-  color: white;
+  color: $white;
 }
 .link a:hover {
   text-decoration: underline;
 }
 .copyright {
   margin-top: 10px;
-  /* color: black; */
-  color: white;
+  color: $white;
 }
 .description {
   font-size: 12px;
-  /* font-weight: bold; */
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-layout row>
     <v-flex>
-      <v-card color="#134b8a">
+      <v-card class="header-area">
         <v-card-title>
           <logo />
           <v-spacer/>
@@ -24,7 +24,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.header-area {
+  background: $mainColor !important;
+}
 /* ヘッダー下の影を消す */
 .v-card {
   box-shadow: initial;

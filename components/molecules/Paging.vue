@@ -1,12 +1,12 @@
 <template>
   <v-layout align-center row justify-space-around class="paging">
     <nuxt-link :to="(beforeLink === '') ? '' : `/news/${beforeLink}/`">
-      <v-btn :disabled="(beforeLink === '') ? true : false" outline color="#134b8a">
+      <v-btn :disabled="(beforeLink === '') ? true : false" outline class="button-line">
         {{ beforeText }}<br>の{{ newsText }}
       </v-btn>
     </nuxt-link>
     <nuxt-link :to="(nextLink === '') ? '' : `/news/${nextLink}/`">
-      <v-btn :disabled="(nextLink === '') ? true : false" outline color="#134b8a">
+      <v-btn :disabled="(nextLink === '') ? true : false" outline class="button-line">
         {{ nextText }}<br>の{{ newsText }}
       </v-btn>
     </nuxt-link>
@@ -55,7 +55,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.button-line {
+  color: $mainColor;
+}
 .paging {
   padding-top: 30px;
   padding-bottom: 15px;

@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .paging {
   height: 40px;
   line-height: 40px;
@@ -86,14 +86,14 @@ export default {
 }
 .angle {
   display: inline-flex;
-  height: 20px;
+  height: 15px;
   margin-left: 20px;
 }
 .angle_normal {
-  color: #55acee;
+  color: $mainColor;
 }
 .angle_disabled {
-  color: #bbb;
+  color: $whiteGray;
 }
 .number {
   font-size: 15px;
@@ -105,8 +105,8 @@ export default {
   border-radius: 50%;
 }
 .checked {
-  background-color: #bbb;
-  color: #fff;
+  background-color: $whiteGray;
+  color: $white;
   pointer-events: none;
 }
 .disabled {

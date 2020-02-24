@@ -24,12 +24,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .outclip {
   font-size: 11px;
   width: 80px;
   background-color: black;
-  color: white;
+  color: $white;
   text-align: center;
   border-radius: 5px !important;
   margin: 0 0 0 18px;
@@ -41,13 +41,13 @@ export default {
   }
 }
 .newspicks {
-  background-color: black;
+  background-color: $black;
 }
 .hatena {
-  background-color: #008fde;
+  background-color: $hatenaColor;
 }
 .note {
-  background-color: #2cb696;
+  background-color: $noteColor;
 }
 /* vuetifyから上書き */
 .v-card > *:last-child:not(.v-btn):not(.v-chip) {
