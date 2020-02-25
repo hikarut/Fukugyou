@@ -35,7 +35,6 @@ import Tab from '~/components/layouts/Tab.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import recomendNews from '~/config/recomendNews.json5'
 import device from '~/mixins/device'
-const constant = require('~/config/constant.json')
 
 export default {
   components: {
@@ -117,7 +116,7 @@ export default {
   // 投稿内容を取得
   async asyncData({ params }) {
     const page = checkPage(params.number)
-    const data = await getEntries(constant.postsPerPage, page)
+    const data = await getEntries(process.env.constant.postsPerPage, page)
     return {
       postData: data,
       page: page,

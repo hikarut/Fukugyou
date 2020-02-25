@@ -39,7 +39,7 @@ import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
-const monthlyList = require('~/config/monthly.json5')
+import monthlyList from '~/config/monthly.json5'
 
 export default {
   components: {

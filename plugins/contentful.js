@@ -1,7 +1,6 @@
-// import { contentful } from 'contentful'
 import { dateString } from '~/lib/date'
+import constant from '~/config/constant.json'
 const contentful = require('contentful')
-const constant = require('~/config/constant.json')
 
 // 初期設定
 const config = {

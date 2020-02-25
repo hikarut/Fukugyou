@@ -44,8 +44,7 @@ import TagList from '~/components/molecules/TagList.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import { dateString } from '~/lib/date'
 import { getEntryById } from '~/plugins/contentful'
-
-const recomendNews = require('~/config/recomendNews.json5')
+import recomendNews from '~/config/recomendNews.json5'
 
 export default {
   components: {

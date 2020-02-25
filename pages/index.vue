@@ -41,7 +41,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
-const recomendNews = require('~/config/recomendNews.json5')
+import recomendNews from '~/config/recomendNews.json5'
 
 export default {
   components: {
