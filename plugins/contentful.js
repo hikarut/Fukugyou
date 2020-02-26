@@ -1,7 +1,4 @@
-// nuxt.config.jsから使うとwebpackビルド前でパスの読み込みがうまくいかないので
-const path = process.cwd()
-const { dateString, getAllTerm } = require(`${path}/lib/date`)
-const constant = require(`${path}/config/constant.json`)
+import { dateString } from '~/lib/date'
 const contentful = require('contentful')
 
 // 初期設定
@@ -11,33 +8,6 @@ const client = contentful.createClient({
   timeout: 60000,
   retryLimit: 10
 })
-
-/*
- * ルーティング
- * @return array ページのパス
- */
-export function routing() {
-  const allTerm = getAllTerm()
-  return client
-    .getEntries({
-      content_type: process.env.CONTENT_TYPE
-    })
-    .then(entries => {
-      const page = Math.ceil(entries.total / process.env.constant.postsPerPage)
-      return [
-        ...entries.items.map(entry => `/posts/${entry.fields.url}/`),
-        // ページング
-        ...[...Array(page).keys()].map(i => `/posts/page/${i + 1}/`),
-        // 日次のパス生成
-        ...allTerm.map(data => `/news/${data.key}/${data.value}/`),
-        // 月次のパス生成
-        ...allTerm.map(data => `/news/${data.key}/`)
-      ]
-    })
-    .catch(error => {
-      console.log(error)
-    })
-}
 
 /*
  * 記事の取得
@@ -50,7 +20,7 @@ export async function getEntries(limit, page = 1) {
       content_type: process.env.CONTENT_TYPE,
       order: '-sys.createdAt',
       limit: limit,
-      skip: (page - 1) * constant.postsPerPage
+      skip: (page - 1) * process.env.constant.postsPerPage
     })
     .then(entries => {
       // 表示用データに整形
