@@ -195,7 +195,7 @@ export default {
   */
   generate: {
     async routes() {
-      return routing()
+      return routing(constant.postsPerPage)
     }
   },
 
@@ -218,7 +218,7 @@ export default {
       '/news/tech'
     ],
     routes() {
-      return routing()
+      return routing(constant.postsPerPage)
     },
     filter({ routes }) {
       return routes.map(route => {

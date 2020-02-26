@@ -69,7 +69,7 @@ export default {
   }),
   // 投稿内容を取得
   asyncData() {
-    return getEntries(2)
+    return getEntries()
   },
   async fetch({ store }) {
     // news記事の取得
