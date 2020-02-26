@@ -1,15 +1,43 @@
-import { dateString } from '~/lib/date'
-import constant from '~/config/constant.json'
+// nuxt.config.jsから使うとwebpackビルド前でパスの読み込みがうまくいかないので
+const path = process.cwd()
+const { dateString, getAllTerm } = require(`${path}/lib/date`)
+const constant = require(`${path}/config/constant.json`)
 const contentful = require('contentful')
 
 // 初期設定
-const config = {
+const client = contentful.createClient({
   space: process.env.SPACE,
   accessToken: process.env.ACCESS_TOKEN,
   timeout: 60000,
   retryLimit: 10
+})
+
+/*
+ * ルーティング
+ * @return array ページのパス
+ */
+export function routing() {
+  const allTerm = getAllTerm()
+  return client
+    .getEntries({
+      content_type: process.env.CONTENT_TYPE
+    })
+    .then(entries => {
+      const page = Math.ceil(entries.total / process.env.constant.postsPerPage)
+      return [
+        ...entries.items.map(entry => `/posts/${entry.fields.url}/`),
+        // ページング
+        ...[...Array(page).keys()].map(i => `/posts/page/${i + 1}/`),
+        // 日次のパス生成
+        ...allTerm.map(data => `/news/${data.key}/${data.value}/`),
+        // 月次のパス生成
+        ...allTerm.map(data => `/news/${data.key}/`)
+      ]
+    })
+    .catch(error => {
+      console.log(error)
+    })
 }
-const client = contentful.createClient(config)
 
 /*
  * 記事の取得
