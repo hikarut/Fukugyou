@@ -43,7 +43,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import TagList from '~/components/molecules/TagList.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import { dateString } from '~/lib/date'
-import { getEntryById } from '~/plugins/contentful'
+import { getEntryById } from '~/lib/contentful'
 import recomendNews from '~/config/recomendNews.json5'
 
 export default {

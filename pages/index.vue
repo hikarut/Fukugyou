@@ -31,7 +31,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { getEntries } from '~/plugins/contentful'
+import { getEntries } from '~/lib/contentful'
 import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
