@@ -74,7 +74,7 @@ export default {
       {
         text: 'ホーム',
         disabled: false,
-        url: '/'
+        url: process.env.constant.sitePathHome
       },
       {
         text: process.env.constant.postList,
@@ -99,7 +99,8 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.postList,
-            item: '${process.env.constant.url}/posts/page/1/'
+            item:
+              '${process.env.constant.url}${process.env.constant.sitePathPosts}'
           }
         ]
       })

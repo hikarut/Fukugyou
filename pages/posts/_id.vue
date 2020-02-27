@@ -130,17 +130,17 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: process.env.constant.postList,
           disabled: false,
-          url: '/posts'
+          url: process.env.constant.sitePathPosts
         },
         {
           text: this.post.fields.title.trim(),
           disabled: true,
-          url: '/'
+          url: process.env.constant.sitePathHome
         }
       ]
     },

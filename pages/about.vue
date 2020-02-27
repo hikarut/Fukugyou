@@ -98,12 +98,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: 'Fukugyouとは',
           disabled: true,
-          url: '/'
+          url: process.env.constant.sitePathHome
         }
       ]
     },
@@ -112,7 +112,7 @@ export default {
         '@context': 'https://schema.org/',
         '@type': 'Person',
         name: 'hikaru takahashi',
-        url: `${process.env.constant.url}/about`,
+        url: `${process.env.constant.url}${process.env.constant.sitePathAbout}`,
         image:
           'https://pbs.twimg.com/profile_images/1134099996658192384/eYLwf5HY_400x400.jpg',
         sameAs: [

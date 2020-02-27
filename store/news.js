@@ -70,8 +70,12 @@ export const getters = {
         }`,
         dateSort: state.data[key].date,
         title: state.data[key].title,
-        link: `/news/${state.data[key].month}/${state.data[key].date}/`,
-        monthLink: `/news/${state.data[key].month}/`,
+        link: `${process.env.constant.sitePathNews}${state.data[key].month}/${
+          state.data[key].date
+        }/`,
+        monthLink: `${process.env.constant.sitePathNews}${
+          state.data[key].month
+        }/`,
         service:
           typeof state.data[key].service !== 'undefined'
             ? state.data[key].service
@@ -194,9 +198,9 @@ export const getters = {
         }`,
         dateSort: state.monthlyData[key].date,
         title: state.monthlyData[key].title,
-        link: `/news/${state.monthlyData[key].month}/${
-          state.monthlyData[key].date
-        }/`,
+        link: `${process.env.constant.sitePathNews}${
+          state.monthlyData[key].month
+        }/${state.monthlyData[key].date}/`,
         service:
           typeof state.monthlyData[key].service !== 'undefined'
             ? state.monthlyData[key].service

@@ -5,7 +5,7 @@
 <script>
 export default {
   fetch({ redirect }) {
-    redirect(301, '/news/')
+    redirect(301, process.env.constant.sitePathNews)
   }
 }
 </script>

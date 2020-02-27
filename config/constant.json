@@ -10,5 +10,11 @@
   "newsImage": "https://fukugyou.dev/newsImage.png",
   "postsPerPage": 10,
   "retryCount": 3,
-  "imageWidth": 800
+  "imageWidth": 800,
+  "sitePathHome": "/",
+  "sitePathNews": "/news/",
+  "sitePathPosts": "/posts/page/1/",
+  "sitePathAbout": "/about/",
+  "sitePathContact": "/contact/",
+  "sitePathPrivacy": "/privacy/"
 }

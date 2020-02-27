@@ -118,17 +118,17 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: process.env.constant.newsList,
           disabled: false,
-          url: '/news/'
+          url: process.env.constant.sitePathNews
         },
         {
           text: addDateString(this.month),
           disabled: true,
-          url: `/news/${this.month}/`
+          url: `${process.env.constant.sitePathNews}${this.month}/`
         }
       ]
     },
@@ -180,13 +180,17 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.newsList,
-            item: `${process.env.constant.url}/news/`
+            item: `${process.env.constant.url}${
+              process.env.constant.sitePathNews
+            }`
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: addDateString(this.month),
-            item: `${process.env.constant.url}/news/${this.month}/`
+            item: `${process.env.constant.url}${
+              process.env.constant.sitePathNews
+            }${this.month}/`
           }
         ]
       })

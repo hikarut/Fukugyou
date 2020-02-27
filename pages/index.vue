@@ -10,11 +10,11 @@
             </template>
             <template v-else>
               <card-item :items="topNews" tag="h1" />
-              <button-link :link="'/news/'" class="news-more" text="もっと見る" />
+              <button-link :link="sitePathNews" class="news-more" text="もっと見る" />
             </template>
 
             <big-img-item :items="listData" tag="h2" />
-            <button-link link="/posts/page/1/" class="tech-more" text="もっと見る" />
+            <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
 
           </div>
 
@@ -65,7 +65,9 @@ export default {
     }
   },
   data: () => ({
-    recomendNews: recomendNews
+    recomendNews: recomendNews,
+    sitePathNews: process.env.constant.sitePathNews,
+    sitePathPosts: process.env.constant.sitePathPosts
   }),
   // 投稿内容を取得
   asyncData() {

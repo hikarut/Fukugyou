@@ -26,12 +26,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: 'お問い合わせ',
           disabled: false,
-          url: '/contact'
+          url: process.env.constant.sitePathContact
         },
         {
           text: '完了',
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     goTop() {
-      this.$router.push('/')
+      this.$router.push(process.env.constant.sitePathHome)
     },
     ...mapMutations('contact', ['reset'])
   }

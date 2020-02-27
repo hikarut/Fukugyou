@@ -88,12 +88,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: process.env.constant.newsList,
           disabled: true,
-          url: '/news/'
+          url: process.env.constant.sitePathNews
         }
       ]
     },
@@ -104,7 +104,9 @@ export default {
         '@type': 'NewsArticle',
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `${process.env.constant.url}/news/`
+          '@id': `${process.env.constant.url}${
+            process.env.constant.sitePathNews
+          }`
         },
         headline: process.env.constant.newsList,
         description: process.env.constant.description,
@@ -135,7 +137,9 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.newsList,
-            item: `${process.env.constant.url}/news/`
+            item: `${process.env.constant.url}${
+              process.env.constant.sitePathNews
+            }`
           }
         ]
       })
