@@ -12,7 +12,7 @@
     "start": "cross-env NODE_ENV='dev' nuxt start",
     "start:prod": "cross-env NODE_ENV='prod' nuxt start",
     "generate": "cross-env NODE_ENV='dev' nuxt generate",
-    "generate:dev": "cross-env NODE_ENV='dev' nuxt generate",
+    "generate:preview": "cross-env NODE_ENV='preview' nuxt generate",
     "generate:prod": "cross-env NODE_ENV='prod' nuxt generate",
     "test": "jest"
   },

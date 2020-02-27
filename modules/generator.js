@@ -4,8 +4,8 @@ import fs from 'fs'
 import { getTopTerm, getAllTerm } from '../lib/date'
 
 module.exports = function generateModule(moduleOptions) {
-  // prod環境の時だけ実行
-  if (process.env.NODE_ENV !== 'prod') return
+  // dev環境の場合はスキップ
+  if (process.env.NODE_ENV === 'dev') return
   console.log('modules generator')
 
   // nuxtのビルド前

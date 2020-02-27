@@ -2,7 +2,7 @@
   command = "npm run generate:prod"
 
 [context.deploy-preview]
-  command = "npm run generate:dev"
+  command = "npm run generate:preview"
 
 [context.branch-deploy]
   command = "npm run generate:dev"
