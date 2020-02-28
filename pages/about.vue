@@ -23,7 +23,7 @@
       <v-flex>
         <v-avatar size="100">
           <img
-            src="~/assets/profile.jpg"
+            src="~/assets/img/profile.jpg"
             alt="hikaru takahashi"
           >
         </v-avatar>
@@ -42,7 +42,7 @@
           <a href="https://github.com/hikarut" target="blank"><fa :icon="faGithubSquare" class="square github" /></a>
           <a href="https://twitter.com/light940" target="blank"><fa :icon="faTwitterSquare" class="square twitter" /></a>
           <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><fa :icon="faFacebookSquare" class="square facebook" /></a>
-          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/qiita-favicon.png" class="qiita"></a>
+          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/img/qiita-favicon.png" class="qiita"></a>
         </v-layout>
       </v-flex>
     </v-layout>
