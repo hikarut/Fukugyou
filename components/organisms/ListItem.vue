@@ -26,7 +26,7 @@
                 :ad-slot="'5591791813'"
                 :ad-format="'fluid'"
                 :ad-layout-key="'-ff+64+2d-c2+cy'"
-                class="adsbygoogle infeed" />
+                class="adsbygoogle" />
               <!-- エラー対応で暫定でkeyにプラスする -->
               <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 3" :key="index + 200" />
             </template>
@@ -79,12 +79,4 @@ export default {
 .list {
   height: 100px;
 }
-/* .infeed {
-  height: 88px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-family: Quicksand, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-} */
 </style>

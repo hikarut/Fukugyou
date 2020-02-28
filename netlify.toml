@@ -21,3 +21,13 @@
   from = "/news/tech/"
   to = "/posts/page/1/"
   status = 301
+
+[[redirects]]
+  from = "/fukugyou/job/"
+  to = "/posts/20200209/"
+  status = 301
+
+[[redirects]]
+  from = "/fukugyou/why/"
+  to = "/posts/20190501/"
+  status = 301
