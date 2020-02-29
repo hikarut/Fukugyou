@@ -22,10 +22,7 @@
         </p>
         <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
         <div class="ad">
-          <adsbygoogle
-            :ad-slot="'7321120508'"
-            :ad-format="'auto'"
-            class="adsbygoogle" />
+          <ad-sense-display />
         </div>
       </div>
       <div class="list">
@@ -42,6 +39,7 @@ import SnsPost from '~/components/molecules/SnsPost.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import TagList from '~/components/molecules/TagList.vue'
 import Tab from '~/components/layouts/Tab.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import { dateString } from '~/lib/date'
 import { getEntryById } from '~/lib/contentful'
 import recomendNews from '~/config/recomendNews.json5'
@@ -52,7 +50,8 @@ export default {
     BreadList,
     ListItem,
     TagList,
-    Tab
+    Tab,
+    AdSenseDisplay
   },
   head() {
     return {

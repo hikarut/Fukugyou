@@ -19,15 +19,9 @@
 
           </v-card>
         </nuxt-link>
-        <!-- <v-divider v-if="index !== (items.data.length - 1)" /> -->
         <template v-if="isShowAd(index)">
-          <adsbygoogle
-            :ad-slot="'8969297024'"
-            :ad-format="'fluid'"
-            :ad-layout-key="'-70+dy+29-1o-8'"
-            class="adsbygoogle infeed" />
+          <ad-sense-infeed-big />
         </template>
-        <!-- <v-divider v-if="index !== (items.data.length - 1)" /> -->
       </v-flex>
     </template>
   </v-layout>
@@ -38,12 +32,14 @@
 import Subheader from '~/components/atoms/Subheader.vue'
 import BigImg from '~/components/atoms/BigImg.vue'
 import TagList from '~/components/molecules/TagList.vue'
+import AdSenseInfeedBig from '~/components/atoms/AdSenseInfeedBig.vue'
 
 export default {
   components: {
     Subheader,
     BigImg,
-    TagList
+    TagList,
+    AdSenseInfeedBig
   },
   props: {
     items: {

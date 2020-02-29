@@ -8,10 +8,7 @@
           <big-img-item :items="postData.listData" tag="h1" />
           <pagination :total="total" :page="page" />
           <div class="ad">
-            <adsbygoogle
-              :ad-slot="'7321120508'"
-              :ad-format="'auto'"
-              class="adsbygoogle" />
+            <ad-sense-display />
           </div>
         </v-flex>
 
@@ -33,6 +30,7 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import Pagination from '~/components/molecules/Pagination.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import recomendNews from '~/config/recomendNews.json5'
 import device from '~/mixins/device'
 
@@ -43,7 +41,8 @@ export default {
     BreadList,
     Pagination,
     Tab,
-    SideMenu
+    SideMenu,
+    AdSenseDisplay
   },
   head() {
     return {
