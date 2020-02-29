@@ -1,3 +1,4 @@
+require('dotenv').config()
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import { routing } from './lib/contentful'
 import constant from './config/constant.json'
@@ -122,7 +123,8 @@ export default {
         component: 'fa'
       }
     ],
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv'
   ],
 
   styleResources: {
