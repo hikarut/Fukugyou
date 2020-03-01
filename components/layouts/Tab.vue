@@ -8,11 +8,11 @@
     </v-tab>
 
     <v-tab :class="[isNews ? 'active' : '']" @click="go(sitePathNews)">
-      複業(副業)ニュース
+      副業ニュース
     </v-tab>
 
     <v-tab :class="[isEngineer ? 'active' : '']" @click="go(sitePathPosts)">
-      エンジニア向け情報
+      エンジニア向け副業情報
     </v-tab>
 
   </v-tabs>

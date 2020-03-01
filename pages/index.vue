@@ -5,16 +5,18 @@
       <v-layout row wrap>
         <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
           <div class="top">
+            <big-img-item :items="listData" tag="h1" />
+            <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
+
+            <ad-sense-display />
+
             <template v-if="loading">
               <v-progress-linear :indeterminate="true"/>
             </template>
             <template v-else>
-              <card-item :items="topNews" tag="h1" />
+              <card-item :items="topNews" tag="h2" />
               <button-link :link="sitePathNews" class="news-more" text="もっと見る" />
             </template>
-
-            <big-img-item :items="listData" tag="h2" />
-            <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
 
           </div>
 
@@ -40,6 +42,7 @@ import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
 import recomendNews from '~/config/recomendNews.json5'
 
@@ -51,7 +54,8 @@ export default {
     ButtonLink,
     Subheader,
     SideMenu,
-    Tab
+    Tab,
+    AdSenseDisplay
   },
   mixins: [device],
   head() {
