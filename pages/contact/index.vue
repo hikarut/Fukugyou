@@ -123,12 +123,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: 'お問い合わせ',
           disabled: true,
-          url: '/contact'
+          url: process.env.constant.sitePathContact
         }
       ]
     }
@@ -136,7 +136,7 @@ export default {
   methods: {
     next() {
       console.log(this.$store.state.contact.name)
-      this.$router.push('/contact/confirm')
+      this.$router.push('/contact/confirm/')
     },
     ...mapMutations('contact', ['setName', 'setMail', 'setContents'])
   }

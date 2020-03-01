@@ -23,7 +23,7 @@
       <v-flex>
         <v-avatar size="100">
           <img
-            src="~/assets/profile.jpg"
+            src="~/assets/img/profile.jpg"
             alt="hikaru takahashi"
           >
         </v-avatar>
@@ -42,7 +42,7 @@
           <a href="https://github.com/hikarut" target="blank"><fa :icon="faGithubSquare" class="square github" /></a>
           <a href="https://twitter.com/light940" target="blank"><fa :icon="faTwitterSquare" class="square twitter" /></a>
           <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><fa :icon="faFacebookSquare" class="square facebook" /></a>
-          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/qiita-favicon.png" class="qiita"></a>
+          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/img/qiita-favicon.png" class="qiita"></a>
         </v-layout>
       </v-flex>
     </v-layout>
@@ -98,12 +98,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: 'Fukugyouとは',
           disabled: true,
-          url: '/'
+          url: process.env.constant.sitePathHome
         }
       ]
     },
@@ -112,7 +112,7 @@ export default {
         '@context': 'https://schema.org/',
         '@type': 'Person',
         name: 'hikaru takahashi',
-        url: `${process.env.constant.url}/about`,
+        url: `${process.env.constant.url}${process.env.constant.sitePathAbout}`,
         image:
           'https://pbs.twimg.com/profile_images/1134099996658192384/eYLwf5HY_400x400.jpg',
         sameAs: [

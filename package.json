@@ -12,6 +12,7 @@
     "start": "cross-env NODE_ENV='dev' nuxt start",
     "start:prod": "cross-env NODE_ENV='prod' nuxt start",
     "generate": "cross-env NODE_ENV='dev' nuxt generate",
+    "generate:preview": "cross-env NODE_ENV='preview' nuxt generate",
     "generate:prod": "cross-env NODE_ENV='prod' nuxt generate",
     "test": "jest"
   },
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "@vue/test-utils": "^1.0.0-beta.30",
     "babel-core": "7.0.0-bridge.0",

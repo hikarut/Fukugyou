@@ -2,21 +2,20 @@
   <v-flex :class="[isDesktop ? 'xs4' : 'xs12']" >
     <list-item :items="items" />
     <div class="ad">
-      <adsbygoogle
-        :ad-slot="'7321120508'"
-        :ad-format="'auto'"
-        class="adsbygoogle" />
+      <ad-sense-display />
     </div>
   </v-flex>
 </template>
 
 <script>
 import ListItem from '~/components/organisms/ListItem.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
 
 export default {
   components: {
-    ListItem
+    ListItem,
+    AdSenseDisplay
   },
   mixins: [device],
   props: {

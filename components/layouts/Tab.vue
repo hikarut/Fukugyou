@@ -3,15 +3,15 @@
     centered
   >
 
-    <v-tab :class="[isHome ? 'active' : '']" @click="go('/')">
+    <v-tab :class="[isHome ? 'active' : '']" @click="go(sitePathHome)">
       ホーム
     </v-tab>
 
-    <v-tab :class="[isNews ? 'active' : '']" @click="go('/news/')">
+    <v-tab :class="[isNews ? 'active' : '']" @click="go(sitePathNews)">
       複業(副業)ニュース
     </v-tab>
 
-    <v-tab :class="[isEngineer ? 'active' : '']" @click="go('/posts/page/1/')">
+    <v-tab :class="[isEngineer ? 'active' : '']" @click="go(sitePathPosts)">
       エンジニア向け情報
     </v-tab>
 
@@ -23,6 +23,11 @@ import method from '~/mixins/method'
 
 export default {
   mixins: [method],
+  data: () => ({
+    sitePathHome: process.env.constant.sitePathHome,
+    sitePathNews: process.env.constant.sitePathNews,
+    sitePathPosts: process.env.constant.sitePathPosts
+  }),
   computed: {
     isHome() {
       return this.$route.path === '/'

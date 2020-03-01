@@ -10,11 +10,11 @@
             </template>
             <template v-else>
               <card-item :items="topNews" tag="h1" />
-              <button-link :link="'/news/'" class="news-more" text="もっと見る" />
+              <button-link :link="sitePathNews" class="news-more" text="もっと見る" />
             </template>
 
             <big-img-item :items="listData" tag="h2" />
-            <button-link link="/posts/page/1/" class="tech-more" text="もっと見る" />
+            <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
 
           </div>
 
@@ -31,7 +31,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { getEntries } from '~/plugins/contentful'
+import { getEntries } from '~/lib/contentful'
 import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -41,7 +41,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
-const recomendNews = require('~/config/recomendNews.json5')
+import recomendNews from '~/config/recomendNews.json5'
 
 export default {
   components: {
@@ -65,11 +65,13 @@ export default {
     }
   },
   data: () => ({
-    recomendNews: recomendNews
+    recomendNews: recomendNews,
+    sitePathNews: process.env.constant.sitePathNews,
+    sitePathPosts: process.env.constant.sitePathPosts
   }),
   // 投稿内容を取得
   asyncData() {
-    return getEntries(2)
+    return getEntries()
   },
   async fetch({ store }) {
     // news記事の取得

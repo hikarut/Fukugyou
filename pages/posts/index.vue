@@ -5,7 +5,7 @@
 <script>
 export default {
   fetch({ redirect }) {
-    redirect(301, '/posts/page/1/')
+    redirect(301, process.env.constant.sitePathPosts)
   }
 }
 </script>

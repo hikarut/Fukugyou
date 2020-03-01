@@ -75,12 +75,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: 'プライバシーポリシー',
           disabled: true,
-          url: '/'
+          url: process.env.constant.sitePathHome
         }
       ]
     }

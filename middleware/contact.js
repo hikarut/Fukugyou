@@ -6,6 +6,6 @@ export default ({ store, redirect }) => {
     !store.state.contact.contents
   ) {
     // 問い合わせトップにリダイレクトさせる
-    return redirect('/contact')
+    return redirect(process.env.constant.sitePathContact)
   }
 }

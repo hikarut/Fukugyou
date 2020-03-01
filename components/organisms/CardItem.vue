@@ -13,11 +13,7 @@
               <template v-if="isShowWide(index)">
                 <v-flex :key="index" class="xs12 card-box">
                   <template v-if="isShowAd(index)">
-                    <adsbygoogle
-                      :ad-slot="'8969297024'"
-                      :ad-format="'fluid'"
-                      :ad-layout-key="'-70+dy+29-1o-8'"
-                      class="adsbygoogle infeed" />
+                    <ad-sense-infeed-big />
                   </template>
                   <a @click="go(card.link)">
                     <v-card class="card">
@@ -63,6 +59,7 @@ import CardImg from '~/components/atoms/CardImg.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
+import AdSenseInfeedBig from '~/components/atoms/AdSenseInfeedBig.vue'
 import { cutString } from '~/lib/string'
 import method from '~/mixins/method'
 
@@ -73,7 +70,8 @@ export default {
     CardImg,
     Subheader,
     UpdatedAtText,
-    OutClip
+    OutClip,
+    AdSenseInfeedBig
   },
   mixins: [method],
   props: {

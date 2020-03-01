@@ -29,7 +29,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { getEntries } from '~/plugins/contentful'
 import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
@@ -39,7 +38,7 @@ import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
-const monthlyList = require('~/config/monthly.json5')
+import monthlyList from '~/config/monthly.json5'
 
 export default {
   components: {
@@ -89,12 +88,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: process.env.constant.newsList,
           disabled: true,
-          url: '/news/'
+          url: process.env.constant.sitePathNews
         }
       ]
     },
@@ -105,7 +104,9 @@ export default {
         '@type': 'NewsArticle',
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `${process.env.constant.url}/news/`
+          '@id': `${process.env.constant.url}${
+            process.env.constant.sitePathNews
+          }`
         },
         headline: process.env.constant.newsList,
         description: process.env.constant.description,
@@ -136,7 +137,9 @@ export default {
             '@type': 'ListItem',
             position: 2,
             name: process.env.constant.newsList,
-            item: `${process.env.constant.url}/news/`
+            item: `${process.env.constant.url}${
+              process.env.constant.sitePathNews
+            }`
           }
         ]
       })

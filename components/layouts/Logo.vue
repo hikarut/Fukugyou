@@ -2,7 +2,7 @@
   <nuxt-link
     to="/"
     class="logo">
-    <img src="~/assets/Logo.png" width="170px" alt="Fukugyou">
+    <img src="~/assets/img/Logo.png" width="170px" alt="Fukugyou">
   </nuxt-link>
 </template>
 

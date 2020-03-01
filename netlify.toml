@@ -1,0 +1,33 @@
+[context.production]
+  command = "npm run generate:prod"
+
+[context.deploy-preview]
+  command = "npm run generate:preview"
+
+[context.branch-deploy]
+  command = "npm run generate:dev"
+
+[[redirects]]
+  from = "/posts/20190501_01/"
+  to = "/posts/20190501/"
+  status = 301
+
+[[redirects]]
+  from = "/news/fukugyou/"
+  to = "/news/"
+  status = 301
+
+[[redirects]]
+  from = "/news/tech/"
+  to = "/posts/page/1/"
+  status = 301
+
+[[redirects]]
+  from = "/fukugyou/job/"
+  to = "/posts/20200209/"
+  status = 301
+
+[[redirects]]
+  from = "/fukugyou/why/"
+  to = "/posts/20190501/"
+  status = 301

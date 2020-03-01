@@ -1,8 +1,9 @@
+require('dotenv').config()
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
-import { getAllTerm } from './lib/date'
+import { routing } from './lib/contentful'
+import constant from './config/constant.json'
 const environment = process.env.NODE_ENV || 'dev'
 const conf = require(`./config/constant.${environment}.json`)
-const constant = require('./config/constant.json')
 
 // 環境変数
 const space = process.env.SPACE || 'space'
@@ -16,40 +17,6 @@ const storageBucket = process.env.STORAGE_BUCKET || 'storageBucket'
 const messagingSenderId = process.env.MESSAGING_SENDER_ID || 'messagingSenderId'
 const appId = process.env.APP_ID || 'appId'
 const adsenseId = process.env.ADSENSE_ID || 'adsenseId'
-
-// contentfulから記事を取得する
-const contentful = require('contentful')
-const client = contentful.createClient({
-  space: space,
-  accessToken: accessToken,
-  timeout: 60000,
-  retryLimit: 10
-})
-
-// ルーティング
-function routing() {
-  const allTerm = getAllTerm()
-  return client
-    .getEntries({
-      content_type: contentType
-    })
-    .then(entries => {
-      const page = Math.ceil(entries.total / constant.postsPerPage)
-      return [
-        ...entries.items.map(entry => `/posts/${entry.fields.url}/`),
-        // ページング
-        ...[...Array(page).keys()].map(i => `/posts/page/${i + 1}/`),
-        // 日次のパス生成
-        ...allTerm.map(data => `/news/${data.key}/${data.value}/`),
-        // 月次のパス生成
-        ...allTerm.map(data => `/news/${data.key}/`)
-      ]
-    })
-    .catch(error => {
-      console.log('error')
-      console.log(error)
-    })
-}
 
 export default {
   // 本来spaモードだがそれだとページごとのmetaが反映されないので
@@ -156,7 +123,8 @@ export default {
         component: 'fa'
       }
     ],
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv'
   ],
 
   styleResources: {
@@ -229,7 +197,7 @@ export default {
   */
   generate: {
     async routes() {
-      return routing()
+      return routing(constant.postsPerPage)
     }
   },
 
@@ -252,7 +220,7 @@ export default {
       '/news/tech'
     ],
     routes() {
-      return routing()
+      return routing(constant.postsPerPage)
     },
     filter({ routes }) {
       return routes.map(route => {

@@ -21,12 +21,7 @@
             <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index + 100" />
             <!-- 3つづつに広告を挿入 -->
             <template v-if="(index + 1) % 3 === 0">
-              <adsbygoogle
-                :key="index"
-                :ad-slot="'5591791813'"
-                :ad-format="'fluid'"
-                :ad-layout-key="'-ff+64+2d-c2+cy'"
-                class="adsbygoogle infeed" />
+              <ad-sense-infeed :key="index" />
               <!-- エラー対応で暫定でkeyにプラスする -->
               <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 3" :key="index + 200" />
             </template>
@@ -45,6 +40,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import ListImg from '~/components/molecules/ListImg.vue'
 import ListText from '~/components/molecules/ListText.vue'
 import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
+import AdSenseInfeed from '~/components/atoms/AdSenseInfeed.vue'
 import method from '~/mixins/method'
 
 export default {
@@ -54,7 +50,8 @@ export default {
     Subheader,
     ListImg,
     ListText,
-    UpdatedAtText
+    UpdatedAtText,
+    AdSenseInfeed
   },
   mixins: [method],
   props: {
@@ -79,12 +76,4 @@ export default {
 .list {
   height: 100px;
 }
-/* .infeed {
-  height: 88px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-family: Quicksand, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-} */
 </style>

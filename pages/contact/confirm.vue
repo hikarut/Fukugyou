@@ -52,12 +52,12 @@ export default {
         {
           text: 'ホーム',
           disabled: false,
-          url: '/'
+          url: process.env.constant.sitePathHome
         },
         {
           text: 'お問い合わせ',
           disabled: false,
-          url: '/contact'
+          url: process.env.constant.sitePathContact
         },
         {
           text: '確認',
@@ -91,7 +91,7 @@ export default {
           axiosConfig
         )
         .then(result => {
-          this.$router.push('/contact/complete')
+          this.$router.push('/contact/complete/')
         })
         .catch(error => {
           console.log('error')

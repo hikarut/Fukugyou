@@ -1,11 +1,11 @@
 <template>
   <v-layout align-center row justify-space-around class="paging">
-    <nuxt-link :to="(beforeLink === '') ? '' : `/news/${beforeLink}/`">
+    <nuxt-link :to="(beforeLink === '') ? '' : `${sitePathNews}${beforeLink}/`">
       <v-btn :disabled="(beforeLink === '') ? true : false" outline class="button-line">
         {{ beforeText }}<br>の{{ newsText }}
       </v-btn>
     </nuxt-link>
-    <nuxt-link :to="(nextLink === '') ? '' : `/news/${nextLink}/`">
+    <nuxt-link :to="(nextLink === '') ? '' : `${sitePathNews}${nextLink}/`">
       <v-btn :disabled="(nextLink === '') ? true : false" outline class="button-line">
         {{ nextText }}<br>の{{ newsText }}
       </v-btn>
@@ -29,6 +29,9 @@ export default {
       default: ''
     }
   },
+  data: () => ({
+    sitePathNews: process.env.constant.sitePathNews
+  }),
   computed: {
     nextDate() {
       return getNextDate(this.date)
