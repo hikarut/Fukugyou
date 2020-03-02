@@ -63,13 +63,13 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            '毎日複業(副業)ニュースを更新！日次/月次で複業(副業)ニュースをまとめます'
+            '毎日複業・副業ニュースを更新！日次/月次で複業・副業ニュースをまとめます'
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            '毎日複業(副業)ニュースを更新！日次/月次で複業(副業)ニュースをまとめます'
+            '毎日複業・副業ニュースを更新！日次/月次で複業・副業ニュースをまとめます'
         },
         {
           hid: 'og:title',
