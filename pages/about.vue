@@ -7,7 +7,7 @@
           「Fukugyou」はエンジニア向け複業メディアサイトです。<br>
           多様な働き方が選択できる今、複業・副業は誰にでも可能性のある働き方です。<br><br>
           私自身エンジニアとして複業・副業を始めてから非常に良い経験ができていると思っています。<br>
-          複業・副業をすることで自身のスキルアップができるのと、なにより「働くことの楽しさ」を実感することができました。<br>
+          複業・副業をすることで自身のスキルアップができだけでなく、なにより「働くことの楽しさ」を実感することができました。<br>
           そんな複業・副業の楽しさを1人でも多くの方に知って頂ければ幸いです。<br><br>
           特にエンジニアの方がもっと楽しく自由に開発ができるように、複業・副業に関する情報を集約し、またどんどん発信もしていきたいと思います。<br>
           そしてエンジニアにとって「働くって楽しい」と思える社会を創れるように貢献していきたいと思います。
@@ -22,10 +22,7 @@
     <v-layout align-center column justify-center>
       <v-flex>
         <v-avatar size="100">
-          <img
-            src="~/assets/img/profile.jpg"
-            alt="hikaru takahashi"
-          >
+          <profile-img />
         </v-avatar>
       </v-flex>
       <v-flex>
@@ -39,10 +36,10 @@
           </p>
         </h4>
         <v-layout align-center row justify-space-around class="sns">
-          <a href="https://github.com/hikarut" target="blank"><fa :icon="faGithubSquare" class="square github" /></a>
-          <a href="https://twitter.com/light940" target="blank"><fa :icon="faTwitterSquare" class="square twitter" /></a>
-          <a href="https://www.facebook.com/hikaru.takahashi.5031" target="blank"><fa :icon="faFacebookSquare" class="square facebook" /></a>
-          <a href="https://qiita.com/hikarut" target="blank"><img src="~/assets/img/qiita-favicon.png" class="qiita"></a>
+          <profile-github />
+          <profile-twitter />
+          <profile-facebook />
+          <profile-qiita />
         </v-layout>
       </v-flex>
     </v-layout>
@@ -51,16 +48,22 @@
 </template>
 
 <script>
+import ProfileImg from '~/components/atoms/ProfileImg.vue'
+import ProfileGithub from '~/components/atoms/ProfileGithub.vue'
+import ProfileTwitter from '~/components/atoms/ProfileTwitter.vue'
+import ProfileFacebook from '~/components/atoms/ProfileFacebook.vue'
+import ProfileQiita from '~/components/atoms/ProfileQiita.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 
-import {
-  faGithubSquare,
-  faTwitterSquare,
-  faFacebookSquare
-} from '@fortawesome/free-brands-svg-icons'
-
 export default {
-  components: { BreadList },
+  components: {
+    BreadList,
+    ProfileImg,
+    ProfileGithub,
+    ProfileTwitter,
+    ProfileFacebook,
+    ProfileQiita
+  },
   head() {
     return {
       title: 'Fukugyouとは',
@@ -84,15 +87,6 @@ export default {
     }
   },
   computed: {
-    faGithubSquare() {
-      return faGithubSquare
-    },
-    faTwitterSquare() {
-      return faTwitterSquare
-    },
-    faFacebookSquare() {
-      return faFacebookSquare
-    },
     breadItems() {
       return [
         {
@@ -143,25 +137,8 @@ h4 p {
 .sns {
   margin: 5px 0px 30px 0px;
 }
-.square {
-  font-size: 35px;
-}
 a {
   text-decoration: none;
-}
-.qiita {
-  width: 30px;
-  border-radius: 5px;
-  margin-top: 3px;
-}
-.github {
-  color: $githubColor;
-}
-.twitter {
-  color: $twitterColor;
-}
-.facebook {
-  color: $facebookColor;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
