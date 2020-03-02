@@ -13,7 +13,7 @@
               <template v-if="isShowWide(index)">
                 <v-flex :key="index" class="xs12 card-box">
                   <template v-if="isShowAd(index)">
-                    <ad-sense-infeed-big />
+                    <ad-sense-infeed-big class="ad" />
                   </template>
                   <a @click="go(card.link)">
                     <v-card class="card">
@@ -159,12 +159,9 @@ export default {
     margin: 0 auto;
   }
 }
-.infeed {
+.ad {
   height: 250px;
   margin-bottom: 25px;
-  font-family: Quicksand, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 .v-card > *:last-child:not(.v-btn):not(.v-chip) {
   border-bottom-left-radius: 0px;

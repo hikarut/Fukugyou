@@ -20,7 +20,7 @@
           </v-card>
         </nuxt-link>
         <template v-if="isShowAd(index)">
-          <ad-sense-infeed-big />
+          <ad-sense-infeed-big class="ad" />
         </template>
       </v-flex>
     </template>
@@ -110,12 +110,8 @@ export default {
   color: rgba(0, 0, 0, 0.54);
   text-align: left;
 }
-.infeed {
+.ad {
   margin-top: 45px;
-  /* margin-bottom: 20px; */
-  font-family: Quicksand, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 /* vuetifyから上書き */
 .v-card > *:first-child:not(.v-btn):not(.v-chip) {
