@@ -12,7 +12,8 @@
         </h1>
         <bread-list :items="breadItems"/>
         <p class="main-date">{{ dateString(post.sys.createdAt) }}</p>
-        <p class="sub-date">(更新：{{ dateString(post.sys.updatedAt) }})</p>
+        <p class="sub-date">【更新：{{ dateString(post.sys.updatedAt) }}】</p>
+        <author :show-sns="false" class="author-top" />
         <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
         <v-divider />
         <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
@@ -25,6 +26,7 @@
           <ad-sense-display />
         </div>
       </div>
+      <author />
       <div class="list">
         <list-item :items="recomendNews" />
       </div>
@@ -34,12 +36,13 @@
 </template>
 
 <script>
-import BreadList from '~/components/organisms/BreadList.vue'
-import SnsPost from '~/components/molecules/SnsPost.vue'
-import ListItem from '~/components/organisms/ListItem.vue'
-import TagList from '~/components/molecules/TagList.vue'
-import Tab from '~/components/layouts/Tab.vue'
 import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
+import SnsPost from '~/components/molecules/SnsPost.vue'
+import TagList from '~/components/molecules/TagList.vue'
+import Author from '~/components/molecules/Author.vue'
+import BreadList from '~/components/organisms/BreadList.vue'
+import ListItem from '~/components/organisms/ListItem.vue'
+import Tab from '~/components/layouts/Tab.vue'
 import { dateString } from '~/lib/date'
 import { getEntryById } from '~/lib/contentful'
 import recomendNews from '~/config/recomendNews.json5'
@@ -51,7 +54,8 @@ export default {
     ListItem,
     TagList,
     Tab,
-    AdSenseDisplay
+    AdSenseDisplay,
+    Author
   },
   head() {
     return {
@@ -211,6 +215,11 @@ h1 {
 .list {
   width: 100%;
   margin: 0 auto;
+}
+.author-top {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-top: 10px;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {

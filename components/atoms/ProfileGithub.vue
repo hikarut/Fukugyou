@@ -16,7 +16,8 @@ export default {
 
 <style lang="scss" scoped>
 .github {
-  font-size: 35px;
+  font-size: 20px;
   color: $githubColor;
+  margin: 5px;
 }
 </style>

@@ -8,8 +8,10 @@ export default {}
 
 <style lang="scss" scoped>
 .qiita {
-  width: 30px;
+  width: 16px;
   border-radius: 5px;
-  margin-top: 3px;
+  // margin-top: 3px;
+  margin: 5px;
+  margin-top: 8px;
 }
 </style>

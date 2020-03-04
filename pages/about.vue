@@ -13,56 +13,21 @@
           そしてエンジニアにとって「働くって楽しい」と思える社会を創れるように貢献していきたいと思います。
         </p>
       </h4>
+      <author class="author-profile" />
     </v-layout>
 
-    <v-layout align-center column justify-center class="author">
-      author
-    </v-layout>
-
-    <v-layout align-center column justify-center>
-      <v-flex>
-        <v-avatar size="100">
-          <profile-img />
-        </v-avatar>
-      </v-flex>
-      <v-flex>
-        <h4 class="subheading">
-          <p>
-            ・本業：Webエンジニア/マネージャー/データサイエンティスト<br>
-            ・複業：株式会社エッグシステムCTO<br>
-            ・2つの会社で正社員として働いており「複業」を体現中<br>
-            ・複業先の株式会社エッグシステムでは同じように複業で参加しているエンジニアのコミュニティ作りにも貢献<br>
-            ・フロントエンドはNuxt+Netlify+Vuetify+Contentful、バックエンドはPython+Firebase+Herokuを使って当サイトを開発
-          </p>
-        </h4>
-        <v-layout align-center row justify-space-around class="sns">
-          <profile-github />
-          <profile-twitter />
-          <profile-facebook />
-          <profile-qiita />
-        </v-layout>
-      </v-flex>
-    </v-layout>
     <script type="application/ld+json" v-html="ldJson" />
   </div>
 </template>
 
 <script>
-import ProfileImg from '~/components/atoms/ProfileImg.vue'
-import ProfileGithub from '~/components/atoms/ProfileGithub.vue'
-import ProfileTwitter from '~/components/atoms/ProfileTwitter.vue'
-import ProfileFacebook from '~/components/atoms/ProfileFacebook.vue'
-import ProfileQiita from '~/components/atoms/ProfileQiita.vue'
+import Author from '~/components/molecules/Author.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 
 export default {
   components: {
     BreadList,
-    ProfileImg,
-    ProfileGithub,
-    ProfileTwitter,
-    ProfileFacebook,
-    ProfileQiita
+    Author
   },
   head() {
     return {
@@ -123,22 +88,16 @@ export default {
 <style lang="scss" scoped>
 /* h1 img { */
 h4 {
-  padding-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 h4 p {
   width: 90%;
   margin: 0 auto;
 }
-.author {
-  padding-top: 50px;
-  padding-bottom: 10px;
-  font-size: 20px;
-}
-.sns {
-  margin: 5px 0px 30px 0px;
-}
-a {
-  text-decoration: none;
+.author-profile {
+  width: 90%;
+  padding-bottom: 30px;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

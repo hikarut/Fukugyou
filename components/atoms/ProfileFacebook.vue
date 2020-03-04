@@ -16,7 +16,8 @@ export default {
 
 <style lang="scss" scoped>
 .facebook {
-  font-size: 35px;
+  font-size: 20px;
   color: $facebookColor;
+  margin: 5px;
 }
 </style>

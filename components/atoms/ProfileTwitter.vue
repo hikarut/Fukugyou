@@ -16,7 +16,8 @@ export default {
 
 <style lang="scss" scoped>
 .twitter {
-  font-size: 35px;
+  font-size: 20px;
   color: $twitterColor;
+  margin: 5px;
 }
 </style>
