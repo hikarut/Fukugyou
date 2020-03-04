@@ -13,7 +13,6 @@
         <bread-list :items="breadItems"/>
         <p class="main-date">{{ dateString(post.sys.createdAt) }}</p>
         <p class="sub-date">【更新：{{ dateString(post.sys.updatedAt) }}】</p>
-        <author :show-sns="false" class="author-top" />
         <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
         <v-divider />
         <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
@@ -26,7 +25,7 @@
           <ad-sense-display />
         </div>
       </div>
-      <author />
+      <author class="author-bottom"/>
       <div class="list">
         <list-item :items="recomendNews" />
       </div>
@@ -220,6 +219,9 @@ h1 {
   width: 100%;
   margin-bottom: 15px;
   padding-top: 10px;
+}
+.author-bottom {
+  margin-top: 30px;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
