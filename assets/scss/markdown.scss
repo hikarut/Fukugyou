@@ -1,4 +1,4 @@
-/* マークダウンのコードブロック(```)を調整 */
+/* purgecss start ignore */
 pre code {
   width: 100%;
   padding-left: 10px;
@@ -12,7 +12,6 @@ pre code {
 .markdown code:after {
   content: none;
 }
-/* マークダウンの見出しを調整 */
 .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5 {
   margin-top: 50px;
   margin-bottom: 20px;
@@ -22,14 +21,13 @@ pre code {
   border-left: solid 5px $mainColorLight;
   padding-left: 10px;
 }
-/* マークダウンのテーブルを調整 */
 .markdown thead,
 .markdown tfoot {
   background-color: $mainColor;
   color: $white;
 }
 .markdown tbody {
-  /* background-color: rgba(19, 75, 138, 0.1); */
+  // background-color: rgba(19, 75, 138, 0.1);
 }
 .markdown caption {
   padding: 10px;
@@ -54,4 +52,4 @@ pre code {
 .markdown img {
   width: 100%;
 }
-
+/* purgecss end ignore */

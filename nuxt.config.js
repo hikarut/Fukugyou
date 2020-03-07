@@ -1,5 +1,6 @@
 require('dotenv').config()
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+import purgecss from '@fullhuman/postcss-purgecss'
 import { routing } from './lib/contentful'
 import constant from './config/constant.json'
 const environment = process.env.NODE_ENV || 'dev'
@@ -124,7 +125,8 @@ export default {
       }
     ],
     '@nuxtjs/style-resources',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'nuxt-purgecss'
   ],
 
   styleResources: {
@@ -171,6 +173,21 @@ export default {
       config.node = {
         fs: 'empty'
       }
+    },
+    postcss: {
+      plugins: [
+        purgecss({
+          content: [
+            './pages/**/*.vue',
+            './layouts/**/*.vue',
+            './components/**/*.vue',
+            './node_modules/vuetify/dist/vuetify.js',
+            './node_modules/vue-spinner/src/ScaleLoader.vue'
+          ],
+          whitelist: ['html', 'body', 'nuxt-progress', 'svg-inline--fa'],
+          whitelistPatterns: [/code/]
+        })
+      ]
     }
   },
 
