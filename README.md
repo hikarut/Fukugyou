@@ -2,6 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4bd29a1d-21af-45d6-ab20-904abd937c83/deploy-status)](https://app.netlify.com/sites/fukugyou/deploys)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hikarut/Fukugyou)
 
 ## Fukugyou
 「Fukugyou」はエンジニアのための複業メディアサイトです。<br>
