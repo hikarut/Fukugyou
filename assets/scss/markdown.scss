@@ -55,3 +55,7 @@ pre code {
   width: 100%;
 }
 
+.markdown u {
+  background: linear-gradient(transparent 70%, $red 70%);
+  text-decoration: none;
+}
