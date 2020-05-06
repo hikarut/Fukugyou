@@ -141,7 +141,7 @@ export default {
 <style scoped>
 /* リストページだけ場所を調整 */
 .v-breadcrumbs {
-  padding: 0px 0px 0px 24px !important;
+  padding: 20px 0px 0px 24px !important;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 1400px) {
