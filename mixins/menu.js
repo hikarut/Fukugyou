@@ -4,7 +4,8 @@ import {
   faNewspaper,
   faLaptopCode,
   faEnvelope,
-  faKey
+  faKey,
+  faBriefcase
 } from '@fortawesome/free-solid-svg-icons'
 
 export default {
@@ -35,6 +36,11 @@ export default {
         title: 'Privacy',
         url: process.env.constant.sitePathPrivacy,
         icon: faKey
+      },
+      {
+        title: 'Job',
+        url: process.env.constant.sitePathJob,
+        icon: faBriefcase
       }
     ]
   })

@@ -36,7 +36,6 @@ import { mapActions, mapGetters } from 'vuex'
 import { getEntries } from '~/lib/contentful'
 import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
-import ListItem from '~/components/organisms/ListItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
 import Subheader from '~/components/atoms/Subheader.vue'
@@ -49,7 +48,6 @@ import recomendNews from '~/config/recomendNews.json5'
 export default {
   components: {
     CardItem,
-    ListItem,
     BigImgItem,
     ButtonLink,
     Subheader,
