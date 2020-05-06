@@ -15,6 +15,10 @@
       エンジニア向け副業情報
     </v-tab>
 
+    <v-tab :class="[isJob ? 'active' : '']" @click="go(sitePathJob)">
+      副業探し
+    </v-tab>
+
   </v-tabs>
 </template>
 
@@ -26,7 +30,8 @@ export default {
   data: () => ({
     sitePathHome: process.env.constant.sitePathHome,
     sitePathNews: process.env.constant.sitePathNews,
-    sitePathPosts: process.env.constant.sitePathPosts
+    sitePathPosts: process.env.constant.sitePathPosts,
+    sitePathJob: process.env.constant.sitePathJob
   }),
   computed: {
     isHome() {
@@ -37,6 +42,9 @@ export default {
     },
     isEngineer() {
       return /^\/posts\//.test(this.$route.path)
+    },
+    isJob() {
+      return /^\/job\//.test(this.$route.path)
     }
   }
 }
