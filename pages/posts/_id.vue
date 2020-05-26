@@ -95,6 +95,7 @@ export default {
       script: [
         {
           src: 'https://platform.twitter.com/widgets.js',
+          defer: true,
           async: true,
           body: true
         }
