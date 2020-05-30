@@ -38,7 +38,7 @@ export default {
     }
   },
   data: () => ({
-    length: 2,
+    length: 3,
     postsPerPage: process.env.constant.postsPerPage
   }),
   computed: {
