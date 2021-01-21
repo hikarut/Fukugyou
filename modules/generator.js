@@ -5,8 +5,8 @@ import { getTopTerm, getAllTerm } from '../lib/date'
 
 module.exports = function generateModule(moduleOptions) {
   // dev環境の場合はスキップ
-  // if (process.env.NODE_ENV === 'dev') return
-  // console.log('modules generator')
+  if (process.env.NODE_ENV === 'dev') return
+  console.log('modules generator')
 
   // nuxtのビルド前
   this.nuxt.hook('build:before', async ({ app }) => {
@@ -43,7 +43,6 @@ module.exports = function generateModule(moduleOptions) {
 
     // 日次のデータを取得
     const allTerm = getAllTerm()
-    console.log(allTerm)
     allTerm.forEach(async day => {
       const dailySnapshot = await firebase
         .firestore()
