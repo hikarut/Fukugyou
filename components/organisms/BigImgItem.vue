@@ -56,6 +56,9 @@ export default {
       return `${img}?w=${process.env.constant.imageWidth}`
     },
     isShowAd(index) {
+      // いったん広告は外す(2021/01/22)
+      return false
+
       // 0スタートなのでわかりやすく1スタートにする
       const number = index + 1
       // 間隔
