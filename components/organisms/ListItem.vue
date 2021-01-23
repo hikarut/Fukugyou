@@ -19,12 +19,15 @@
             </v-list-tile>
             <!-- エラー対応で暫定でkeyにプラスする -->
             <v-divider v-if="index !== (items.data.length - 1) || (index + 1) === 4" :key="index + 100" />
+
+            <!-- いったん広告は外す(2021/01/22) -->
             <!-- 3つづつに広告を挿入 -->
-            <template v-if="(index + 1) % 3 === 0">
-              <ad-sense-infeed :key="index" />
-              <!-- エラー対応で暫定でkeyにプラスする -->
-              <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 3" :key="index + 200" />
-            </template>
+            <!-- <template v-if="(index + 1) % 3 === 0"> -->
+            <!-- <ad-sense-infeed :key="index" /> -->
+            <!-- エラー対応で暫定でkeyにプラスする -->
+            <!-- <v-divider v-if="index !== (items.data.length - 1) || (index + 1) !== 3" :key="index + 200" /> -->
+            <!-- </template> -->
+
           </template>
         </v-list>
       </v-card>

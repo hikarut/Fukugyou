@@ -10,9 +10,8 @@
     <v-flex xs9>
       <p class="author-name">高橋 光</p>
       <p class="author-text">
-        ・【本業】Webエンジニア/マネージャー/データサイエンティスト<br>
-        ・【複業/副業】株式会社エッグシステムCTO → B.LEAGUEクラブデータ分析/ Nuxt+Netlify+Firebase+Herokuを使ったエンジニア向け複業・副業メディアサイト<nuxt-link :to="sitePathHome">「Fukugyou 」</nuxt-link>運営<br>
-        ・【技術系発信】<a href="https://qiita.com/hikarut" target="_blank">Qiita</a> over 2,000 Contribution<br>
+        ・本業：Webエンジニアを経てマネジメントやデータアナリストとして活動<br>
+        ・複業 / 副業：ベンチャー企業CTOを経てB.LEAGUEクラブチームのマーケティングストラテジストとしてデータ分析を担当。個人で当サイトであるエンジニア向け副業・複業メディアサイト<nuxt-link :to="sitePathHome">「Fukugyou 」</nuxt-link>を運営<br>
       </p>
       <div v-if="showSns">
         <profile-github />

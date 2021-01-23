@@ -12,7 +12,7 @@
         </h1>
         <bread-list :items="breadItems"/>
         <p class="main-date">{{ dateString(post.sys.createdAt) }}</p>
-        <p class="sub-date">【更新：{{ dateString(post.sys.updatedAt) }}】</p>
+        <p class="sub-date">更新：{{ dateString(post.sys.updatedAt) }}</p>
         <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
         <v-divider />
         <div class="markdown" v-html="$md.render(post.fields.markdown)"/>
