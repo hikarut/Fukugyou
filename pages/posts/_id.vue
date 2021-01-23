@@ -21,11 +21,11 @@
           <tag-list :tags="post.fields.tag" />
         </p>
         <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" />
-        <div class="ad">
-          <ad-sense-display />
-        </div>
       </div>
       <author class="author-bottom"/>
+      <div class="ad">
+        <ad-sense-display />
+      </div>
       <div class="list">
         <list-item :items="recomendNews" />
       </div>
