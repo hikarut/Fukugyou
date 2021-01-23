@@ -224,6 +224,16 @@ h1 {
 }
 .author-bottom {
   margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* 詳細ページだけ場所を調整 */
+.v-breadcrumbs {
+  padding: 0px 0px 20px 0px !important;
+}
+.ad {
+  width: 90%;
+  margin: 0 auto;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
@@ -231,6 +241,9 @@ h1 {
     width: 60%;
   }
   .main-content {
+    width: 60%;
+  }
+  .ad {
     width: 60%;
   }
   .markdown {
@@ -252,14 +265,5 @@ h1 {
     padding-top: 20px;
     width: 90%;
   }
-}
-
-/* 詳細ページだけ場所を調整 */
-.v-breadcrumbs {
-  padding: 0px 0px 20px 0px !important;
-}
-.ad {
-  width: 90%;
-  margin: 0 auto;
 }
 </style>
