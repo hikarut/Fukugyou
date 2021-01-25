@@ -41,8 +41,10 @@ module.exports = function generateModule(moduleOptions) {
       if (err) console.log('error', err)
     })
 
+    // ジェネレートの際は必要な分だけ取得
+    const isAll = false
+    const allTerm = getAllTerm(isAll)
     // 日次のデータを取得
-    const allTerm = getAllTerm()
     allTerm.forEach(async day => {
       const dailySnapshot = await firebase
         .firestore()
