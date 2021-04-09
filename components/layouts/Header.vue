@@ -5,6 +5,7 @@
         <v-card-title>
           <logo />
           <v-spacer/>
+          <login />
           <header-menu />
         </v-card-title>
       </v-card>
@@ -13,11 +14,13 @@
 </template>
 
 <script>
+import Login from '~/components/atoms/Login.vue'
 import Logo from '~/components/layouts/Logo.vue'
 import HeaderMenu from '~/components/layouts/Menu.vue'
 
 export default {
   components: {
+    Login,
     Logo,
     HeaderMenu
   }
