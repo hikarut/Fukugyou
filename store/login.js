@@ -1,17 +1,17 @@
 /* state */
 const initialState = {
-  user: null,
-  name: '',
-  img: ''
+  uid: null,
+  name: null,
+  img: null
 }
 export const state = () => Object.assign({}, initialState)
 
 /* mutations */
 export const mutations = {
-  setUser(state, user) {
-    console.log('store setUser')
-    console.log(user)
-    state.user = user
+  setUid(state, uid) {
+    console.log('store setUid')
+    console.log(uid)
+    state.uid = uid
   },
   setName(state, name) {
     state.name = name

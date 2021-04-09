@@ -1,13 +1,17 @@
 <template>
   <div>
-    <div v-if="storeUser">
-      <nuxt-link to="mypage">ログイン済</nuxt-link>
+    <div v-if="user">
+      <nuxt-link to="mypage">
+        <v-avatar size="30">
+          <img
+            :src="this.$store.state.login.img"
+            :alt="this.$store.state.login.name"
+          >
+        </v-avatar>
+      </nuxt-link> 
     </div>
-    <button v-if="storeUser === null" @click="login">
+    <button v-if="user === null" @click="login">
       ログイン
-    </button>
-    <button @click="test">
-      test
     </button>
   </div>
 </template>
@@ -16,43 +20,30 @@
 import { mapMutations } from 'vuex'
 
 export default {
-  data: () => ({
-    user: null
-    // isLogin: false
-  }),
+  data: () => ({}),
   computed: {
-    storeUser: {
+    user: {
       get() {
-        console.log('computed get')
-        return this.$store.state.login.user
+        return this.$store.state.login.uid
       },
-      set(value) {
-        this.$store.commit('login/setUser', value)
+      set(user) {
+        const uid = user ? user.uid : null
+        const name = user ? user.displayName : null
+        const img = user ? user.photoURL : null
+        this.setUid(uid)
+        this.setName(name)
+        this.setImg(img)
       }
     }
   },
-  // async mounted() {
   async beforeMount() {
+    // ログイン済かどうか判定して状態をセット
+    this.user = await this.userInfo()
     console.log('beforeMount')
-    // ログイン済かどうか
-    // const user = firebase.auth().currentUser
-    // this.user = await this.userInfo()
-    // console.log(this.user)
-
-    const user = await this.userInfo()
-    console.log('user')
-    console.log(user)
-    console.log('sotreUser')
-    this.storeUser = user
-    // this.setUser(user)
+    console.log(this.user)
+    console.log(this.$store.state.login.uid)
   },
   methods: {
-    test() {
-      console.log('test')
-      // this.$store.commit('login/setUser', 'testaaaa')
-      console.log('get user')
-      console.log(this.$store.state.login.user)
-    },
     login() {
       console.log('login')
       const provider = new this.$firebase.auth.GoogleAuthProvider()
@@ -61,22 +52,8 @@ export default {
         // .signInWithPopup(provider)
         .signInWithRedirect(provider)
         .then(result => {
-          const credential = result.credential
-          const token = credential.accessToken
-          const user = result.user
-          console.log(credential)
-          console.log(token)
-          console.log('user')
-          console.log(user)
           // ユーザー情報のセット
-          // this.user = user
-          // this.setUser(user)
-          // this.$store.commit('login/setUser', user)
-          this.storeUser = user
-          // リロード
-          // console.log('reload start')
-          // location.reload()
-          // console.log('reload end')
+          this.user = result.user
         })
         .catch(error => {
           const errorCode = error.code
@@ -87,26 +64,24 @@ export default {
         })
     },
     async userInfo() {
-      if (this.$store.state.login.user !== null) {
-        return this.$store.state.login.user
+      if (this.$store.state.login.uid !== null) {
+        return this.$store.state.login.uid
       }
       return new Promise((resolve, reject) => {
         this.$firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             console.log('User is signed in.')
-            // return user
             // オブジェクトをstoreに入れるとエラーになる
-            resolve(user.uid)
-            // resolve(null)
+            // resolve(user.uid)
+            resolve(user)
           } else {
             console.log('No user is signed in')
-            // return null
             resolve(null)
           }
         })
       })
     },
-    ...mapMutations('login', ['setUser', 'setName', 'setImg'])
+    ...mapMutations('login', ['setUid', 'setName', 'setImg'])
   }
 }
 </script>

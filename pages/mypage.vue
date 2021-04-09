@@ -10,6 +10,7 @@
 <script>
 import device from '~/mixins/device'
 import Button from '../components/atoms/Button.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   components: { Button },
@@ -41,46 +42,31 @@ export default {
   data: () => ({
     picks: null
   }),
-  computed: {
-    user: {
-      get() {
-        console.log('computed get')
-        return this.$store.state.login.user
-      },
-      set(value) {
-        this.$store.commit('login/setUser', value)
-      }
-    }
-  },
+  computed: {},
   async beforeMount() {
     console.log('beforeMount')
     // ログイン済かどうか
-    console.log('this.user')
-    console.log(this.user)
-    // 未ログインの場合はトップにリダイレクト
-    if (this.user === null) {
+    if (this.$store.state.login.uid === null) {
       this.$router.push(process.env.constant.sitePathHome)
     }
-    // this.user = user
-    // this.setUser(user)
   },
   methods: {
     logout() {
       console.log('logout')
-      console.log(this.$firebase.auth())
       this.$firebase
         .auth()
         .signOut()
         .then(() => {
           console.log('ログアウトしました')
-          this.user = null
+          this.reset()
           // リロード
           location.reload()
         })
         .catch(error => {
           console.log(`ログアウト時にエラーが発生しました (${error})`)
         })
-    }
+    },
+    ...mapMutations('login', ['reset'])
   }
 }
 </script>
