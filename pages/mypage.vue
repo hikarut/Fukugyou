@@ -42,11 +42,28 @@ export default {
   data: () => ({
     picks: null
   }),
-  computed: {},
+  computed: {
+    // TODO:共通化
+    user: {
+      get() {
+        return this.$store.state.login.uid
+      },
+      set(user) {
+        const uid = user ? user.uid : null
+        const name = user ? user.displayName : null
+        const img = user ? user.photoURL : null
+        this.setUid(uid)
+        this.setName(name)
+        this.setImg(img)
+      }
+    }
+  },
   async beforeMount() {
     console.log('beforeMount')
+    // ログイン済かどうか判定して状態をセット
+    this.user = await this.userInfo()
     // ログイン済かどうか
-    if (this.$store.state.login.uid === null) {
+    if (this.user === null) {
       this.$router.push(process.env.constant.sitePathHome)
     }
   },
@@ -66,7 +83,26 @@ export default {
           console.log(`ログアウト時にエラーが発生しました (${error})`)
         })
     },
-    ...mapMutations('login', ['reset'])
+    async userInfo() {
+      if (this.$store.state.login.uid !== null) {
+        // すでにログインずみの場合の処理　画像や名前のセット
+        // return this.$store.state.login.uid
+      }
+      return new Promise((resolve, reject) => {
+        this.$firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            console.log('User is signed in.')
+            // オブジェクトをstoreに入れるとエラーになる
+            // resolve(user.uid)
+            resolve(user)
+          } else {
+            console.log('No user is signed in')
+            resolve(null)
+          }
+        })
+      })
+    },
+    ...mapMutations('login', ['setUid', 'setName', 'setImg', 'reset'])
   }
 }
 </script>

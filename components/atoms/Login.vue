@@ -10,18 +10,66 @@
         </v-avatar>
       </nuxt-link> 
     </div>
-    <button v-if="user === null" @click="login">
-      ログイン
+    <button v-if="user === null">
+      <no-ssr>
+        <div class="text-center">
+          <v-dialog
+            v-model="dialog"
+            width="500"
+          >
+            <template v-slot:activator="{ on, attrs }" v-on="on">
+              <span
+                v-bind="attrs"
+                color="red lighten-2"
+                dark
+                v-on="on"
+              >
+                ログイン
+              </span>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                ログイン
+              </v-card-title>
+
+              <v-divider/>
+
+              <div @click="login">
+                <button-link text="Google ログイン" />
+              </div>
+
+              <v-card-actions>
+                <v-spacer/>
+                <v-btn
+                  color="primary"
+                  text
+                  @click="dialog = false"
+                >
+                  キャンセル
+                </v-btn>
+              </v-card-actions>
+
+            </v-card>
+
+          </v-dialog>
+        </div>
+      </no-ssr>
     </button>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import ButtonLink from '~/components/atoms/Button.vue'
 
 export default {
-  data: () => ({}),
+  components: { ButtonLink },
+  data: () => ({
+    dialog: false
+  }),
   computed: {
+    // TODO:共通化
     user: {
       get() {
         return this.$store.state.login.uid
@@ -30,6 +78,9 @@ export default {
         const uid = user ? user.uid : null
         const name = user ? user.displayName : null
         const img = user ? user.photoURL : null
+        console.log('set user')
+        console.log(user)
+        console.log(uid)
         this.setUid(uid)
         this.setName(name)
         this.setImg(img)
@@ -44,6 +95,9 @@ export default {
     console.log(this.$store.state.login.uid)
   },
   methods: {
+    modal() {
+      console.log('modal')
+    },
     login() {
       console.log('login')
       const provider = new this.$firebase.auth.GoogleAuthProvider()
@@ -65,7 +119,8 @@ export default {
     },
     async userInfo() {
       if (this.$store.state.login.uid !== null) {
-        return this.$store.state.login.uid
+        // すでにログインずみの場合の処理　画像や名前のセット
+        // return this.$store.state.login.uid
       }
       return new Promise((resolve, reject) => {
         this.$firebase.auth().onAuthStateChanged(function(user) {
@@ -87,4 +142,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+button {
+  color: $white;
+}
 </style>
