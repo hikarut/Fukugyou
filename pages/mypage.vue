@@ -1,8 +1,16 @@
 <template>
   <div class="main">
     <v-layout align-center column justify-center>
-      マイページ<br>
-      <button @click="logout">ログアウト</button>
+      <p>{{ this.$store.state.login.name }}</p>
+      <v-avatar size="100">
+        <img
+          :src="this.$store.state.login.img"
+          :alt="this.$store.state.login.name"
+        >
+      </v-avatar>
+      <p>
+        <button @click="logout">ログアウト</button>
+      </p>
     </v-layout>
   </div>
 </template>
