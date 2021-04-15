@@ -20,7 +20,7 @@
             <template v-slot:activator="{ on, attrs }" v-on="on">
               <span
                 v-bind="attrs"
-                color="red lighten-2"
+                color="lighten-2"
                 dark
                 v-on="on"
               >
@@ -35,23 +35,21 @@
 
               <v-divider/>
 
-              <div @click="loginGoogle">
-                <img class="firebaseui-idp-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
-                <button-link text="Google ログイン" />
+              <div class="login-button top" @click="loginGoogle">
+                <google-login-btn />
               </div>
-              <div @click="loginTwitter">
-                <img class="firebaseui-idp-icon twitter-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg">
-                <button-link text="Twitter ログイン" />
+              <div class="login-button" @click="loginTwitter">
+                <twitter-login-btn />
               </div>
-              <div @click="loginGitHub">
-                <img class="firebaseui-idp-icon github-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg">
-                <button-link text="GitHub ログイン" />
+              <div class="login-button" @click="loginGitHub">
+                <git-hub-login-btn />
               </div>
 
-              <v-card-actions>
+              <v-card-actions class="cancel-card">
                 <v-spacer/>
                 <v-btn
                   color="primary"
+                  class="cancel-button"
                   text
                   @click="dialog = false"
                 >
@@ -71,9 +69,17 @@
 <script>
 import { mapMutations } from 'vuex'
 import ButtonLink from '~/components/atoms/Button.vue'
+import GoogleLoginBtn from '~/components/atoms/GoogleLoginBtn.vue'
+import TwitterLoginBtn from '~/components/atoms/TwitterLoginBtn.vue'
+import GitHubLoginBtn from '~/components/atoms/GitHubLoginBtn.vue'
 
 export default {
-  components: { ButtonLink },
+  components: {
+    ButtonLink,
+    GoogleLoginBtn,
+    TwitterLoginBtn,
+    GitHubLoginBtn
+  },
   data: () => ({
     dialog: false
   }),
@@ -195,13 +201,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.login-button {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.top {
+  margin-top: 30px;
+}
 button {
   color: $white;
 }
-.twitter-icon {
-  background-color: blue;
+.headline {
+  font-size: 14px !important;
+  line-height: 5px !important;
 }
-.github-icon {
-  background-color: black;
+.cancel-card {
+  margin-top: 30px;
+}
+.cancel-button {
+  height: 25px;
 }
 </style>

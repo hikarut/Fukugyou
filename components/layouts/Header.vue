@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Login from '~/components/atoms/Login.vue'
+import Login from '~/components/molecules/Login.vue'
 import Logo from '~/components/layouts/Logo.vue'
 import HeaderMenu from '~/components/layouts/Menu.vue'
 
