@@ -35,8 +35,17 @@
 
               <v-divider/>
 
-              <div @click="login">
+              <div @click="loginGoogle">
+                <img class="firebaseui-idp-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
                 <button-link text="Google ログイン" />
+              </div>
+              <div @click="loginTwitter">
+                <img class="firebaseui-idp-icon twitter-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg">
+                <button-link text="Twitter ログイン" />
+              </div>
+              <div @click="loginGitHub">
+                <img class="firebaseui-idp-icon github-icon" alt="" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg">
+                <button-link text="GitHub ログイン" />
               </div>
 
               <v-card-actions>
@@ -95,10 +104,7 @@ export default {
     console.log(this.$store.state.login.uid)
   },
   methods: {
-    modal() {
-      console.log('modal')
-    },
-    login() {
+    loginGoogle() {
       console.log('login')
       const provider = new this.$firebase.auth.GoogleAuthProvider()
       this.$firebase
@@ -110,6 +116,53 @@ export default {
           this.user = result.user
         })
         .catch(error => {
+          const errorCode = error.code
+          const errorMessage = error.message
+          const email = error.email
+          const credential = error.credential
+          console.log(errorMessage)
+        })
+    },
+    loginTwitter() {
+      console.log('loginTwitter')
+      const provider = new this.$firebase.auth.TwitterAuthProvider()
+      console.log(provider)
+      this.$firebase
+        .auth()
+        .signInWithRedirect(provider)
+        .then(result => {
+          console.log('loginTwitter result')
+          console.log(result)
+          // ユーザー情報のセット
+          this.user = result.user
+        })
+        .catch(error => {
+          console.log('loginTwitter error')
+          const errorCode = error.code
+          const errorMessage = error.message
+          const email = error.email
+          const credential = error.credential
+          console.log(errorMessage)
+        })
+    },
+    loginGitHub() {
+      console.log('loginGitHub')
+      const provider = new this.$firebase.auth.GithubAuthProvider()
+      provider.setCustomParameters({
+        allow_signup: 'true'
+      })
+      console.log(provider)
+      this.$firebase
+        .auth()
+        .signInWithRedirect(provider)
+        .then(result => {
+          console.log('loginGitHub result')
+          console.log(result)
+          // ユーザー情報のセット
+          this.user = result.user
+        })
+        .catch(error => {
+          console.log('loginGitHub error')
           const errorCode = error.code
           const errorMessage = error.message
           const email = error.email
@@ -144,5 +197,11 @@ export default {
 <style lang="scss" scoped>
 button {
   color: $white;
+}
+.twitter-icon {
+  background-color: blue;
+}
+.github-icon {
+  background-color: black;
 }
 </style>
