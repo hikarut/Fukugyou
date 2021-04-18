@@ -5,6 +5,9 @@
       <v-layout row wrap>
         <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
           <div class="top">
+
+            <card-item :items="data" tag="h1" />
+
             <big-img-item :items="listData" tag="h1" />
             <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
 
@@ -71,14 +74,6 @@ export default {
     sitePathNews: process.env.constant.sitePathNews,
     sitePathPosts: process.env.constant.sitePathPosts
   }),
-  // 投稿内容を取得
-  asyncData() {
-    return getEntries()
-  },
-  async fetch({ store }) {
-    // news記事の取得
-    await store.dispatch('news/getTopNews')
-  },
   computed: {
     ldJson() {
       return JSON.stringify({
@@ -88,10 +83,23 @@ export default {
         url: process.env.constant.url
       })
     },
-    ...mapGetters('news', ['topNews', 'loading'])
+    ...mapGetters('news', ['topNews', 'loading']),
+    ...mapGetters('newsV2', ['data'])
+  },
+  async beforeMount() {
+    await this.$store.dispatch('newsV2/getTopNewsV2')
+  },
+  // 投稿内容を取得
+  asyncData() {
+    return getEntries()
+  },
+  async fetch({ store }) {
+    // news記事の取得
+    await store.dispatch('news/getTopNews')
   },
   methods: {
-    ...mapActions('news', ['getTopNews'])
+    ...mapActions('news', ['getTopNews']),
+    ...mapActions('newsV2', ['getTopNewsV2'])
   }
 }
 </script>

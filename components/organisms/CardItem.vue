@@ -1,53 +1,58 @@
 <template>
   <v-layout justify-center>
     <v-flex class="main">
-      <subheader v-if="items.header" :text="items.header" :tag="tag" />
-      <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
-      <v-card>
-        <v-container fluid grid-list-md>
-          <v-layout row wrap>
+      <div v-if="items === null">
+        <v-progress-linear :indeterminate="true"/>
+      </div>
+      <div v-else>
+        <subheader v-if="items.header" :text="items.header" :tag="tag" />
+        <updated-at-text v-if="items.updatedAt" :text="items.updatedAt" />
+        <v-card>
+          <v-container fluid grid-list-md>
+            <v-layout row wrap>
 
-            <template v-for="(card, index) in items.data">
+              <template v-for="(card, index) in items.data">
 
-              <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
-              <template v-if="isShowWide(index)">
-                <v-flex :key="index" class="xs12 card-box">
-                  <template v-if="isShowAd(index)">
-                    <ad-sense-infeed-big class="ad" />
-                  </template>
-                  <a @click="go(card.link)">
-                    <v-card class="card">
-                      <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
-                      <card-date :text="card.date" class="date"/>
-                      <card-title :text="card.title" :is-new="card.isNew" class="card-title"/>
-                      <div class="out-clip">
-                        <out-clip :text="card.service" class="out-clip-cnt"/>
-                        <div v-if="card.cnt" class="cnt">他{{ card.cnt }}件</div>
-                      </div>
-                    </v-card>
-                  </a>
-                </v-flex>
+                <!-- 広告表示の場合は横幅一杯のレイアウトにする -->
+                <template v-if="isShowWide(index)">
+                  <v-flex :key="index" class="xs12 card-box">
+                    <template v-if="isShowAd(index)">
+                      <ad-sense-infeed-big class="ad" />
+                    </template>
+                    <a @click="go(card.link)">
+                      <v-card class="card">
+                        <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
+                        <card-date :text="changeDateString(card.date)" class="date"/>
+                        <card-title :text="card.title" :is-new="card.isNew" class="card-title"/>
+                        <div class="out-clip">
+                          <out-clip :text="card.service" class="out-clip-cnt"/>
+                          <div v-if="card.cnt" class="cnt">他{{ card.cnt }}件</div>
+                        </div>
+                      </v-card>
+                    </a>
+                  </v-flex>
+                </template>
+
+                <template v-else>
+                  <v-flex :key="index" class="xs6 card-box">
+                    <a @click="go(card.link)">
+                      <v-card class="card">
+                        <card-Img :src="card.img" :alt="card.title"/>
+                        <card-date :text="changeDateString(card.date)" class="date"/>
+                        <card-title :text="cut(card.title)" :is-new="card.isNew" class="card-title"/>
+                        <out-clip :text="card.service"/>
+                        <div v-if="card.cnt" class="sm-cnt">他{{ card.cnt }}件</div>
+                      </v-card>
+                    </a>
+                  </v-flex>
+                </template>
+
               </template>
 
-              <template v-else>
-                <v-flex :key="index" class="xs6 card-box">
-                  <a @click="go(card.link)">
-                    <v-card class="card">
-                      <card-Img :src="card.img" :alt="card.title"/>
-                      <card-date :text="card.date" class="date"/>
-                      <card-title :text="cut(card.title)" :is-new="card.isNew" class="card-title"/>
-                      <out-clip :text="card.service"/>
-                      <div v-if="card.cnt" class="sm-cnt">他{{ card.cnt }}件</div>
-                    </v-card>
-                  </a>
-                </v-flex>
-              </template>
-
-            </template>
-
-          </v-layout>
-        </v-container>
-      </v-card>
+            </v-layout>
+          </v-container>
+        </v-card>
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -61,6 +66,7 @@ import UpdatedAtText from '~/components/atoms/UpdatedAtText.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
 import AdSenseInfeedBig from '~/components/atoms/AdSenseInfeedBig.vue'
 import { cutString } from '~/lib/string'
+import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
 
 export default {
@@ -116,6 +122,9 @@ export default {
     },
     cut(title) {
       return cutString(title)
+    },
+    changeDateString(date) {
+      return dateString(addSlash(date))
     }
   }
 }
