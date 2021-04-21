@@ -199,7 +199,8 @@ export default {
   generate: {
     async routes() {
       return routing(constant.postsPerPage)
-    }
+    },
+    fallback: true
   },
 
   /*
