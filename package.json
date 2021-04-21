@@ -8,7 +8,6 @@
     "dev": "PORT=3333 cross-env NODE_ENV='dev' nuxt",
     "prod": "PORT=3333 cross-env NODE_ENV='prod' nuxt",
     "build": "cross-env NODE_ENV='dev' nuxt build",
-    "build:preview": "cross-env NODE_ENV='preview' nuxt build",
     "build:prod": "cross-env NODE_ENV='prod' nuxt build",
     "start": "cross-env NODE_ENV='dev' nuxt start",
     "start:prod": "cross-env NODE_ENV='prod' nuxt start",
