@@ -19,7 +19,8 @@
                     <template v-if="isShowAd(index)">
                       <ad-sense-infeed-big class="ad" />
                     </template>
-                    <a @click="go(card.link)">
+                    <!-- <a @click="go(card.link)"> -->
+                    <nuxt-link :to="`/${card.type}/${card.id}/`">
                       <v-card class="card">
                         <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
                         <card-date :text="changeDateString(card.date)" class="date"/>
@@ -29,7 +30,8 @@
                           <div v-if="card.cnt" class="cnt">他{{ card.cnt }}件</div>
                         </div>
                       </v-card>
-                    </a>
+                    <!-- </a> -->
+                    </nuxt-link>
                   </v-flex>
                 </template>
 

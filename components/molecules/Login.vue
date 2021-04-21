@@ -93,9 +93,6 @@ export default {
         const uid = user ? user.uid : null
         const name = user ? user.displayName : null
         const img = user ? user.photoURL : null
-        console.log('set user')
-        console.log(user)
-        console.log(uid)
         this.setUid(uid)
         this.setName(name)
         this.setImg(img)
@@ -105,9 +102,6 @@ export default {
   async beforeMount() {
     // ログイン済かどうか判定して状態をセット
     this.user = await this.userInfo()
-    console.log('beforeMount')
-    console.log(this.user)
-    console.log(this.$store.state.login.uid)
   },
   methods: {
     loginGoogle() {
