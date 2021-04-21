@@ -127,13 +127,13 @@ export default {
   },
   async beforeMount() {
     // console.log('beforeMount')
-    await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
+    // await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
   },
   methods: {
     ...mapActions('newsV2', ['getNewsById'])
   },
   async asyncData({ store, params }) {
-    // await store.dispatch('newsV2/getNewsById', params.id)
+    await store.dispatch('newsV2/getNewsById', params.id)
   }
 }
 </script>
