@@ -127,13 +127,21 @@ export default {
   },
   async beforeMount() {
     // console.log('beforeMount')
-    // await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
+    // クライアントサイドの時だけ実行
+    if (process.browser) {
+      console.log('client side')
+      await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
+    }
   },
   methods: {
     ...mapActions('newsV2', ['getNewsById'])
   },
   async asyncData({ store, params }) {
-    await store.dispatch('newsV2/getNewsById', params.id)
+    // サーバサイドの時だけ実行
+    if (!process.browser) {
+      console.log('server side')
+      await store.dispatch('newsV2/getNewsById', params.id)
+    }
   }
 }
 </script>

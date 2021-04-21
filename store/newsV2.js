@@ -76,11 +76,9 @@ export const actions = {
     const newsData = data.docs.map(doc => {
       return doc.data()
     })
-    console.log(newsData)
     // let newsDetailData = []
     const newsDetailData = newsData[0]
     console.log('newsDetailData')
-    console.log(newsDetailData)
     commit('setNewsDetail', { newsDetailData })
   }
 }
