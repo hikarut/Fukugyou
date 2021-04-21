@@ -1,11 +1,11 @@
 [context.production]
-  command = "npm run generate:prod"
+  command = "npm run build:prod"
 
 [context.deploy-preview]
-  command = "npm run generate:preview"
+  command = "npm run build:preview"
 
 [context.branch-deploy]
-  command = "npm run generate:dev"
+  command = "npm run build:dev"
 
 [[redirects]]
   from = "/posts/20190501_01/"
