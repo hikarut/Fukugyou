@@ -6,7 +6,7 @@
     <div v-else>
       {{ title }}
     </div>
-    <!-- <bread-list :items="breadItems"/> -->
+    <bread-list :items="breadItems"/>
     <div v-if="newsDetail === null">
       <v-progress-linear :indeterminate="true"/>
     </div>
@@ -24,9 +24,9 @@ export default {
   components: { BreadList },
   head() {
     return {
-      // title: `${this.newsDetail.title} | ${process.env.constant.title}`,
+      title: `${this.newsDetail.title} | ${process.env.constant.title}`,
       // title: `news`,
-      title: this.title,
+      // title: this.title,
       meta: [
         {
           hid: 'keywords',
@@ -77,34 +77,34 @@ export default {
     }
   },
   data: () => ({
-    flag: null,
-    title: null
+    title: null,
+    breadItems: null
   }),
   computed: {
     shareUrl() {
       // return `${process.env.constant.url}/posts/${this.post.fields.url}/`
       return `${process.env.constant.url}`
     },
-    breadItems() {
-      return [
-        {
-          text: 'ホーム',
-          disabled: false,
-          url: process.env.constant.sitePathHome
-        },
-        {
-          text: process.env.constant.postList,
-          disabled: false,
-          url: process.env.constant.sitePathPosts
-        },
-        {
-          // text: this.post.fields.title.trim(),
-          text: 'aaa',
-          disabled: true,
-          url: process.env.constant.sitePathHome
-        }
-      ]
-    },
+    // breadItems() {
+    //   return [
+    //     {
+    //       text: 'ホーム',
+    //       disabled: false,
+    //       url: process.env.constant.sitePathHome
+    //     },
+    //     {
+    //       text: process.env.constant.postList,
+    //       disabled: false,
+    //       url: process.env.constant.sitePathPosts
+    //     },
+    //     {
+    //       // text: this.post.fields.title.trim(),
+    //       text: 'aaa',
+    //       disabled: true,
+    //       url: process.env.constant.sitePathHome
+    //     }
+    //   ]
+    // },
     ldJson() {
       return JSON.stringify({
         '@context': 'https://schema.org',
@@ -138,6 +138,24 @@ export default {
     console.log('beforeMount')
     // await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
     this.title = 'ニュース詳細'
+    this.breadItems = [
+      {
+        text: 'ホーム',
+        disabled: false,
+        url: process.env.constant.sitePathHome
+      },
+      {
+        text: process.env.constant.postList,
+        disabled: false,
+        url: process.env.constant.sitePathPosts
+      },
+      {
+        text: this.newsDetail.title.trim(),
+        // text: 'aaa',
+        disabled: true,
+        url: process.env.constant.sitePathHome
+      }
+    ]
   },
   methods: {
     ...mapActions('newsV2', ['getNewsById'])
@@ -147,10 +165,6 @@ export default {
     // this.title = 'ニュース詳細'
     // await store.dispatch('news/getTopNews')
     await store.dispatch('newsV2/getNewsById', params.id)
-  },
-  async asyncData({ store, params }) {
-    console.log('asyncData')
-    // await store.dispatch('newsV2/getNewsById', params.id)
   }
 }
 </script>
