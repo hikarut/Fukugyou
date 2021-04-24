@@ -6,14 +6,13 @@
     <div v-else>
       {{ title }}
     </div>
-    <!-- <bread-list :items="breadItems"/>
-    ニュース詳細
+    <!-- <bread-list :items="breadItems"/> -->
     <div v-if="newsDetail === null">
       <v-progress-linear :indeterminate="true"/>
     </div>
     <div v-else>
       {{ newsDetail }}
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -142,6 +141,12 @@ export default {
   },
   methods: {
     ...mapActions('newsV2', ['getNewsById'])
+  },
+  async fetch({ store, params }) {
+    console.log('fetch')
+    // this.title = 'ニュース詳細'
+    // await store.dispatch('news/getTopNews')
+    await store.dispatch('newsV2/getNewsById', params.id)
   },
   async asyncData({ store, params }) {
     console.log('asyncData')
