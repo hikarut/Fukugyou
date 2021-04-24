@@ -197,9 +197,9 @@ export default {
   ** generateオプション
   */
   generate: {
-    async routes() {
-      return routing(constant.postsPerPage)
-    },
+    // async routes() {
+    //   return routing(constant.postsPerPage)
+    // },
     fallback: true
   },
 

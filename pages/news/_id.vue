@@ -26,7 +26,8 @@ export default {
   head() {
     return {
       // title: `${this.newsDetail.title} | ${process.env.constant.title}`,
-      title: `news`,
+      // title: `news`,
+      title: this.title,
       meta: [
         {
           hid: 'keywords',

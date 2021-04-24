@@ -31,8 +31,3 @@
   from = "/fukugyou/why/"
   to = "/posts/20190501/"
   status = 301
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
