@@ -1,32 +1,71 @@
 <template>
   <div>
-    <div v-if="title === null">
-      <v-progress-linear :indeterminate="true"/>
-    </div>
-    <div v-else>
-      {{ title }}
-    </div>
-    <bread-list :items="breadItems"/>
+    <tab />
     <div v-if="newsDetail === null">
       <v-progress-linear :indeterminate="true"/>
     </div>
+    <div v-else-if="newsDetail === undefined">
+      <v-layout align-center column justify-center>
+        データがありません
+      </v-layout>
+    </div>
     <div v-else>
-      {{ newsDetail }}
+      <v-layout align-center column justify-center>
+        <div class="main-img-out">
+          <a @click="go(newsDetail.link)">
+            <img v-if="newsDetail.img"
+                 :src="newsDetail.img"
+                 :alt="newsDetail.title"
+                 class="main-img">
+          </a>
+        </div>
+        <div class="main-content">
+          <h1>
+            <a @click="go(newsDetail.link)">
+              {{ newsDetail.title }}
+            </a>
+          </h1>
+          <bread-list :items="breadItems"/>
+          <div class="service-info" >
+            <div class="service">
+              <out-clip :text="newsDetail.service" />
+            </div>
+            <div class="date">
+              {{ changeDateString(newsDetail.date) }}
+            </div>
+          </div>
+
+          <div class="news-more" @click="go(newsDetail.link)">
+            <button-link class="news-more2" text="続きを読む" />
+            <button-link class="favorite" text="お気に入り" />
+          </div>
+        </div>
+
+      </v-layout>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import Tab from '~/components/layouts/Tab.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
+import OutClip from '~/components/atoms/OutClip.vue'
+import ButtonLink from '~/components/atoms/Button.vue'
+import { mapActions, mapGetters } from 'vuex'
+import { dateString, addSlash } from '~/lib/date'
+import method from '~/mixins/method'
 
 export default {
-  components: { BreadList },
+  components: { Tab, BreadList, OutClip, ButtonLink },
+  mixins: [method],
   head() {
+    console.log('head')
+    const title =
+      this.newsDetail !== undefined
+        ? this.newsDetail.title
+        : 'データがありません'
     return {
-      title: `${this.newsDetail.title} | ${process.env.constant.title}`,
-      // title: `news`,
-      // title: this.title,
+      title: `${title} | ${process.env.constant.title}`,
       meta: [
         {
           hid: 'keywords',
@@ -77,7 +116,6 @@ export default {
     }
   },
   data: () => ({
-    title: null
     // breadItems: null
   }),
   computed: {
@@ -86,6 +124,11 @@ export default {
       return `${process.env.constant.url}`
     },
     breadItems() {
+      console.log('breadItems')
+      const title =
+        this.newsDetail !== undefined
+          ? this.newsDetail.title
+          : 'データがありません'
       return [
         {
           text: 'ホーム',
@@ -98,9 +141,7 @@ export default {
           url: process.env.constant.sitePathPosts
         },
         {
-          // text: this.post.fields.title.trim(),
-          // text: 'aaa',
-          text: this.newsDetail.title.trim(),
+          text: title.trim(),
           disabled: true,
           url: process.env.constant.sitePathHome
         }
@@ -138,37 +179,76 @@ export default {
   async beforeMount() {
     console.log('beforeMount')
     // await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
-    this.title = 'ニュース詳細'
-    // this.breadItems = [
-    //   {
-    //     text: 'ホーム',
-    //     disabled: false,
-    //     url: process.env.constant.sitePathHome
-    //   },
-    //   {
-    //     text: process.env.constant.postList,
-    //     disabled: false,
-    //     url: process.env.constant.sitePathPosts
-    //   },
-    //   {
-    //     text: this.newsDetail.title.trim(),
-    //     // text: 'aaa',
-    //     disabled: true,
-    //     url: process.env.constant.sitePathHome
-    //   }
-    // ]
   },
   methods: {
+    changeDateString(date) {
+      return dateString(addSlash(date))
+    },
     ...mapActions('newsV2', ['getNewsById'])
   },
   async fetch({ store, params }) {
     console.log('fetch')
-    // this.title = 'ニュース詳細'
     // await store.dispatch('news/getTopNews')
     await store.dispatch('newsV2/getNewsById', params.id)
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.main-img-out {
+  padding-top: 20px;
+  text-align: center;
+}
+.main-content {
+  width: 90%;
+}
+a {
+  color: $black;
+}
+h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.service-info {
+  display: flex;
+}
+.date {
+  margin-left: 10px;
+  margin-top: -3px;
+}
+.service {
+  margin-left: -7px;
+}
+.news-more {
+  margin-top: 50px;
+}
+.favorite {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+/* PC版の場合は全体を中央に寄せる */
+@media screen and (min-width: 900px) {
+  .main-content {
+    width: 60%;
+  }
+  .main-img {
+    width: 100%;
+  }
+  .news-more {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+}
+/* スマホの場合は上下左右にスペースを開ける */
+@media screen and (max-width: 400px) {
+  .main-img {
+    width: 90%;
+  }
+  .date {
+    margin-top: -2px;
+  }
+}
 </style>

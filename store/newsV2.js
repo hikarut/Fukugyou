@@ -76,7 +76,9 @@ export const actions = {
     const newsData = data.docs.map(doc => {
       return doc.data()
     })
-    // let newsDetailData = []
+    // TODO:データが空([])だった時の対応
+    // setNewsDetailにundefinedが入ってる
+    // console.log(newsData)
     const newsDetailData = newsData[0]
     console.log('newsDetailData')
     commit('setNewsDetail', { newsDetailData })
