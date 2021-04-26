@@ -35,9 +35,15 @@
             </div>
           </div>
 
-          <div class="news-more" @click="go(newsDetail.link)">
-            <button-link class="news-more2" text="続きを読む" />
-            <button-link class="favorite" text="お気に入り" />
+          <div class="news-more">
+            <v-btn block outline class="action-button" @click="go(newsDetail.link)">
+              続きを読む
+            </v-btn>
+            <v-btn :disabled="favoriteFlag" block outline 
+                   class="action-button favorite-button" 
+                   @click="favorite">
+              お気に入り 
+            </v-btn>
           </div>
         </div>
 
@@ -117,6 +123,7 @@ export default {
   },
   data: () => ({
     // breadItems: null
+    favoriteFlag: false
   }),
   computed: {
     shareUrl() {
@@ -184,6 +191,31 @@ export default {
     changeDateString(date) {
       return dateString(addSlash(date))
     },
+    async favorite() {
+      console.log('favorite')
+      console.log(this.$store.state.login.uid)
+      const uid = this.$store.state.login.uid
+      const id = this.$route.params.id
+      try {
+        const docRef = this.$firebase
+          .firestore()
+          .collection(uid)
+          .doc('news')
+          .collection('data')
+          .doc(id)
+        await docRef.set({
+          id: this.newsDetail.id,
+          date: this.newsDetail.date,
+          img: this.newsDetail.img,
+          service: this.newsDetail.service,
+          title: this.newsDetail.title
+        })
+        this.favoriteFlag = true
+      } catch (error) {
+        console.log('firebase set error')
+        console.log(error)
+      }
+    },
     ...mapActions('newsV2', ['getNewsById'])
   },
   async fetch({ store, params }) {
@@ -224,9 +256,16 @@ h1 {
 .news-more {
   margin-top: 50px;
 }
-.favorite {
+.action-button {
+  width: 80%;
+  margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  color: $mainColor;
+}
+.favorite-button {
+  // background-color: $mainColor !important;
+  // color: $white;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
@@ -235,11 +274,6 @@ h1 {
   }
   .main-img {
     width: 100%;
-  }
-  .news-more {
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 50px;
   }
 }
 /* スマホの場合は上下左右にスペースを開ける */

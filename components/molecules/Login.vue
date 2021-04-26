@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="user">
-      <nuxt-link to="mypage">
+      <nuxt-link to="/mypage">
         <v-avatar size="30">
           <img
             :src="this.$store.state.login.img"
