@@ -8,20 +8,83 @@
           :alt="this.$store.state.login.name"
         >
       </v-avatar>
+      <div v-if="favoriteData === null">
+        <v-progress-linear :indeterminate="true"/>
+      </div>
       <p>
         <button @click="logout">ログアウト</button>
       </p>
     </v-layout>
+
+    <v-list v-if="favoriteData !== null" three-line>
+      <template v-for="(item, index) in favoriteData">
+        <v-list-tile
+          :key="item.title"
+          avatar
+          class="list"
+          @click="nuxtLinkGo(`/news/${item.id}`)"
+        >
+          <list-img :img="item.img" :alt="item.title" @click="deleteItem"/>
+          <list-text :date="item.date" :title="item.title" @click="deleteItem" />
+          <!-- <out-clip /> -->
+        </v-list-tile>
+        <v-dialog :key="index + 10"
+                  v-model="dialog"
+                  width="500"
+        >
+          <template v-slot:activator="{ on }">
+            <div class="delete-link" v-on="on">
+              削除
+            </div>
+          </template>
+          <v-card>
+            <v-card-title
+              class="headline grey lighten-2"
+              primary-title
+            >
+              削除
+            </v-card-title>
+
+            <v-card-text>
+              削除してよろしいですか？
+              <v-btn block outline 
+                     class="delete-button" 
+                     @click="deleteItem">
+                削除する
+              </v-btn>
+            </v-card-text>
+
+            <v-divider/>
+
+            <v-card-actions>
+              <v-spacer/>
+              <v-btn
+                color="primary"
+                flat
+                @click="dialog = false"
+              >
+                キャンセル
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <!-- エラー対応で暫定でkeyにプラスする -->
+        <v-divider v-if="index !== (favoriteData.length - 1) || (index + 1) === 4" :key="index + 100" />
+
+      </template>
+    </v-list>
   </div>
 </template>
 
 <script>
 import device from '~/mixins/device'
 import Button from '../components/atoms/Button.vue'
-import { mapMutations } from 'vuex'
+import ListImg from '~/components/molecules/ListImg.vue'
+import ListText from '~/components/molecules/ListText.vue'
+import { mapActions, mapMutations, mapGetters } from 'vuex'
 
 export default {
-  components: { Button },
+  components: { Button, ListImg, ListText },
   mixins: [device],
   head() {
     return {
@@ -48,7 +111,8 @@ export default {
     }
   },
   data: () => ({
-    picks: null
+    picks: null,
+    dialog: false
   }),
   computed: {
     // TODO:共通化
@@ -64,7 +128,8 @@ export default {
         this.setName(name)
         this.setImg(img)
       }
-    }
+    },
+    ...mapGetters('newsV2', ['favoriteData'])
   },
   async beforeMount() {
     console.log('beforeMount')
@@ -74,6 +139,15 @@ export default {
     if (this.user === null) {
       this.$router.push(process.env.constant.sitePathHome)
     }
+
+    // お気に入りデータの取得
+    await this.$store.dispatch(
+      'newsV2/getFavoriteData',
+      this.$store.state.login.uid
+    )
+
+    console.log('this.favoriteData')
+    console.log(this.favoriteData)
   },
   methods: {
     logout() {
@@ -110,12 +184,41 @@ export default {
         })
       })
     },
-    ...mapMutations('login', ['setUid', 'setName', 'setImg', 'reset'])
+    nuxtLinkGo(path) {
+      this.$router.push(path)
+    },
+    deleteItem() {
+      console.log('delete')
+      this.dialog = false
+    },
+    ...mapMutations('login', ['setUid', 'setName', 'setImg', 'reset']),
+    ...mapActions('newsV2', ['getFavoriteData'])
+  },
+  async fetch({ store, params }) {
+    console.log('fetch')
   }
 }
 </script>
 
 <style scoped>
+/* 枠線を消す */
+.v-card {
+  box-shadow: initial;
+}
+.list {
+  height: 100px;
+}
+.delete-link {
+  text-align: right;
+  font-size: 10px;
+  margin-top: -5px;
+  margin-right: 5px;
+  margin-bottom: -15px;
+}
+.delete-button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
   .main {

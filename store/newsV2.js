@@ -3,7 +3,8 @@ import { getToday } from '../lib/date'
 /* state */
 const initialState = {
   data: null,
-  newsDetail: null
+  newsDetail: null,
+  favoriteData: null
 }
 export const state = () => Object.assign({}, initialState)
 
@@ -17,6 +18,12 @@ export const mutations = {
     console.log('mutations setNewsDetail')
     state.newsDetail = newsDetailData
   },
+  // setFavoriteData(state, { favoriteData }) {
+  setFavoriteData(state, favoriteData) {
+    console.log('mutations setFavoriteData')
+    console.log(favoriteData)
+    state.favoriteData = favoriteData
+  },
   reset(state) {
     state = Object.assign(state, initialState)
   }
@@ -26,7 +33,7 @@ export const mutations = {
 export const getters = {
   data: state => state.data,
   newsDetail: state => state.newsDetail,
-  newsDetail2: state => state.newsDetail2
+  favoriteData: state => state.favoriteData
 }
 
 /* actions */
@@ -82,5 +89,33 @@ export const actions = {
     const newsDetailData = newsData[0]
     console.log('newsDetailData')
     commit('setNewsDetail', { newsDetailData })
+  },
+
+  // お気に入りデータの取得
+  async getFavoriteData({ commit, state }, uid) {
+    console.log('getFavoriteData')
+    console.log(uid)
+
+    const data = await this.$firebase
+      .firestore()
+      .collection(uid)
+      .doc('news')
+      .collection('data')
+      .get()
+
+    const favoriteData = data.docs.map(doc => {
+      return doc.data()
+    })
+    console.log(favoriteData)
+    const favoriteListData = {
+      // header: 'aa',
+      // updatedAt: '',
+      data: favoriteData
+    }
+    console.log(favoriteListData)
+    // commit('setFavoriteData', { favoriteData })
+    commit('setFavoriteData', favoriteData)
+    // commit('setFavoriteData', favoriteListData)
+    // commit('setFavoriteData', { favoriteListData })
   }
 }

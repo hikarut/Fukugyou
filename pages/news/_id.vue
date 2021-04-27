@@ -56,13 +56,12 @@
 import Tab from '~/components/layouts/Tab.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
-import ButtonLink from '~/components/atoms/Button.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
 
 export default {
-  components: { Tab, BreadList, OutClip, ButtonLink },
+  components: { Tab, BreadList, OutClip },
   mixins: [method],
   head() {
     console.log('head')
