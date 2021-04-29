@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <v-layout align-center column justify-center>
-      <p>{{ this.$store.state.login.name }}</p>
+      <p class="user-name">{{ this.$store.state.login.name }}</p>
       <v-avatar size="100">
         <img
           :src="this.$store.state.login.img"
@@ -16,6 +16,12 @@
       </p>
     </v-layout>
 
+    <div v-if="favoriteData === null">
+      <v-progress-linear :indeterminate="true"/>
+    </div>
+    <div v-else-if="!favoriteData.length" class="no-data">
+      データがありません
+    </div>
     <v-list v-if="favoriteData !== null" three-line>
       <template v-for="(item, index) in favoriteData">
         <v-list-tile
@@ -49,7 +55,7 @@
               削除してよろしいですか？
               <v-btn block outline 
                      class="delete-button" 
-                     @click="deleteItem">
+                     @click="deleteItem(item.id)">
                 削除する
               </v-btn>
             </v-card-text>
@@ -187,8 +193,24 @@ export default {
     nuxtLinkGo(path) {
       this.$router.push(path)
     },
-    deleteItem() {
+    async deleteItem(id) {
       console.log('delete')
+      console.log(this.$store.state.login.uid)
+      console.log(id)
+      try {
+        await this.$firebase
+          .firestore()
+          .collection(this.$store.state.login.uid)
+          .doc('news')
+          .collection('data')
+          .doc(id)
+          .delete()
+
+        // リロード
+        location.reload()
+      } catch (error) {
+        console.log(error)
+      }
       this.dialog = false
     },
     ...mapMutations('login', ['setUid', 'setName', 'setImg', 'reset']),
@@ -201,6 +223,9 @@ export default {
 </script>
 
 <style scoped>
+.user-name {
+  margin-top: 10px;
+}
 /* 枠線を消す */
 .v-card {
   box-shadow: initial;
@@ -218,6 +243,9 @@ export default {
 .delete-button {
   margin-top: 30px;
   margin-bottom: 20px;
+}
+.no-data {
+  text-align: center;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {
