@@ -37,7 +37,8 @@
 
                 <template v-else>
                   <v-flex :key="index" class="xs6 card-box">
-                    <a @click="go(card.link)">
+                    <!-- <a @click="go(card.link)"> -->
+                    <nuxt-link :to="`/${card.type}/${card.id}/`">
                       <v-card class="card">
                         <card-Img :src="card.img" :alt="card.title"/>
                         <card-date :text="changeDateString(card.date)" class="date"/>
@@ -45,7 +46,8 @@
                         <out-clip :text="card.service"/>
                         <div v-if="card.cnt" class="sm-cnt">他{{ card.cnt }}件</div>
                       </v-card>
-                    </a>
+                    <!-- </a> -->
+                    </nuxt-link>
                   </v-flex>
                 </template>
 
