@@ -6,20 +6,13 @@
         <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
           <div class="top">
 
-            <card-item :items="data" tag="h1" />
+            <card-item :items="topData" tag="h1" />
+            <ad-sense-display />
 
             <big-img-item :items="listData" tag="h1" />
             <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
 
             <ad-sense-display />
-
-            <template v-if="loading">
-              <v-progress-linear :indeterminate="true"/>
-            </template>
-            <template v-else>
-              <card-item :items="topNews" tag="h2" />
-              <button-link :link="sitePathNews" class="news-more" text="もっと見る" />
-            </template>
 
           </div>
 
@@ -37,7 +30,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import { getEntries } from '~/lib/contentful'
-import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
@@ -71,7 +63,6 @@ export default {
   },
   data: () => ({
     recomendNews: recomendNews,
-    sitePathNews: process.env.constant.sitePathNews,
     sitePathPosts: process.env.constant.sitePathPosts
   }),
   computed: {
@@ -83,8 +74,7 @@ export default {
         url: process.env.constant.url
       })
     },
-    ...mapGetters('news', ['topNews', 'loading']),
-    ...mapGetters('newsV2', ['data'])
+    ...mapGetters('newsV2', ['topData'])
   },
   async beforeMount() {
     await this.$store.dispatch('newsV2/getTopNewsV2')
@@ -93,12 +83,8 @@ export default {
   asyncData() {
     return getEntries()
   },
-  async fetch({ store }) {
-    // news記事の取得
-    await store.dispatch('news/getTopNews')
-  },
+  async fetch({ store }) {},
   methods: {
-    ...mapActions('news', ['getTopNews']),
     ...mapActions('newsV2', ['getTopNewsV2'])
   }
 }

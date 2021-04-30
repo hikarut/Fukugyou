@@ -2,7 +2,7 @@ import { getToday } from '../lib/date'
 
 /* state */
 const initialState = {
-  data: null,
+  topData: null,
   newsDetail: null,
   favoriteData: null
 }
@@ -10,9 +10,9 @@ export const state = () => Object.assign({}, initialState)
 
 /* mutations */
 export const mutations = {
-  setData(state, data) {
+  setTopData(state, data) {
     console.log('mutations setData')
-    state.data = data
+    state.topData = data
   },
   setNewsDetail(state, { newsDetailData }) {
     console.log('mutations setNewsDetail')
@@ -31,7 +31,7 @@ export const mutations = {
 
 /* getters */
 export const getters = {
-  data: state => state.data,
+  topData: state => state.topData,
   newsDetail: state => state.newsDetail,
   favoriteData: state => state.favoriteData
 }
@@ -41,24 +41,12 @@ export const actions = {
   // トップページ用のニュース記事取得
   async getTopNewsV2({ commit, state }) {
     // データ取得ずみならスキップ
-    if (state.data !== null) return
+    if (state.topData !== null) return
 
     console.log('actions getTOpNews')
 
-    const today = getToday()
-    const data = await this.$firebase
-      .firestore()
-      .collection('news_v2')
-      .where('date', '>=', '20210415')
-      // .where('date', '>=', today)
-      .get()
-
-    const newsData = data.docs.map(doc => {
-      return doc.data()
-    })
-
-    // 必要な情報を追加
     const header = process.env.constant.newsList
+    const newsData = require('~/data/top.json')
     const updatedAtJson = require('~/data/updatedAt.json')
     const updatedAt = updatedAtJson[0].updatedAt || ''
     const topData = {
@@ -68,7 +56,7 @@ export const actions = {
     }
     console.log('topData')
     console.log(topData)
-    commit('setData', topData)
+    commit('setTopData', topData)
   },
 
   // IDを指定してデータを取得
