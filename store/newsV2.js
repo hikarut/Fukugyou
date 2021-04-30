@@ -11,7 +11,6 @@ export const state = () => Object.assign({}, initialState)
 /* mutations */
 export const mutations = {
   setTopData(state, data) {
-    console.log('mutations setData')
     state.topData = data
   },
   setNewsDetail(state, { newsDetailData }) {
@@ -43,8 +42,6 @@ export const actions = {
     // データ取得ずみならスキップ
     if (state.topData !== null) return
 
-    console.log('actions getTOpNews')
-
     const header = process.env.constant.newsList
     const newsData = require('~/data/top.json')
     const updatedAtJson = require('~/data/updatedAt.json')
@@ -54,8 +51,6 @@ export const actions = {
       updatedAt: updatedAt,
       data: newsData
     }
-    console.log('topData')
-    console.log(topData)
     commit('setTopData', topData)
   },
 
