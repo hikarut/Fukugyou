@@ -47,6 +47,11 @@
           </div>
         </div>
 
+        <div class="list">
+          <list-item :items="recomendNews" />
+        </div>
+
+        <script type="application/ld+json" v-html="ldJson" />
       </v-layout>
     </div>
   </div>
@@ -56,52 +61,57 @@
 import Tab from '~/components/layouts/Tab.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
+import ListItem from '~/components/organisms/ListItem.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
+import recomendNews from '~/config/recomendNews.json5'
 
 export default {
-  components: { Tab, BreadList, OutClip },
+  components: { Tab, BreadList, OutClip, ListItem },
   mixins: [method],
   head() {
-    console.log('head')
     const title =
       this.newsDetail !== undefined
         ? this.newsDetail.title
         : 'データがありません'
+    const image =
+      this.newsDetail !== undefined
+        ? this.newsDetail.img
+        : process.env.constant.newsImage
     return {
       title: `${title} | ${process.env.constant.title}`,
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content: 'aa'
+          content: process.env.constant.keywords
         },
         {
           hid: 'description',
           name: 'description',
-          content: 'aa'
+          content: title
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'aa'
+          content: title
         },
         { hid: 'og:url', property: 'og:url', content: this.shareUrl },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'aa'
+          content: title
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'aa'
+          content: image
         },
         {
           hid: 'twitter:image:src',
           property: 'twitter:image:src',
-          content: 'aa'
+          content: image
         }
       ],
       script: [
@@ -121,16 +131,14 @@ export default {
     }
   },
   data: () => ({
-    // breadItems: null
-    favoriteFlag: false
+    favoriteFlag: false,
+    recomendNews: recomendNews
   }),
   computed: {
     shareUrl() {
-      // return `${process.env.constant.url}/posts/${this.post.fields.url}/`
-      return `${process.env.constant.url}`
+      return `${process.env.constant.url}/news/${this.newsDetail.id}`
     },
     breadItems() {
-      console.log('breadItems')
       const title =
         this.newsDetail !== undefined
           ? this.newsDetail.title
@@ -154,45 +162,46 @@ export default {
       ]
     },
     ldJson() {
+      const title =
+        this.newsDetail !== undefined
+          ? this.newsDetail.title
+          : 'データがありません'
+      const image =
+        this.newsDetail !== undefined
+          ? this.newsDetail.img
+          : process.env.constant.newsImage
+      const updatedAt =
+        this.newsDetail !== undefined ? this.newsDetail.date : ''
       return JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         mainEntityOfPage: {
           '@type': 'WebPage',
-          // '@id': `${process.env.constant.url}/posts/${this.post.fields.url}`
-          '@id': `${process.env.constant.url}/news/`
+          '@id': `${process.env.constant.url}/news/${this.newsDetail.id}`
         },
-        // headline: this.post.fields.title,
-        headline: 'aaa',
+        headline: title,
         description: process.env.constant.description,
         image: {
           '@type': 'ImageObject',
-          // url: this.post.fields.image.fields.file.url,
-          url: 'aaa',
+          url: image,
           width: 1200,
           height: 800
         },
         author: {
           '@type': 'Person',
           name: 'hikaru takahashi'
-        }
-        // datePublished: this.dateString(this.post.sys.createdAt, true),
-        // dateModified: this.dateString(this.post.sys.updatedAt, true)
+        },
+        datePublished: this.changeDateString(updatedAt),
+        dateModified: this.changeDateString(updatedAt)
       })
     },
     ...mapGetters('newsV2', ['newsDetail'])
-  },
-  async beforeMount() {
-    console.log('beforeMount')
-    // await this.$store.dispatch('newsV2/getNewsById', this.$route.params.id)
   },
   methods: {
     changeDateString(date) {
       return dateString(addSlash(date))
     },
     async favorite() {
-      console.log('favorite')
-      console.log(this.$store.state.login.uid)
       const uid = this.$store.state.login.uid
       const id = this.$route.params.id
       try {
@@ -211,15 +220,12 @@ export default {
         })
         this.favoriteFlag = true
       } catch (error) {
-        console.log('firebase set error')
         console.log(error)
       }
     },
     ...mapActions('newsV2', ['getNewsById'])
   },
   async fetch({ store, params }) {
-    console.log('fetch')
-    // await store.dispatch('news/getTopNews')
     await store.dispatch('newsV2/getNewsById', params.id)
   }
 }
@@ -261,10 +267,6 @@ h1 {
   margin-top: 20px;
   margin-bottom: 30px;
   color: $mainColor;
-}
-.favorite-button {
-  // background-color: $mainColor !important;
-  // color: $white;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
