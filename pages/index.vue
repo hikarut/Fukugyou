@@ -6,7 +6,14 @@
         <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
           <div class="top">
 
-            <card-item :items="topData" tag="h1" />
+            <template v-if="!topData">
+              <v-progress-linear :indeterminate="true"/>
+            </template>
+            <template v-else>
+              <card-item :items="topData" tag="h1" />
+            </template>
+            <button-link :link="sitePathNews" class="tech-more" text="もっと見る" />
+
             <ad-sense-display />
 
             <big-img-item :items="listData" tag="h1" />
@@ -19,7 +26,7 @@
         </v-flex>
 
         <template v-if="isDesktop">
-          <side-menu :items="recomendNews"/>
+          <side-menu :items="recomendPosts"/>
         </template>
       </v-layout>
       <script type="application/ld+json" v-html="ldJson" />
@@ -38,7 +45,7 @@ import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
-import recomendNews from '~/config/recomendNews.json5'
+import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
   components: {
@@ -62,7 +69,8 @@ export default {
     }
   },
   data: () => ({
-    recomendNews: recomendNews,
+    recomendPosts: recomendPosts,
+    sitePathNews: process.env.constant.sitePathNews,
     sitePathPosts: process.env.constant.sitePathPosts
   }),
   computed: {
@@ -76,14 +84,13 @@ export default {
     },
     ...mapGetters('newsV2', ['topData'])
   },
-  async beforeMount() {
-    await this.$store.dispatch('newsV2/getTopNewsV2')
-  },
   // 投稿内容を取得
   asyncData() {
     return getEntries()
   },
-  async fetch({ store }) {},
+  async fetch({ store }) {
+    await store.dispatch('newsV2/getTopNewsV2')
+  },
   methods: {
     ...mapActions('newsV2', ['getTopNewsV2'])
   }

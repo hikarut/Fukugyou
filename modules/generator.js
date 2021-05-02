@@ -22,8 +22,8 @@ module.exports = function generateModule(moduleOptions) {
     }
 
     // トップページ用のデータを取得
-    // const today = getToday()
-    const today = '20210415'
+    const today = getToday()
+    // const today = '20210503'
     const topSnapshot = await firebase
       .firestore()
       .collection(today)

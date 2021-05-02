@@ -27,7 +27,7 @@
         <ad-sense-display />
       </div>
       <div class="list">
-        <list-item :items="recomendNews" />
+        <list-item :items="recomendPosts" />
       </div>
       <script type="application/ld+json" v-html="ldJson" />
     </v-layout>
@@ -44,7 +44,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import { dateString } from '~/lib/date'
 import { getEntryById } from '~/lib/contentful'
-import recomendNews from '~/config/recomendNews.json5'
+import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
   components: {
@@ -110,7 +110,7 @@ export default {
   },
   data: () => ({
     post: [],
-    recomendNews: recomendNews
+    recomendPosts: recomendPosts
   }),
   computed: {
     imgUrl() {

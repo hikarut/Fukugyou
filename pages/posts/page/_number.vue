@@ -31,7 +31,7 @@ import Pagination from '~/components/molecules/Pagination.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
-import recomendNews from '~/config/recomendNews.json5'
+import recomendPosts from '~/config/recomendPosts.json5'
 import device from '~/mixins/device'
 
 export default {
@@ -68,7 +68,7 @@ export default {
   },
   mixins: [device],
   data: () => ({
-    recomendNews: recomendNews,
+    recomendPosts: recomendPosts,
     breadItems: [
       {
         text: 'ホーム',

@@ -48,7 +48,7 @@
         </div>
 
         <div class="list">
-          <list-item :items="recomendNews" />
+          <list-item :items="recomendPosts" />
         </div>
 
         <script type="application/ld+json" v-html="ldJson" />
@@ -65,7 +65,7 @@ import ListItem from '~/components/organisms/ListItem.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
-import recomendNews from '~/config/recomendNews.json5'
+import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
   components: { Tab, BreadList, OutClip, ListItem },
@@ -132,7 +132,7 @@ export default {
   },
   data: () => ({
     favoriteFlag: false,
-    recomendNews: recomendNews
+    recomendPosts: recomendPosts
   }),
   computed: {
     shareUrl() {
@@ -150,9 +150,9 @@ export default {
           url: process.env.constant.sitePathHome
         },
         {
-          text: process.env.constant.postList,
+          text: process.env.constant.newsList,
           disabled: false,
-          url: process.env.constant.sitePathPosts
+          url: process.env.constant.sitePathNews
         },
         {
           text: title.trim(),
