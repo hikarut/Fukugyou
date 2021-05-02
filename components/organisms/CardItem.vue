@@ -19,7 +19,6 @@
                     <template v-if="isShowAd(index)">
                       <ad-sense-infeed-big class="ad" />
                     </template>
-                    <!-- <a @click="go(card.link)"> -->
                     <nuxt-link :to="`/${card.type}/${card.id}/`">
                       <v-card class="card">
                         <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
@@ -30,23 +29,21 @@
                           <div v-if="card.cnt" class="cnt">他{{ card.cnt }}件</div>
                         </div>
                       </v-card>
-                    <!-- </a> -->
                     </nuxt-link>
                   </v-flex>
                 </template>
 
                 <template v-else>
                   <v-flex :key="index" class="xs6 card-box">
-                    <!-- <a @click="go(card.link)"> -->
                     <nuxt-link :to="`/${card.type}/${card.id}/`">
                       <v-card class="card">
-                        <card-Img :src="card.img" :alt="card.title"/>
+                        <card-Img v-if="card.img !==''" :src="card.img" :alt="card.title"/>
+                        <card-Img v-else :src="defaultImage" :alt="card.title"/>
                         <card-date :text="changeDateString(card.date)" class="date"/>
                         <card-title :text="cut(card.title)" :is-new="card.isNew" class="card-title"/>
                         <out-clip :text="card.service"/>
                         <div v-if="card.cnt" class="sm-cnt">他{{ card.cnt }}件</div>
                       </v-card>
-                    <!-- </a> -->
                     </nuxt-link>
                   </v-flex>
                 </template>
@@ -94,6 +91,9 @@ export default {
       default: 'h1'
     }
   },
+  data: () => ({
+    defaultImage: process.env.constant.newsImage
+  }),
   methods: {
     isShowWide(index) {
       // 0スタートなのでわかりやすく1スタートにする
