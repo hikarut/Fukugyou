@@ -12,10 +12,22 @@
             </template>
             <template v-else>
               <card-item :items="topData" tag="h1" />
-              <div @click="getNextNews()">
+              
+              <template v-if="beforeData !== null">
+                <template v-if="!beforeData">
+                  <v-progress-linear :indeterminate="true"/>
+                </template>
+                <template v-else>
+                  <card-item :items="beforeData" />
+                </template>
+              </template>
+
+              <div @click="getBeforeNews()">
                 <button-link class="news-more" text="もっと見る" />
               </div>
+
             </template>
+
 
           </div>
 
@@ -40,6 +52,7 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import device from '~/mixins/device'
 import recomendNews from '~/config/recomendNews.json5'
+import { getBeforeDate } from '~/lib/date'
 
 export default {
   components: {
@@ -99,7 +112,7 @@ export default {
         }
       ]
     },
-    ...mapGetters('newsV2', ['topData']),
+    ...mapGetters('newsV2', ['topData', 'beforeData', 'dateBeforeNumber']),
     ldJson() {
       return JSON.stringify({
         '@context': 'https://schema.org',
@@ -151,9 +164,15 @@ export default {
     console.log(this.topData)
   },
   methods: {
-    ...mapActions('newsV2', ['getTopNewsV2']),
-    getNextNews() {
-      console.log('getNextNews')
+    ...mapActions('newsV2', ['getTopNewsV2', 'getBeforeNews']),
+    async getBeforeNews() {
+      console.log('getBeforeNews')
+      console.log(this.dateBeforeNumber)
+      const beforeDate = getBeforeDate(
+        this.topData.data[0].date,
+        this.dateBeforeNumber
+      )
+      await this.$store.dispatch('newsV2/getBeforeNews', beforeDate)
     }
   }
 }

@@ -1,8 +1,10 @@
-import { getToday } from '../lib/date'
+import { getBeforeDate } from '../lib/date'
 
 /* state */
 const initialState = {
   topData: null,
+  beforeData: null,
+  dateBeforeNumber: 1,
   newsDetail: null,
   favoriteData: null
 }
@@ -12,6 +14,21 @@ export const state = () => Object.assign({}, initialState)
 export const mutations = {
   setTopData(state, data) {
     state.topData = data
+  },
+  setBeforeData(state, data) {
+    let setData = null
+    if (state.beforeData === null) {
+      setData = data
+    } else {
+      setData = [...state.beforeData.data, ...data]
+    }
+    const beforeData = {
+      data: setData
+    }
+    state.beforeData = beforeData
+  },
+  setDateBeforeNumber(state, number) {
+    state.dateBeforeNumber += number
   },
   setNewsDetail(state, { newsDetailData }) {
     console.log('mutations setNewsDetail')
@@ -31,6 +48,8 @@ export const mutations = {
 /* getters */
 export const getters = {
   topData: state => state.topData,
+  beforeData: state => state.beforeData,
+  dateBeforeNumber: state => state.dateBeforeNumber,
   newsDetail: state => state.newsDetail,
   favoriteData: state => state.favoriteData
 }
@@ -52,6 +71,27 @@ export const actions = {
       data: newsData
     }
     commit('setTopData', topData)
+  },
+
+  // ニュースページで過去のニュースデータ取得
+  async getBeforeNews({ commit, state }, date) {
+    try {
+      const beforeNewsData = await this.$firebase
+        .firestore()
+        // .collection(beforeDate)
+        .collection(date)
+        .get()
+      const data = beforeNewsData.docs.map(doc => {
+        return doc.data()
+      })
+      console.log({ data })
+
+      // データの追加
+      commit('setBeforeData', data)
+      commit('setDateBeforeNumber', 1)
+    } catch (error) {
+      console.log(error)
+    }
   },
 
   // IDを指定してデータを取得
@@ -91,8 +131,6 @@ export const actions = {
     })
     console.log(favoriteData)
     const favoriteListData = {
-      // header: 'aa',
-      // updatedAt: '',
       data: favoriteData
     }
     console.log(favoriteListData)
