@@ -31,13 +31,9 @@ export const mutations = {
     state.dateBeforeNumber += number
   },
   setNewsDetail(state, { newsDetailData }) {
-    console.log('mutations setNewsDetail')
     state.newsDetail = newsDetailData
   },
-  // setFavoriteData(state, { favoriteData }) {
   setFavoriteData(state, favoriteData) {
-    console.log('mutations setFavoriteData')
-    console.log(favoriteData)
     state.favoriteData = favoriteData
   },
   reset(state) {
@@ -84,7 +80,6 @@ export const actions = {
       const data = beforeNewsData.docs.map(doc => {
         return doc.data()
       })
-      console.log({ data })
 
       // データの追加
       commit('setBeforeData', data)
@@ -96,8 +91,6 @@ export const actions = {
 
   // IDを指定してデータを取得
   async getNewsById({ commit, state }, id) {
-    console.log('getNewsById')
-    console.log(id)
     const data = await this.$firebase
       .firestore()
       .collection(id)
@@ -110,15 +103,11 @@ export const actions = {
     // setNewsDetailにundefinedが入ってる
     // console.log(newsData)
     const newsDetailData = newsData[0]
-    console.log('newsDetailData')
     commit('setNewsDetail', { newsDetailData })
   },
 
   // お気に入りデータの取得
   async getFavoriteData({ commit, state }, uid) {
-    console.log('getFavoriteData')
-    console.log(uid)
-
     const data = await this.$firebase
       .firestore()
       .collection(uid)
@@ -129,14 +118,6 @@ export const actions = {
     const favoriteData = data.docs.map(doc => {
       return doc.data()
     })
-    console.log(favoriteData)
-    const favoriteListData = {
-      data: favoriteData
-    }
-    console.log(favoriteListData)
-    // commit('setFavoriteData', { favoriteData })
     commit('setFavoriteData', favoriteData)
-    // commit('setFavoriteData', favoriteListData)
-    // commit('setFavoriteData', { favoriteListData })
   }
 }

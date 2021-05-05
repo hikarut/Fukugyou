@@ -100,12 +100,10 @@ module.exports = function generateModule(moduleOptions) {
       .firestore()
       .collection('updatedAt')
       .get()
-    console.log(updatedAt)
 
     const updatedAtJson = updatedAt.docs.map(doc => {
       return doc.data()
     })
-    console.log(updatedAtJson)
     // JSONを生成
     const updatedAtJsonFile = './data/updatedAt.json'
     fs.writeFile(

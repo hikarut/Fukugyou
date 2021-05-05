@@ -91,7 +91,6 @@ export default {
   },
   methods: {
     loginGoogle() {
-      console.log('login')
       const provider = new this.$firebase.auth.GoogleAuthProvider()
       this.$firebase
         .auth()
@@ -103,9 +102,7 @@ export default {
         })
     },
     loginTwitter() {
-      console.log('loginTwitter')
       const provider = new this.$firebase.auth.TwitterAuthProvider()
-      console.log(provider)
       this.$firebase
         .auth()
         .signInWithRedirect(provider)
@@ -115,12 +112,10 @@ export default {
         })
     },
     loginGitHub() {
-      console.log('loginGitHub')
       const provider = new this.$firebase.auth.GithubAuthProvider()
       provider.setCustomParameters({
         allow_signup: 'true'
       })
-      console.log(provider)
       this.$firebase
         .auth()
         .signInWithRedirect(provider)
@@ -136,12 +131,10 @@ export default {
       return new Promise((resolve, reject) => {
         this.$firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-            console.log('User is signed in.')
             // オブジェクトをstoreに入れるとエラーになる
             // resolve(user.uid)
             resolve(user)
           } else {
-            console.log('No user is signed in')
             resolve(null)
           }
         })

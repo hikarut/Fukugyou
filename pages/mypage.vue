@@ -142,12 +142,10 @@ export default {
       return new Promise((resolve, reject) => {
         this.$firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-            console.log('User is signed in.')
             // オブジェクトをstoreに入れるとエラーになる
             // resolve(user.uid)
             resolve(user)
           } else {
-            console.log('No user is signed in')
             resolve(null)
           }
         })

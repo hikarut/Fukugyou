@@ -163,14 +163,9 @@ export default {
       })
     }
   },
-  beforeMount() {
-    console.log(this.topData)
-  },
   methods: {
     ...mapActions('newsV2', ['getTopNewsV2', 'getBeforeNews']),
     async getBeforeNews() {
-      console.log('getBeforeNews')
-      console.log(this.dateBeforeNumber)
       const beforeDate = getBeforeDate(
         this.topData.data[0].date,
         this.dateBeforeNumber
