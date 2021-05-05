@@ -1,19 +1,16 @@
 <template>
   <div class="main">
     <v-layout align-center column justify-center>
-      <p class="user-name">{{ this.$store.state.login.name }}</p>
+      <p class="user-name">{{ name }}</p>
       <v-avatar size="100">
         <img
-          :src="this.$store.state.login.img"
-          :alt="this.$store.state.login.name"
+          :src="img"
+          :alt="name"
         >
       </v-avatar>
       <div v-if="favoriteData === null">
         <v-progress-linear :indeterminate="true"/>
       </div>
-      <p>
-        <!-- <button @click="logout">ログアウト</button> -->
-      </p>
     </v-layout>
 
     <div v-if="favoriteData === null">
@@ -23,6 +20,7 @@
       データがありません
     </div>
     <v-list v-if="favoriteData !== null" three-line>
+      <p class="favorite-list">お気に入りのニュース一覧</p>
       <template v-for="(item, index) in favoriteData">
         <v-list-tile
           :key="item.title"
@@ -83,35 +81,31 @@
 </template>
 
 <script>
-import device from '~/mixins/device'
 import Button from '../components/atoms/Button.vue'
 import ListImg from '~/components/molecules/ListImg.vue'
 import ListText from '~/components/molecules/ListText.vue'
-import { mapActions, mapMutations, mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: { Button, ListImg, ListText },
-  mixins: [device],
   head() {
     return {
-      title: process.env.constant.job,
+      title: 'マイページ',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content:
-            'エンジニア向けの複業・副業案件探し情報をまとめます。副業でプログラミングの仕事を始めたい方におすすめなサイトの情報をまとめます。'
+          content: 'マイページ'
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content:
-            'エンジニア向けの複業・副業案件探し情報をまとめます。副業でプログラミングの仕事を始めたい方におすすめなサイトの情報をまとめます。'
+          content: 'マイページ'
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: process.env.constant.job
+          content: 'マイページ'
         }
       ]
     }
@@ -121,29 +115,16 @@ export default {
     dialog: false
   }),
   computed: {
-    // TODO:共通化
-    user: {
-      get() {
-        return this.$store.state.login.uid
-      },
-      set(user) {
-        const uid = user ? user.uid : null
-        const name = user ? user.displayName : null
-        const img = user ? user.photoURL : null
-        this.setUid(uid)
-        this.setName(name)
-        this.setImg(img)
-      }
-    },
-    ...mapGetters('newsV2', ['favoriteData'])
+    ...mapGetters('newsV2', ['favoriteData']),
+    ...mapGetters('login', ['uid', 'name', 'img'])
   },
   async beforeMount() {
-    console.log('beforeMount')
     // ログイン済かどうか判定して状態をセット
-    this.user = await this.userInfo()
+    const user = await this.userInfo()
     // ログイン済かどうか
-    if (this.user === null) {
+    if (user === null) {
       this.$router.push(process.env.constant.sitePathHome)
+      return
     }
 
     // お気に入りデータの取得
@@ -151,26 +132,8 @@ export default {
       'newsV2/getFavoriteData',
       this.$store.state.login.uid
     )
-
-    console.log('this.favoriteData')
-    console.log(this.favoriteData)
   },
   methods: {
-    logout() {
-      console.log('logout')
-      this.$firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          console.log('ログアウトしました')
-          this.reset()
-          // リロード
-          location.reload()
-        })
-        .catch(error => {
-          console.log(`ログアウト時にエラーが発生しました (${error})`)
-        })
-    },
     async userInfo() {
       if (this.$store.state.login.uid !== null) {
         // すでにログインずみの場合の処理　画像や名前のセット
@@ -194,9 +157,6 @@ export default {
       this.$router.push(path)
     },
     async deleteItem(id) {
-      console.log('delete')
-      console.log(this.$store.state.login.uid)
-      console.log(id)
       try {
         await this.$firebase
           .firestore()
@@ -213,11 +173,7 @@ export default {
       }
       this.dialog = false
     },
-    ...mapMutations('login', ['setUid', 'setName', 'setImg', 'reset']),
     ...mapActions('newsV2', ['getFavoriteData'])
-  },
-  async fetch({ store, params }) {
-    console.log('fetch')
   }
 }
 </script>
@@ -246,6 +202,11 @@ export default {
 }
 .no-data {
   text-align: center;
+}
+.favorite-list {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 /* PC版は横に広がりすぎないようにする */
 @media screen and (min-width: 600px) {

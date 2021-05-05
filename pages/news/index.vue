@@ -25,6 +25,7 @@
               <div @click="getBeforeNews()">
                 <button-link class="news-more" text="もっと見る" />
               </div>
+              <ad-sense-display />
 
             </template>
 
@@ -50,6 +51,7 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Tab from '~/components/layouts/Tab.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
 import recomendNews from '~/config/recomendNews.json5'
 import { getBeforeDate } from '~/lib/date'
@@ -62,7 +64,8 @@ export default {
     Subheader,
     SideMenu,
     BreadList,
-    Tab
+    Tab,
+    AdSenseDisplay
   },
   mixins: [device],
   async fetch({ store }) {

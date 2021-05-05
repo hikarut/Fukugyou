@@ -56,6 +56,7 @@
 
         <div class="list">
           <list-item :items="recomendPosts" />
+          <ad-sense-display />
         </div>
 
         <script type="application/ld+json" v-html="ldJson" />
@@ -70,13 +71,14 @@ import BreadList from '~/components/organisms/BreadList.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import LoginModal from '~/components/molecules/LoginModal.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
 import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
-  components: { Tab, BreadList, OutClip, ListItem, LoginModal },
+  components: { Tab, BreadList, OutClip, ListItem, LoginModal, AdSenseDisplay },
   mixins: [method],
   head() {
     const title =
