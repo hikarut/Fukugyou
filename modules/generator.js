@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import fs from 'fs'
-import { getYesterday, getAllTerm } from '../lib/date'
+import { getToday, getAllTerm } from '../lib/date'
 
 module.exports = function generateModule(moduleOptions) {
   // dev環境の場合はスキップ
@@ -22,11 +22,11 @@ module.exports = function generateModule(moduleOptions) {
     }
 
     // トップページ用のデータを取得
-    const yesterday = getYesterday()
+    const today = getToday()
     // const today = '20210503'
     const topSnapshot = await firebase
       .firestore()
-      .collection(yesterday)
+      .collection(today)
       .get()
 
     const topNews = topSnapshot.docs.map(doc => {

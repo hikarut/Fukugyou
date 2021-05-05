@@ -14,13 +14,12 @@
           </nuxt-link> 
         </template>
         <v-list>
-          <v-list-item class="item-link">
-            <nuxt-link to="/mypage"><v-list-item-title class="menu-link">マイページ</v-list-item-title></nuxt-link>
-          </v-list-item>
-          <p class="space" />
-          <v-list-item class="item-link">
-            <nuxt-link to=""><v-list-item-title class="menu-link" @click="logout">ログアウト</v-list-item-title></nuxt-link>
-          </v-list-item>
+          <v-list-tile>
+            <nuxt-link to="/mypage"><v-list-tile-title class="menu-link">マイページ</v-list-tile-title></nuxt-link>
+          </v-list-tile>
+          <v-list-tile>
+            <nuxt-link to=""><v-list-tile-title class="menu-link" @click="logout">ログアウト</v-list-tile-title></nuxt-link>
+          </v-list-tile>
         </v-list>
       </v-menu>
     </div>
@@ -64,13 +63,7 @@ export default {
 button {
   color: $white;
 }
-.item-link {
-  margin: 10px;
-}
 .menu-link {
   color: $black;
-}
-.space {
-  margin-bottom: 10px;
 }
 </style>
