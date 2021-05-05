@@ -232,6 +232,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-img {
+  width: 90%;
+}
 .main-img-out {
   padding-top: 20px;
   text-align: center;
@@ -279,9 +282,6 @@ h1 {
 }
 /* スマホの場合は上下左右にスペースを開ける */
 @media screen and (max-width: 400px) {
-  .main-img {
-    width: 90%;
-  }
   .date {
     margin-top: -2px;
   }

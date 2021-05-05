@@ -23,3 +23,24 @@ export const mutations = {
     state = Object.assign(state, initialState)
   }
 }
+
+/* getters */
+export const getters = {
+  uid: state => state.uid,
+  name: state => state.name,
+  img: state => state.img
+}
+
+/* actions */
+// コンポーネントから呼び出す用のメソッド
+export const actions = {
+  setUid({ commit }, uid) {
+    commit('setUid', uid)
+  },
+  setName({ commit }, name) {
+    commit('setName', name)
+  },
+  setImg({ commit }, img) {
+    commit('setImg', img)
+  }
+}
