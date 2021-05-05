@@ -42,5 +42,8 @@ export const actions = {
   },
   setImg({ commit }, img) {
     commit('setImg', img)
+  },
+  reset({ commit }) {
+    commit('reset')
   }
 }

@@ -39,8 +39,15 @@
             <v-btn block outline class="action-button" @click="go(newsDetail.link)">
               続きを読む
             </v-btn>
-            <v-btn :disabled="favoriteFlag" block outline 
-                   class="action-button favorite-button" 
+            <div v-if="uid === null" class="not-login">
+              ログインしてお気に入り登録する
+              <v-btn outline >
+                <login-modal class="login" />
+              </v-btn>
+            </div>
+            <v-btn v-if="uid !== null" :disabled="favoriteFlag" block 
+                   outline 
+                   class="action-button favorite-button"
                    @click="favorite">
               お気に入り 
             </v-btn>
@@ -62,13 +69,14 @@ import Tab from '~/components/layouts/Tab.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import OutClip from '~/components/atoms/OutClip.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
+import LoginModal from '~/components/molecules/LoginModal.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
 import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
-  components: { Tab, BreadList, OutClip, ListItem },
+  components: { Tab, BreadList, OutClip, ListItem, LoginModal },
   mixins: [method],
   head() {
     const title =
@@ -195,14 +203,16 @@ export default {
         dateModified: this.changeDateString(updatedAt)
       })
     },
-    ...mapGetters('newsV2', ['newsDetail'])
+    ...mapGetters('newsV2', ['newsDetail']),
+    ...mapGetters('login', ['uid'])
   },
   methods: {
     changeDateString(date) {
       return dateString(addSlash(date))
     },
     async favorite() {
-      const uid = this.$store.state.login.uid
+      // const uid = this.$store.state.login.uid
+      const uid = this.uid
       const id = this.$route.params.id
       try {
         const docRef = this.$firebase
@@ -270,6 +280,12 @@ h1 {
   margin-top: 20px;
   margin-bottom: 30px;
   color: $mainColor;
+}
+.not-login {
+  text-align: center;
+}
+.login {
+  color: $black !important;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {

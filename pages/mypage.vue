@@ -12,7 +12,7 @@
         <v-progress-linear :indeterminate="true"/>
       </div>
       <p>
-        <button @click="logout">ログアウト</button>
+        <!-- <button @click="logout">ログアウト</button> -->
       </p>
     </v-layout>
 
