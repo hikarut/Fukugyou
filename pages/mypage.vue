@@ -50,7 +50,7 @@
             </v-card-title>
 
             <v-card-text>
-              削除してよろしいですか？
+              『{{ item.title }}』を削除してよろしいですか？
               <v-btn block outline 
                      class="delete-button" 
                      @click="deleteItem(item.id)">
