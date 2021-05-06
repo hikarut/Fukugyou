@@ -29,7 +29,7 @@
           @click="nuxtLinkGo(`/news/${item.id}`)"
         >
           <list-img :img="item.img" :alt="item.title" @click="deleteItem"/>
-          <list-text :date="item.date" :title="item.title" @click="deleteItem" />
+          <list-text :date="changeDateString(item.date)" :title="item.title" @click="deleteItem" />
           <!-- <out-clip /> -->
         </v-list-tile>
         <v-dialog :key="index + 10"
@@ -84,6 +84,7 @@
 import Button from '../components/atoms/Button.vue'
 import ListImg from '~/components/molecules/ListImg.vue'
 import ListText from '~/components/molecules/ListText.vue'
+import { dateString, addSlash } from '~/lib/date'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -153,6 +154,9 @@ export default {
     },
     nuxtLinkGo(path) {
       this.$router.push(path)
+    },
+    changeDateString(date) {
+      return dateString(addSlash(date))
     },
     async deleteItem(id) {
       try {
