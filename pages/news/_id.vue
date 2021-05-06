@@ -28,7 +28,7 @@
           <bread-list :items="breadItems"/>
           <div class="service-info" >
             <div class="service">
-              <out-clip :text="newsDetail.service" />
+              <out-clip :text="newsDetail.service" class="out-clip" />
             </div>
             <div class="date">
               {{ changeDateString(newsDetail.date) }}
@@ -266,6 +266,9 @@ h1 {
 .service-info {
   display: flex;
 }
+.out-clip {
+  margin: 0 0 0 5px;
+}
 .date {
   margin-left: 10px;
   margin-top: -3px;
@@ -303,5 +306,9 @@ h1 {
   .date {
     margin-top: -2px;
   }
+}
+/* 場所を調整 */
+.v-breadcrumbs {
+  padding: 20px 0px 20px 0px !important;
 }
 </style>
