@@ -21,7 +21,8 @@
                     </template>
                     <nuxt-link :to="`/${card.type}/${card.id}/`">
                       <v-card class="card">
-                        <card-Img :src="card.img" :alt="card.title" :is-big="true"/>
+                        <card-Img v-if="card.img !==''" :src="card.img" :alt="card.title" :is-big="true"/>
+                        <card-Img v-else :src="defaultImage" :alt="card.title" :is-big="true" />
                         <card-date :text="changeDateString(card.date)" class="date"/>
                         <card-title :text="card.title" :is-new="card.isNew" class="card-title"/>
                         <div class="out-clip">

@@ -12,12 +12,12 @@
             <template v-else>
               <card-item :items="topData" tag="h1" />
             </template>
-            <button-link :link="sitePathNews" class="tech-more" text="もっと見る" />
+            <button-link :link="sitePathNews" class="tech-more" text="ニュース一覧へ" />
 
             <ad-sense-display />
 
             <big-img-item :items="listData" tag="h1" />
-            <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
+            <button-link :link="sitePathPosts" class="tech-more" text="記事一覧へ" />
 
             <ad-sense-display />
 

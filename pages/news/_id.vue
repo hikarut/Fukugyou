@@ -280,7 +280,7 @@ h1 {
   margin-top: 50px;
 }
 .action-button {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -291,6 +291,9 @@ h1 {
 }
 .login {
   color: $black !important;
+}
+.list {
+  margin-top: 20px;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
@@ -305,6 +308,9 @@ h1 {
 @media screen and (max-width: 400px) {
   .date {
     margin-top: -2px;
+  }
+  .action-button {
+    width: 80%;
   }
 }
 /* 場所を調整 */
