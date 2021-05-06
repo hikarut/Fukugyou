@@ -9,8 +9,6 @@ export const state = () => Object.assign({}, initialState)
 /* mutations */
 export const mutations = {
   setUid(state, uid) {
-    console.log('store setUid')
-    console.log(uid)
     state.uid = uid
   },
   setName(state, name) {
