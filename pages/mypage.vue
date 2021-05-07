@@ -32,50 +32,49 @@
           <list-text :date="changeDateString(item.date)" :title="item.title" @click="deleteItem" />
           <!-- <out-clip /> -->
         </v-list-tile>
-        <v-dialog :key="index + 10"
-                  v-model="dialog"
-                  width="500"
-        >
-          <template v-slot:activator="{ on }">
-            <div class="delete-link" v-on="on">
-              削除
-            </div>
-          </template>
-          <v-card>
-            <v-card-title
-              class="headline grey lighten-2"
-              primary-title
-            >
-              削除
-            </v-card-title>
-
-            <v-card-text>
-              『{{ item.title }}』を削除してよろしいですか？
-              <v-btn block outline 
-                     class="delete-button" 
-                     @click="deleteItem(item.id)">
-                削除する
-              </v-btn>
-            </v-card-text>
-
-            <v-divider/>
-
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn
-                color="primary"
-                flat
-                @click="dialog = false"
-              >
-                キャンセル
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+        <p :key="index" class="delete-link" @click.stop="clickDelete(item.id, item.title)">
+          削除
+        </p>
         <!-- エラー対応で暫定でkeyにプラスする -->
-        <v-divider v-if="index !== (favoriteData.length - 1) || (index + 1) === 4" :key="index + 100" />
+        <v-divider v-if="index !== (favoriteData.length - 1)" :key="index + 100" />
 
       </template>
+      <v-dialog 
+        v-model="dialog"
+        width="500"
+      >
+        <v-card>
+          <v-card-title
+            class="headline grey lighten-2"
+            primary-title
+          >
+            削除
+          </v-card-title>
+
+          <v-card-text>
+            『{{ deleteItemTitle }}』を削除してよろしいですか？
+            <v-btn block outline 
+                   class="delete-button" 
+                   @click="deleteItem()">
+              削除する
+            </v-btn>
+          </v-card-text>
+
+          <v-divider/>
+
+          <v-card-actions>
+            <v-spacer/>
+            <v-btn
+              color="primary"
+              flat
+              @click="dialog = false"
+            >
+              キャンセル
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
     </v-list>
   </div>
 </template>
@@ -113,7 +112,9 @@ export default {
   },
   data: () => ({
     picks: null,
-    dialog: false
+    dialog: false,
+    deleteItemid: null,
+    deleteItemTitle: null
   }),
   computed: {
     ...mapGetters('newsV2', ['favoriteData']),
@@ -152,20 +153,27 @@ export default {
         })
       })
     },
+    clickDelete(id, title) {
+      this.dialog = true
+      // 削除するアイテムをセット
+      this.deleteItemid = id
+      this.deleteItemTitle = title
+    },
     nuxtLinkGo(path) {
       this.$router.push(path)
     },
     changeDateString(date) {
       return dateString(addSlash(date))
     },
-    async deleteItem(id) {
+    async deleteItem() {
+      this.dialog = false
       try {
         await this.$firebase
           .firestore()
           .collection(this.$store.state.login.uid)
           .doc('news')
           .collection('data')
-          .doc(id)
+          .doc(this.deleteItemid)
           .delete()
 
         // リロード
@@ -173,7 +181,6 @@ export default {
       } catch (error) {
         console.log(error)
       }
-      this.dialog = false
     },
     ...mapActions('newsV2', ['getFavoriteData'])
   }
@@ -196,7 +203,7 @@ export default {
   font-size: 10px;
   margin-top: -5px;
   margin-right: 5px;
-  margin-bottom: -15px;
+  margin-bottom: 5px;
 }
 .delete-button {
   margin-top: 30px;

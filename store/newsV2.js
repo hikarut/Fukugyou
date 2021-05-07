@@ -74,7 +74,6 @@ export const actions = {
     try {
       const beforeNewsData = await this.$firebase
         .firestore()
-        // .collection(beforeDate)
         .collection(date)
         .get()
       const data = beforeNewsData.docs.map(doc => {
@@ -108,6 +107,7 @@ export const actions = {
 
   // お気に入りデータの取得
   async getFavoriteData({ commit, state }, uid) {
+    // TODO:リクエストを減らす処理をしたい
     const data = await this.$firebase
       .firestore()
       .collection(uid)
