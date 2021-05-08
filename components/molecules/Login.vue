@@ -15,7 +15,7 @@
         </template>
         <v-list>
           <v-list-tile>
-            <nuxt-link to="/mypage"><v-list-tile-title class="menu-link">マイページ</v-list-tile-title></nuxt-link>
+            <nuxt-link to="/mypage/"><v-list-tile-title class="menu-link">マイページ</v-list-tile-title></nuxt-link>
           </v-list-tile>
           <v-list-tile>
             <nuxt-link to=""><v-list-tile-title class="menu-link" @click="logout">ログアウト</v-list-tile-title></nuxt-link>

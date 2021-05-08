@@ -34,6 +34,7 @@
               {{ changeDateString(newsDetail.date) }}
             </div>
           </div>
+          <sns-post :url="shareUrl" :text="shareText" :tag="shareTag" class="sns-post" />
 
           <div class="news-more">
             <v-btn block outline class="action-button" @click="go(newsDetail.link)">
@@ -45,12 +46,15 @@
                 <login-modal class="login" />
               </v-btn>
             </div>
-            <v-btn v-if="uid !== null" :disabled="favoriteFlag" block 
+            <v-btn v-if="uid !== null && !favoriteFlag" :disabled="favoriteFlag" block 
                    outline 
                    class="action-button favorite-button"
                    @click="favorite">
               お気に入り 
             </v-btn>
+            <div v-if="favoriteFlag" class="not-login">
+              <nuxt-link to="/mypage/">お気に入りページで確認する</nuxt-link>
+            </div>
           </div>
         </div>
 
@@ -72,13 +76,22 @@ import OutClip from '~/components/atoms/OutClip.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import LoginModal from '~/components/molecules/LoginModal.vue'
 import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
+import SnsPost from '~/components/molecules/SnsPost.vue'
 import { mapActions, mapGetters } from 'vuex'
 import { dateString, addSlash } from '~/lib/date'
 import method from '~/mixins/method'
 import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
-  components: { Tab, BreadList, OutClip, ListItem, LoginModal, AdSenseDisplay },
+  components: {
+    Tab,
+    BreadList,
+    OutClip,
+    ListItem,
+    LoginModal,
+    AdSenseDisplay,
+    SnsPost
+  },
   mixins: [method],
   head() {
     const title =
@@ -145,8 +158,19 @@ export default {
     recomendPosts: recomendPosts
   }),
   computed: {
+    imgUrl() {
+      return this.newsDetail.img
+    },
     shareUrl() {
       return `${process.env.constant.url}/news/${this.newsDetail.id}`
+    },
+    shareText() {
+      return this.newsDetail.title
+    },
+    shareTag() {
+      // return this.post.fields.tag
+      // 記事によらず共通のタグにする
+      return process.env.constant.twitterTag
     },
     breadItems() {
       const title =
@@ -213,7 +237,6 @@ export default {
       return dateString(addSlash(date))
     },
     async favorite() {
-      // const uid = this.$store.state.login.uid
       const uid = this.uid
       const id = this.$route.params.id
       try {
@@ -265,6 +288,9 @@ h1 {
 }
 .service-info {
   display: flex;
+}
+.sns-post {
+  margin-top: 20px;
 }
 .out-clip {
   margin: 0 0 0 5px;
