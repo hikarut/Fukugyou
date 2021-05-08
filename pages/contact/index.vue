@@ -135,7 +135,6 @@ export default {
   },
   methods: {
     next() {
-      console.log(this.$store.state.contact.name)
       this.$router.push('/contact/confirm/')
     },
     ...mapMutations('contact', ['setName', 'setMail', 'setContents'])

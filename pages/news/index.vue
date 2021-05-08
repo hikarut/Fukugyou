@@ -7,19 +7,34 @@
           <div class="top">
             <bread-list :items="breadItems"/>
 
-            <template v-if="loading">
+            <template v-if="!topData">
               <v-progress-linear :indeterminate="true"/>
             </template>
             <template v-else>
-              <card-item :items="topNews" tag="h1" />
-              <button-link :link="topNews.data[0].monthLink" class="news-more" text="もっと見る" />
+              <card-item :items="topData" tag="h1" />
+              
+              <template v-if="beforeData !== null">
+                <template v-if="!beforeData">
+                  <v-progress-linear :indeterminate="true"/>
+                </template>
+                <template v-else>
+                  <card-item :items="beforeData" />
+                </template>
+              </template>
+
+              <div @click="getBeforeNews()">
+                <button-link class="news-more" text="もっと見る" />
+              </div>
+              <ad-sense-display />
+
             </template>
+
 
           </div>
 
         </v-flex>
 
-        <side-menu :items="monthlyList"/>
+        <side-menu :items="recomendNews"/>
       </v-layout>
       <script type="application/ld+json" v-html="ldJson" />
       <script type="application/ld+json" v-html="ldJsonBreadcrumb" />
@@ -29,7 +44,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import ListItem from '~/components/organisms/ListItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
@@ -37,8 +51,10 @@ import Subheader from '~/components/atoms/Subheader.vue'
 import SideMenu from '~/components/molecules/SideMenu.vue'
 import BreadList from '~/components/organisms/BreadList.vue'
 import Tab from '~/components/layouts/Tab.vue'
+import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
-import monthlyList from '~/config/monthly.json5'
+import recomendNews from '~/config/recomendNews.json5'
+import { getBeforeDate } from '~/lib/date'
 
 export default {
   components: {
@@ -48,12 +64,14 @@ export default {
     Subheader,
     SideMenu,
     BreadList,
-    Tab
+    Tab,
+    AdSenseDisplay
   },
   mixins: [device],
   async fetch({ store }) {
     // news記事の取得
-    await store.dispatch('news/getTopNews')
+    // await store.dispatch('news/getTopNews')
+    await store.dispatch('newsV2/getTopNewsV2')
   },
   head() {
     return {
@@ -80,7 +98,7 @@ export default {
     }
   },
   data: () => ({
-    monthlyList: monthlyList
+    recomendNews: recomendNews
   }),
   computed: {
     breadItems() {
@@ -97,7 +115,7 @@ export default {
         }
       ]
     },
-    ...mapGetters('news', ['topNews', 'loading']),
+    ...mapGetters('newsV2', ['topData', 'beforeData', 'dateBeforeNumber']),
     ldJson() {
       return JSON.stringify({
         '@context': 'https://schema.org',
@@ -146,7 +164,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions('news', ['getTopNews'])
+    ...mapActions('newsV2', ['getTopNewsV2', 'getBeforeNews']),
+    async getBeforeNews() {
+      const beforeDate = getBeforeDate(
+        this.topData.data[0].date,
+        this.dateBeforeNumber
+      )
+      await this.$store.dispatch('newsV2/getBeforeNews', beforeDate)
+    }
   }
 }
 </script>

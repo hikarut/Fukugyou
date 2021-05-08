@@ -5,25 +5,28 @@
       <v-layout row wrap>
         <v-flex :class="[isDesktop ? 'xs8' : 'xs12']" >
           <div class="top">
-            <big-img-item :items="listData" tag="h1" />
-            <button-link :link="sitePathPosts" class="tech-more" text="もっと見る" />
 
-            <ad-sense-display />
-
-            <template v-if="loading">
+            <template v-if="!topData">
               <v-progress-linear :indeterminate="true"/>
             </template>
             <template v-else>
-              <card-item :items="topNews" tag="h2" />
-              <button-link :link="sitePathNews" class="news-more" text="もっと見る" />
+              <card-item :items="topData" tag="h1" />
             </template>
+            <button-link :link="sitePathNews" class="tech-more" text="ニュース一覧へ" />
+
+            <ad-sense-display />
+
+            <big-img-item :items="listData" tag="h1" />
+            <button-link :link="sitePathPosts" class="tech-more" text="記事一覧へ" />
+
+            <ad-sense-display />
 
           </div>
 
         </v-flex>
 
         <template v-if="isDesktop">
-          <side-menu :items="recomendNews"/>
+          <side-menu :items="recomendPosts"/>
         </template>
       </v-layout>
       <script type="application/ld+json" v-html="ldJson" />
@@ -34,7 +37,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import { getEntries } from '~/lib/contentful'
-import { dateString } from '~/lib/date'
 import CardItem from '~/components/organisms/CardItem.vue'
 import BigImgItem from '~/components/organisms/BigImgItem.vue'
 import ButtonLink from '~/components/atoms/Button.vue'
@@ -43,7 +45,7 @@ import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
-import recomendNews from '~/config/recomendNews.json5'
+import recomendPosts from '~/config/recomendPosts.json5'
 
 export default {
   components: {
@@ -67,18 +69,10 @@ export default {
     }
   },
   data: () => ({
-    recomendNews: recomendNews,
+    recomendPosts: recomendPosts,
     sitePathNews: process.env.constant.sitePathNews,
     sitePathPosts: process.env.constant.sitePathPosts
   }),
-  // 投稿内容を取得
-  asyncData() {
-    return getEntries()
-  },
-  async fetch({ store }) {
-    // news記事の取得
-    await store.dispatch('news/getTopNews')
-  },
   computed: {
     ldJson() {
       return JSON.stringify({
@@ -88,10 +82,17 @@ export default {
         url: process.env.constant.url
       })
     },
-    ...mapGetters('news', ['topNews', 'loading'])
+    ...mapGetters('newsV2', ['topData'])
+  },
+  // 投稿内容を取得
+  asyncData() {
+    return getEntries()
+  },
+  async fetch({ store }) {
+    await store.dispatch('newsV2/getTopNewsV2')
   },
   methods: {
-    ...mapActions('news', ['getTopNews'])
+    ...mapActions('newsV2', ['getTopNewsV2'])
   }
 }
 </script>

@@ -12,7 +12,7 @@
           </div>
         </v-flex>
         <template v-if="isDesktop">
-          <side-menu :items="recomendNews"/>
+          <side-menu :items="recomendPosts"/>
         </template>
       </v-layout>
       <script type="application/ld+json" v-html="ldJson" />
@@ -28,7 +28,7 @@ import SideMenu from '~/components/molecules/SideMenu.vue'
 import Tab from '~/components/layouts/Tab.vue'
 import AdSenseDisplay from '~/components/atoms/AdSenseDisplay.vue'
 import device from '~/mixins/device'
-import recomendNews from '~/config/recomendNews.json5'
+import recomendPosts from '~/config/recomendPosts.json5'
 import jobTop from '~/config/jobTop.json5'
 import jobSite from '~/config/jobSite.json5'
 
@@ -67,7 +67,7 @@ export default {
     }
   },
   data: () => ({
-    recomendNews: recomendNews,
+    recomendPosts: recomendPosts,
     jobTop: jobTop,
     jobSite: jobSite,
     sitePathNews: process.env.constant.sitePathNews,

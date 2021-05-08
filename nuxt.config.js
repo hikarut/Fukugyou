@@ -99,6 +99,7 @@ export default {
   */
   plugins: [
     '@/plugins/vuetify',
+    '~/plugins/firebase',
     { src: '~/plugins/ga.js', ssr: false },
     { src: '~/plugins/lazyload.js', ssr: false },
     { src: '~/plugins/device.js', ssr: false }
@@ -196,9 +197,10 @@ export default {
   ** generateオプション
   */
   generate: {
-    async routes() {
-      return routing(constant.postsPerPage)
-    }
+    // async routes() {
+    //   return routing(constant.postsPerPage)
+    // },
+    fallback: true
   },
 
   /*

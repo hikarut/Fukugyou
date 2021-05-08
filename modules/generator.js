@@ -1,12 +1,11 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import fs from 'fs'
-import { getTopTerm, getAllTerm } from '../lib/date'
+import { getToday, getAllTerm } from '../lib/date'
 
 module.exports = function generateModule(moduleOptions) {
   // dev環境の場合はスキップ
   if (process.env.NODE_ENV === 'dev') return
-  console.log('modules generator')
 
   // nuxtのビルド前
   this.nuxt.hook('build:before', async ({ app }) => {
@@ -23,13 +22,11 @@ module.exports = function generateModule(moduleOptions) {
     }
 
     // トップページ用のデータを取得
-    const { start, end } = getTopTerm()
+    const today = getToday()
+    // const today = '20210503'
     const topSnapshot = await firebase
       .firestore()
-      .collection('news')
-      .where('date', '>=', start)
-      .where('date', '<=', end)
-      .orderBy('date', 'desc')
+      .collection(today)
       .get()
 
     const topNews = topSnapshot.docs.map(doc => {
@@ -41,6 +38,7 @@ module.exports = function generateModule(moduleOptions) {
       if (err) console.log('error', err)
     })
 
+    /*
     // ジェネレートの際は必要な分だけ取得
     const isAll = false
     const allTerm = getAllTerm(isAll)
@@ -95,18 +93,17 @@ module.exports = function generateModule(moduleOptions) {
         if (err) console.log('error', err)
       })
     })
+    */
 
     // 更新日時データの取得
     const updatedAt = await firebase
       .firestore()
       .collection('updatedAt')
       .get()
-    console.log(updatedAt)
 
     const updatedAtJson = updatedAt.docs.map(doc => {
       return doc.data()
     })
-    console.log(updatedAtJson)
     // JSONを生成
     const updatedAtJsonFile = './data/updatedAt.json'
     fs.writeFile(
