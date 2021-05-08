@@ -113,6 +113,7 @@ export const actions = {
       .collection(uid)
       .doc('news')
       .collection('data')
+      .orderBy('id', 'desc')
       .get()
 
     const favoriteData = data.docs.map(doc => {
