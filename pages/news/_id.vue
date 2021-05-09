@@ -60,7 +60,9 @@
 
         <div class="list">
           <list-item :items="recomendPosts" />
-          <ad-sense-display />
+          <div class="ad">
+            <ad-sense-display />
+          </div>
         </div>
 
         <script type="application/ld+json" v-html="ldJson" />
@@ -320,6 +322,11 @@ h1 {
 }
 .list {
   margin-top: 20px;
+}
+.ad {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 /* PC版の場合は全体を中央に寄せる */
 @media screen and (min-width: 900px) {
