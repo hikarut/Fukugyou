@@ -127,7 +127,8 @@ export default {
     shareTag() {
       // return this.post.fields.tag
       // 記事によらず共通のタグにする
-      return process.env.constant.twitterTag
+      // タグをつけるとOGPが表示されなかったりするのでいったん無しにする
+      return ''
     },
     breadItems() {
       return [
