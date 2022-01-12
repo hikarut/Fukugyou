@@ -28,7 +28,7 @@
     "firebase": "^7.7.0",
     "fs": "0.0.1-security",
     "json5": "^2.1.1",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "nuxt": "^2.11.0",
     "nuxt-fontawesome": "^0.4.0",
     "vuetify": "^1.5.5",
